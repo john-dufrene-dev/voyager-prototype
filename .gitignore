@@ -10,8 +10,6 @@ app/storage/
 public/storage
 public/hot
 storage/*.key
-storage/pages.*
-storage/blog_*
 .env.*.php
 .env.php
 .env
