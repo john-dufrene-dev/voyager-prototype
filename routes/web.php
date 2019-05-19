@@ -12,10 +12,13 @@
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('themes.default.pages.home');
 });
-
 
 Route::group(['prefix' => 'admin'], function () {
     Voyager::routes();
 });
+
+Auth::routes();
+
+Route::get('/mon-compte', 'Pages\ProfileController@profile')->name('pages.profile');
