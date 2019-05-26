@@ -33,6 +33,10 @@ php artisan voyager:install
 
 # 1.5 Create a Voyager Admin User
 php artisan voyager:admin $YOUR_EMAIL --create
+
+# 1.6 Run the Telescope installer (Optionnal)
+php artisan telescope:install
+php artisan migrate
 ```
 
 __2. Troubleshooting__
