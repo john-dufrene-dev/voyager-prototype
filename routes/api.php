@@ -18,8 +18,8 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 });
 
 // POST
-Route::get('/posts', 'Voyager\PostController@index')->name('Posts.all');
-Route::post('/posts', 'Voyager\PostController@store')->name('Posts.store');
-Route::get('/post/{id}', 'Voyager\PostController@show')->name('Posts.show');
-Route::put('/post/{id}', 'Voyager\PostController@update')->name('Posts.update');
-Route::delete('/post/{id}', 'Voyager\PostController@destroy')->name('Posts.destroy');
+// Route::get('/posts', 'Voyager\PostController@index')->name('Posts.all');
+// Route::post('/posts', 'Voyager\PostController@store')->name('Posts.store');
+// Route::get('/post/{id}', 'Voyager\PostController@show')->name('Posts.show');
+// Route::put('/post/{id}', 'Voyager\PostController@update')->name('Posts.update');
+// Route::delete('/post/{id}', 'Voyager\PostController@destroy')->name('Posts.destroy');

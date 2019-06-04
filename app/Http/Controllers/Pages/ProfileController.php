@@ -24,6 +24,6 @@ class ProfileController extends Controller
      */
     public function profile()
     {
-        return view('themes.default.pages.profile');
+        return view('themes.'.config('prototype.theme').'.pages.profile');
     }
 }

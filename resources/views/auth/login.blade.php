@@ -1,4 +1,4 @@
-@extends('themes.'.config('themes.theme').'.index')
+@extends('themes.'.config('prototype.theme').'.index')
 
 @section('content')
 <div class="container">

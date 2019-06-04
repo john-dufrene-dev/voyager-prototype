@@ -8,10 +8,10 @@
 
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <!-- Left Side Of Navbar -->
-            {!! menu('header', 'themes.'.config('themes.theme').'.blocks.navbar._left') !!}
+            {!! menu('header', 'themes.'.config('prototype.theme').'.blocks.navbar.menus._left') !!}
 
             <!-- Right Side Of Navbar -->
-            @include('themes.'.config('themes.theme').'.blocks.navbar._right')
+            @include('themes.'.config('prototype.theme').'.blocks.navbar.menus._right')
             
         </div>
     </div>

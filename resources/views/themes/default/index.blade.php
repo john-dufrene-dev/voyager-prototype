@@ -22,7 +22,7 @@
     <body>
         <div id="app">
             
-            @include('themes.'.config('themes.theme').'.blocks.navbar.main')
+            @include('themes.'.config('prototype.theme').'.blocks.navbar.main')
 
             <main class="py-4">
                 @yield('content')
