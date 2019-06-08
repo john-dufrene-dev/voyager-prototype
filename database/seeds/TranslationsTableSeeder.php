@@ -31,15 +31,15 @@ class TranslationsTableSeeder extends Seeder
     {
         // Adding translations for 'categories'
         //
-        $cat = Category::where('slug', 'category-1')->firstOrFail();
+        $cat = Category::where('slug', 'categorie-1')->firstOrFail();
         if ($cat->exists) {
             $this->trans('fr', $this->arr(['categories', 'slug'], $cat->id), 'categorie-1');
-            $this->trans('fr', $this->arr(['categories', 'name'], $cat->id), 'categorie 1');
+            $this->trans('fr', $this->arr(['categories', 'name'], $cat->id), 'catégorie 1');
         }
-        $cat = Category::where('slug', 'category-2')->firstOrFail();
+        $cat = Category::where('slug', 'categorie-2')->firstOrFail();
         if ($cat->exists) {
             $this->trans('fr', $this->arr(['categories', 'slug'], $cat->id), 'categorie-2');
-            $this->trans('fr', $this->arr(['categories', 'name'], $cat->id), 'categorie 2');
+            $this->trans('fr', $this->arr(['categories', 'name'], $cat->id), 'catégorie 2');
         }
     }
 
@@ -97,7 +97,7 @@ class TranslationsTableSeeder extends Seeder
         }
         $dtp = DataType::where($_fld, 'Categories')->firstOrFail();
         if ($dtp->exists) {
-            $this->trans('fr', $this->arr($_tpl, $dtp->id), 'Categories');
+            $this->trans('fr', $this->arr($_tpl, $dtp->id), 'Catégories');
         }
         $dtp = DataType::where($_fld, 'Menus')->firstOrFail();
         if ($dtp->exists) {

@@ -25,7 +25,7 @@ class CategoriesTableSeeder extends Seeder
                 'display_name_singular' => __('voyager::seeders.data_types.category.singular'),
                 'display_name_plural'   => __('voyager::seeders.data_types.category.plural'),
                 'icon'                  => 'voyager-categories',
-                'model_name'            => 'TCG\\Voyager\\Models\\Category',
+                'model_name'            => 'App\\Models\\Category',
                 'controller'            => '',
                 'generate_permissions'  => 1,
                 'description'           => '',
@@ -63,7 +63,7 @@ class CategoriesTableSeeder extends Seeder
                     'default' => '',
                     'null'    => '',
                     'options' => [
-                        '' => '-- None --',
+                        '' => '-- Aucun choix --',
                     ],
                     'relationship' => [
                         'key'   => 'id',
@@ -170,7 +170,7 @@ class CategoriesTableSeeder extends Seeder
                 'target'     => '_self',
                 'icon_class' => 'voyager-categories',
                 'color'      => null,
-                'parent_id'  => null,
+                'parent_id'  => 5,
                 'order'      => 8,
             ])->save();
         }
@@ -180,20 +180,20 @@ class CategoriesTableSeeder extends Seeder
 
         //Content
         $category = Category::firstOrNew([
-            'slug' => 'category-1',
+            'slug' => 'categorie-1',
         ]);
         if (!$category->exists) {
             $category->fill([
-                'name' => 'Category 1',
+                'name' => 'Catégorie 1',
             ])->save();
         }
 
         $category = Category::firstOrNew([
-            'slug' => 'category-2',
+            'slug' => 'categorie-2',
         ]);
         if (!$category->exists) {
             $category->fill([
-                'name' => 'Category 2',
+                'name' => 'Catégorie 2',
             ])->save();
         }
     }
