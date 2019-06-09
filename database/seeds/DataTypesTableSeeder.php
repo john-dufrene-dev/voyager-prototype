@@ -17,7 +17,7 @@ class DataTypesTableSeeder extends Seeder
                 'display_name_singular' => __('voyager::seeders.data_types.user.singular'),
                 'display_name_plural'   => __('voyager::seeders.data_types.user.plural'),
                 'icon'                  => 'voyager-person',
-                'model_name'            => 'TCG\\Voyager\\Models\\User',
+                'model_name'            => 'App\\Voyager\\Models\\User',
                 'policy_name'           => 'TCG\\Voyager\\Policies\\UserPolicy',
                 'controller'            => 'TCG\\Voyager\\Http\\Controllers\\VoyagerUserController',
                 'generate_permissions'  => 1,

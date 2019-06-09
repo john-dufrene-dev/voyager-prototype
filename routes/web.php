@@ -19,6 +19,7 @@ Route::group(['prefix' => 'admin'], function () {
     Voyager::routes();
 });
 
-Auth::routes();
-
-Route::get('/mon-compte', 'Pages\ProfileController@profile')->name('pages.profile');
+if (config('prototype.profil')) {
+    Auth::routes();
+    Route::get('/mon-compte', 'Pages\ProfileController@profile')->name('pages.profile');
+}

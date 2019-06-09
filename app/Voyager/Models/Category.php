@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Models;
+namespace App\Voyager\Models;
 
 use Illuminate\Database\Eloquent\Model;
 use TCG\Voyager\Facades\Voyager;

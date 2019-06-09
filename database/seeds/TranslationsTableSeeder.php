@@ -56,17 +56,17 @@ class TranslationsTableSeeder extends Seeder
         $_tpl = ['data_types', $_fld];
         $dtp = DataType::where($_fld, 'Post')->firstOrFail();
         if ($dtp->exists) {
-            $this->trans('fr', $this->arr($_tpl, $dtp->id), 'Articles');
+            $this->trans('fr', $this->arr($_tpl, $dtp->id), 'Post');
         }
         $dtp = DataType::where($_fld, 'Page')->firstOrFail();
         if ($dtp->exists) {
             $this->trans('fr', $this->arr($_tpl, $dtp->id), 'Page');
         }
-        $dtp = DataType::where($_fld, 'User')->firstOrFail();
+        $dtp = DataType::where($_fld, 'Utilisateur')->firstOrFail();
         if ($dtp->exists) {
             $this->trans('fr', $this->arr($_tpl, $dtp->id), 'Utilisateur');
         }
-        $dtp = DataType::where($_fld, 'Category')->firstOrFail();
+        $dtp = DataType::where($_fld, 'Catégorie')->firstOrFail();
         if ($dtp->exists) {
             $this->trans('fr', $this->arr($_tpl, $dtp->id), 'Catégorie');
         }
@@ -74,9 +74,9 @@ class TranslationsTableSeeder extends Seeder
         if ($dtp->exists) {
             $this->trans('fr', $this->arr($_tpl, $dtp->id), 'Menu');
         }
-        $dtp = DataType::where($_fld, 'Role')->firstOrFail();
+        $dtp = DataType::where($_fld, 'Rôle')->firstOrFail();
         if ($dtp->exists) {
-            $this->trans('fr', $this->arr($_tpl, $dtp->id), 'Fonction');
+            $this->trans('fr', $this->arr($_tpl, $dtp->id), 'Rôle');
         }
 
         // Adding translations for 'display_name_plural'
@@ -85,17 +85,17 @@ class TranslationsTableSeeder extends Seeder
         $_tpl = ['data_types', $_fld];
         $dtp = DataType::where($_fld, 'Posts')->firstOrFail();
         if ($dtp->exists) {
-            $this->trans('fr', $this->arr($_tpl, $dtp->id), 'Articles');
+            $this->trans('fr', $this->arr($_tpl, $dtp->id), 'Posts');
         }
         $dtp = DataType::where($_fld, 'Pages')->firstOrFail();
         if ($dtp->exists) {
             $this->trans('fr', $this->arr($_tpl, $dtp->id), 'Pages');
         }
-        $dtp = DataType::where($_fld, 'Users')->firstOrFail();
+        $dtp = DataType::where($_fld, 'Utilisateurs')->firstOrFail();
         if ($dtp->exists) {
             $this->trans('fr', $this->arr($_tpl, $dtp->id), 'Utilisateurs');
         }
-        $dtp = DataType::where($_fld, 'Categories')->firstOrFail();
+        $dtp = DataType::where($_fld, 'Catégories')->firstOrFail();
         if ($dtp->exists) {
             $this->trans('fr', $this->arr($_tpl, $dtp->id), 'Catégories');
         }
@@ -103,9 +103,9 @@ class TranslationsTableSeeder extends Seeder
         if ($dtp->exists) {
             $this->trans('fr', $this->arr($_tpl, $dtp->id), 'Menus');
         }
-        $dtp = DataType::where($_fld, 'Roles')->firstOrFail();
+        $dtp = DataType::where($_fld, 'Rôles')->firstOrFail();
         if ($dtp->exists) {
-            $this->trans('fr', $this->arr($_tpl, $dtp->id), 'Fonctions');
+            $this->trans('fr', $this->arr($_tpl, $dtp->id), 'Rôles');
         }
     }
 
@@ -145,12 +145,12 @@ class TranslationsTableSeeder extends Seeder
     private function menusTranslations()
     {
         $_tpl = ['menu_items', 'title'];
-        $_item = $this->findMenuItem('Dashboard');
+        $_item = $this->findMenuItem('Tableau de bord');
         if ($_item->exists) {
-            $this->trans('fr', $this->arr($_tpl, $_item->id), 'Panneau d\'administration');
+            $this->trans('fr', $this->arr($_tpl, $_item->id), 'Tableau de bord');
         }
 
-        $_item = $this->findMenuItem('Media');
+        $_item = $this->findMenuItem('Médiathèque');
         if ($_item->exists) {
             $this->trans('fr', $this->arr($_tpl, $_item->id), 'Médiathèque');
         }
@@ -160,12 +160,12 @@ class TranslationsTableSeeder extends Seeder
             $this->trans('fr', $this->arr($_tpl, $_item->id), 'Articles');
         }
 
-        $_item = $this->findMenuItem('Users');
+        $_item = $this->findMenuItem('Utilisateurs');
         if ($_item->exists) {
             $this->trans('fr', $this->arr($_tpl, $_item->id), 'Utilisateurs');
         }
 
-        $_item = $this->findMenuItem('Categories');
+        $_item = $this->findMenuItem('Catégories');
         if ($_item->exists) {
             $this->trans('fr', $this->arr($_tpl, $_item->id), 'Catégories');
         }
@@ -175,29 +175,29 @@ class TranslationsTableSeeder extends Seeder
             $this->trans('fr', $this->arr($_tpl, $_item->id), 'Pages');
         }
 
-        $_item = $this->findMenuItem('Roles');
+        $_item = $this->findMenuItem('Rôles');
         if ($_item->exists) {
-            $this->trans('fr', $this->arr($_tpl, $_item->id), 'Fonctions');
+            $this->trans('fr', $this->arr($_tpl, $_item->id), 'Rôles');
         }
 
-        $_item = $this->findMenuItem('Tools');
+        $_item = $this->findMenuItem('Outils');
         if ($_item->exists) {
-            $this->trans('fr', $this->arr($_tpl, $_item->id), 'Paramètres');
+            $this->trans('fr', $this->arr($_tpl, $_item->id), 'Outils');
         }
 
-        $_item = $this->findMenuItem('Menu Builder');
+        $_item = $this->findMenuItem('Créateur de menus');
         if ($_item->exists) {
-            $this->trans('fr', $this->arr($_tpl, $_item->id), 'Menus');
+            $this->trans('fr', $this->arr($_tpl, $_item->id), 'Créateurs de menus');
         }
 
-        $_item = $this->findMenuItem('Database');
+        $_item = $this->findMenuItem('Base de données');
         if ($_item->exists) {
             $this->trans('fr', $this->arr($_tpl, $_item->id), 'Base de données');
         }
 
-        $_item = $this->findMenuItem('Settings');
+        $_item = $this->findMenuItem('Paramètres');
         if ($_item->exists) {
-            $this->trans('fr', $this->arr($_tpl, $_item->id), 'Configurations');
+            $this->trans('fr', $this->arr($_tpl, $_item->id), 'Paramètres');
         }
     }
 
