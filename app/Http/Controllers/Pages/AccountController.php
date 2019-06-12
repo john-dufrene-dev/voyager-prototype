@@ -5,7 +5,7 @@ namespace App\Http\Controllers\Pages;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 
-class ProfileController extends Controller
+class AccountController extends Controller
 {
     /**
      * Create a new controller instance.
@@ -22,8 +22,8 @@ class ProfileController extends Controller
      *
      * @return \Illuminate\Contracts\Support\Renderable
      */
-    public function profile()
+    public function index()
     {
-        return view('themes.'.config('prototype.theme').'.pages.profile');
+        return view('themes.'.config('prototype.theme').'.pages.account');
     }
 }

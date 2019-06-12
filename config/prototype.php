@@ -14,12 +14,29 @@ return [
 
     /*
     |--------------------------------------------------------------------------
-    | Profil configuration
+    | Account configuration
     |--------------------------------------------------------------------------
-    | Activation du profil côté front
+    | Activation du compte côté front
     |
     */
 
-    'profil' => true,
+    'account' => true,
+
+    /*
+    |--------------------------------------------------------------------------
+    | Gestion SEO
+    |--------------------------------------------------------------------------
+    | Configuration des variables SEO par défaut
+    |
+    */
+
+    'seo' => [
+        'page_title' => 'Prototype',
+        'robots' => 'noindex,nofollow',
+        'title' => 'Titre par défaut',
+        'description' => 'Description par défaut',
+        'keywords' => 'Keywords,Default,Laravel',
+        'author' => 'Auteur par défaut',
+    ],
 
 ];

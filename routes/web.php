@@ -19,7 +19,15 @@ Route::group(['prefix' => 'admin'], function () {
     Voyager::routes();
 });
 
-if (config('prototype.profil')) {
+if (config('prototype.account')) {
     Auth::routes();
-    Route::get('/mon-compte', 'Pages\ProfileController@profile')->name('pages.profile');
+    Route::get('/mon-compte', 'Pages\AccountController@index')->name('pages.account');
 }
+
+Route::group([
+    'prefix' => 'articles', // Must match its `slug` record in the DB > `data_types`
+    'middleware' => ['web'],
+], function () {
+    Route::get('/', ['uses' => '\App\Voyager\Controllers\PostController@getPosts', 'as'     => 'list']);
+    Route::get('{slug}', ['uses' => '\App\Voyager\Controllers\PostController@getPost', 'as' => 'post']);
+});

@@ -23,7 +23,7 @@ class PostsTableSeeder extends Seeder
                 'display_name_singular' => __('voyager::seeders.data_types.post.singular'),
                 'display_name_plural'   => __('voyager::seeders.data_types.post.plural'),
                 'icon'                  => 'voyager-news',
-                'model_name'            => 'TCG\\Voyager\\Models\\Post',
+                'model_name'            => 'App\\Voyager\\Models\\Post',
                 'policy_name'           => 'TCG\\Voyager\\Policies\\PostPolicy',
                 'controller'            => '',
                 'generate_permissions'  => 1,
@@ -93,6 +93,30 @@ class PostsTableSeeder extends Seeder
             ])->save();
         }
 
+        $dataRow = $this->dataRow($postDataType, 'published_date');
+        if (!$dataRow->exists) {
+            $dataRow->fill([
+                'type' => 'date',
+                'display_name' => 'Published Date',
+                'required'     => 0,
+                'browse'       => 1,
+                'read'         => 1,
+                'edit'         => 1,
+                'add'          => 1,
+                'delete'       => 1,
+                'details'      => [
+                    'format'     => '%Y-%m-%d',
+                    'validation' => [
+                        'rules'    => [
+                            'required_if:status:PUBLISHED',
+                            'date_format:YYYY-MM-DD',
+                        ]
+                    ]
+                ],
+                'order' => 5,
+            ])->save();
+        }
+
         $dataRow = $this->dataRow($postDataType, 'excerpt');
         if (!$dataRow->exists) {
             $dataRow->fill([
@@ -104,7 +128,7 @@ class PostsTableSeeder extends Seeder
                 'edit'         => 1,
                 'add'          => 1,
                 'delete'       => 1,
-                'order'        => 5,
+                'order'        => 6,
             ])->save();
         }
 
@@ -119,7 +143,7 @@ class PostsTableSeeder extends Seeder
                 'edit'         => 1,
                 'add'          => 1,
                 'delete'       => 1,
-                'order'        => 6,
+                'order'        => 7,
             ])->save();
         }
 
@@ -159,7 +183,7 @@ class PostsTableSeeder extends Seeder
                         ],
                     ],
                 ],
-                'order' => 7,
+                'order' => 8,
             ])->save();
         }
 
@@ -183,7 +207,7 @@ class PostsTableSeeder extends Seeder
                         'rule'  => 'unique:posts,slug',
                     ],
                 ],
-                'order' => 8,
+                'order' => 9,
             ])->save();
         }
 
@@ -198,7 +222,7 @@ class PostsTableSeeder extends Seeder
                 'edit'         => 1,
                 'add'          => 1,
                 'delete'       => 1,
-                'order'        => 9,
+                'order'        => 10,
             ])->save();
         }
 
@@ -213,7 +237,7 @@ class PostsTableSeeder extends Seeder
                 'edit'         => 1,
                 'add'          => 1,
                 'delete'       => 1,
-                'order'        => 10,
+                'order'        => 11,
             ])->save();
         }
 
@@ -236,7 +260,7 @@ class PostsTableSeeder extends Seeder
                         'PENDING'   => 'pending',
                     ],
                 ],
-                'order' => 11,
+                'order' => 12,
             ])->save();
         }
 
@@ -251,7 +275,7 @@ class PostsTableSeeder extends Seeder
                 'edit'         => 0,
                 'add'          => 0,
                 'delete'       => 0,
-                'order'        => 12,
+                'order'        => 13,
             ])->save();
         }
 
@@ -266,7 +290,7 @@ class PostsTableSeeder extends Seeder
                 'edit'         => 0,
                 'add'          => 0,
                 'delete'       => 0,
-                'order'        => 13,
+                'order'        => 14,
             ])->save();
         }
 
@@ -281,7 +305,7 @@ class PostsTableSeeder extends Seeder
                 'edit'         => 1,
                 'add'          => 1,
                 'delete'       => 1,
-                'order'        => 14,
+                'order'        => 15,
             ])->save();
         }
         $dataRow = $this->dataRow($postDataType, 'featured');
@@ -295,7 +319,7 @@ class PostsTableSeeder extends Seeder
                 'edit'         => 1,
                 'add'          => 1,
                 'delete'       => 1,
-                'order'        => 15,
+                'order'        => 16,
             ])->save();
         }
 
@@ -335,6 +359,7 @@ class PostsTableSeeder extends Seeder
                 'meta_keywords'    => 'keyword1, keyword2, keyword3',
                 'status'           => 'PUBLISHED',
                 'featured'         => 0,
+                'published_date' => '2018-05-11 00:00:00',
             ])->save();
         }
 
@@ -354,6 +379,7 @@ class PostsTableSeeder extends Seeder
                 'meta_keywords'    => 'keyword1, keyword2, keyword3',
                 'status'           => 'PUBLISHED',
                 'featured'         => 0,
+                'published_date' => '2018-05-11 00:00:00',
             ])->save();
         }
 
@@ -371,6 +397,7 @@ class PostsTableSeeder extends Seeder
                 'meta_keywords'    => 'keyword1, keyword2, keyword3',
                 'status'           => 'PUBLISHED',
                 'featured'         => 0,
+                'published_date' => '2018-05-11 00:00:00',
             ])->save();
         }
 
@@ -390,6 +417,7 @@ class PostsTableSeeder extends Seeder
                 'meta_keywords'    => 'keyword1, keyword2, keyword3',
                 'status'           => 'PUBLISHED',
                 'featured'         => 0,
+                'published_date' => '2018-05-11 00:00:00',
             ])->save();
         }
     }

@@ -1,14 +1,14 @@
 <!-- Right Side Of Navbar -->
 <ul class="navbar-nav ml-auto">
     <!-- Authentication Links -->
-    @if (config('prototype.profil'))
+    @if (config('prototype.account'))
         @guest
             <li class="nav-item">
-                <a class="nav-link" href="{{ route('login') }}">{{ __('Login') }}</a>
+                <a class="nav-link" href="{{ route('login') }}">{{ __('Auth.login') }}</a>
             </li>
             @if (Route::has('register'))
                 <li class="nav-item">
-                    <a class="nav-link" href="{{ route('register') }}">{{ __('Register') }}</a>
+                    <a class="nav-link" href="{{ route('register') }}">{{ __('Auth.register') }}</a>
                 </li>
             @endif
         @else

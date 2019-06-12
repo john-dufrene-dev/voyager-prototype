@@ -1,13 +1,19 @@
 <!DOCTYPE html>
 <html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
     <head>
-        <meta charset="utf-8">
+        <meta charset="UTF-8">
+
+        <meta name="robots" content="@yield('meta_robots', config('prototype.seo.robots'))">
         <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="description" content="@yield('meta_description', config('prototype.seo.description'))">
+        <meta name="keywords" content="@yield('meta_keywords', config('prototype.seo.keywords'))">
+        <meta name="author" content="@yield('meta_author', config('prototype.seo.author'))">
+        <meta name="title" content="@yield('meta_title', config('prototype.seo.title'))">
 
         <!-- CSRF Token -->
         <meta name="csrf-token" content="{{ csrf_token() }}">
 
-        <title>{{ config('app.name', 'Laravel') }}</title>
+        <title>@yield('page_title', config('prototype.seo.page_title'))</title>
 
         <!-- Scripts -->
         <script src="{{ asset('js/app.js') }}" defer></script>
