@@ -28,6 +28,11 @@ Route::group([
     'prefix' => 'articles', // Must match its `slug` record in the DB > `data_types`
     'middleware' => ['web'],
 ], function () {
-    Route::get('/', ['uses' => '\App\Voyager\Controllers\PostController@getPosts', 'as'     => 'list']);
-    Route::get('{slug}', ['uses' => '\App\Voyager\Controllers\PostController@getPost', 'as' => 'post']);
+    Route::get('/', ['uses' => '\App\Voyager\Http\Controllers\Front\PostController@getPosts', 'as'     => 'list']);
+    Route::get('{slug}', ['uses' => '\App\Voyager\Http\Controllers\Front\PostController@getPost', 'as' => 'post']);
+});
+
+Route::group(['middleware' => 'auth'], function () {
+    Route::get('/admin/filemanager', '\UniSharp\LaravelFilemanager\Controllers\LfmController@show');
+    Route::post('/admin/filemanager/upload', '\UniSharp\LaravelFilemanager\Controllers\UploadController@upload');
 });

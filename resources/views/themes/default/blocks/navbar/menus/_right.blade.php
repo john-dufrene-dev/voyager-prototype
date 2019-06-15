@@ -18,9 +18,12 @@
                 </a>
 
                 <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
-                    @auth
-                        <a class="dropdown-item" href="{{route('voyager.dashboard')}}">Administration</a>
-                    @endauth
+                    @if (Auth::user()->is('admin'))
+                        @auth
+                            <a class="dropdown-item" href="{{route('voyager.dashboard')}}">Administration</a>
+                        @endauth
+                    @endif
+                    <a class="dropdown-item" href="{{route('pages.account')}}">Mon compte</a>
                     <a class="dropdown-item" href="{{ route('logout') }}"
                         onclick="event.preventDefault();
                                         document.getElementById('logout-form').submit();">

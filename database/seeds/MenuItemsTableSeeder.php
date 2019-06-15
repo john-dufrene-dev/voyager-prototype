@@ -240,7 +240,6 @@ class MenuItemsTableSeeder extends Seeder
             'menu_id' => $menu_2->id,
             'title'   => __('prototype.blog.my-posts'),
             'url'     => '/articles',
-            'route'   => 'voyager.pages.posts',
         ]);
         if (!$menuItem_2->exists) {
             $menuItem_2->fill([

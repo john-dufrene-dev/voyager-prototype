@@ -1,4 +1,17 @@
 {
     "last_remote_check": 1560115646,
-    "hooks": []
+    "hooks": {
+        "extended-bread-form-fields": {
+            "name": "extended-bread-form-fields",
+            "description": "Extended FormFields hook interface to Voyager BREAD",
+            "version": "v0.2-beta",
+            "enabled": true
+        },
+        "generate-migrations-hook": {
+            "name": "generate-migrations-hook",
+            "description": "This hook is to generate voyager-only migration for laravel app",
+            "version": "v0.1.3beta",
+            "enabled": true
+        }
+    }
 }

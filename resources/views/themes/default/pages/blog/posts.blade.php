@@ -21,6 +21,13 @@
                         <h3>{{ $post->title }}</h3>
                         <p class="card-text">{{{ isset($post->excerpt) ? $post->getShortExcerptAttribute() : '...' }}}</p>
                         <div class="d-flex justify-content-between align-items-center">
+                            <div class="btn-group">
+                                @if (Auth::check())
+                                    @if ( (Auth::user()->id == $post->id) || Auth::user()->is('admin') )
+                                        <button type="button" class="btn btn-sm btn-outline-secondary">Editer</button>
+                                    @endif
+                                @endif
+                            </div>
                             <small class="text-muted">{!! 'Posté le : ' . $post->created_at->format('jS M. Y') !!}</small>
                         </div>
                     </div>

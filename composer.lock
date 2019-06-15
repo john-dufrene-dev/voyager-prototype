@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "22f2d8080115bfb5f24f1e660ba5ae60",
+    "content-hash": "17b469dd61bcc3b88a9bc0f151c1bfcb",
     "packages": [
         {
             "name": "arrilot/laravel-widgets",
@@ -126,16 +126,16 @@
         },
         {
             "name": "composer/composer",
-            "version": "1.8.5",
+            "version": "1.8.6",
             "source": {
                 "type": "git",
                 "url": "https://github.com/composer/composer.git",
-                "reference": "949b116f9e7d98d8d276594fed74b580d125c0e6"
+                "reference": "19b5f66a0e233eb944f134df34091fe1c5dfcc11"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/composer/composer/zipball/949b116f9e7d98d8d276594fed74b580d125c0e6",
-                "reference": "949b116f9e7d98d8d276594fed74b580d125c0e6",
+                "url": "https://api.github.com/repos/composer/composer/zipball/19b5f66a0e233eb944f134df34091fe1c5dfcc11",
+                "reference": "19b5f66a0e233eb944f134df34091fe1c5dfcc11",
                 "shasum": ""
             },
             "require": {
@@ -202,7 +202,7 @@
                 "dependency",
                 "package"
             ],
-            "time": "2019-04-09T15:46:48+00:00"
+            "time": "2019-06-11T13:03:06+00:00"
         },
         {
             "name": "composer/semver",
@@ -919,6 +919,46 @@
             "time": "2019-03-17T18:48:37+00:00"
         },
         {
+            "name": "extended-bread-form-fields",
+            "version": "v0.2-beta",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/bnku/extended-bread-form-fields.git",
+                "reference": "v0.2-beta"
+            },
+            "require": {
+                "larapack/hooks": "^1.0.5"
+            },
+            "type": "library",
+            "extra": {
+                "hook": {
+                    "providers": [
+                        "ExtendedBreadFormFields\\ExtendedBreadFormFieldsServiceProvider"
+                    ],
+                    "views": [
+                        "resources/vievs"
+                    ]
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "ExtendedBreadFormFields\\": "src/"
+                }
+            },
+            "notification-url": "https://larapack.io/downloads",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "bnku",
+                    "email": "bnku@ya.ru"
+                }
+            ],
+            "description": "Extended FormFields hook interface to Voyager BREAD",
+            "time": "2019-06-14T18:06:56+00:00"
+        },
+        {
             "name": "fideloper/proxy",
             "version": "4.1.0",
             "source": {
@@ -971,6 +1011,58 @@
                 "trusted proxy"
             ],
             "time": "2019-01-10T14:06:47+00:00"
+        },
+        {
+            "name": "generate-migrations-hook",
+            "version": "v0.1.3beta",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/mohammed-io/generate-migrations-hook.git",
+                "reference": "v0.1.3beta"
+            },
+            "require": {
+                "larapack/hooks": "~1.0",
+                "laravel/framework": "^5.5",
+                "php": "^7.0.0",
+                "tcg/voyager": "^1.2"
+            },
+            "require-dev": {
+                "mockery/mockery": "^1.2",
+                "phpunit/phpunit": "^8.1"
+            },
+            "type": "library",
+            "extra": {
+                "hook": {
+                    "providers": [
+                        "MohammedIO\\GenerateMigrationsHookServiceProvider"
+                    ]
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "MohammedIO\\": "src/"
+                }
+            },
+            "autoload-dev": {
+                "psr-4": {
+                    "MohammedIO\\Tests\\": "tests/"
+                }
+            },
+            "notification-url": "https://larapack.io/downloads",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Mohammed A.",
+                    "email": "mohammed-io@outlook.com",
+                    "homepage": "https://mohammed-io.github.io/",
+                    "role": "Developer"
+                }
+            ],
+            "description": "This hook is to generate voyager-only migration for laravel app",
+            "homepage": "https://github.com/mohammed-io/generate-migrations-hook",
+            "time": "2019-06-13T16:06:45+00:00"
         },
         {
             "name": "guzzlehttp/psr7",
@@ -1108,6 +1200,49 @@
                 "watermark"
             ],
             "time": "2018-05-29T14:19:03+00:00"
+        },
+        {
+            "name": "ivonunes/voyager-blocks-editor",
+            "version": "0.1.2",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/ivonunes/voyager-blocks-editor.git",
+                "reference": "9fee17d01f78bd7227e679e275039f795110ed91"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/ivonunes/voyager-blocks-editor/zipball/9fee17d01f78bd7227e679e275039f795110ed91",
+                "reference": "9fee17d01f78bd7227e679e275039f795110ed91",
+                "shasum": ""
+            },
+            "require": {
+                "illuminate/support": "^5.8",
+                "tcg/voyager": "^1.2"
+            },
+            "type": "library",
+            "extra": {
+                "laravel": {
+                    "providers": [
+                        "IvoNunes\\VoyagerBlocksEditor\\ServiceProvider"
+                    ]
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "IvoNunes\\VoyagerBlocksEditor\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Ivo Nunes",
+                    "email": "ivonunes@me.com"
+                }
+            ],
+            "time": "2019-05-09T15:12:02+00:00"
         },
         {
             "name": "jakub-onderka/php-console-color",
@@ -1407,16 +1542,16 @@
         },
         {
             "name": "laravel/framework",
-            "version": "v5.8.21",
+            "version": "v5.8.23",
             "source": {
                 "type": "git",
                 "url": "https://github.com/laravel/framework.git",
-                "reference": "c78796cc1159c8dc63c45a2011ddc4af17059cb4"
+                "reference": "02d242212348bddd048702f5dee8dab693ac830b"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/laravel/framework/zipball/c78796cc1159c8dc63c45a2011ddc4af17059cb4",
-                "reference": "c78796cc1159c8dc63c45a2011ddc4af17059cb4",
+                "url": "https://api.github.com/repos/laravel/framework/zipball/02d242212348bddd048702f5dee8dab693ac830b",
+                "reference": "02d242212348bddd048702f5dee8dab693ac830b",
                 "shasum": ""
             },
             "require": {
@@ -1550,7 +1685,7 @@
                 "framework",
                 "laravel"
             ],
-            "time": "2019-06-05T00:13:05+00:00"
+            "time": "2019-06-13T21:08:56+00:00"
         },
         {
             "name": "laravel/tinker",
@@ -1779,16 +1914,16 @@
         },
         {
             "name": "nesbot/carbon",
-            "version": "2.19.1",
+            "version": "2.19.2",
             "source": {
                 "type": "git",
                 "url": "https://github.com/briannesbitt/Carbon.git",
-                "reference": "5cf102d1476fdf92f1f991bd1a1a0d93c65755ca"
+                "reference": "adcad3f3af52d0ad4ad7b05f43aa58243b6ca67b"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/briannesbitt/Carbon/zipball/5cf102d1476fdf92f1f991bd1a1a0d93c65755ca",
-                "reference": "5cf102d1476fdf92f1f991bd1a1a0d93c65755ca",
+                "url": "https://api.github.com/repos/briannesbitt/Carbon/zipball/adcad3f3af52d0ad4ad7b05f43aa58243b6ca67b",
+                "reference": "adcad3f3af52d0ad4ad7b05f43aa58243b6ca67b",
                 "shasum": ""
             },
             "require": {
@@ -1835,7 +1970,7 @@
                 "datetime",
                 "time"
             ],
-            "time": "2019-06-04T20:07:46+00:00"
+            "time": "2019-06-07T09:56:45+00:00"
         },
         {
             "name": "nikic/php-parser",
@@ -4062,6 +4197,80 @@
             "time": "2017-11-27T11:13:29+00:00"
         },
         {
+            "name": "unisharp/laravel-filemanager",
+            "version": "v1.9.2",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/UniSharp/laravel-filemanager.git",
+                "reference": "aaf2764f26eb8dcc9356bea1e25010333c2e61f4"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/UniSharp/laravel-filemanager/zipball/aaf2764f26eb8dcc9356bea1e25010333c2e61f4",
+                "reference": "aaf2764f26eb8dcc9356bea1e25010333c2e61f4",
+                "shasum": ""
+            },
+            "require": {
+                "ext-exif": "*",
+                "ext-fileinfo": "*",
+                "illuminate/support": ">=4.2.0",
+                "intervention/image": "2.*",
+                "php": ">=5.4.0"
+            },
+            "require-dev": {
+                "orchestra/testbench": "~3.0",
+                "phpspec/phpspec": "~2.1",
+                "phpunit/phpunit": "~4.8"
+            },
+            "suggest": {
+                "ext-gd": "to use GD library based image processing.",
+                "ext-imagick": "to use Imagick based image processing."
+            },
+            "bin": [
+                "bin/debug"
+            ],
+            "type": "library",
+            "extra": {
+                "laravel": {
+                    "providers": [
+                        "UniSharp\\LaravelFilemanager\\LaravelFilemanagerServiceProvider"
+                    ],
+                    "aliases": []
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "UniSharp\\LaravelFilemanager\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Trevor Sawler",
+                    "email": "trevor.sawler@gmail.com"
+                },
+                {
+                    "name": "UniSharp Ltd.",
+                    "email": "unisharp-service@unisharp.com"
+                }
+            ],
+            "description": "A file upload/editor intended for use with Laravel 5 and CKEditor / TinyMCE",
+            "keywords": [
+                "CKEditor",
+                "file",
+                "filemanager",
+                "image",
+                "laravel",
+                "manager",
+                "tinymce",
+                "upload"
+            ],
+            "time": "2018-07-05T11:36:08+00:00"
+        },
+        {
             "name": "vlucas/phpdotenv",
             "version": "v3.3.3",
             "source": {
@@ -4824,16 +5033,16 @@
         },
         {
             "name": "phpspec/prophecy",
-            "version": "1.8.0",
+            "version": "1.8.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/phpspec/prophecy.git",
-                "reference": "4ba436b55987b4bf311cb7c6ba82aa528aac0a06"
+                "reference": "1927e75f4ed19131ec9bcc3b002e07fb1173ee76"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/phpspec/prophecy/zipball/4ba436b55987b4bf311cb7c6ba82aa528aac0a06",
-                "reference": "4ba436b55987b4bf311cb7c6ba82aa528aac0a06",
+                "url": "https://api.github.com/repos/phpspec/prophecy/zipball/1927e75f4ed19131ec9bcc3b002e07fb1173ee76",
+                "reference": "1927e75f4ed19131ec9bcc3b002e07fb1173ee76",
                 "shasum": ""
             },
             "require": {
@@ -4854,8 +5063,8 @@
                 }
             },
             "autoload": {
-                "psr-0": {
-                    "Prophecy\\": "src/"
+                "psr-4": {
+                    "Prophecy\\": "src/Prophecy"
                 }
             },
             "notification-url": "https://packagist.org/downloads/",
@@ -4883,7 +5092,7 @@
                 "spy",
                 "stub"
             ],
-            "time": "2018-08-05T17:53:17+00:00"
+            "time": "2019-06-13T12:50:23+00:00"
         },
         {
             "name": "phpunit/php-code-coverage",
@@ -5830,16 +6039,16 @@
         },
         {
             "name": "theseer/tokenizer",
-            "version": "1.1.2",
+            "version": "1.1.3",
             "source": {
                 "type": "git",
                 "url": "https://github.com/theseer/tokenizer.git",
-                "reference": "1c42705be2b6c1de5904f8afacef5895cab44bf8"
+                "reference": "11336f6f84e16a720dae9d8e6ed5019efa85a0f9"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/theseer/tokenizer/zipball/1c42705be2b6c1de5904f8afacef5895cab44bf8",
-                "reference": "1c42705be2b6c1de5904f8afacef5895cab44bf8",
+                "url": "https://api.github.com/repos/theseer/tokenizer/zipball/11336f6f84e16a720dae9d8e6ed5019efa85a0f9",
+                "reference": "11336f6f84e16a720dae9d8e6ed5019efa85a0f9",
                 "shasum": ""
             },
             "require": {
@@ -5866,7 +6075,7 @@
                 }
             ],
             "description": "A small library for converting tokenized PHP source code into XML and potentially other formats",
-            "time": "2019-04-04T09:56:43+00:00"
+            "time": "2019-06-13T22:48:21+00:00"
         },
         {
             "name": "webmozart/assert",
@@ -5922,7 +6131,10 @@
     ],
     "aliases": [],
     "minimum-stability": "dev",
-    "stability-flags": [],
+    "stability-flags": {
+        "extended-bread-form-fields": 10,
+        "generate-migrations-hook": 10
+    },
     "prefer-stable": true,
     "prefer-lowest": false,
     "platform": {

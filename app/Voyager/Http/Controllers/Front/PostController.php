@@ -1,10 +1,10 @@
 <?php
 
-namespace App\Voyager\Controllers;
+namespace App\Voyager\Http\Controllers\Front;
 
 use App\Voyager\Models\Post;
 use Illuminate\Support\Carbon;
-use TCG\Voyager\Http\Controllers\VoyagerBaseController;
+use App\Voyager\Http\Controllers\VoyagerBaseController;
 
 class PostController extends VoyagerBaseController
 {

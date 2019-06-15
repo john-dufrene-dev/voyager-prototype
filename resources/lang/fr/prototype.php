@@ -2,6 +2,6 @@
 
 return [
     'blog'         => [
-        'my-posts'           => 'Mes articles',
+        'my-posts'           => 'Nos articles',
     ],
 ];

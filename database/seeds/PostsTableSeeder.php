@@ -25,7 +25,7 @@ class PostsTableSeeder extends Seeder
                 'icon'                  => 'voyager-news',
                 'model_name'            => 'App\\Voyager\\Models\\Post',
                 'policy_name'           => 'TCG\\Voyager\\Policies\\PostPolicy',
-                'controller'            => '',
+                'controller'            => 'App\\Voyager\\Http\\Controllers\\Front\\PostController',
                 'generate_permissions'  => 1,
                 'description'           => '',
             ])->save();
@@ -349,7 +349,7 @@ class PostsTableSeeder extends Seeder
         if (!$post->exists) {
             $post->fill([
                 'title'            => 'Lorem Ipsum Post',
-                'author_id'        => 0,
+                'author_id'        => 1,
                 'seo_title'        => null,
                 'excerpt'          => 'This is the excerpt for the Lorem Ipsum Post',
                 'body'             => '<p>This is the body of the lorem ipsum post</p>',
@@ -367,7 +367,7 @@ class PostsTableSeeder extends Seeder
         if (!$post->exists) {
             $post->fill([
                 'title'     => 'My Sample Post',
-                'author_id' => 0,
+                'author_id' => 1,
                 'seo_title' => null,
                 'excerpt'   => 'This is the excerpt for the sample Post',
                 'body'      => '<p>This is the body for the sample post, which includes the body.</p>
@@ -387,7 +387,7 @@ class PostsTableSeeder extends Seeder
         if (!$post->exists) {
             $post->fill([
                 'title'            => 'Latest Post',
-                'author_id'        => 0,
+                'author_id'        => 1,
                 'seo_title'        => null,
                 'excerpt'          => 'This is the excerpt for the latest post',
                 'body'             => '<p>This is the body for the latest post</p>',
@@ -405,7 +405,7 @@ class PostsTableSeeder extends Seeder
         if (!$post->exists) {
             $post->fill([
                 'title'     => 'Yarr Post',
-                'author_id' => 0,
+                'author_id' => 2,
                 'seo_title' => null,
                 'excerpt'   => 'Reef sails nipperkin bring a spring upon her cable coffer jury mast spike marooned Pieces of Eight poop deck pillage. Clipper driver coxswain galleon hempen halter come about pressgang gangplank boatswain swing the lead. Nipperkin yard skysail swab lanyard Blimey bilge water ho quarter Buccaneer.',
                 'body'      => '<p>Swab deadlights Buccaneer fire ship square-rigged dance the hempen jig weigh anchor cackle fruit grog furl. Crack Jennys tea cup chase guns pressgang hearties spirits hogshead Gold Road six pounders fathom measured fer yer chains. Main sheet provost come about trysail barkadeer crimp scuttle mizzenmast brig plunder.</p>

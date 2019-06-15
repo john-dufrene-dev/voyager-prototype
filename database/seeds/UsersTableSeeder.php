@@ -16,6 +16,7 @@ class UsersTableSeeder extends Seeder
     {
         if (User::count() == 0) {
             $role = Role::where('name', 'admin')->firstOrFail();
+            $role_demo = Role::where('name', 'user')->firstOrFail();
 
             User::create([
                 'name'           => 'Admin',
@@ -23,6 +24,14 @@ class UsersTableSeeder extends Seeder
                 'password'       => bcrypt('admin'),
                 'remember_token' => Str::random(60),
                 'role_id'        => $role->id,
+            ]);
+
+            User::create([
+                'name'           => 'User',
+                'email'          => 'demo@demo.com',
+                'password'       => bcrypt('demo'),
+                'remember_token' => Str::random(60),
+                'role_id'        => $role_demo->id,
             ]);
         }
     }

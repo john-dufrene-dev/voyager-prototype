@@ -32,7 +32,7 @@ return [
     */
 
     'controllers' => [
-        'namespace' => 'TCG\\Voyager\\Http\\Controllers',
+        'namespace' => 'App\\Voyager\\Http\\Controllers',
     ],
 
     /*
@@ -150,7 +150,7 @@ return [
 
         'widgets' => [
             'App\\Voyager\\Widgets\\UserDimmer',
-            'TCG\\Voyager\\Widgets\\PostDimmer',
+            'App\\Voyager\\Widgets\\PostDimmer',
             'TCG\\Voyager\\Widgets\\PageDimmer',
         ],
 
@@ -198,7 +198,7 @@ return [
     ],
 
     'additional_js' => [
-        //'js/custom.js',
+        'js/voyager/voyager_custom.js',
     ],
 
     'googlemaps' => [
