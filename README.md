@@ -37,6 +37,10 @@ php artisan voyager:admin $YOUR_EMAIL --create
 # 1.6 Run the Telescope installer (Optionnal)
 php artisan telescope:install
 php artisan migrate
+
+# 1.6 Run the Passport installer (Optionnal)
+php artisan passport:install
+php artisan passport:keys
 ```
 
 __2. Troubleshooting__

@@ -24,6 +24,7 @@ class UsersTableSeeder extends Seeder
                 'password'       => bcrypt('admin'),
                 'remember_token' => Str::random(60),
                 'role_id'        => $role->id,
+                'api_token'      => Str::random(60),
             ]);
 
             User::create([
@@ -32,6 +33,7 @@ class UsersTableSeeder extends Seeder
                 'password'       => bcrypt('demo'),
                 'remember_token' => Str::random(60),
                 'role_id'        => $role_demo->id,
+                'api_token'      => Str::random(60),
             ]);
         }
     }

@@ -10660,3 +10660,11 @@ a.text-dark:focus {
   }
 }
 
+/* your main css */
+
+body .body-main {
+  min-height: 100vh;
+}
+
+/* your custom css */
+

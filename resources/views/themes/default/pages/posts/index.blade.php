@@ -1,10 +1,10 @@
 @extends('themes.'.config('prototype.theme').'.index')
 
 @section('meta_robots', 'index,follow')
-@section('meta_title', 'Liste des articles')
+@section('meta_title') @parent | Liste des article @endsection
 @section('meta_keywords', 'Articles,Posts')
-@section('meta_description', 'Blog Posts')
-@section('page_title', 'Prototype | Liste des articles')
+@section('meta_description') @parent | Liste des article @endsection
+@section('page_title') @parent | Liste des article @endsection
 
 @section('content')
 
@@ -14,7 +14,7 @@
             @foreach($posts as $post)
                 <div class="col-md-4">
                     <div class="card mb-4 shadow-sm">
-                        <a href="{{ route('post', ['slug' => $post->slug]) }}">
+                        <a href="{{ route('articles.show', ['slug' => $post->slug]) }}">
                             <img class="bd-placeholder-img card-img-top" width="100%" height="225" src="{{Voyager::image($post->thumbnail('medium'))}}" />
                         </a> 
                     <div class="card-body">
@@ -24,7 +24,9 @@
                             <div class="btn-group">
                                 @if (Auth::check())
                                     @if ( (Auth::user()->id == $post->id) || Auth::user()->is('admin') )
-                                        <button type="button" class="btn btn-sm btn-outline-secondary">Editer</button>
+                                        <button type="button" class="btn btn-sm btn-infos">
+                                        <a href="{{ route('voyager.posts.edit', ['id' => $post->id]) }}">Editer</a>
+                                        </button>
                                     @endif
                                 @endif
                             </div>

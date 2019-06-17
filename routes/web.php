@@ -15,6 +15,9 @@ Route::get('/', function () {
     return view('themes.'.config('prototype.theme').'.pages.home');
 });
 
+Route::get('/oauth/token/get', 'Api\ApiTokenController@get')->name('token.oauth.get');
+// Route::get('/oauth/token/refresh', 'Api\ApiTokenController@refresh')->name('token.oauth.refresh'); IN PROGRESS
+
 Route::group(['prefix' => 'admin'], function () {
     Voyager::routes();
 });
@@ -22,15 +25,10 @@ Route::group(['prefix' => 'admin'], function () {
 if (config('prototype.account')) {
     Auth::routes();
     Route::get('/mon-compte', 'Pages\AccountController@index')->name('pages.account');
+    Route::get('/passport', 'Pages\PassportController@index')->name('pages.passport');
 }
 
-Route::group([
-    'prefix' => 'articles', // Must match its `slug` record in the DB > `data_types`
-    'middleware' => ['web'],
-], function () {
-    Route::get('/', ['uses' => '\App\Voyager\Http\Controllers\Front\PostController@getPosts', 'as'     => 'list']);
-    Route::get('{slug}', ['uses' => '\App\Voyager\Http\Controllers\Front\PostController@getPost', 'as' => 'post']);
-});
+Route::resource('articles', '\App\Voyager\Http\Controllers\Front\PostController')->only(['index', 'show']);
 
 Route::group(['middleware' => 'auth'], function () {
     Route::get('/admin/filemanager', '\UniSharp\LaravelFilemanager\Controllers\LfmController@show');

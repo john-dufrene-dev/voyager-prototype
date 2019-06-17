@@ -14,8 +14,8 @@ class DataTypesTableSeeder extends Seeder
         if (!$dataType->exists) {
             $dataType->fill([
                 'name'                  => 'users',
-                'display_name_singular' => __('voyager::seeders.data_types.user.singular'),
-                'display_name_plural'   => __('voyager::seeders.data_types.user.plural'),
+                'display_name_singular' => __('Seeders.data_types.user.singular'),
+                'display_name_plural'   => __('Seeders.data_types.user.plural'),
                 'icon'                  => 'voyager-person',
                 'model_name'            => 'App\\Voyager\\Models\\User',
                 'policy_name'           => 'TCG\\Voyager\\Policies\\UserPolicy',
@@ -29,8 +29,8 @@ class DataTypesTableSeeder extends Seeder
         if (!$dataType->exists) {
             $dataType->fill([
                 'name'                  => 'menus',
-                'display_name_singular' => __('voyager::seeders.data_types.menu.singular'),
-                'display_name_plural'   => __('voyager::seeders.data_types.menu.plural'),
+                'display_name_singular' => __('Seeders.data_types.menu.singular'),
+                'display_name_plural'   => __('Seeders.data_types.menu.plural'),
                 'icon'                  => 'voyager-list',
                 'model_name'            => 'TCG\\Voyager\\Models\\Menu',
                 'controller'            => '',
@@ -43,8 +43,8 @@ class DataTypesTableSeeder extends Seeder
         if (!$dataType->exists) {
             $dataType->fill([
                 'name'                  => 'roles',
-                'display_name_singular' => __('voyager::seeders.data_types.role.singular'),
-                'display_name_plural'   => __('voyager::seeders.data_types.role.plural'),
+                'display_name_singular' => __('Seeders.data_types.role.singular'),
+                'display_name_plural'   => __('Seeders.data_types.role.plural'),
                 'icon'                  => 'voyager-lock',
                 'model_name'            => 'TCG\\Voyager\\Models\\Role',
                 'controller'            => '',

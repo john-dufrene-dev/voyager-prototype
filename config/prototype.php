@@ -33,10 +33,10 @@ return [
     'seo' => [
         'page_title' => 'Prototype',
         'robots' => 'noindex,nofollow',
-        'title' => 'Titre par défaut',
-        'description' => 'Description par défaut',
-        'keywords' => 'Keywords,Default,Laravel',
-        'author' => 'Auteur par défaut',
+        'meta_title' => 'Titre par défaut',
+        'meta_description' => 'Description par défaut',
+        'meta_keywords' => 'Keywords,Default,Laravel',
+        'meta_author' => 'Auteur par défaut',
     ],
 
 ];
