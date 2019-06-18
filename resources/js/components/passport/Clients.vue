@@ -14,7 +14,7 @@
                     </span>
 
                     <a class="action-link" tabindex="-1" @click="showCreateClientForm">
-                        Create New Client
+                        Créer un nouveau client
                     </a>
                 </div>
             </div>
@@ -29,7 +29,7 @@
                     <thead>
                         <tr>
                             <th>Client ID</th>
-                            <th>Name</th>
+                            <th>Nom</th>
                             <th>Secret</th>
                             <th></th>
                             <th></th>

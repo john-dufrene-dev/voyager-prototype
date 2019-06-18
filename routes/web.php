@@ -15,15 +15,14 @@ Route::get('/', function () {
     return view('themes.'.config('prototype.theme').'.pages.home');
 });
 
-Route::get('/oauth/token/get', 'Api\ApiTokenController@get')->name('token.oauth.get');
-// Route::get('/oauth/token/refresh', 'Api\ApiTokenController@refresh')->name('token.oauth.refresh'); IN PROGRESS
-
 Route::group(['prefix' => 'admin'], function () {
     Voyager::routes();
 });
 
 if (config('prototype.account')) {
     Auth::routes();
+    Route::get('/oauth/token/get', 'Api\ApiTokenController@get')->name('token.oauth.get');
+// Route::get('/oauth/token/refresh', 'Api\ApiTokenController@refresh')->name('token.oauth.refresh'); IN PROGRESS
     Route::get('/mon-compte', 'Pages\AccountController@index')->name('pages.account');
     Route::get('/passport', 'Pages\PassportController@index')->name('pages.passport');
 }
