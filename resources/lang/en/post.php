@@ -20,4 +20,5 @@ return [
     'title'            => 'Post Title',
     'title_sub'        => 'The title for your post',
     'update'           => 'Update Post',
+    'published_date'   => 'Published Date',
 ];

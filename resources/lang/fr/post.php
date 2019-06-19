@@ -20,4 +20,5 @@ return [
     'title'            => 'Titre de l\'article',
     'title_sub'        => 'Le titre de votre article',
     'update'           => 'Mettre à jour l\'article',
+    'published_date'   => 'Date de publication',
 ];

@@ -167,7 +167,7 @@ return [
 
     'bread' => [
         // When a BREAD is added, create the Menu item using the BREAD properties.
-        'add_menu_item' => true,
+        'add_menu_item' => false,
 
         // which menu add item to
         'default_menu' => 'admin',
@@ -188,7 +188,7 @@ return [
     |
     */
 
-    'primary_color' => '#22A7F0',
+    'primary_color' => '#00bc88',
 
     'show_dev_tips' => true, // Show development tip "How To Use:" in Menu and Settings
 

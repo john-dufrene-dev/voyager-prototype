@@ -29,7 +29,7 @@ composer install && npm install
 php artisan key:generate
 
 # 1.4 Run the Voyager Installer
-php artisan voyager:install
+php artisan prototyte:install --with-dummy (OPTIONNAL)
 
 # 1.5 Create a Voyager Admin User
 php artisan voyager:admin $YOUR_EMAIL --create
