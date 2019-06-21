@@ -29,18 +29,20 @@ composer install && npm install
 php artisan key:generate
 
 # 1.4 Run the Voyager Installer
-php artisan prototyte:install --with-dummy (OPTIONNAL)
+php artisan prototyte:install (--with-dummy OPTIONNAL)
 
 # 1.5 Create a Voyager Admin User
 php artisan voyager:admin $YOUR_EMAIL --create
 
-# 1.6 Run the Telescope installer (Optionnal)
+# 1.6 Run the Passport installer
+php artisan passport:install
+php artisan passport:keys
+
+# OPTIONS :
+# 1. Run the Telescope installer (Optionnal)
 php artisan telescope:install
 php artisan migrate
 
-# 1.6 Run the Passport installer (Optionnal)
-php artisan passport:install
-php artisan passport:keys
 ```
 
 __2. Troubleshooting__

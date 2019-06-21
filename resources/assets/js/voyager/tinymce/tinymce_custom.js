@@ -38,26 +38,6 @@ function tinymce_init_callback(editor)
       };
     
       tinymce.init(editor_config);
- 
-    // tinymce.init({
-    //     path_absolute : "/",
-    //     menubar: true,
-    //     selector:'textarea.richTextBox',
-    //     skin_url: $('meta[name="assets-path"]').attr('content')+'?path=js/skins/voyager',
-    //     min_height: 300,
-    //     resize: 'vertical',
-    //     plugins: 'insertdatetime, advlist, wordcount, imagetools, searchreplace, autolink, hr, charmap, preview, link, image, code, table, textcolor, lists, media',
-    //     extended_valid_elements : 'input[id|name|value|type|class|style|required|placeholder|autocomplete|onclick]',
-    //     file_browser_callback: function(field_name, url, type, win) {
-    //             if(type =='image'){
-    //               $('#upload_file').trigger('click');
-    //             }
-    //         },
-    //     toolbar: 'preview searchreplace | styleselect bold italic underline charmap hr | forecolor backcolor | alignleft aligncenter alignright | bullist numlist outdent indent | link image media table | insertdatetime code',
-    //     convert_urls: false,
-    //     image_caption: true,
-    //     image_title: true,
-    // });
 }
 
 tinymce_init_callback(tinymce)

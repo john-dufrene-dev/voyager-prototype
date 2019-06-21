@@ -38715,7 +38715,7 @@ var render = function() {
               },
               [
                 _vm._v(
-                  "\n                    Create New Client\n                "
+                  "\n                    Créer un nouveau client\n                "
                 )
               ]
             )
@@ -39161,7 +39161,7 @@ var staticRenderFns = [
       _c("tr", [
         _c("th", [_vm._v("Client ID")]),
         _vm._v(" "),
-        _c("th", [_vm._v("Name")]),
+        _c("th", [_vm._v("Nom")]),
         _vm._v(" "),
         _c("th", [_vm._v("Secret")]),
         _vm._v(" "),
@@ -51840,6 +51840,7 @@ window.axios.defaults.headers.common['X-Requested-With'] = 'XMLHttpRequest';
  */
 
 var token = document.head.querySelector('meta[name="csrf-token"]');
+var theme = document.head.querySelector('meta[name="prototype-theme"]');
 
 if (token) {
   window.axios.defaults.headers.common['X-CSRF-TOKEN'] = token.content;

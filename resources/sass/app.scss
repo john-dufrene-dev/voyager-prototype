@@ -7,5 +7,8 @@
 // Bootstrap
 @import '~bootstrap/scss/bootstrap';
 
+// Helpers
+@import 'helpers';
+
 @import 'styles/main.scss';
 @import 'styles/custom.scss';

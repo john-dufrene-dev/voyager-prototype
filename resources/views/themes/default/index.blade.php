@@ -12,6 +12,8 @@
 
         <!-- CSRF Token -->
         <meta name="csrf-token" content="{{ csrf_token() }}">
+        <!-- Theme -->
+        <meta name="prototype-theme" content="{{ config('prototype.theme') }}">
 
         <title>@section('page_title') {{ setting('site.title', config('prototype.seo.page_title')) }} @show</title>
 

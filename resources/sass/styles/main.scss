@@ -1,7 +1,68 @@
 /* your main css */
 
-body{
-    .body-main{
-        min-height: 100vh;
+////////////////////////////////////////////////
+// Navbar header //////////////////////////////
+//////////////////////////////////////////////
+#headerNavbar {
+    .left-navbar, .right-navbar {
+        text-transform:uppercase;
+        letter-spacing: 1px;
+        font-size:13px;
+        a {
+            padding: 3px 5px 0 5px;
+            margin:0 10px;
+            color:#000;
+            border:1px solid transparent;
+            &:hover{
+                border-bottom:1px solid $primary-color;
+                transition: all 1.8s ease;
+            }
+        }
+        .navbar-dropdown-menu {
+            border:0;
+            background-color:#fff;
+            border-radius:0;
+            a {
+                margin:5px 0;
+                padding:5px;
+                font-size:10px;
+                border:0;
+                border:2px solid transparent;
+                &:hover{
+                    background-color:$body-bg;
+                } 
+            }
+            .active {
+                background-color:$teal;
+            }
+        }
+        .active {
+            border-bottom:1px solid $primary-color;
+        }
     }
+} 
+
+@media all and (max-width: 760px) {
+    #headerNavbar {
+        .left-navbar, .right-navbar {
+            a {
+                padding: 3px 5px 0 5px;
+                margin:5px 10px;
+                border:1px solid transparent;
+                &:hover{
+                    border-bottom:1px solid transparent;
+                }
+            }
+            .active {
+                border-bottom:1px solid transparent;
+            }
+        }
+    }
+}
+
+////////////////////////////////////////////////
+// Main content //////////////////////////////
+//////////////////////////////////////////////
+.body-main{
+    min-height: 100vh;
 }
