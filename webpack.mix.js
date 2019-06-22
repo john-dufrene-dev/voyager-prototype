@@ -12,6 +12,6 @@ const mix = require('laravel-mix');
  */
 
 mix.js('resources/js/app.js', 'public/js')
-    .sass('resources/sass/app.scss', 'public/css');
+    .js('resources/assets/js/voyager/voyager_custom.js', 'public/js/voyager')
 
-mix.js('resources/assets/js/voyager/voyager_custom.js', 'public/js/voyager')
+mix.sass('resources/sass/app.scss', 'public/css');

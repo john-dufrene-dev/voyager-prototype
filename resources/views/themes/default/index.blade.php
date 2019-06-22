@@ -14,18 +14,17 @@
         <meta name="csrf-token" content="{{ csrf_token() }}">
         <!-- Theme -->
         <meta name="prototype-theme" content="{{ config('prototype.theme') }}">
+        <meta name="prototype-color-primary" content="{{ config('prototype.colors.primary') }}">
+        <meta name="prototype-color-secondary" content="{{ config('prototype.colors.secondary') }}">
 
         <title>@section('page_title') {{ setting('site.title', config('prototype.seo.page_title')) }} @show</title>
-
-        <!-- Scripts -->
-        <script src="{{ asset('js/app.js') }}" defer></script>
 
         <!-- Fonts -->
         <link rel="dns-prefetch" href="//fonts.gstatic.com">
         <link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet" type="text/css">
 
         <!-- Styles -->
-        <link href="{{ asset('css/app.css') }}" rel="stylesheet">
+        <link href="{{ mix('css/app.css') }}" rel="stylesheet">
     </head>
     <body>
         <div id="app">
@@ -39,5 +38,10 @@
             @include('themes.'.config('prototype.theme').'.blocks.footer.main')
 
         </div>
+
+        <!-- Scripts -->
+        @section('scripts')
+            <script src="{{ mix('js/app.js') }}" defer></script>
+        @show
     </body>
 </html>

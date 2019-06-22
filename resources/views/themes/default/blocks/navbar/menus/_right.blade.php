@@ -1,7 +1,7 @@
 <!-- Right Side Of Navbar -->
 <ul class="navbar-nav ml-auto right-navbar">
     <!-- Authentication Links -->
-    @if (config('prototype.account') == false)
+    @if (config('prototype.account'))
         @guest
             <li class="nav-item">
                 <a class="a-right-navbar nav-link @if(Request::is('login')) active @endif " href="{{ route('login') }}">{{ __('Auth.login') }}</a>

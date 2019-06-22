@@ -14,7 +14,7 @@
             color:#000;
             border:1px solid transparent;
             &:hover{
-                border-bottom:1px solid $primary-color;
+                border-bottom:1px solid $primarycolor;
                 transition: all 1.8s ease;
             }
         }
@@ -37,11 +37,22 @@
             }
         }
         .active {
-            border-bottom:1px solid $primary-color;
+            border-bottom:1px solid $primarycolor;
         }
     }
 } 
 
+////////////////////////////////////////////////
+// Main content ///////////////////////////////
+//////////////////////////////////////////////
+.body-main{
+    min-height: 100vh;
+}
+
+
+////////////////////////////////////////////////
+// Media query ////////////////////////////////
+//////////////////////////////////////////////
 @media all and (max-width: 760px) {
     #headerNavbar {
         .left-navbar, .right-navbar {
@@ -58,11 +69,4 @@
             }
         }
     }
-}
-
-////////////////////////////////////////////////
-// Main content //////////////////////////////
-//////////////////////////////////////////////
-.body-main{
-    min-height: 100vh;
 }
