@@ -54,9 +54,9 @@ class TranslationsTableSeeder extends Seeder
         //
         $_fld = 'display_name_singular';
         $_tpl = ['data_types', $_fld];
-        $dtp = DataType::where($_fld, 'Post')->firstOrFail();
+        $dtp = DataType::where($_fld, 'Article')->firstOrFail();
         if ($dtp->exists) {
-            $this->trans('fr', $this->arr($_tpl, $dtp->id), 'Post');
+            $this->trans('fr', $this->arr($_tpl, $dtp->id), 'Article');
         }
         $dtp = DataType::where($_fld, 'Page')->firstOrFail();
         if ($dtp->exists) {
@@ -83,9 +83,9 @@ class TranslationsTableSeeder extends Seeder
         //
         $_fld = 'display_name_plural';
         $_tpl = ['data_types', $_fld];
-        $dtp = DataType::where($_fld, 'Posts')->firstOrFail();
+        $dtp = DataType::where($_fld, 'Articles')->firstOrFail();
         if ($dtp->exists) {
-            $this->trans('fr', $this->arr($_tpl, $dtp->id), 'Posts');
+            $this->trans('fr', $this->arr($_tpl, $dtp->id), 'Articles');
         }
         $dtp = DataType::where($_fld, 'Pages')->firstOrFail();
         if ($dtp->exists) {
@@ -155,7 +155,7 @@ class TranslationsTableSeeder extends Seeder
             $this->trans('fr', $this->arr($_tpl, $_item->id), 'Médiathèque');
         }
 
-        $_item = $this->findMenuItem('Posts');
+        $_item = $this->findMenuItem('Articles');
         if ($_item->exists) {
             $this->trans('fr', $this->arr($_tpl, $_item->id), 'Articles');
         }

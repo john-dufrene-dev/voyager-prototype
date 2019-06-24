@@ -42,8 +42,8 @@ return [
             'plural'   => 'Pages',
         ],
         'post'     => [
-            'singular' => 'Post',
-            'plural'   => 'Posts',
+            'singular' => 'Article',
+            'plural'   => 'Articles',
         ],
         'role'     => [
             'singular' => 'Rôle',
@@ -63,7 +63,7 @@ return [
         'media'        => 'Médiathèque',
         'menu_builder' => 'Créateur de menus',
         'pages'        => 'Pages',
-        'posts'        => 'Posts',
+        'posts'        => 'Articles',
         'roles'        => 'Rôles',
         'settings'     => 'Paramètres',
         'tools'        => 'Outils',
@@ -71,7 +71,7 @@ return [
     ],
     'roles'      => [
         'admin' => 'Administrateur',
-        'user'  => 'Utilisateur standard',
+        'user'  => 'Utilisateur de démo',
     ],
     'settings'   => [
         'admin' => [
@@ -87,7 +87,7 @@ return [
             'description'                  => 'Description du site',
             'google_analytics_tracking_id' => 'Google Analytics ID de Tracking',
             'logo'                         => 'Logo du site',
-            'title'                        => 'Title du site',
+            'title'                        => 'Prototype',
         ],
     ],
 ];
