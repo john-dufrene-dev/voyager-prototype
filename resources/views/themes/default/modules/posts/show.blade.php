@@ -1,4 +1,4 @@
-@extends('themes.'.config('prototype.theme').'.index')
+@extends('themes.'.config('prototype.theme').'./layouts/default')
 
 @section('meta_robots', 'index,follow')
 @section('meta_title', $post->seo_title)

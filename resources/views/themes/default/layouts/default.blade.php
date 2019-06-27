@@ -29,13 +29,13 @@
     <body>
         <div id="app">
             
-            @include('themes.'.config('prototype.theme').'.blocks.navbar.main')
+            @include('themes.'.config('prototype.theme').'.partials.navbar.main')
 
             <main class="py-4 body-main">
                 @yield('content')
             </main>
 
-            @include('themes.'.config('prototype.theme').'.blocks.footer.main')
+            @include('themes.'.config('prototype.theme').'.partials.footer.main')
 
         </div>
 

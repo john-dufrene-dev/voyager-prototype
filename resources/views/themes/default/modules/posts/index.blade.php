@@ -1,4 +1,4 @@
-@extends('themes.'.config('prototype.theme').'.index')
+@extends('themes.'.config('prototype.theme').'./layouts/default')
 
 @section('meta_robots', 'index,follow')
 @section('meta_title') @parent | Liste des article @endsection
@@ -37,7 +37,7 @@
                 </div>
             @endforeach
             </div>
-            {{ $posts->links('themes.'.config('prototype.theme').'.blocks.pagination.custom_2') }}
+            {{ $posts->links('themes.'.config('prototype.theme').'.partials.pagination.custom_2') }}
         </div>
     @else
         <div class="container">Aucun Articles</div>

@@ -12,7 +12,7 @@
 */
 
 Route::get('/', function () {
-    return view('themes.'.config('prototype.theme').'.pages.home');
+    return view('themes.'.config('prototype.theme').'.modules.home.index');
 });
 
 Route::group(['prefix' => 'admin'], function () {

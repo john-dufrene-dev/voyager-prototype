@@ -24,6 +24,6 @@ class AccountController extends Controller
      */
     public function index()
     {
-        return view('themes.'.config('prototype.theme').'.pages.account');
+        return view('themes.'.config('prototype.theme').'.modules.account.index');
     }
 }

@@ -11098,6 +11098,10 @@ a.text-dark:focus {
   }
 }
 
+.body-main {
+  min-height: 100vh;
+}
+
 /* your main css */
 
 #headerNavbar .left-navbar,
@@ -11153,10 +11157,6 @@ a.text-dark:focus {
   border-bottom: 1px solid #00bc88;
 }
 
-.body-main {
-  min-height: 100vh;
-}
-
 @media all and (max-width: 760px) {
   #headerNavbar .left-navbar a,
   #headerNavbar .right-navbar a {
@@ -11175,6 +11175,4 @@ a.text-dark:focus {
     border-bottom: 1px solid transparent;
   }
 }
-
-/* your custom css */
 

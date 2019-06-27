@@ -29,6 +29,6 @@ class PassportController extends Controller
         {
             abort(403, 'Unauthorized action.');
         }
-        return view('themes.'.config('prototype.theme').'.pages.passport');
+        return view('themes.'.config('prototype.theme').'.modules.passport.index');
     }
 }

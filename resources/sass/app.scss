@@ -2,13 +2,25 @@
 @import url('https://fonts.googleapis.com/css?family=Nunito');
 
 // Variables
-@import 'variables';
+@import 'settings';
 
 // Bootstrap
 @import '~bootstrap/scss/bootstrap';
 
-// Helpers
-@import 'helpers';
+// Blocks
+// @import "blocks/blocks";
 
-@import 'styles/main.scss';
-@import 'styles/custom.scss';
+// Theme
+@import "utilities";
+
+// Components
+@import "components/global";
+@import "components/top-bar";
+
+// Layouts
+@import "layouts/default";
+@import "layouts/custom";
+
+// Medias querys
+@import 'medias/default';
+@import 'medias/custom';
