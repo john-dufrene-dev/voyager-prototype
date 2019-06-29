@@ -18,7 +18,7 @@
                 </a>
 
                 <div class="dropdown-menu dropdown-menu-right navbar-dropdown-menu shadow-sm" aria-labelledby="navbarDropdown">
-                    @if (Auth::user()->is('admin'))
+                    @if (Auth::user()->hasRole(['admin']))
                         @auth
                             <a class="dropdown-item" href="{{route('voyager.dashboard')}}">Administration</a>
                         @endauth

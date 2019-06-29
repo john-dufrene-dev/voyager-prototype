@@ -27,13 +27,16 @@ return [
     'allow_multi_user' => true,
     // If true, share folder will be created when allow_multi_user is true.
     'allow_share_folder' => true,
+    // Allow roles who can show all folder.
+    'allow_roles_folder' => ['admin'], // EX : ['admin','filemanager']
 
     // Flexible way to customize client folders accessibility
     // If you want to customize client folders, publish tag="lfm_handler"
     // Then you can rewrite userField function in App\Handler\ConfigHander class
     // And set 'user_field' to App\Handler\ConfigHander::class
     // Ex: The private folder of user will be named as the user id.
-    'user_field' => UniSharp\LaravelFilemanager\Handlers\ConfigHandler::class,
+    // 'user_field' => UniSharp\LaravelFilemanager\Handlers\ConfigHandler::class,
+    'user_field' => App\Handlers\LfmConfigHandler::class,
 
     /*
     |--------------------------------------------------------------------------
@@ -78,13 +81,13 @@ return [
     'alphanumeric_directory' => false,
 
     // If true, the uploading file's size will be verified for over than max_image_size/max_file_size.
-    'should_validate_size' => false,
+    'should_validate_size' => true,
 
     'max_image_size' => 50000,
     'max_file_size' => 50000,
 
     // If true, the uploading file's mime type will be valid in valid_image_mimetypes/valid_file_mimetypes.
-    'should_validate_mime' => false,
+    'should_validate_mime' => true,
 
     // available since v1.3.0
     'valid_image_mimetypes' => [

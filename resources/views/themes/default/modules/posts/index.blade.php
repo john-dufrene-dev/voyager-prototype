@@ -23,7 +23,7 @@
                         <div class="d-flex justify-content-between align-items-center">
                             <div class="btn-group">
                                 @if (Auth::check())
-                                    @if ( (Auth::user()->id == $post->id) || Auth::user()->is('admin') )
+                                    @if ( (Auth::user()->id == $post->id) || Auth::user()->hasRole(['admin']) )
                                         <button type="button" class="btn btn-sm btn-infos">
                                         <a href="{{ route('voyager.posts.edit', ['id' => $post->id]) }}">Editer</a>
                                         </button>

@@ -227,6 +227,22 @@ return [
 
     // Activate compass when environment is NOT local
     'compass_in_production' => false,
+    // Activate choice artisan commands
+    'compass_choice_commands' => true,
+    // Choices commands to activate
+    'compass_commands' => [
+        'clear-compiled',
+        'down',
+        'up',
+        'auth:clear-resets',
+        'cache:clear',
+        'config:cache',
+        'debugbar:clear',
+        'optimize:clear',
+        'route:clear',
+        'view:clear',
+        'view:cache',
+    ],
 
     'media' => [
         // The allowed mimetypes to be uploaded through the media-manager.

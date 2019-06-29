@@ -25,7 +25,7 @@ class PassportController extends Controller
      */
     public function index()
     {
-        if(!Auth::user()->is('admin'))
+        if(!Auth::user()->hasRole(['admin']))
         {
             abort(403, 'Unauthorized action.');
         }
