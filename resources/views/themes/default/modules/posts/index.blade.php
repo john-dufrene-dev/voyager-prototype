@@ -1,10 +1,10 @@
 @extends('themes.'.config('prototype.theme').'./layouts/default')
 
 @section('meta_robots', 'index,follow')
-@section('meta_title') @parent | Liste des article @endsection
+@section('meta_title') @parent | Liste des articles @endsection
 @section('meta_keywords', 'Articles,Posts')
-@section('meta_description') @parent | Liste des article @endsection
-@section('page_title') @parent | Liste des article @endsection
+@section('meta_description') @parent | Liste des articles @endsection
+@section('page_title') @parent | Liste des articles @endsection
 
 @section('content')
 
