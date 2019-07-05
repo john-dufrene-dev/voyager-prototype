@@ -1,11 +1,12 @@
 <?php
 
-namespace App\Voyager\Http\Controllers\Front;
+namespace Modules\Post\Http\Controllers;
 
 use App\Voyager\Models\Post;
 use Illuminate\Http\Request;
+use Illuminate\Http\Response;
 use Illuminate\Support\Carbon;
-use App\Http\Controllers\Controller;
+use Illuminate\Routing\Controller;
 
 class PostController extends Controller
 {
@@ -13,15 +14,13 @@ class PostController extends Controller
     {
         $this->middleware('auth')->only(['create', 'edit', 'store', 'destroy']);
     }
-
     /**
      * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
+     * @return Response
      */
     public function index()
     {
-        return view('themes.'.config('prototype.theme').'.modules.posts.index', [
+        return view('post::index', [
             'posts' => $this->getPosts(),
         ]);
     }
@@ -34,7 +33,7 @@ class PostController extends Controller
      */
     public function show($slug)
     {
-        return view('themes.'.config('prototype.theme').'.modules.posts.show', [
+        return view('post::show', [
             'post' => $this->getPost($slug),
             'relatedPosts' => $this->getRelatedPosts($slug),
         ]);

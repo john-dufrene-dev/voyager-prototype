@@ -11098,11 +11098,13 @@ a.text-dark:focus {
   }
 }
 
+/* global css */
+
 .body-main {
   min-height: 100vh;
 }
 
-/* your main css */
+/* navbar top */
 
 #headerNavbar .left-navbar,
 #headerNavbar .right-navbar {
@@ -11175,4 +11177,6 @@ a.text-dark:focus {
     border-bottom: 1px solid transparent;
   }
 }
+
+/* module post */
 

@@ -27,8 +27,6 @@ if (config('prototype.account') ) {
     Route::get('/passport', 'Pages\PassportController@index')->name('pages.passport');
 }
 
-Route::resource('articles', '\App\Voyager\Http\Controllers\Front\PostController')->only(['index', 'show']);
-
 Route::group(['middleware' => 'auth'], function () {
     Route::get('/admin/filemanager', '\UniSharp\LaravelFilemanager\Controllers\LfmController@show');
     Route::post('/admin/filemanager/upload', '\UniSharp\LaravelFilemanager\Controllers\UploadController@upload');

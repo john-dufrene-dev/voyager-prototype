@@ -22,5 +22,8 @@
 @import "layouts/custom";
 
 // Medias querys
-@import 'medias/default';
-@import 'medias/custom';
+@import 'responsive/default';
+@import 'responsive/custom';
+
+// Modules
+@import 'modules/modules';
