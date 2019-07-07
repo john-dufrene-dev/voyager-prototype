@@ -8,7 +8,7 @@
     "providers": [
         "Modules\\Post\\Providers\\PostServiceProvider"
     ],
-    "aliases": {},
+    "aliases": [],
     "files": [],
     "requires": []
 }

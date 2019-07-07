@@ -232,16 +232,9 @@ return [
     // Choices commands to activate
     'compass_commands' => [
         'clear-compiled',
+        'optimize:clear',
         'down',
         'up',
-        'auth:clear-resets',
-        'cache:clear',
-        'config:cache',
-        'debugbar:clear',
-        'optimize:clear',
-        'route:clear',
-        'view:clear',
-        'view:cache',
     ],
 
     'media' => [

@@ -11,14 +11,29 @@
 |
 */
 
+// GENERALS ROUTES
 Route::get('/', function () {
     return view('themes.'.config('prototype.theme').'.modules.home.index');
 });
 
+// VOYAGER ROUTES
 Route::group(['prefix' => 'admin'], function () {
     Voyager::routes();
+
+    $namespacePrefix = '\\'.config('voyager.controllers.namespace').'\\';
+
+    // Modules Routes
+    Route::group([
+        'as'     => 'modules.',
+        'prefix' => 'modules',
+    ], function () use ($namespacePrefix) {
+        Route::get('/', ['uses' => $namespacePrefix.'VoyagerModulesController@index',  'as' => 'index']);
+        Route::post('/', ['uses' => $namespacePrefix.'VoyagerModulesController@index',  'as' => 'post']);
+    });
+
 });
 
+// ACCOUNT ROUTES
 if (config('prototype.account') ) {
     Auth::routes();
     Route::get('/oauth/token/get', 'Api\ApiTokenController@get')->name('token.oauth.get');
@@ -27,6 +42,7 @@ if (config('prototype.account') ) {
     Route::get('/passport', 'Pages\PassportController@index')->name('pages.passport');
 }
 
+// FILEMANAGER ROUTES
 Route::group(['middleware' => 'auth'], function () {
     Route::get('/admin/filemanager', '\UniSharp\LaravelFilemanager\Controllers\LfmController@show');
     Route::post('/admin/filemanager/upload', '\UniSharp\LaravelFilemanager\Controllers\UploadController@upload');
