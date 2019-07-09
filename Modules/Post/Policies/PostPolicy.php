@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Voyager\Policies;
+namespace Modules\Post\Policies;
 
 use TCG\Voyager\Contracts\User;
 use App\Voyager\Policies\BasePolicy;

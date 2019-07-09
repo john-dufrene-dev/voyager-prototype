@@ -6,6 +6,11 @@
 @section('meta_description', $post->meta_description)
 @section('page_title', $post->title)
 
+@section('css')
+    @parent
+    <link href="{{ mix('modules/post/css/app.css') }}" rel="stylesheet">
+@stop
+
 @section('content')
 
     <div class="container">
@@ -16,3 +21,8 @@
     </div>
 
 @endsection
+
+@section('scripts')
+    @parent
+    <script src="{{ mix('modules/post/js/app.js') }}" defer></script>
+@stop

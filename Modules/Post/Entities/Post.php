@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Voyager\Models;
+namespace Modules\Post\Entities;
 
 use Illuminate\Support\Str;
 use TCG\Voyager\Facades\Voyager;

@@ -1,5 +1,7 @@
 {
     "/js/app.js": "/js/app.js",
     "/css/app.css": "/css/app.css",
-    "/js/voyager/voyager_custom.js": "/js/voyager/voyager_custom.js"
+    "/modules/post/css/app.css": "/modules/post/css/app.css",
+    "/js/voyager/voyager_custom.js": "/js/voyager/voyager_custom.js",
+    "/modules/post/js/app.js": "/modules/post/js/app.js"
 }

@@ -3,7 +3,7 @@
 namespace App\Voyager\Widgets;
 
 use Illuminate\Support\Str;
-use App\Voyager\Models\Post;
+use Modules\Post\Entities\Post;
 use TCG\Voyager\Facades\Voyager;
 
 class PostDimmer extends BaseDimmer

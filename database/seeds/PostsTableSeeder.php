@@ -23,9 +23,9 @@ class PostsTableSeeder extends Seeder
                 'display_name_singular' => __('Seeders.data_types.post.singular'),
                 'display_name_plural'   => __('Seeders.data_types.post.plural'),
                 'icon'                  => 'voyager-news',
-                'model_name'            => 'App\\Voyager\\Models\\Post',
-                'policy_name'           => 'App\\Voyager\\Policies\\PostPolicy',
-                'controller'            => 'App\\Voyager\\Http\\Controllers\\Admin\\PostAdminController',
+                'model_name'            => 'Modules\\Post\\Entities\\Post',
+                'policy_name'           => 'Modules\\Post\\Policies\\PostPolicy',
+                'controller'            => 'Modules\\Post\\Http\\Controllers\\Admin\\PostAdminController',
                 'generate_permissions'  => 1,
                 'description'           => '',
             ])->save();

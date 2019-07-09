@@ -238,6 +238,22 @@ class MenuItemsTableSeeder extends Seeder
         // 1
         $menuItem_2 = MenuItem::firstOrNew([
             'menu_id' => $menu_2->id,
+            'title'   => __('prototype.home.homepage'),
+            'url'     => '/',
+        ]);
+        if (!$menuItem_2->exists) {
+            $menuItem_2->fill([
+                'target'     => '_self',
+                'icon_class' => null,
+                'color'      => null,
+                'parent_id'  => null,
+                'order'      => 1,
+            ])->save();
+        }
+
+        // 2
+        $menuItem_2 = MenuItem::firstOrNew([
+            'menu_id' => $menu_2->id,
             'title'   => __('prototype.blog.my-posts'),
             'url'     => '/articles',
         ]);
@@ -247,7 +263,7 @@ class MenuItemsTableSeeder extends Seeder
                 'icon_class' => null,
                 'color'      => null,
                 'parent_id'  => null,
-                'order'      => 1,
+                'order'      => 2,
             ])->save();
         }
     }

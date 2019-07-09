@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Voyager\Http\Controllers\Admin;
+namespace Modules\Post\Http\Controllers\Admin;
 
 use Illuminate\Database\Eloquent\SoftDeletes;
 use Illuminate\Http\Request;
@@ -122,10 +122,10 @@ class PostAdminController extends BaseVoyagerBaseController
         // Check if a default search key is set
         $defaultSearchKey = $dataType->default_search_key ?? null;
 
-        $view = 'voyager.bread.posts.browse';
+        $view = 'post::admin.posts.browse';
 
-        if (view()->exists("voyager.bread.$slug.browse")) {
-            $view = "voyager.bread.$slug.browse";
+        if (view()->exists("post::admin.$slug.browse")) {
+            $view = "post::admin.$slug.browse";
         }
 
         return Voyager::view($view, compact(
@@ -192,10 +192,10 @@ class PostAdminController extends BaseVoyagerBaseController
         // Check if BREAD is Translatable
         $isModelTranslatable = is_bread_translatable($dataTypeContent);
 
-        $view = 'voyager.bread.posts.edit-add';
+        $view = 'post::admin.posts.edit-add';
 
-        if (view()->exists("voyager.bread.$slug.edit-add")) {
-            $view = "voyager.bread.$slug.edit-add";
+        if (view()->exists("post::admin.$slug.edit-add")) {
+            $view = "post::admin.$slug.edit-add";
         }
 
         return Voyager::view($view, compact('dataType', 'dataTypeContent', 'isModelTranslatable'));
@@ -274,10 +274,10 @@ class PostAdminController extends BaseVoyagerBaseController
         // Check if BREAD is Translatable
         $isModelTranslatable = is_bread_translatable($dataTypeContent);
 
-        $view = 'voyager.bread.posts.edit-add';
+        $view = 'post::admin.posts.edit-add';
 
-        if (view()->exists("voyager.bread.$slug.edit-add")) {
-            $view = "voyager.bread.$slug.edit-add";
+        if (view()->exists("post::admin.$slug.edit-add")) {
+            $view = "post::admin.$slug.edit-add";
         }
 
         return Voyager::view($view, compact('dataType', 'dataTypeContent', 'isModelTranslatable'));

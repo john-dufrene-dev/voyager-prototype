@@ -6,6 +6,11 @@
 @section('meta_description') @parent | Liste des articles @endsection
 @section('page_title') @parent | Liste des articles @endsection
 
+@section('css')
+    @parent
+    <link href="{{ mix('modules/post/css/app.css') }}" rel="stylesheet">
+@stop
+
 @section('content')
 
     @if (count($posts) > 0)
@@ -44,3 +49,8 @@
     @endif
 
 @endsection
+
+@section('scripts')
+    @parent
+    <script src="{{ mix('modules/post/js/app.js') }}" defer></script>
+@stop

@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Voyager\Http\Controllers\Admin;
+namespace Modules\Post\Http\Controllers\Admin;
 
 use Illuminate\Database\Eloquent\SoftDeletes;
 use Illuminate\Http\Request;

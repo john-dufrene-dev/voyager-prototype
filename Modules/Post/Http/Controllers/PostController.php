@@ -2,7 +2,7 @@
 
 namespace Modules\Post\Http\Controllers;
 
-use App\Voyager\Models\Post;
+use Modules\Post\Entities\Post;
 use Illuminate\Http\Request;
 use Illuminate\Http\Response;
 use Illuminate\Support\Carbon;
