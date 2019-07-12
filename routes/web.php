@@ -23,7 +23,7 @@ Route::group(['prefix' => 'admin'], function () {
     $namespacePrefix = '\\'.config('voyager.controllers.namespace').'\\';
 
     // Modules Routes
-    Route::group([
+Route::group([
         'as'     => 'modules.',
         'prefix' => 'modules',
     ], function () use ($namespacePrefix) {
@@ -35,7 +35,9 @@ Route::group(['prefix' => 'admin'], function () {
 
 // ACCOUNT ROUTES
 if (config('prototype.account') ) {
-    Auth::routes();
+    
+    // Auth::routes(); // Replace with Customer Module
+
     Route::get('/oauth/token/get', 'Api\ApiTokenController@get')->name('token.oauth.get');
 // Route::get('/oauth/token/refresh', 'Api\ApiTokenController@refresh')->name('token.oauth.refresh'); IN PROGRESS
     Route::get('/mon-compte', 'Pages\AccountController@index')->name('pages.account');

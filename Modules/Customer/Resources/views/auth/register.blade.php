@@ -1,5 +1,10 @@
 @extends('themes.'.config('prototype.theme').'./layouts/default')
 
+@section('css')
+    @parent
+    <link href="{{ mix('modules/customer/css/app.css') }}" rel="stylesheet">
+@stop
+
 @section('content')
 <div class="container">
     <div class="row justify-content-center">
@@ -75,3 +80,8 @@
     </div>
 </div>
 @endsection
+
+@section('scripts')
+    @parent
+    <script src="{{ mix('modules/customer/js/app.js') }}" defer></script>
+@stop

@@ -1,15 +1,18 @@
 <?php
 
-namespace App\Http\Controllers\Auth;
+namespace Modules\Customer\Http\Controllers\Auth;
 
-use App\User;
 use Illuminate\Support\Str;
+use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
+use Illuminate\Auth\Events\Registered;
+use Modules\Customer\Entities\Customer;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Foundation\Auth\RegistersUsers;
 
-class RegisterController extends Controller
+class CustomerRegisterController extends Controller
 {
     /*
     |--------------------------------------------------------------------------
@@ -24,11 +27,6 @@ class RegisterController extends Controller
 
     use RegistersUsers;
 
-    /**
-     * Where to redirect users after registration.
-     *
-     * @var string
-     */
     protected $redirectTo = '/mon-compte';
 
     /**
@@ -41,6 +39,11 @@ class RegisterController extends Controller
         $this->middleware('guest');
     }
 
+    public function guard()
+    {
+        return Auth::guard('customer');
+    }
+
     /**
      * Show the application registration form.
      *
@@ -48,7 +51,7 @@ class RegisterController extends Controller
      */
     public function showRegistrationForm()
     {
-        return view('themes.'.config('prototype.theme').'.modules.auth.register');
+        return view('customer::auth.register');
     }
 
     /**
@@ -61,7 +64,7 @@ class RegisterController extends Controller
     {
         return Validator::make($data, [
             'name' => ['required', 'string', 'max:255'],
-            'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
+            'email' => ['required', 'string', 'email', 'max:255', 'unique:customers'],
             'password' => ['required', 'string', 'min:8', 'confirmed'],
         ]);
     }
@@ -74,10 +77,11 @@ class RegisterController extends Controller
      */
     protected function create(array $data)
     {
-        return User::create([
+        return Customer::create([
             'name' => $data['name'],
             'email' => $data['email'],
             'password' => Hash::make($data['password']),
         ]);
     }
-}
+
+ }
