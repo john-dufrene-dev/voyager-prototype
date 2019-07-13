@@ -1,11 +1,4 @@
 {
-    "last_remote_check": 1560115646,
-    "hooks": {
-        "generate-migrations-hook": {
-            "name": "generate-migrations-hook",
-            "description": "This hook is to generate voyager-only migration for laravel app",
-            "version": "v0.1.3beta",
-            "enabled": true
-        }
-    }
+    "last_remote_check": 1563011636,
+    "hooks": []
 }

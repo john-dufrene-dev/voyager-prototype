@@ -225,8 +225,10 @@ return [
         'cache' => false,
     ],
 
+    // Activate modules when environment is NOT local
+    'modules_in_production' => true,
     // Activate compass when environment is NOT local
-    'compass_in_production' => false,
+    'compass_in_production' => true,
     // Activate choice artisan commands
     'compass_choice_commands' => true,
     // Choices commands to activate

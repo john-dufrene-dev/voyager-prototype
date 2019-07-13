@@ -19,30 +19,18 @@ Route::get('/', function () {
 // VOYAGER ROUTES
 Route::group(['prefix' => 'admin'], function () {
     Voyager::routes();
-
-    $namespacePrefix = '\\'.config('voyager.controllers.namespace').'\\';
-
-    // Modules Routes
-Route::group([
-        'as'     => 'modules.',
-        'prefix' => 'modules',
-    ], function () use ($namespacePrefix) {
-        Route::get('/', ['uses' => $namespacePrefix.'VoyagerModulesController@index',  'as' => 'index']);
-        Route::post('/', ['uses' => $namespacePrefix.'VoyagerModulesController@index',  'as' => 'post']);
-    });
-
 });
 
 // ACCOUNT ROUTES
 if (config('prototype.account') ) {
-    
-    // Auth::routes(); // Replace with Customer Module
 
     Route::get('/oauth/token/get', 'Api\ApiTokenController@get')->name('token.oauth.get');
 // Route::get('/oauth/token/refresh', 'Api\ApiTokenController@refresh')->name('token.oauth.refresh'); IN PROGRESS
-    Route::get('/mon-compte', 'Pages\AccountController@index')->name('pages.account');
     Route::get('/passport', 'Pages\PassportController@index')->name('pages.passport');
 }
+
+if(Module::find('Customer')->enabled())
+    Route::get('/mon-compte', 'Pages\AccountController@index')->name('pages.account');
 
 // FILEMANAGER ROUTES
 Route::group(['middleware' => 'auth'], function () {

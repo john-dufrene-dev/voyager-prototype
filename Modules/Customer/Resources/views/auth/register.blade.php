@@ -10,7 +10,7 @@
     <div class="row justify-content-center">
         <div class="col-md-8">
             <div class="card">
-                <div class="card-header">{{ __('Register') }}</div>
+                <div class="card-header">{{ __('Auth.register') }}</div>
 
                 <div class="card-body">
                     <form method="POST" action="{{ route('register') }}">
@@ -69,11 +69,21 @@
                         <div class="form-group row mb-0">
                             <div class="col-md-6 offset-md-4">
                                 <button type="submit" class="btn btn-primary">
-                                    {{ __('Register') }}
+                                    {{ __('Auth.register') }}
                                 </button>
                             </div>
                         </div>
                     </form>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="card">
+                <div class="card-header">{{ __('Auth.login') }}</div>
+                <div class="card-body">
+                    <h4>{{ __('customer::auth.Connect to your account') }}</h4>
+                    <p>{{ __('customer::auth.Infos connexion') }}.</p>
+                    <a href="{{ route('login') }}" class="btn btn-primary">{{ __('Auth.login') }}</a>
                 </div>
             </div>
         </div>

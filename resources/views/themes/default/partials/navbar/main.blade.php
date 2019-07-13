@@ -11,8 +11,9 @@
             {!! menu('header', 'themes.'.config('prototype.theme').'.partials.navbar.menus._left') !!}
 
             <!-- Right Side Of Navbar -->
-            @include('themes.'.config('prototype.theme').'.partials.navbar.menus._right')
-            
+            @if(Module::find('Customer')->enabled())
+                @include('themes.'.config('prototype.theme').'.partials.navbar.menus._right')
+            @endif
         </div>
     </div>
 </nav>

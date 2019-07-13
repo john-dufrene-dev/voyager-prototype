@@ -2,15 +2,15 @@
 
 @section('css')
 
-    @include('voyager.modules.includes.styles')
+    @include('modulesmanagement::admin.modules.includes.styles')
 
 @stop
 
 @section('page_header')
     <h1 class="page-title">
         <i class="voyager-hook"></i>
-        {{-- <p> {{ __('voyager::generic.modules') }}</p>
-        <span class="page-description">{{ __('voyager::compass.welcome') }}</span> --}}
+        <p> {{ __('voyager::generic.compass') }}</p>
+        <span class="page-description">{{ __('voyager::compass.welcome') }}</span>
     </h1>
 @stop
 
@@ -31,13 +31,13 @@
         <div class="tab-content">
 
             <div id="list" class="tab-pane fade in @if($active_tab == 'list'){!! 'active' !!}@endif">
-                @include('voyager.modules.includes.list')
+                @include('modulesmanagement::admin.modules.includes.list')
             </div>
 
             <div id="commands" class="tab-pane fade in @if($active_tab == 'commands'){!! 'active' !!}@endif">
                 <h3><i class="voyager-terminal"></i> {{ __('voyager::compass.commands.title') }} <small>{{ __('voyager::compass.commands.text') }}</small></h3>
                 <div id="command_lists">
-                    @include('voyager.modules.includes.commands')
+                    @include('modulesmanagement::admin.modules.includes.commands')
                 </div>
             </div>
 

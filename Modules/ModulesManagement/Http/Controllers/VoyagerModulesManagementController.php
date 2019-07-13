@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Voyager\Http\Controllers;
+namespace Modules\ModulesManagement\Http\Controllers;
 
 use Artisan;
 use Exception;
@@ -13,7 +13,7 @@ use Symfony\Component\Process\Process;
 use Symfony\Component\Process\Exception\ProcessFailedException;
 use Symfony\Component\HttpKernel\Exception\AccessDeniedHttpException;
 
-class VoyagerModulesController extends Controller
+class VoyagerModulesManagementController extends Controller
 {
     protected $request;
 
@@ -26,7 +26,7 @@ class VoyagerModulesController extends Controller
     {
         // Check permission
         if(!Auth::user()->hasPermission('browse_modules')) {
-            abort(403, 'This action is unauthorized.');
+            throw new AccessDeniedHttpException();
         }
 
         //Check if app is not local
@@ -71,7 +71,7 @@ class VoyagerModulesController extends Controller
         // get the full list of artisan commands and store the output
         $commands = $this->getArtisanCommands();
 
-        return view('voyager.modules.index', compact(
+        return view('modulesmanagement::admin.modules.index', compact(
             'active_tab', 
             'commands',
             'artisan_output',

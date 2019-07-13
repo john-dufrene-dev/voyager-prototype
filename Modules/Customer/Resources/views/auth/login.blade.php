@@ -64,12 +64,23 @@
 
                                 @if (Route::has('password.request'))
                                     <a class="btn btn-link" href="{{ route('password.request') }}">
-                                        {{ __('Forgot Your Password?') }}
+                                        {{ __('customer::auth.Forgot your password ?') }}
                                     </a>
                                 @endif
                             </div>
                         </div>
                     </form>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="card">
+                <div class="card-header">{{ __('Auth.register') }}</div>
+                <div class="card-body">
+                    <h4>{{ __('customer::auth.Infos register') }}</h4>
+                    <p>{{ __('customer::auth.Infos register part 1') }} <a href="#">{{ __('customer::auth.Confidentiality') }}</a>
+                    {{ __('customer::auth.Infos register part 2') }} <a href="#"> {{ __('customer::auth.CGV') }} </a> .</p>
+                    <a href="{{ route('register') }}" class="btn btn-primary">{{ __('Auth.register') }}</a>
                 </div>
             </div>
         </div>

@@ -7,14 +7,13 @@
     .left-navbar, .right-navbar {
         text-transform:uppercase;
         letter-spacing: 1px;
-        font-size:13px;
+        font-size:15px;
         a {
             padding: 3px 5px 0 5px;
-            margin:0 10px;
+            margin:0 5px;
             color:#000;
-            border:1px solid transparent;
             &:hover{
-                border-bottom:1px solid $primarycolor;
+                color: $primarycolor;
                 transition: all 1.8s ease;
             }
         }
@@ -27,17 +26,64 @@
                 padding:5px;
                 font-size:10px;
                 border:0;
-                border:2px solid transparent;
+                background-color:transparent;
                 &:hover{
-                    background-color:$body-bg;
+                    color:$primarycolor;
                 } 
             }
             .active {
-                background-color:$teal;
+                background-color:transparent;
+                color:$primarycolor;
             }
         }
         .active {
-            border-bottom:1px solid $primarycolor;
+            color: $primarycolor;
+            font-weight:bold; 
+        }
+    }
+}
+
+////////////////////////////////////////////////////////////
+// Media Query Navbar header //////////////////////////////
+//////////////////////////////////////////////////////////
+
+@media all and (max-width: 760px) {
+    #headerNavbar {
+        .left-navbar, .right-navbar {
+            a {
+                font-size:13px;
+                padding: 7px;
+                &:hover{
+                    color:$primarycolor;
+                    background-color:transparent;
+                    transition: all 1.8s ease;
+                }
+            }
+            .navbar-dropdown-menu {
+                border:0;
+                background-color:#fff;
+                border-radius:0;
+                text-align:left;
+                box-shadow: none!important;
+                width:33%;
+                a {
+                    margin:0;
+                    padding:5px 25px;
+                    font-size:10px;
+                    border:0;
+                    &:hover{
+                        background-color:transparent;
+                    } 
+                }
+                .active {
+                    background-color:transparent;
+                    color:$primarycolor;
+                }
+            }
+            .active {
+                color:$primarycolor;
+                font-weight:bold;
+            }
         }
     }
 }

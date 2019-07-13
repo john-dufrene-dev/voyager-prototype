@@ -13,10 +13,12 @@ return [
     |
     */
 
-    'failed' => 'Les informations renseignées sont incorrectes.',
-    'throttle' => 'Trop de tentatives de connexion. Veuillez réessayer dans :seconds secondes.',
-    'login' => 'Connexion',
-    'register' => 'Inscription',
-    'account' => 'Mon compte',
-
+    'Infos register' => 'Not registered?',
+    'Infos register part 1' => 'By creating your account, you accept the ',
+    'Infos register part 2' => 'of the site and the ',
+    'CGV' => 'General conditions of sale',
+    'Confidentiality' => 'Privacy policy',
+    'Forgot your password ?' => 'Forgot your password ?',
+    'Connect to your account' => 'Login to your account',
+    'Infos connexion' => 'Log in to your account to enjoy all our services',
 ];

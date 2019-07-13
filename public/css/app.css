@@ -10654,20 +10654,19 @@ a.text-dark:focus {
 #headerNavbar .right-navbar {
   text-transform: uppercase;
   letter-spacing: 1px;
-  font-size: 13px;
+  font-size: 15px;
 }
 
 #headerNavbar .left-navbar a,
 #headerNavbar .right-navbar a {
   padding: 3px 5px 0 5px;
-  margin: 0 10px;
+  margin: 0 5px;
   color: #000;
-  border: 1px solid transparent;
 }
 
 #headerNavbar .left-navbar a:hover,
 #headerNavbar .right-navbar a:hover {
-  border-bottom: 1px solid #00bc88;
+  color: #00bc88;
   transition: all 1.8s ease;
 }
 
@@ -10684,40 +10683,73 @@ a.text-dark:focus {
   padding: 5px;
   font-size: 10px;
   border: 0;
-  border: 2px solid transparent;
+  background-color: transparent;
 }
 
 #headerNavbar .left-navbar .navbar-dropdown-menu a:hover,
 #headerNavbar .right-navbar .navbar-dropdown-menu a:hover {
-  background-color: #f8fafc;
+  color: #00bc88;
 }
 
 #headerNavbar .left-navbar .navbar-dropdown-menu .active,
 #headerNavbar .right-navbar .navbar-dropdown-menu .active {
-  background-color: #66e6d9;
+  background-color: transparent;
+  color: #00bc88;
 }
 
 #headerNavbar .left-navbar .active,
 #headerNavbar .right-navbar .active {
-  border-bottom: 1px solid #00bc88;
+  color: #00bc88;
+  font-weight: bold;
 }
 
 @media all and (max-width: 760px) {
   #headerNavbar .left-navbar a,
   #headerNavbar .right-navbar a {
-    padding: 3px 5px 0 5px;
-    margin: 5px 10px;
-    border: 1px solid transparent;
+    font-size: 13px;
+    padding: 7px;
   }
 
   #headerNavbar .left-navbar a:hover,
   #headerNavbar .right-navbar a:hover {
-    border-bottom: 1px solid transparent;
+    color: #00bc88;
+    background-color: transparent;
+    transition: all 1.8s ease;
+  }
+
+  #headerNavbar .left-navbar .navbar-dropdown-menu,
+  #headerNavbar .right-navbar .navbar-dropdown-menu {
+    border: 0;
+    background-color: #fff;
+    border-radius: 0;
+    text-align: left;
+    box-shadow: none !important;
+    width: 33%;
+  }
+
+  #headerNavbar .left-navbar .navbar-dropdown-menu a,
+  #headerNavbar .right-navbar .navbar-dropdown-menu a {
+    margin: 0;
+    padding: 5px 25px;
+    font-size: 10px;
+    border: 0;
+  }
+
+  #headerNavbar .left-navbar .navbar-dropdown-menu a:hover,
+  #headerNavbar .right-navbar .navbar-dropdown-menu a:hover {
+    background-color: transparent;
+  }
+
+  #headerNavbar .left-navbar .navbar-dropdown-menu .active,
+  #headerNavbar .right-navbar .navbar-dropdown-menu .active {
+    background-color: transparent;
+    color: #00bc88;
   }
 
   #headerNavbar .left-navbar .active,
   #headerNavbar .right-navbar .active {
-    border-bottom: 1px solid transparent;
+    color: #00bc88;
+    font-weight: bold;
   }
 }
 
