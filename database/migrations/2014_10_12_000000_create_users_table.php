@@ -22,13 +22,6 @@ class CreateUsersTable extends Migration
             $table->rememberToken();
             $table->timestamps();
         });
-
-        Schema::table('users', function ($table) {
-            $table->string('api_token', 80)->after('password')
-            ->unique()
-            ->nullable()
-            ->default(null);
-        });
     }
 
     /**

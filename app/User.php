@@ -2,41 +2,51 @@
 
 namespace App;
 
+use Carbon\Carbon;
 use Laravel\Passport\HasApiTokens;
+use TCG\Voyager\Traits\VoyagerUser;
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Contracts\Auth\MustVerifyEmail;
+use TCG\Voyager\Contracts\User as UserContract;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 
-class User extends Voyager\Models\User
+class User extends \TCG\Voyager\Models\User
 {
-    use HasApiTokens, Notifiable;
+    use HasApiTokens, Notifiable, VoyagerUser;
 
-    /**
-     * The attributes that are mass assignable.
-     *
-     * @var array
-     */
-    protected $fillable = [
-        'name', 'email', 'password',
-    ];
+    protected $guarded = [];
 
-    /**
-     * The attributes that should be hidden for arrays.
-     *
-     * @var array
-     */
-    protected $hidden = [
-        'password', 'remember_token',
-    ];
+    public $additional_attributes = ['locale'];
 
-    /**
-     * The attributes that should be cast to native types.
-     *
-     * @var array
-     */
-    protected $casts = [
-        'email_verified_at' => 'datetime',
-    ];
+    public function getAvatarAttribute($value)
+    {
+        return $value ?? config('voyager.user.default_avatar', 'users/default.png');
+    }
+
+    public function setCreatedAtAttribute($value)
+    {
+        $this->attributes['created_at'] = Carbon::parse($value)->format('Y-m-d H:i:s');
+    }
+
+    public function setSettingsAttribute($value)
+    {
+        $this->attributes['settings'] = $value->toJson();
+    }
+
+    public function getSettingsAttribute($value)
+    {
+        return collect(json_decode($value));
+    }
+
+    public function setLocaleAttribute($value)
+    {
+        $this->settings = $this->settings->merge(['locale' => $value]);
+    }
+
+    public function getLocaleAttribute()
+    {
+        return $this->settings->get('locale');
+    }
 
     public function isAdmin()
     {

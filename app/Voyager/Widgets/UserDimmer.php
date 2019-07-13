@@ -2,8 +2,8 @@
 
 namespace App\Voyager\Widgets;
 
+use App\User;
 use Illuminate\Support\Str;
-use App\Voyager\Models\User;
 use TCG\Voyager\Facades\Voyager;
 
 class UserDimmer extends BaseDimmer

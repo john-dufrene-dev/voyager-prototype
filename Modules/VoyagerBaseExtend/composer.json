@@ -1,0 +1,25 @@
+{
+    "name": "nwidart/voyagerbaseextend",
+    "description": "",
+    "authors": [
+        {
+            "name": "John Dufrene",
+            "email": "john.dufrene.pro@gmail.com"
+        }
+    ],
+    "extra": {
+        "laravel": {
+            "providers": [
+                "Modules\\VoyagerBaseExtend\\Providers\\VoyagerBaseExtendServiceProvider"
+            ],
+            "aliases": {
+                
+            }
+        }
+    },
+    "autoload": {
+        "psr-4": {
+            "Modules\\VoyagerBaseExtend\\": ""
+        }
+    }
+}

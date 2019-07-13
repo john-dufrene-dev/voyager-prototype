@@ -17,9 +17,12 @@ Route::get('/', function () {
 });
 
 // VOYAGER ROUTES
-Route::group(['prefix' => 'admin'], function () {
-    Voyager::routes();
-});
+if(Module::find('VoyagerBaseExtend')->disabled()) {
+    Route::group(['prefix' => 'admin'], function () {
+        Voyager::routes();
+    });
+}
+
 
 // ACCOUNT ROUTES
 if (config('prototype.account') ) {

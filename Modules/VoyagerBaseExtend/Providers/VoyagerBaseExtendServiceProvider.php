@@ -1,11 +1,11 @@
 <?php
 
-namespace Modules\Customer\Providers;
+namespace Modules\VoyagerBaseExtend\Providers;
 
 use Illuminate\Support\ServiceProvider;
 use Illuminate\Database\Eloquent\Factory;
 
-class CustomerServiceProvider extends ServiceProvider
+class VoyagerBaseExtendServiceProvider extends ServiceProvider
 {
     /**
      * Boot the application events.
@@ -37,10 +37,10 @@ class CustomerServiceProvider extends ServiceProvider
     protected function registerConfig()
     {
         $this->publishes([
-            __DIR__.'/../Config/config.php' => config_path('customer.php'),
+            __DIR__.'/../Config/config.php' => config_path('voyagerbaseextend.php'),
         ], 'config');
         $this->mergeConfigFrom(
-            __DIR__.'/../Config/config.php', 'customer'
+            __DIR__.'/../Config/config.php', 'voyagerbaseextend'
         );
     }
 
@@ -51,7 +51,7 @@ class CustomerServiceProvider extends ServiceProvider
      */
     public function registerViews()
     {
-        $viewPath = resource_path('views/modules/customer');
+        $viewPath = resource_path('views/modules/voyagerbaseextend');
 
         $sourcePath = __DIR__.'/../Resources/views';
 
@@ -60,8 +60,8 @@ class CustomerServiceProvider extends ServiceProvider
         ],'views');
 
         $this->loadViewsFrom(array_merge(array_map(function ($path) {
-            return $path . '/modules/customer';
-        }, \Config::get('view.paths')), [$sourcePath]), 'customer');
+            return $path . '/modules/voyagerbaseextend';
+        }, \Config::get('view.paths')), [$sourcePath]), 'voyagerbaseextend');
     }
 
     /**
@@ -71,12 +71,12 @@ class CustomerServiceProvider extends ServiceProvider
      */
     public function registerTranslations()
     {
-        $langPath = resource_path('lang/modules/customer');
+        $langPath = resource_path('lang/modules/voyagerbaseextend');
 
         if (is_dir($langPath)) {
-            $this->loadTranslationsFrom($langPath, 'customer');
+            $this->loadTranslationsFrom($langPath, 'voyagerbaseextend');
         } else {
-            $this->loadTranslationsFrom(__DIR__ .'/../Resources/lang', 'customer');
+            $this->loadTranslationsFrom(__DIR__ .'/../Resources/lang', 'voyagerbaseextend');
         }
     }
 
