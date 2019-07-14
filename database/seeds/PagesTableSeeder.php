@@ -22,8 +22,8 @@ class PagesTableSeeder extends Seeder
         if (!$dataType->exists) {
             $dataType->fill([
                 'name'                  => 'pages',
-                'display_name_singular' => __('Seeders.data_types.page.singular'),
-                'display_name_plural'   => __('Seeders.data_types.page.plural'),
+                'display_name_singular' => __('seeders.data_types.page.singular'),
+                'display_name_plural'   => __('seeders.data_types.page.plural'),
                 'icon'                  => 'voyager-file-text',
                 'model_name'            => 'TCG\\Voyager\\Models\\Page',
                 'controller'            => '',
@@ -38,7 +38,7 @@ class PagesTableSeeder extends Seeder
         if (!$dataRow->exists) {
             $dataRow->fill([
                 'type'         => 'number',
-                'display_name' => __('Seeders.data_rows.id'),
+                'display_name' => __('seeders.data_rows.id'),
                 'required'     => 1,
                 'browse'       => 0,
                 'read'         => 0,
@@ -53,7 +53,7 @@ class PagesTableSeeder extends Seeder
         if (!$dataRow->exists) {
             $dataRow->fill([
                 'type'         => 'text',
-                'display_name' => __('Seeders.data_rows.author'),
+                'display_name' => __('seeders.data_rows.author'),
                 'required'     => 1,
                 'browse'       => 0,
                 'read'         => 0,
@@ -68,7 +68,7 @@ class PagesTableSeeder extends Seeder
         if (!$dataRow->exists) {
             $dataRow->fill([
                 'type'         => 'text',
-                'display_name' => __('Seeders.data_rows.title'),
+                'display_name' => __('seeders.data_rows.title'),
                 'required'     => 1,
                 'browse'       => 1,
                 'read'         => 1,
@@ -83,7 +83,7 @@ class PagesTableSeeder extends Seeder
         if (!$dataRow->exists) {
             $dataRow->fill([
                 'type'         => 'text_area',
-                'display_name' => __('Seeders.data_rows.excerpt'),
+                'display_name' => __('seeders.data_rows.excerpt'),
                 'required'     => 1,
                 'browse'       => 0,
                 'read'         => 1,
@@ -98,7 +98,7 @@ class PagesTableSeeder extends Seeder
         if (!$dataRow->exists) {
             $dataRow->fill([
                 'type'         => 'rich_text_box',
-                'display_name' => __('Seeders.data_rows.body'),
+                'display_name' => __('seeders.data_rows.body'),
                 'required'     => 1,
                 'browse'       => 0,
                 'read'         => 1,
@@ -113,7 +113,7 @@ class PagesTableSeeder extends Seeder
         if (!$dataRow->exists) {
             $dataRow->fill([
                 'type'         => 'text',
-                'display_name' => __('Seeders.data_rows.slug'),
+                'display_name' => __('seeders.data_rows.slug'),
                 'required'     => 1,
                 'browse'       => 0,
                 'read'         => 1,
@@ -136,7 +136,7 @@ class PagesTableSeeder extends Seeder
         if (!$dataRow->exists) {
             $dataRow->fill([
                 'type'         => 'text',
-                'display_name' => __('Seeders.data_rows.meta_description'),
+                'display_name' => __('seeders.data_rows.meta_description'),
                 'required'     => 1,
                 'browse'       => 0,
                 'read'         => 1,
@@ -151,7 +151,7 @@ class PagesTableSeeder extends Seeder
         if (!$dataRow->exists) {
             $dataRow->fill([
                 'type'         => 'text',
-                'display_name' => __('Seeders.data_rows.meta_keywords'),
+                'display_name' => __('seeders.data_rows.meta_keywords'),
                 'required'     => 1,
                 'browse'       => 0,
                 'read'         => 1,
@@ -166,7 +166,7 @@ class PagesTableSeeder extends Seeder
         if (!$dataRow->exists) {
             $dataRow->fill([
                 'type'         => 'select_dropdown',
-                'display_name' => __('Seeders.data_rows.status'),
+                'display_name' => __('seeders.data_rows.status'),
                 'required'     => 1,
                 'browse'       => 1,
                 'read'         => 1,
@@ -188,7 +188,7 @@ class PagesTableSeeder extends Seeder
         if (!$dataRow->exists) {
             $dataRow->fill([
                 'type'         => 'timestamp',
-                'display_name' => __('Seeders.data_rows.created_at'),
+                'display_name' => __('seeders.data_rows.created_at'),
                 'required'     => 1,
                 'browse'       => 1,
                 'read'         => 1,
@@ -203,7 +203,7 @@ class PagesTableSeeder extends Seeder
         if (!$dataRow->exists) {
             $dataRow->fill([
                 'type'         => 'timestamp',
-                'display_name' => __('Seeders.data_rows.updated_at'),
+                'display_name' => __('seeders.data_rows.updated_at'),
                 'required'     => 1,
                 'browse'       => 0,
                 'read'         => 0,
@@ -218,7 +218,7 @@ class PagesTableSeeder extends Seeder
         if (!$dataRow->exists) {
             $dataRow->fill([
                 'type'         => 'image',
-                'display_name' => __('Seeders.data_rows.page_image'),
+                'display_name' => __('seeders.data_rows.page_image'),
                 'required'     => 0,
                 'browse'       => 1,
                 'read'         => 1,
@@ -233,7 +233,7 @@ class PagesTableSeeder extends Seeder
         $menu = Menu::where('name', 'admin')->firstOrFail();
         $menuItem = MenuItem::firstOrNew([
             'menu_id' => $menu->id,
-            'title'   => __('Seeders.menu_items.pages'),
+            'title'   => __('seeders.menu_items.pages'),
             'url'     => '',
             'route'   => 'voyager.pages.index',
         ]);
