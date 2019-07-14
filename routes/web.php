@@ -36,7 +36,7 @@ if(Module::find('Customer')->enabled())
     Route::get('/mon-compte', 'Pages\AccountController@index')->name('pages.account');
 
 // FILEMANAGER ROUTES
-Route::group(['middleware' => 'auth'], function () {
+Route::group(['middleware' => 'admin.user'], function () {
     Route::get('/admin/filemanager', '\UniSharp\LaravelFilemanager\Controllers\LfmController@show');
     Route::post('/admin/filemanager/upload', '\UniSharp\LaravelFilemanager\Controllers\UploadController@upload');
 });

@@ -5,7 +5,7 @@
         <li class="nav-item">
             <a class="a-right-navbar nav-link 
             @if(Route::is('login') || Route::is('register') ) active @endif " href="{{ route('login') }}">
-            {{ __('Auth.account') }}</a>
+            {{ __('auth.account') }}</a>
         </li>
     @else
         <li class="nav-item dropdown">

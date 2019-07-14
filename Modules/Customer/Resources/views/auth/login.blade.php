@@ -10,7 +10,7 @@
     <div class="row justify-content-center">
         <div class="col-md-8">
             <div class="card">
-                <div class="card-header">{{ __('Auth.login') }}</div>
+                <div class="card-header">{{ __('auth.login') }}</div>
 
                 <div class="card-body">
                     <form method="POST" action="{{ route('login.post') }}">
@@ -59,7 +59,7 @@
                         <div class="form-group row mb-0">
                             <div class="col-md-8 offset-md-4">
                                 <button type="submit" class="btn btn-primary">
-                                    {{ __('Auth.login') }}
+                                    {{ __('auth.login') }}
                                 </button>
 
                                 @if (Route::has('password.request'))
@@ -75,12 +75,12 @@
         </div>
         <div class="col-md-4">
             <div class="card">
-                <div class="card-header">{{ __('Auth.register') }}</div>
+                <div class="card-header">{{ __('auth.register') }}</div>
                 <div class="card-body">
                     <h4>{{ __('customer::auth.Infos register') }}</h4>
                     <p>{{ __('customer::auth.Infos register part 1') }} <a href="#">{{ __('customer::auth.Confidentiality') }}</a>
                     {{ __('customer::auth.Infos register part 2') }} <a href="#"> {{ __('customer::auth.CGV') }} </a> .</p>
-                    <a href="{{ route('register') }}" class="btn btn-primary">{{ __('Auth.register') }}</a>
+                    <a href="{{ route('register') }}" class="btn btn-primary">{{ __('auth.register') }}</a>
                 </div>
             </div>
         </div>

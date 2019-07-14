@@ -22,8 +22,8 @@ class CategoriesTableSeeder extends Seeder
         if (!$dataType->exists) {
             $dataType->fill([
                 'slug'                  => 'categories',
-                'display_name_singular' => __('Seeders.data_types.category.singular'),
-                'display_name_plural'   => __('Seeders.data_types.category.plural'),
+                'display_name_singular' => __('seeders.data_types.category.singular'),
+                'display_name_plural'   => __('seeders.data_types.category.plural'),
                 'icon'                  => 'voyager-categories',
                 'model_name'            => 'Modules\\Post\\Entities\\Category',
                 'controller'            => 'Modules\\Post\\Http\\Controllers\\Admin\\CategoryAdminController',
@@ -37,7 +37,7 @@ class CategoriesTableSeeder extends Seeder
         if (!$dataRow->exists) {
             $dataRow->fill([
                 'type'         => 'number',
-                'display_name' => __('Seeders.data_rows.id'),
+                'display_name' => __('seeders.data_rows.id'),
                 'required'     => 1,
                 'browse'       => 0,
                 'read'         => 0,
@@ -52,7 +52,7 @@ class CategoriesTableSeeder extends Seeder
         if (!$dataRow->exists) {
             $dataRow->fill([
                 'type'         => 'select_dropdown',
-                'display_name' => __('Seeders.data_rows.parent'),
+                'display_name' => __('seeders.data_rows.parent'),
                 'required'     => 0,
                 'browse'       => 0,
                 'read'         => 1,
@@ -78,7 +78,7 @@ class CategoriesTableSeeder extends Seeder
         if (!$dataRow->exists) {
             $dataRow->fill([
                 'type'         => 'text',
-                'display_name' => __('Seeders.data_rows.order'),
+                'display_name' => __('seeders.data_rows.order'),
                 'required'     => 1,
                 'browse'       => 1,
                 'read'         => 1,
@@ -96,7 +96,7 @@ class CategoriesTableSeeder extends Seeder
         if (!$dataRow->exists) {
             $dataRow->fill([
                 'type'         => 'text',
-                'display_name' => __('Seeders.data_rows.name'),
+                'display_name' => __('seeders.data_rows.name'),
                 'required'     => 1,
                 'browse'       => 1,
                 'read'         => 1,
@@ -111,7 +111,7 @@ class CategoriesTableSeeder extends Seeder
         if (!$dataRow->exists) {
             $dataRow->fill([
                 'type'         => 'text',
-                'display_name' => __('Seeders.data_rows.slug'),
+                'display_name' => __('seeders.data_rows.slug'),
                 'required'     => 1,
                 'browse'       => 1,
                 'read'         => 1,
@@ -131,7 +131,7 @@ class CategoriesTableSeeder extends Seeder
         if (!$dataRow->exists) {
             $dataRow->fill([
                 'type'         => 'timestamp',
-                'display_name' => __('Seeders.data_rows.created_at'),
+                'display_name' => __('seeders.data_rows.created_at'),
                 'required'     => 0,
                 'browse'       => 0,
                 'read'         => 1,
@@ -146,7 +146,7 @@ class CategoriesTableSeeder extends Seeder
         if (!$dataRow->exists) {
             $dataRow->fill([
                 'type'         => 'timestamp',
-                'display_name' => __('Seeders.data_rows.updated_at'),
+                'display_name' => __('seeders.data_rows.updated_at'),
                 'required'     => 0,
                 'browse'       => 0,
                 'read'         => 0,
@@ -161,7 +161,7 @@ class CategoriesTableSeeder extends Seeder
         $menu = Menu::where('name', 'admin')->firstOrFail();
         $menuItem = MenuItem::firstOrNew([
             'menu_id' => $menu->id,
-            'title'   => __('Seeders.menu_items.categories'),
+            'title'   => __('seeders.menu_items.categories'),
             'url'     => '',
             'route'   => 'voyager.categories.index',
         ]);
