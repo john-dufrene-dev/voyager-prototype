@@ -109,10 +109,10 @@ return [
     ],
 
     // permissions to be set when create a new folder or when it creates automatically with thumbnails
-    'create_folder_mode' => 0755,
+    'create_folder_mode' => 0775,
 
     // permissions to be set on file upload.
-    'create_file_mode' => 0644,
+    'create_file_mode' => 0666,
     
     // If true, it will attempt to chmod the file after upload
     'should_change_file_mode' => true,

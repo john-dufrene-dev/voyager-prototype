@@ -7,9 +7,9 @@ class LfmConfigHandler extends \UniSharp\LaravelFilemanager\Handlers\ConfigHandl
     public function userField()
     {
         if(auth()->user()->hasRole(config('lfm.allow_roles_folder'))){
-            return '';
+            return 'get';
         }else{
-        	return auth()->user()->id;
+            return 'get/' . auth()->user()->id;
         }
     }
 }
