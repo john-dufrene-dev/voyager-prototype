@@ -6,6 +6,7 @@ use Artisan;
 use Exception;
 use Illuminate\Http\Request;
 use TCG\Voyager\Facades\Voyager;
+use Nwidart\Modules\Facades\Module;
 use Symfony\Component\Process\Process;
 use Symfony\Component\Process\Exception\ProcessFailedException;
 use Symfony\Component\HttpKernel\Exception\AccessDeniedHttpException;
@@ -19,6 +20,9 @@ class VoyagerCompassExtendController extends BaseVoyagerCompassController
 
     public function __construct()
     {
+        if(Module::find('VoyagerBaseExtend')->disabled())
+            abort(403, 'Module not allowed.');
+
         $this->request = app('request');
         $this->compass_choice_commands = config('voyager.compass_choice_commands');
         $this->compass_commands = config('voyager.compass_commands');

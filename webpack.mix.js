@@ -32,3 +32,7 @@ mix.sass('Modules/Post/Resources/assets/sass/app.scss', 'public/modules/post/css
 // Module Customer
 mix.js('Modules/Customer/Resources/assets/js/app.js', 'public/modules/customer/js');
 mix.sass('Modules/Customer/Resources/assets/sass/app.scss', 'public/modules/customer/css');
+
+// Module Maintenance
+mix.js('Modules/MaintenanceMode/Resources/assets/js/app.js', 'public/modules/maintenancemode/js');
+mix.sass('Modules/MaintenanceMode/Resources/assets/sass/app.scss', 'public/modules/maintenancemode/css');

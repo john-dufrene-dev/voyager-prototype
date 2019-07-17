@@ -27,6 +27,7 @@ return [
         'status'           => 'Statut',
         'title'            => 'Titre',
         'updated_at'       => 'Mis à jour le',
+        'ip_maintenance'   => 'Adresse IP',
     ],
     'data_types' => [
         'category' => [
@@ -53,6 +54,10 @@ return [
             'singular' => 'Utilisateur',
             'plural'   => 'Utilisateurs',
         ],
+        'maintenance'     => [
+            'singular' => 'Mode maintenance',
+            'plural'   => 'Mode maintenance',
+        ],
     ],
     'menu_items' => [
         'bread'        => 'BREAD',
@@ -65,9 +70,15 @@ return [
         'pages'        => 'Pages',
         'posts'        => 'Articles',
         'roles'        => 'Rôles',
+        'settings_full'=> 'Paramètres avancés',
         'settings'     => 'Paramètres',
+        'general'      => 'Général',
         'tools'        => 'Outils',
         'users'        => 'Utilisateurs',
+        'manage'       => 'Gestions',
+        'modules'      => 'Modules',
+        'customers'    => 'Clients',
+        'maintenance'  => 'Maintenance',
     ],
     'roles'      => [
         'admin' => 'Administrateur',

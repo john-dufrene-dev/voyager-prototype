@@ -1,10 +1,11 @@
 <?php
 
-namespace App\Http\Middleware;
+namespace App\Http\Middleware\Modules;
 
 use Closure;
+use Illuminate\Support\Facades\Auth;
 
-class RedirectIfNotCustomer
+class RedirectIfAuthenticated
 {
     /**
      * Handle an incoming request.
@@ -14,12 +15,12 @@ class RedirectIfNotCustomer
      * @param  string|null  $guard
      * @return mixed
      */
-    public function handle($request, Closure $next, $guard="customer")
+    public function handle($request, Closure $next, $guard = 'customer')
     {
-        if(!auth()->guard($guard)->check()) {
-            return redirect(route('login'));
+        if (Auth::guard($guard)->check()) {
+            return redirect('/mon-compte');
         }
-        
+
         return $next($request);
     }
 }

@@ -1,0 +1,25 @@
+{
+    "name": "nwidart/maintenancemode",
+    "description": "",
+    "authors": [
+        {
+            "name": "John Dufrene",
+            "email": "john.dufrene.pro@gmail.com"
+        }
+    ],
+    "extra": {
+        "laravel": {
+            "providers": [
+                "Modules\\MaintenanceMode\\Providers\\MaintenanceModeServiceProvider"
+            ],
+            "aliases": {
+                
+            }
+        }
+    },
+    "autoload": {
+        "psr-4": {
+            "Modules\\MaintenanceMode\\": ""
+        }
+    }
+}

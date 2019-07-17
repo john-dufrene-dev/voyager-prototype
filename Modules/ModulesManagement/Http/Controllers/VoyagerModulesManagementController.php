@@ -20,6 +20,9 @@ class VoyagerModulesManagementController extends Controller
     public function __construct()
     {
         $this->request = app('request');
+
+        if(Module::find('ModulesManagement')->disabled())
+            abort(403, 'Module not allowed.');
     }
 
     public function index(Request $request)

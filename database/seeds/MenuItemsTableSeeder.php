@@ -101,7 +101,7 @@ class MenuItemsTableSeeder extends Seeder
         // 6
         $toolsMenuItemUser = MenuItem::firstOrNew([
             'menu_id' => $menu->id,
-            'title'   => __('Utilisateurs'),
+            'title'   => __('seeders.menu_items.manage'),
             'url'     => '',
         ]);
         if (!$toolsMenuItemUser->exists) {
@@ -126,7 +126,7 @@ class MenuItemsTableSeeder extends Seeder
                 'target'     => '_self',
                 'icon_class' => 'voyager-person',
                 'color'      => null,
-                'parent_id'  => 6,
+                'parent_id'  => $toolsMenuItemUser->id,
                 'order'      => 10,
             ])->save();
         }
@@ -143,7 +143,7 @@ class MenuItemsTableSeeder extends Seeder
                 'target'     => '_self',
                 'icon_class' => 'voyager-lock',
                 'color'      => null,
-                'parent_id'  => 6,
+                'parent_id'  => $toolsMenuItemUser->id,
                 'order'      => 11,
             ])->save();
         }
@@ -216,19 +216,35 @@ class MenuItemsTableSeeder extends Seeder
         }
 
         // 13
-        $menuItem = MenuItem::firstOrNew([
+        $settingsFullMenuItem = MenuItem::firstOrNew([
             'menu_id' => $menu->id,
             'title'   => __('seeders.menu_items.settings'),
+            'url'     => '',
+        ]);
+        if (!$settingsFullMenuItem->exists) {
+            $settingsFullMenuItem->fill([
+                'target'     => '_self',
+                'icon_class' => 'voyager-settings',
+                'color'      => null,
+                'parent_id'  => null,
+                'order'      => 16,
+            ])->save();
+        }
+
+        // 14
+        $menuItem = MenuItem::firstOrNew([
+            'menu_id' => $menu->id,
+            'title'   => __('seeders.menu_items.general'),
             'url'     => '',
             'route'   => 'voyager.settings.index',
         ]);
         if (!$menuItem->exists) {
             $menuItem->fill([
                 'target'     => '_self',
-                'icon_class' => 'voyager-settings',
+                'icon_class' => 'voyager-hammer',
                 'color'      => null,
-                'parent_id'  => null,
-                'order'      => 16,
+                'parent_id'  => $settingsFullMenuItem->id,
+                'order'      => 17,
             ])->save();
         }
 
