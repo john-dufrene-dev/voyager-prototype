@@ -244,8 +244,6 @@ return [
     'compass_commands' => [
         'clear-compiled',
         'optimize:clear',
-        'down',
-        'up',
     ],
 
     'media' => [

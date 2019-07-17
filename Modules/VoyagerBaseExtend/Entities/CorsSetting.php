@@ -1,6 +1,6 @@
 <?php
 
-namespace Modules\MaintenanceMode\Entities;
+namespace Modules\VoyagerBaseExtend\Entities;
 
 use Illuminate\Database\Eloquent\Model;
 

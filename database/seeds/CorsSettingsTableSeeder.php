@@ -1,8 +1,7 @@
 <?php
 
-use Modules\MaintenanceMode\Entities\CorsSetting;
-use Illuminate\Support\Str;
 use Illuminate\Database\Seeder;
+use Modules\VoyagerBaseExtend\Entities\CorsSetting;
 
 class CorsSettingsTableSeeder extends Seeder
 {

@@ -16,7 +16,7 @@ class CreateCorsSettingsTable extends Migration
         Schema::create('cors_settings', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->string('cors_name')->nullable(false);
-            $table->string('cors_value')->nullable()->default(0);
+            $table->text('cors_value')->nullable();
             $table->boolean('active')->default(1);
             $table->timestamps();
         });
