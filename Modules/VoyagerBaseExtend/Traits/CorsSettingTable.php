@@ -51,8 +51,31 @@ trait CorsSettingTable
      * @method for returning setting value
      * 
      */
-    public function getCorsValue($name)
+    public function getCorsValue($value)
     {
-        return CorsSetting::where('cors_name',$name)->first()->cors_name;
+        return CorsSetting::where('cors_name',$value)->first()->cors_value;
+    }
+
+    /**
+     * 
+     * @method for returning setting value
+     * 
+     */
+    public function countCors()
+    {
+        return CorsSetting::count();
+    }
+
+    /**
+     * 
+     * @method for returning setting value
+     * 
+     */
+    public function updateCors($name,$request)
+    {
+        $cors = CorsSetting::where('cors_name',$name)->firstOrFail();
+        $cors->cors_value = $request;
+
+        return $cors->save();
     }
 }

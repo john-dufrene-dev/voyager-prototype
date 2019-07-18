@@ -6,12 +6,16 @@ use Illuminate\Http\Request;
 use TCG\Voyager\Facades\Voyager;
 use Illuminate\Support\Facades\Session;
 use TCG\Voyager\Database\Schema\SchemaManager;
+use Modules\MaintenanceMode\Entities\MaintenanceIp;
+use Modules\VoyagerBaseExtend\Traits\CorsSettingTable;
 use TCG\Voyager\Http\Controllers\Traits\BreadRelationshipParser;
 use App\Voyager\Http\Controllers\VoyagerBaseController as BaseVoyagerBaseController;
 
 class VoyagerMaintenanceModeController extends BaseVoyagerBaseController
 {
-    use BreadRelationshipParser;
+    use BreadRelationshipParser, CorsSettingTable;
+
+    protected $maintenance_name = 'MAINTENANCE_MODE';
 
     //***************************************
     //               ____
@@ -116,6 +120,9 @@ class VoyagerMaintenanceModeController extends BaseVoyagerBaseController
         // Check if a default search key is set
         $defaultSearchKey = $dataType->default_search_key ?? null;
 
+        // CHeck value maintenance mode
+        $maintenanceValue = $this->getCorsValue($this->maintenance_name);
+
         $view = 'maintenancemode::admin.bread.browse';
 
         if (view()->exists("maintenancemode::admin.$slug.browse")) {
@@ -123,6 +130,7 @@ class VoyagerMaintenanceModeController extends BaseVoyagerBaseController
         }
 
         return Voyager::view($view, compact(
+            'maintenanceValue',
             'dataType',
             'dataTypeContent',
             'isModelTranslatable',
@@ -138,14 +146,42 @@ class VoyagerMaintenanceModeController extends BaseVoyagerBaseController
         ));
     }
 
-    public function AjaxTurnMaintenanceMode(Request $request) {
+    public function StoreTurnMaintenanceMode(Request $request) 
+    {   
+        // On vérifie qu'il y a bien une adresse ip de configuré
+        if(0 == MaintenanceIp::count()) {
+            $this->updateCors($this->maintenance_name,0);
+            Session::flash('alert-danger', 'ERREUR. Aucune adresses IP configurées.');
+            return redirect()->route('voyager.maintenance.index');
+        }
 
-        Session::flash('alert-danger', 'Aucune adresses IP configurées !');
-        // Session::flash('alert-warning', 'warning');
-        // Session::flash('alert-success', 'success');
-        // Session::flash('alert-info', 'info');
+        // On vérifie que notre adresse Ip est bien configuré
 
-       return redirect()->route('voyager.maintenance.index'); 
+        // On vérifie que le site n'a pas déjà le mode reçu 1/0
+        if($request->get('cors_value') == $this->getCorsValue($this->maintenance_name)) {
+            if($request->get('cors_value') == 1) {
+                Session::flash('alert-warning', 'Le site est déjà en maintenance.');
+                return redirect()->route('voyager.maintenance.index');
+            } else {
+                Session::flash('alert-warning', 'Le site est déjà activé.');
+                return redirect()->route('voyager.maintenance.index');
+            }
+        }
 
+        // si 1 = mode maintenance activé / si 0 = mode maintenance désactivé
+        if($request->get('cors_value') == 1) {
+            $this->updateCors($this->maintenance_name,$request->get('cors_value'));
+            Session::flash('alert-success', 'Maintenance activée.');
+            return redirect()->route('voyager.maintenance.index');
+        } else {
+            $this->updateCors($this->maintenance_name,$request->get('cors_value'));
+            Session::flash('alert-success', 'Maintenance désactivée.');
+            return redirect()->route('voyager.maintenance.index');
+        }
+
+        // Une erreur est survenue
+        $this->updateCors($this->maintenance_name,0);
+        Session::flash('alert-danger', 'Une erreur est survenue !');
+        return redirect()->route('voyager.maintenance.index'); 
     }
 }

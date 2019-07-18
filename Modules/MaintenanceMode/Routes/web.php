@@ -18,9 +18,9 @@ Route::group(['prefix' => 'admin'], function () {
     Route::group(['as' => 'voyager.'], function () {
         event(new Routing());
     
-        Route::post('maintenance/ajax', [
-            'uses' => 'VoyagerMaintenanceModeController@AjaxTurnMaintenanceMode', 
-            'as' => 'turn']
+        Route::post('maintenance/store/turn', [
+            'uses' => 'VoyagerMaintenanceModeController@StoreTurnMaintenanceMode', 
+            'as' => 'maintenance.turn']
         );
     
         event(new RoutingAfter());

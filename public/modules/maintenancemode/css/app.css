@@ -1,6 +1,7 @@
 .maintenance-button ul li {
   width: 90px;
   border-bottom: 0;
+  margin-top: 4px;
 }
 
 .maintenance-button .alert .close {

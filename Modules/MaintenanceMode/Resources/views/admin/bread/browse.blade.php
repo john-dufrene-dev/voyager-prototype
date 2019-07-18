@@ -62,23 +62,27 @@
                                 @endif
                             @endforeach
                             
-                            <form action="/admin/maintenance/ajax" class="cmd_form" method="POST">
+                            <form action="{{ route('voyager.maintenance.turn') }}" class="cmd_form" method="POST">
                                 {{ csrf_field() }}
                                 <ul class="radio">
                                     <li>
-                                        <input type="radio" id="turn_on" name="cors_value" value="1" checked>
+                                        <input type="radio" id="turn_on" name="cors_value" value="1"
+                                        @if($maintenanceValue == 1) ? checked : '' @endif>
                                         <label for="turn_on">ON</label>
                                         <div class="check"></div>
                                     </li>
                                     <li>
-                                        <input type="radio" id="turn_off" name="cors_value" value="0">
+                                        <input type="radio" id="turn_off" name="cors_value" value="0"
+                                        @if($maintenanceValue == 0) ? checked : '' @endif>
                                         <label for="turn_off">OFF</label>
                                         <div class="check"></div>
                                     </li>
                                 </ul>
-                                <button class="btn btn-info btn-lg" type="submit">Mode maintenance</button>
+                                <button class="btn btn-info btn-lg" type="submit">{{ __('maintenancemode::maintenance.btn_mode') }}</button>
                             </form>
                         </div><hr>
+
+                        {{-- END change status maintenance mode --}}
 
                         @if ($isServerSide)
                             <form method="get" class="form-search">

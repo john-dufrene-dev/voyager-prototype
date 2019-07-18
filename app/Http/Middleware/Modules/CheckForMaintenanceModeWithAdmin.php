@@ -6,11 +6,13 @@ use Closure;
 use Nwidart\Modules\Facades\Module;
 use Symfony\Component\HttpFoundation\IpUtils;
 use Modules\MaintenanceMode\Entities\MaintenanceIp;
+use Modules\VoyagerBaseExtend\Traits\CorsSettingTable;
 use Illuminate\Foundation\Http\Exceptions\MaintenanceModeException;
 use Illuminate\Foundation\Http\Middleware\CheckForMaintenanceMode as Middleware;
 
-class CheckForMaintenanceMode extends Middleware
+class CheckForMaintenanceModeWithAdmin extends Middleware
 {
+    use CorsSettingTable;
     /**
      * The URIs that should be reachable while maintenance mode is enabled.
      *
@@ -27,8 +29,8 @@ class CheckForMaintenanceMode extends Middleware
      * @var array
      */
     protected $allowed = [
-        '::1',
-        '127.0.0.1',
+        // '::1',
+        // '127.0.0.1',
     ];
 
     /**
@@ -42,8 +44,14 @@ class CheckForMaintenanceMode extends Middleware
      */
     public function handle($request, Closure $next)
     {
-        if ($this->app->isDownForMaintenance()) {
-            $data = json_decode(file_get_contents($this->app->storagePath().'/framework/down'), true);
+        if(Module::find('MaintenanceMode')->disabled())
+            return $next($request);
+
+        if(true != $this->checkCors('MAINTENANCE_MODE'))
+            abort(403, 'Module not allowed.');
+
+        if (1 == $this->getCorsValue('MAINTENANCE_MODE')) {
+            $data = [];
 
             foreach(MaintenanceIp::All() as $ip) {
                 if((bool)$ip->active === true)
@@ -58,7 +66,7 @@ class CheckForMaintenanceMode extends Middleware
                 return $next($request);
             }
 
-            throw new MaintenanceModeException($data['time'], $data['retry'], $data['message']);
+            throw new MaintenanceModeException(time(), null, null);
         }
 
         return $next($request);
