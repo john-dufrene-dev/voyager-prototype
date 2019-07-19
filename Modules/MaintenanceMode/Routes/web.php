@@ -13,16 +13,17 @@ use TCG\Voyager\Events\RoutingAfter;
 | contains the "web" middleware group. Now create something great!
 |
 */
-
-Route::group(['prefix' => 'admin'], function () {
-    Route::group(['as' => 'voyager.'], function () {
-        event(new Routing());
-    
-        Route::post('maintenance/store/turn', [
-            'uses' => 'VoyagerMaintenanceModeController@StoreTurnMaintenanceMode', 
-            'as' => 'maintenance.turn']
-        );
-    
-        event(new RoutingAfter());
+if(Module::find('MaintenanceMode')->enabled()) {
+    Route::group(['prefix' => 'admin'], function () {
+        Route::group(['as' => 'voyager.'], function () {
+            event(new Routing());
+        
+            Route::post('maintenance/store/turn', [
+                'uses' => 'VoyagerMaintenanceModeController@StoreTurnMaintenanceMode', 
+                'as' => 'maintenance.turn']
+            );
+        
+            event(new RoutingAfter());
+        });
     });
-});
+}

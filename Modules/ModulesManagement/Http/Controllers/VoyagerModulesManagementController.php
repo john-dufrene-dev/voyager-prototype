@@ -27,6 +27,9 @@ class VoyagerModulesManagementController extends Controller
 
     public function index(Request $request)
     {
+        if(Module::find('ModulesManagement')->disabled())
+            abort(403,'ModulesManagement is not allowed');
+
         // Check permission
         if(!Auth::user()->hasPermission('browse_modules')) {
             throw new AccessDeniedHttpException();

@@ -50,18 +50,6 @@
                     <div class="panel-body">
                      {{-- Change status maintenance mode --}}
                         <div class="maintenance-button">
-
-                            @foreach (['danger', 'warning', 'success', 'info'] as $msg)
-                                @if(Session::has('alert-' . $msg))
-                                    <div class="alert alert-{{ $msg }}" role="alert">
-                                        <p>{{ Session::get('alert-' . $msg) }}</p>
-                                        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-                                            <span aria-hidden="true">&times;</span>
-                                        </button>
-                                    </div>
-                                @endif
-                            @endforeach
-                            
                             <form action="{{ route('voyager.maintenance.turn') }}" class="cmd_form" method="POST">
                                 {{ csrf_field() }}
                                 <ul class="radio">
@@ -80,6 +68,10 @@
                                 </ul>
                                 <button class="btn btn-info btn-lg" type="submit">{{ __('maintenancemode::maintenance.btn_mode') }}</button>
                             </form>
+                        </div>
+                        <div class="alert alert-info">
+                            <strong>Comment ça marche :</strong>
+                            <p>Vous pouvez enregistrer l'adresse IP suivante : <code>{{$ip}}</code> . Il s'agit de votre adresse Ip personnelle.</p>
                         </div><hr>
 
                         {{-- END change status maintenance mode --}}

@@ -32,11 +32,14 @@ php artisan key:generate
 php artisan prototyte:install (--with-dummy OPTIONNAL)
 
 # 1.5 Create a Voyager Admin User
-php artisan voyager:admin $YOUR_EMAIL --create
+php artisan prototype:admin $YOUR_EMAIL --create
 
 # 1.6 Run the Passport installer
 php artisan passport:install
 php artisan passport:keys
+
+# 1.7 Publish the package’s config and assets
+php artisan vendor:publish --tag=lfm_public
 
 # OPTIONS :
 # 1. Run the Telescope installer (Optionnal)

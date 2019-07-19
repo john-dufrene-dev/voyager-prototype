@@ -4,6 +4,7 @@ namespace Modules\MaintenanceMode\Http\Controllers;
 
 use Illuminate\Http\Request;
 use TCG\Voyager\Facades\Voyager;
+use Nwidart\Modules\Facades\Module;
 use Illuminate\Support\Facades\Session;
 use TCG\Voyager\Database\Schema\SchemaManager;
 use Modules\MaintenanceMode\Entities\MaintenanceIp;
@@ -31,6 +32,9 @@ class VoyagerMaintenanceModeController extends BaseVoyagerBaseController
 
     public function index(Request $request)
     {
+        if(Module::find('MaintenanceMode')->disabled())
+            abort(403,'Module Maintenance is not allowed');
+            
         // GET THE SLUG, ex. 'posts', 'pages', etc.
         $slug = $this->getSlug($request);
 
@@ -120,8 +124,11 @@ class VoyagerMaintenanceModeController extends BaseVoyagerBaseController
         // Check if a default search key is set
         $defaultSearchKey = $dataType->default_search_key ?? null;
 
-        // CHeck value maintenance mode
+        // Check value maintenance mode
         $maintenanceValue = $this->getCorsValue($this->maintenance_name);
+
+        // Get personal Ip
+        $ip = $request->ip();
 
         $view = 'maintenancemode::admin.bread.browse';
 
@@ -130,6 +137,7 @@ class VoyagerMaintenanceModeController extends BaseVoyagerBaseController
         }
 
         return Voyager::view($view, compact(
+            'ip',
             'maintenanceValue',
             'dataType',
             'dataTypeContent',
@@ -151,37 +159,37 @@ class VoyagerMaintenanceModeController extends BaseVoyagerBaseController
         // On vérifie qu'il y a bien une adresse ip de configuré
         if(0 == MaintenanceIp::count()) {
             $this->updateCors($this->maintenance_name,0);
-            Session::flash('alert-danger', 'ERREUR. Aucune adresses IP configurées.');
-            return redirect()->route('voyager.maintenance.index');
+            return redirect()->route('voyager.maintenance.index')
+                ->with(['message' => 'ERREUR. Aucune adresses IP configurées.', 'alert-type' => 'danger']);
         }
 
-        // On vérifie que notre adresse Ip est bien configuré
+        // On vérifie que notre adresse Ip est bien configuré : IN PROGRESS
 
         // On vérifie que le site n'a pas déjà le mode reçu 1/0
         if($request->get('cors_value') == $this->getCorsValue($this->maintenance_name)) {
             if($request->get('cors_value') == 1) {
-                Session::flash('alert-warning', 'Le site est déjà en maintenance.');
-                return redirect()->route('voyager.maintenance.index');
+                return redirect()->route('voyager.maintenance.index')
+                    ->with(['message' => 'Le site est déjà en maintenance.', 'alert-type' => 'warning']);
             } else {
-                Session::flash('alert-warning', 'Le site est déjà activé.');
-                return redirect()->route('voyager.maintenance.index');
+                return redirect()->route('voyager.maintenance.index')
+                    ->with(['message' => 'Le site est déjà activé.', 'alert-type' => 'warning']);
             }
         }
 
         // si 1 = mode maintenance activé / si 0 = mode maintenance désactivé
         if($request->get('cors_value') == 1) {
             $this->updateCors($this->maintenance_name,$request->get('cors_value'));
-            Session::flash('alert-success', 'Maintenance activée.');
-            return redirect()->route('voyager.maintenance.index');
+            return redirect()->route('voyager.maintenance.index')
+                ->with(['message' => 'Maintenance activée.', 'alert-type' => 'success']);
         } else {
             $this->updateCors($this->maintenance_name,$request->get('cors_value'));
-            Session::flash('alert-success', 'Maintenance désactivée.');
-            return redirect()->route('voyager.maintenance.index');
+            return redirect()->route('voyager.maintenance.index')
+                ->with(['message' => 'Maintenance désactivée.', 'alert-type' => 'success']);
         }
 
         // Une erreur est survenue
         $this->updateCors($this->maintenance_name,0);
-        Session::flash('alert-danger', 'Une erreur est survenue !');
-        return redirect()->route('voyager.maintenance.index'); 
+        return redirect()->route('voyager.maintenance.index')
+            ->with(['message' => 'Une erreur est survenue !', 'alert-type' => 'danger']);
     }
 }
