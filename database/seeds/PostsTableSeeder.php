@@ -336,8 +336,8 @@ class PostsTableSeeder extends Seeder
                 'target'     => '_self',
                 'icon_class' => 'voyager-news',
                 'color'      => null,
-                'parent_id'  => 5,
-                'order'      => 7,
+                'parent_id'  => 3,
+                'order'      => 10,
             ])->save();
         }
 

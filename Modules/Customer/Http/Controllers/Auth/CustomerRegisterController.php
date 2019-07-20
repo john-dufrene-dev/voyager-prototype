@@ -37,6 +37,7 @@ class CustomerRegisterController extends Controller
     public function __construct()
     {
         $this->middleware('guest');
+        $this->redirectTo = __('routes.account');
     }
 
     public function guard()

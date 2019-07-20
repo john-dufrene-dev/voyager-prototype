@@ -141,8 +141,8 @@ class MaintenanceIpsTableSeeder extends Seeder
                 'target'     => '_self',
                 'icon_class' => 'voyager-warning',
                 'color'      => null,
-                'parent_id'  => 13,
-                'order'      => 18,
+                'parent_id'  => 5,
+                'order'      => 15,
             ])->save();
         }
 

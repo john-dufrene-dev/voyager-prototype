@@ -62,7 +62,7 @@ return [
     'menu_items' => [
         'bread'        => 'BREAD',
         'categories'   => 'Catégories',
-        'compass'      => null,
+        'compass'      => 'Compass',
         'dashboard'    => 'Tableau de bord',
         'database'     => 'Base de données',
         'media'        => 'Médiathèque',
@@ -79,6 +79,8 @@ return [
         'modules'      => 'Modules',
         'customers'    => 'Clients',
         'maintenance'  => 'Maintenance',
+        'preference'   => 'Préférences',
+        'admin'        => 'Administration',  
     ],
     'roles'      => [
         'admin' => 'Administrateur',

@@ -33,7 +33,7 @@ if (config('prototype.account') ) {
 }
 
 if(Module::find('Customer')->enabled())
-    Route::get('/mon-compte', 'Pages\AccountController@index')->name('pages.account');
+    Route::get(__('routes.account'), 'Pages\AccountController@index')->name('pages.account');
 
 // FILEMANAGER ROUTES
 Route::group(['middleware' => 'admin.user'], function () {

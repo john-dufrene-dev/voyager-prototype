@@ -243,7 +243,7 @@ class PagesTableSeeder extends Seeder
                 'icon_class' => 'voyager-file-text',
                 'color'      => null,
                 'parent_id'  => 2,
-                'order'      => 4,
+                'order'      => 8,
             ])->save();
         }
 

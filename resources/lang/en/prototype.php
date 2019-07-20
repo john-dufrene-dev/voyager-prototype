@@ -5,6 +5,6 @@ return [
         'homepage'           => 'Home',
     ],
     'blog'         => [
-        'my-posts'           => 'My Posts',
+        'my-posts'           => 'Our articles',
     ],
 ];

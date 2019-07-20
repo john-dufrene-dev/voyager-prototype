@@ -18,7 +18,8 @@ class CustomerLoginController extends Controller
 
     public function __construct()
     {
-      $this->middleware('guest')->except('logout');
+        $this->middleware('guest')->except('logout');
+        $this->redirectTo = __('routes.account');
     }
 
     public function guard()

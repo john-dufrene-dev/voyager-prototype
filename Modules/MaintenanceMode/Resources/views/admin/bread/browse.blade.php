@@ -70,8 +70,8 @@
                             </form>
                         </div>
                         <div class="alert alert-info">
-                            <strong>Comment ça marche :</strong>
-                            <p>Vous pouvez enregistrer l'adresse IP suivante : <code>{{$ip}}</code> . Il s'agit de votre adresse Ip personnelle.</p>
+                            <strong>{{ __('maintenancemode::maintenance.how_work') }} :</strong>
+                            <p>{{ __('maintenancemode::maintenance.ip_register') }} : <code>{{$ip}}</code> . {{ __('maintenancemode::maintenance.ip_perso') }}.</p>
                         </div><hr>
 
                         {{-- END change status maintenance mode --}}

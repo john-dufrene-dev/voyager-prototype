@@ -1,6 +1,6 @@
 {{-- Ne supporte que deux niveaux d'imbrigations --}}
 <ul class="navbar-nav ml-auto left-navbar">
-    @foreach($items as $item)
+    @foreach($items->translate() as $item)
         <li class="nav-item @if($item->children->count()) dropdown  @endif">
             <a target="{{ $item->target }}" href="{{ url($item->url) }}" 
             @if($item->children->count()) data-toggle="dropdown" @endif class="nav-link 
@@ -9,7 +9,7 @@
             </a>
             @if($item->children->count()) 
                 <ul role="menu" class="dropdown-menu navbar-dropdown-menu shadow-sm">
-                    @foreach($item->children as $subItem)
+                    @foreach($item->children->translate() as $subItem)
                         <li class="nav-item">
                             <a target="{{ $subItem->target }}" href="{{ url($subItem->url) }}"
                             class="nav-link @if(url($subItem->link()) == url()->current()) active @endif ">{{ $subItem->title }}</a>

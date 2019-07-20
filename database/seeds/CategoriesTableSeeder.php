@@ -170,8 +170,8 @@ class CategoriesTableSeeder extends Seeder
                 'target'     => '_self',
                 'icon_class' => 'voyager-categories',
                 'color'      => null,
-                'parent_id'  => 5,
-                'order'      => 8,
+                'parent_id'  => 3,
+                'order'      => 11,
             ])->save();
         }
 

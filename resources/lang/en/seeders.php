@@ -79,6 +79,8 @@ return [
         'modules'      => 'Modules',
         'customers'    => 'Customers',
         'maintenance'  => 'Maintenance',
+        'preference'   => 'Preferences',
+        'admin'        => 'Administration',
     ],
     'roles'      => [
         'admin' => 'Administrator',
