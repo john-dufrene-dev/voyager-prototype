@@ -3,6 +3,11 @@
     <head>
         @include('themes.'.config('prototype.theme').'.partials.header.meta')
         @include('themes.'.config('prototype.theme').'.partials.header.link')
+
+        @section('google-analytics')
+            @include('themes.'.config('prototype.theme').'.partials.header.google.google-analytics')
+        @endsection
+
     </head>
     <body>
         <div id="app">

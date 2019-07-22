@@ -11,4 +11,7 @@ return [
     'enable_maintenance'        => 'Maintenance activée.',
     'disable_maintenance'       => 'Maintenance désactivée.',
     'error_maintenance'         => 'Une erreur est survenue !',
+    'my_ip'                     => 'Ajouter mon IP',
+    'field_require'             => 'Le champ adresse IP est requis.',
+    'field_unique'              => 'Cette adresse IP existe déjà.',
 ];

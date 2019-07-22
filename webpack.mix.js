@@ -27,7 +27,8 @@ mix.sass('resources/sass/app.scss', 'public/css');
 
 // Module Post
 mix.js('Modules/Post/Resources/assets/js/app.js', 'public/modules/post/js');
-mix.sass('Modules/Post/Resources/assets/sass/app.scss', 'public/modules/post/css');
+mix.sass('Modules/Post/Resources/assets/sass/app.scss', 'public/modules/post/css';
+// .copyDirectory('resources/assets/images', 'public/images') in progress for posts
 
 // Module Customer
 mix.js('Modules/Customer/Resources/assets/js/app.js', 'public/modules/customer/js');

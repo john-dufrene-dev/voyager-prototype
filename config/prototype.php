@@ -6,7 +6,7 @@ return [
     |--------------------------------------------------------------------------
     | Themes configuration
     |--------------------------------------------------------------------------
-    | Choix du template du theme
+    | Choice template theme
     |
     */
 
@@ -16,7 +16,7 @@ return [
     |--------------------------------------------------------------------------
     | Account configuration
     |--------------------------------------------------------------------------
-    | Activation du compte côté front
+    | Activate customer account
     |
     */
 
@@ -26,7 +26,7 @@ return [
     |--------------------------------------------------------------------------
     | Active API configuration
     |--------------------------------------------------------------------------
-    | Activation de l'API
+    | Activate API
     |
     */
 
@@ -36,30 +36,13 @@ return [
     |--------------------------------------------------------------------------
     | Theme colors configuration
     |--------------------------------------------------------------------------
-    | Choix des couleurs du thème
+    | Choice colors themes
     |
     */
 
     'colors' => [
         'primary' => '#00bc88',
         'secondary' => '#00bc88',
-    ],
-
-    /*
-    |--------------------------------------------------------------------------
-    | Gestion SEO
-    |--------------------------------------------------------------------------
-    | Configuration des variables SEO par défaut
-    |
-    */
-
-    'seo' => [
-        'page_title' => 'Prototype',
-        'robots' => 'noindex,nofollow',
-        'meta_title' => 'Titre par défaut',
-        'meta_description' => 'Description par défaut',
-        'meta_keywords' => 'Keywords,Default,Laravel',
-        'meta_author' => 'Auteur par défaut',
     ],
 
 ];

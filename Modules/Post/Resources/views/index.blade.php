@@ -2,9 +2,11 @@
 
 @section('meta_robots', 'index,follow')
 @section('meta_title') @parent | Liste des articles @endsection
-@section('meta_keywords', 'Articles,Posts')
 @section('meta_description') @parent | Liste des articles @endsection
-@section('page_title') @parent | Liste des articles @endsection
+@section('meta_keywords') Articles,Posts @endsection
+@section('page_title_meta')  @parent | Liste des articles @endsection
+@section('page_title') Liste des articles @endsection
+@section('page_subtitle') {{ count($posts) }} @endsection
 
 @section('css')
     @parent
@@ -12,6 +14,8 @@
 @stop
 
 @section('content')
+
+    @include('themes.'.config('prototype.theme').'.partials.header.page-title')
 
     @if (count($posts) > 0)
         <div class="container">

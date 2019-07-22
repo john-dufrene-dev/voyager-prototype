@@ -78,8 +78,8 @@ class MaintenanceIpsTableSeeder extends Seeder
                     'validation' => [
                         'rule'     => 'required|unique:maintenance_ips',
                         'messages'  => [
-                            'required'  => 'Le champ adresse IP est requis.' ,
-                            'unique'    => 'Cette adresse IP existe déjà.' ,
+                            'required'  => __('maintenancemode::maintenance.field_require') ,
+                            'unique'    => __('maintenancemode::maintenance.field_unique') ,
                         ]
                     ],
                 ],
