@@ -22,6 +22,11 @@ if(Module::find('MaintenanceMode')->enabled()) {
                 'uses' => 'VoyagerMaintenanceModeController@StoreTurnMaintenanceMode', 
                 'as' => 'maintenance.turn']
             );
+
+            Route::post('/maintenance/ajax/ip', [
+                'uses' => 'VoyagerMaintenanceModeController@getAjaxIp', 
+                'as' => 'maintenance.ajax.ip']
+            );
         
             event(new RoutingAfter());
         });

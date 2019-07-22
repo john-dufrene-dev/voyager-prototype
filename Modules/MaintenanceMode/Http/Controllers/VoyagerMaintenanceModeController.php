@@ -154,18 +154,124 @@ class VoyagerMaintenanceModeController extends BaseVoyagerBaseController
         ));
     }
 
+    //***************************************
+    //                ______
+    //               |  ____|
+    //               | |__
+    //               |  __|
+    //               | |____
+    //               |______|
+    //
+    //  Edit an item of our Data Type BR(E)AD
+    //
+    //****************************************
+
+    public function edit(Request $request, $id)
+    {
+        $slug = $this->getSlug($request);
+
+        $dataType = Voyager::model('DataType')->where('slug', '=', $slug)->first();
+
+        if (strlen($dataType->model_name) != 0) {
+            $model = app($dataType->model_name);
+
+            // Use withTrashed() if model uses SoftDeletes and if toggle is selected
+            if ($model && in_array(SoftDeletes::class, class_uses($model))) {
+                $model = $model->withTrashed();
+            }
+            if ($dataType->scope && $dataType->scope != '' && method_exists($model, 'scope'.ucfirst($dataType->scope))) {
+                $model = $model->{$dataType->scope}();
+            }
+            $dataTypeContent = call_user_func([$model, 'findOrFail'], $id);
+        } else {
+            // If Model doest exist, get data from table name
+            $dataTypeContent = DB::table($dataType->name)->where('id', $id)->first();
+        }
+
+        foreach ($dataType->editRows as $key => $row) {
+            $dataType->editRows[$key]['col_width'] = isset($row->details->width) ? $row->details->width : 100;
+        }
+
+        // If a column has a relationship associated with it, we do not want to show that field
+        $this->removeRelationshipField($dataType, 'edit');
+
+        // Check permission
+        $this->authorize('edit', $dataTypeContent);
+
+        // Check if BREAD is Translatable
+        $isModelTranslatable = is_bread_translatable($dataTypeContent);
+
+        $view = 'maintenancemode::admin.bread.edit-add';
+
+        if (view()->exists("maintenancemode::admin.$slug.edit-add")) {
+            $view = "maintenancemode::admin.$slug.edit-add";
+        }
+
+        return Voyager::view($view, compact('dataType', 'dataTypeContent', 'isModelTranslatable'));
+    }
+
+    //***************************************
+    //
+    //                   /\
+    //                  /  \
+    //                 / /\ \
+    //                / ____ \
+    //               /_/    \_\
+    //
+    //
+    // Add a new item of our Data Type BRE(A)D
+    //
+    //****************************************
+
+    public function create(Request $request)
+    {
+        $slug = $this->getSlug($request);
+
+        $dataType = Voyager::model('DataType')->where('slug', '=', $slug)->first();
+
+        // Check permission
+        $this->authorize('add', app($dataType->model_name));
+
+        $dataTypeContent = (strlen($dataType->model_name) != 0)
+                            ? new $dataType->model_name()
+                            : false;
+
+        foreach ($dataType->addRows as $key => $row) {
+            $dataType->addRows[$key]['col_width'] = $row->details->width ?? 100;
+        }
+
+        // If a column has a relationship associated with it, we do not want to show that field
+        $this->removeRelationshipField($dataType, 'add');
+
+        // Check if BREAD is Translatable
+        $isModelTranslatable = is_bread_translatable($dataTypeContent);
+
+        $view = 'maintenancemode::admin.bread.edit-add';
+
+        if (view()->exists("maintenancemode::admin.$slug.edit-add")) {
+            $view = "maintenancemode::admin.$slug.edit-add";
+        }
+
+        return Voyager::view($view, compact('dataType', 'dataTypeContent', 'isModelTranslatable'));
+    }
+
+    /*
+    *
+    * @return enable/disable maintenance mode
+    *
+    */
     public function StoreTurnMaintenanceMode(Request $request) 
     {   
-        // On vérifie qu'il y a bien une adresse ip de configuré
+        // If no iP configure
         if(0 == MaintenanceIp::count()) {
             $this->updateCors($this->maintenance_name,0);
             return redirect()->route('voyager.maintenance.index')
                 ->with(['message' => __('maintenancemode::maintenance.no_ip'), 'alert-type' => 'danger']);
         }
 
-        // On vérifie que notre adresse Ip est bien configuré : IN PROGRESS
+        // If our Ip is configure : IN PROGRESS
 
-        // On vérifie que le site n'a pas déjà le mode reçu 1/0
+        // Verify status maintenance mode 1/0
         if($request->get('cors_value') == $this->getCorsValue($this->maintenance_name)) {
             if($request->get('cors_value') == 1) {
                 return redirect()->route('voyager.maintenance.index')
@@ -176,7 +282,7 @@ class VoyagerMaintenanceModeController extends BaseVoyagerBaseController
             }
         }
 
-        // si 1 = mode maintenance activé / si 0 = mode maintenance désactivé
+        // si 1 = maintenance enabled / si 0 = maintenance disabled
         if($request->get('cors_value') == 1) {
             $this->updateCors($this->maintenance_name,$request->get('cors_value'));
             return redirect()->route('voyager.maintenance.index')
@@ -187,9 +293,21 @@ class VoyagerMaintenanceModeController extends BaseVoyagerBaseController
                 ->with(['message' => __('maintenancemode::maintenance.disable_maintenance'), 'alert-type' => 'success']);
         }
 
-        // Une erreur est survenue
+        // An error occured
         $this->updateCors($this->maintenance_name,0);
         return redirect()->route('voyager.maintenance.index')
             ->with(['message' => __('maintenancemode::maintenance.error_maintenance'), 'alert-type' => 'danger']);
+    }
+
+    /*
+    * @return ajax IP
+    */
+    public function getAjaxIp(Request $request)
+    {
+        if( $request->ajax() ) {
+            return $request->ip();
+        }
+
+        return 'error is not an ajax request';
     }
 }

@@ -16,7 +16,7 @@ class CreateMaintenanceIpsTable extends Migration
         Schema::create('maintenance_ips', function (Blueprint $table) {
             $table->increments('id');
             $table->string('name_maintenance')->nullable(false);
-            $table->string('ip_maintenance')->nullable(false);
+            $table->string('ip_maintenance')->nullable(false)->unique();
             $table->boolean('active')->default(1);
             $table->timestamps();
         });

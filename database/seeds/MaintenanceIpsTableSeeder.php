@@ -74,6 +74,15 @@ class MaintenanceIpsTableSeeder extends Seeder
                 'edit'         => 1,
                 'add'          => 1,
                 'delete'       => 1,
+                'details'      => [
+                    'validation' => [
+                        'rule'     => 'required|unique:maintenance_ips',
+                        'messages'  => [
+                            'required'  => 'Le champ adresse IP est requis.' ,
+                            'unique'    => 'Cette adresse IP existe déjà.' ,
+                        ]
+                    ],
+                ],
                 'order' => 3,
             ])->save();
         }
