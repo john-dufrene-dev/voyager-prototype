@@ -10668,6 +10668,43 @@ a.text-dark:focus {
 
 /* navbar top */
 
+#headerNavbar li ul {
+  display: none;
+}
+
+#headerNavbar li:hover > ul {
+  display: block;
+  position: absolute;
+}
+
+#headerNavbar li li {
+  background-color: #e4fdf6;
+  width: 100%;
+  max-width: 215px;
+  box-shadow: 0 0.125rem 0.25rem rgba(0, 0, 0, 0.05);
+}
+
+#headerNavbar li li:hover li {
+  float: none;
+}
+
+#headerNavbar ul:before,
+#headerNavbar ul:after {
+  content: " ";
+  /* 1 */
+  display: table;
+  /* 2 */
+}
+
+#headerNavbar ul:after {
+  clear: both;
+}
+
+#headerNavbar ul ul ul {
+  right: 100%;
+  top: 0;
+}
+
 #headerNavbar .left-navbar,
 #headerNavbar .right-navbar {
   text-transform: uppercase;
@@ -10677,6 +10714,7 @@ a.text-dark:focus {
 
 #headerNavbar .left-navbar a,
 #headerNavbar .right-navbar a {
+  text-decoration: none;
   padding: 3px 5px 0 5px;
   margin: 0 5px;
   color: #000;
@@ -10684,35 +10722,8 @@ a.text-dark:focus {
 
 #headerNavbar .left-navbar a:hover,
 #headerNavbar .right-navbar a:hover {
-  color: #00bc88;
-  transition: all 1.8s ease;
-}
-
-#headerNavbar .left-navbar .navbar-dropdown-menu,
-#headerNavbar .right-navbar .navbar-dropdown-menu {
-  border: 0;
-  background-color: #fff;
-  border-radius: 0;
-}
-
-#headerNavbar .left-navbar .navbar-dropdown-menu a,
-#headerNavbar .right-navbar .navbar-dropdown-menu a {
-  margin: 5px 0;
-  padding: 5px;
-  font-size: 10px;
-  border: 0;
-  background-color: transparent;
-}
-
-#headerNavbar .left-navbar .navbar-dropdown-menu a:hover,
-#headerNavbar .right-navbar .navbar-dropdown-menu a:hover {
-  color: #00bc88;
-}
-
-#headerNavbar .left-navbar .navbar-dropdown-menu .active,
-#headerNavbar .right-navbar .navbar-dropdown-menu .active {
-  background-color: transparent;
-  color: #00bc88;
+  font-weight: bold;
+  transition: all 0.3s ease;
 }
 
 #headerNavbar .left-navbar .active,
@@ -10721,7 +10732,46 @@ a.text-dark:focus {
   font-weight: bold;
 }
 
+#headerNavbar .left-navbar ul li,
+#headerNavbar .right-navbar ul li {
+  display: block;
+  position: relative;
+  float: left;
+}
+
+#headerNavbar .left-navbar ul li a,
+#headerNavbar .right-navbar ul li a {
+  margin: 0;
+  padding: 8px;
+  display: block;
+  text-decoration: none;
+  white-space: nowrap;
+}
+
+#headerNavbar .left-navbar ul li a:hover,
+#headerNavbar .right-navbar ul li a:hover {
+  color: #00bc88;
+  background-color: #f8f9fa;
+}
+
 @media all and (max-width: 760px) {
+  #headerNavbar li li {
+    background-color: transparent;
+    padding: 0;
+    box-shadow: none;
+  }
+
+  #headerNavbar li:hover > ul {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    background-color: transparent;
+  }
+
+  #headerNavbar ul ul ul {
+    left: 0;
+  }
+
   #headerNavbar .left-navbar a,
   #headerNavbar .right-navbar a {
     font-size: 13px;
@@ -10732,42 +10782,22 @@ a.text-dark:focus {
   #headerNavbar .right-navbar a:hover {
     color: #00bc88;
     background-color: transparent;
-    transition: all 1.8s ease;
-  }
-
-  #headerNavbar .left-navbar .navbar-dropdown-menu,
-  #headerNavbar .right-navbar .navbar-dropdown-menu {
-    border: 0;
-    background-color: #fff;
-    border-radius: 0;
-    text-align: left;
-    box-shadow: none !important;
-    width: 33%;
-  }
-
-  #headerNavbar .left-navbar .navbar-dropdown-menu a,
-  #headerNavbar .right-navbar .navbar-dropdown-menu a {
-    margin: 0;
-    padding: 5px 25px;
-    font-size: 10px;
-    border: 0;
-  }
-
-  #headerNavbar .left-navbar .navbar-dropdown-menu a:hover,
-  #headerNavbar .right-navbar .navbar-dropdown-menu a:hover {
-    background-color: transparent;
-  }
-
-  #headerNavbar .left-navbar .navbar-dropdown-menu .active,
-  #headerNavbar .right-navbar .navbar-dropdown-menu .active {
-    background-color: transparent;
-    color: #00bc88;
   }
 
   #headerNavbar .left-navbar .active,
   #headerNavbar .right-navbar .active {
     color: #00bc88;
     font-weight: bold;
+  }
+
+  #headerNavbar .left-navbar ul li a,
+  #headerNavbar .right-navbar ul li a {
+    padding: 7px;
+  }
+
+  #headerNavbar .left-navbar ul li a:hover,
+  #headerNavbar .right-navbar ul li a:hover {
+    background-color: transparent;
   }
 }
 

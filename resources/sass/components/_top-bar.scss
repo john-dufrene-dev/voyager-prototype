@@ -3,43 +3,79 @@
 ////////////////////////////////////////////////
 // Navbar header //////////////////////////////
 //////////////////////////////////////////////
+  
 #headerNavbar {
+    li {
+        ul { 
+            display: none;
+        }
+        &:hover {
+            > ul {
+                display: block;
+                position: absolute;
+            }
+        }
+        li {
+            background-color: rgb(228, 253, 246);
+            width:100%;
+            max-width:215px;
+            box-shadow:0 0.125rem 0.25rem rgba(0, 0, 0, 0.050);
+            &:hover li {
+                float:none;
+            }
+        }
+    }
+    ul {
+        &:before,&:after {
+            content: " "; /* 1 */
+            display: table; /* 2 */
+        }
+        &:after {
+            clear: both;
+        }
+        ul {
+            ul {
+                right: 100%;
+                top: 0;
+            }
+        }
+    }
     .left-navbar, .right-navbar {
         text-transform:uppercase;
         letter-spacing: 1px;
         font-size:15px;
         a {
+            text-decoration:none;
             padding: 3px 5px 0 5px;
             margin:0 5px;
             color:#000;
             &:hover{
-                color: $primarycolor;
-                transition: all 1.8s ease;
-            }
-        }
-        .navbar-dropdown-menu {
-            border:0;
-            background-color:#fff;
-            border-radius:0;
-            a {
-                margin:5px 0;
-                padding:5px;
-                font-size:10px;
-                border:0;
-                background-color:transparent;
-                &:hover{
-                    color:$primarycolor;
-                } 
-            }
-            .active {
-                background-color:transparent;
-                color:$primarycolor;
+                
+                font-weight: bold;
+                transition: all 0.3s ease;
             }
         }
         .active {
             color: $primarycolor;
             font-weight:bold; 
         }
+        ul li {
+            display: block;
+            position: relative;
+            float: left;
+            a {
+                margin:0;
+                padding:8px;
+                display: block;
+                text-decoration: none;
+                white-space: nowrap;
+                &:hover {
+                    color:$primarycolor;
+                    background-color:$light;
+                }
+            }
+        }
+        
     }
 }
 
@@ -49,6 +85,26 @@
 
 @media all and (max-width: 760px) {
     #headerNavbar {
+        li {
+            li {
+                background-color:transparent;
+                padding:0;
+                box-shadow:none;
+            }
+            &:hover > ul {
+                position:relative;
+                display: flex;
+                flex-direction: column;
+                background-color:transparent;
+            }
+        }
+        ul {
+            ul {
+                ul {
+                    left: 0;
+                }
+            }
+        }
         .left-navbar, .right-navbar {
             a {
                 font-size:13px;
@@ -56,33 +112,19 @@
                 &:hover{
                     color:$primarycolor;
                     background-color:transparent;
-                    transition: all 1.8s ease;
-                }
-            }
-            .navbar-dropdown-menu {
-                border:0;
-                background-color:#fff;
-                border-radius:0;
-                text-align:left;
-                box-shadow: none!important;
-                width:33%;
-                a {
-                    margin:0;
-                    padding:5px 25px;
-                    font-size:10px;
-                    border:0;
-                    &:hover{
-                        background-color:transparent;
-                    } 
-                }
-                .active {
-                    background-color:transparent;
-                    color:$primarycolor;
                 }
             }
             .active {
                 color:$primarycolor;
                 font-weight:bold;
+            }
+            ul li {
+                a {
+                    padding:7px;
+                    &:hover{
+                        background-color:transparent;
+                    }
+                }
             }
         }
     }

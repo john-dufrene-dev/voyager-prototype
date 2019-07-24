@@ -14,11 +14,16 @@
 
         <div class="collapse navbar-collapse" id="headerNavbar">
             <!-- Left Side Of Navbar -->
-            {!! menu('header', 'themes.'.config('prototype.theme').'.partials.navbar.menus._left') !!}
+            <ul class="navbar-nav ml-auto left-navbar">
+                {!! menu('header', 'themes.'.config('prototype.theme').'.partials.navbar.menus._left') !!}
+            </ul>
+
 
             <!-- Right Side Of Navbar -->
             @if(Module::find('Customer')->enabled())
-                @include('themes.'.config('prototype.theme').'.partials.navbar.menus._right')
+                <ul class="navbar-nav right-navbar"> 
+                    @include('themes.'.config('prototype.theme').'.partials.navbar.menus._right')
+                </ul>
             @endif
         </div>
     </div>

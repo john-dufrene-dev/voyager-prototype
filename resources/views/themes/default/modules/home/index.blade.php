@@ -1,4 +1,4 @@
-@extends('themes.'.config('prototype.theme').'./layouts/default')
+@extends('themes.'.config('prototype.theme').'.layouts.default')
 
 @section('meta_robots', 'index,follow')
 @section('meta_title') @parent | @lang('prototype.home.homepage') @endsection
@@ -15,9 +15,10 @@
 <div class="container">
 
     <div class="row justify-content-center">
-
+        
         <example-component></example-component>
 
     </div>
 </div>
+
 @endsection
