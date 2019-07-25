@@ -7,9 +7,9 @@ use Modules\VoyagerBaseExtend\Entities\CorsSetting;
 trait CorsSettingTable
 {
     /**
-     * 
-     * @method for returning all Settings
-     * 
+     * Get all options values.
+     *
+     * @return mixed
      */
     public function getAllCors()
     {
@@ -17,9 +17,10 @@ trait CorsSettingTable
     }
 
     /**
-     * 
-     * @method for returning setting by id
-     * 
+     * Determine given option value by id.
+     *
+     * @param  int  $id
+     * @return bool
      */
     public function getCorsById($id)
     {
@@ -27,9 +28,10 @@ trait CorsSettingTable
     }
 
     /**
-     * 
-     * @method for returning setting by name
-     * 
+     * Determine given option value by name.
+     *
+     * @param  string  $name
+     * @return bool
      */
     public function getCorsByName($name)
     {
@@ -37,9 +39,10 @@ trait CorsSettingTable
     }
 
     /**
-     * 
-     * @method cjeck if setting exist
-     * 
+     * Determine if the given option value exists.
+     *
+     * @param  string  $name
+     * @return bool
      */
     public function checkCors($name)
     {
@@ -47,19 +50,26 @@ trait CorsSettingTable
     }
 
     /**
-     * 
-     * @method for returning setting value
-     * 
+     * Get the specified option value.
+     *
+     * @param  string  $key
+     * @param  mixed   $default
+     * @return mixed
      */
-    public function getCorsValue($value)
+    public function getCorsValue($key, $default = null)
     {
-        return CorsSetting::where('cors_name',$value)->first()->cors_value;
+        if ($option = CorsSetting::where('cors_name', $key)->first()) {
+            return $option->cors_value;
+        }
+
+        return $default;
     }
 
     /**
-     * 
-     * @method for returning setting value
-     * 
+     * Get count options values.
+     *
+     * @param  string  $key
+     * @return mixed
      */
     public function countCors()
     {
@@ -67,14 +77,16 @@ trait CorsSettingTable
     }
 
     /**
-     * 
-     * @method for returning setting value
-     * 
+     * Get the specified option value.
+     *
+     * @param  string  $name
+     * @param  mixed   $value
+     * @return mixed
      */
-    public function updateCors($name,$request)
+    public function updateCors($name,$value)
     {
         $cors = CorsSetting::where('cors_name',$name)->firstOrFail();
-        $cors->cors_value = $request;
+        $cors->cors_value = $value;
 
         return $cors->save();
     }

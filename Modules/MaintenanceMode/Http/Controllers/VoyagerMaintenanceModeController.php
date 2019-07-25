@@ -34,6 +34,9 @@ class VoyagerMaintenanceModeController extends BaseVoyagerBaseController
     {
         if(Module::find('MaintenanceMode')->disabled())
             abort(403,'Module Maintenance is not allowed');
+
+        if(!$this->checkCors($this->maintenance_name))
+            abort(403,'MAINTENANCE_MODE value is not allowed');
             
         // GET THE SLUG, ex. 'posts', 'pages', etc.
         $slug = $this->getSlug($request);
