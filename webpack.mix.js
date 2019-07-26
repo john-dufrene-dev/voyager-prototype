@@ -37,3 +37,7 @@ mix.sass('Modules/Customer/Resources/assets/sass/app.scss', 'public/modules/cust
 // Module Maintenance
 mix.js('Modules/MaintenanceMode/Resources/assets/js/app.js', 'public/modules/maintenancemode/js');
 mix.sass('Modules/MaintenanceMode/Resources/assets/sass/app.scss', 'public/modules/maintenancemode/css');
+
+// Module Maintenance
+mix.js('Modules/LogViewer/Resources/assets/js/app.js', 'public/modules/logviewer/js');
+mix.sass('Modules/LogViewer/Resources/assets/sass/app.scss', 'public/modules/logviewer/css');

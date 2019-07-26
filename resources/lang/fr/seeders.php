@@ -80,7 +80,8 @@ return [
         'customers'    => 'Clients',
         'maintenance'  => 'Maintenance',
         'preference'   => 'Préférences',
-        'admin'        => 'Administration',  
+        'admin'        => 'Administration',
+        'logs'         => 'Logs',  
     ],
     'roles'      => [
         'admin' => 'Administrateur',

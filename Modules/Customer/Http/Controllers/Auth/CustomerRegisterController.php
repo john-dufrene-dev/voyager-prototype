@@ -85,4 +85,25 @@ class CustomerRegisterController extends Controller
         ]);
     }
 
+    /**
+     * Handle a registration request for the application.
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @return \Illuminate\Http\Response
+     */
+    public function register(Request $request)
+    {
+        $this->validator($request->all())->validate();
+
+        event(new Registered($user = $this->create($request->all())));
+
+        $this->guard()->login($user);
+
+        $customer = Customer::where('email', $request->email)->first();
+        session(['id_customer' => $customer->id]);
+
+        return $this->registered($request, $user)
+                        ?: redirect($this->redirectPath());
+    }
+
  }

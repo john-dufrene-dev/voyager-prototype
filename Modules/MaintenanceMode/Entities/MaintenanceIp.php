@@ -10,7 +10,7 @@ class MaintenanceIp extends Model
 {
     use Translatable;
 
-    protected $translatable = ['name_maintenance'];
+    protected $translatable = ['name_maintenance', 'ip_maintenance'];
     
     protected $table = 'maintenance_ips';
 

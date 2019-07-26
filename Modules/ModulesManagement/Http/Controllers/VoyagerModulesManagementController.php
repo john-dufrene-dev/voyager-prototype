@@ -19,25 +19,23 @@ class VoyagerModulesManagementController extends Controller
 
     public function __construct()
     {
+        $this->middleware('admin.user');
         $this->request = app('request');
 
         if(Module::find('ModulesManagement')->disabled())
-            abort(403, 'Module not allowed.');
+            abort(403, 'Module is not allowed.');
     }
 
     public function index(Request $request)
     {
-        if(Module::find('ModulesManagement')->disabled())
-            abort(403,'ModulesManagement is not allowed');
-
         // Check permission
         if(!Auth::user()->hasPermission('browse_modules')) {
-            throw new AccessDeniedHttpException();
+            throw new AccessDeniedHttpException('This action is unauthorized.');
         }
 
         //Check if app is not local
         if (!\App::environment('local') && !config('voyager.modules_in_production', false)) {
-            throw new AccessDeniedHttpException();
+            throw new AccessDeniedHttpException('This action is unauthorized.');
         }
 
         $message = '';

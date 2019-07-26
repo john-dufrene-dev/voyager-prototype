@@ -17,6 +17,7 @@ class PermissionsTableSeeder extends Seeder
             'browse_media',
             'browse_compass',
             'browse_modules',
+            'browse_logs',
         ];
 
         foreach ($keys as $key) {

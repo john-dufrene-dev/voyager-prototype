@@ -77,6 +77,24 @@ trait CorsSettingTable
     }
 
     /**
+     * Set a given option value.
+     *
+     * @param  array|string  $key
+     * @param  mixed   $value
+     * @return void
+     */
+    public function setCors($name, $value = null)
+    {
+        $names = is_array($name) ? $name : [$name => $value];
+
+        foreach ($names as $key => $value) {
+            CorsSetting::updateOrCreate(['cors_name' => $name], ['cors_value' => $value]);
+        }
+
+        // @todo: return the option
+    }
+
+    /**
      * Get the specified option value.
      *
      * @param  string  $name

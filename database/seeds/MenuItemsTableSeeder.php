@@ -255,7 +255,7 @@ class MenuItemsTableSeeder extends Seeder
             ])->save();
         }
 
-        // 8
+        // 15
         $menuItem = MenuItem::firstOrNew([
             'menu_id' => $menu->id,
             'title'   => __('seeders.menu_items.roles'),
@@ -269,6 +269,23 @@ class MenuItemsTableSeeder extends Seeder
                 'color'      => null,
                 'parent_id'  => 7,
                 'order'      => 19,
+            ])->save();
+        }
+
+        // 15
+        $menuItem = MenuItem::firstOrNew([
+            'menu_id' => $menu->id,
+            'title'   => __('seeders.menu_items.logs'),
+            'url'     => '',
+            'route'   => 'admin.logs.index',
+        ]);
+        if (!$menuItem->exists) {
+            $menuItem->fill([
+                'target'     => '_self',
+                'icon_class' => 'voyager-logbook',
+                'color'      => null,
+                'parent_id'  => 6,
+                'order'      => 20,
             ])->save();
         }
 

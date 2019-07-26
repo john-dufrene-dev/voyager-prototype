@@ -13,6 +13,9 @@ use Illuminate\Foundation\Http\Middleware\CheckForMaintenanceMode as Middleware;
 class CheckForMaintenanceModeWithAdmin extends Middleware
 {
     use CorsSettingTable;
+
+    protected $maintenance_name = 'MAINTENANCE_MODE';
+
     /**
      * The URIs that should be reachable while maintenance mode is enabled.
      *
@@ -47,10 +50,10 @@ class CheckForMaintenanceModeWithAdmin extends Middleware
         if(Module::find('MaintenanceMode')->disabled())
             return $next($request);
 
-        if(true != $this->checkCors('MAINTENANCE_MODE'))
-            abort(403, 'Module not allowed.');
+        if(true != $this->checkCors($this->maintenance_name))
+            $this->setCors($this->maintenance_name,0);
 
-        if (1 == $this->getCorsValue('MAINTENANCE_MODE')) {
+        if (1 == $this->getCorsValue($this->maintenance_name)) {
             $data = [];
 
             foreach(MaintenanceIp::All() as $ip) {

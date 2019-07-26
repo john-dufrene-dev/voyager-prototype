@@ -1,0 +1,25 @@
+{
+    "name": "jddev/logviewer",
+    "description": "",
+    "authors": [
+        {
+            "name": "John Dufrene",
+            "email": "john.dufrene.pro@gmail.com"
+        }
+    ],
+    "extra": {
+        "laravel": {
+            "providers": [
+                "Modules\\LogViewer\\Providers\\LogViewerServiceProvider"
+            ],
+            "aliases": {
+                
+            }
+        }
+    },
+    "autoload": {
+        "psr-4": {
+            "Modules\\LogViewer\\": ""
+        }
+    }
+}

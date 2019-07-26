@@ -149,7 +149,7 @@ return [
     */
 
     'composer' => [
-        'vendor' => 'nwidart',
+        'vendor' => 'jddev',
         'author' => [
             'name' => 'John Dufrene',
             'email' => 'john.dufrene.pro@gmail.com',

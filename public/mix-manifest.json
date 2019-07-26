@@ -4,8 +4,10 @@
     "/modules/post/css/app.css": "/modules/post/css/app.css",
     "/modules/customer/css/app.css": "/modules/customer/css/app.css",
     "/modules/maintenancemode/css/app.css": "/modules/maintenancemode/css/app.css",
+    "/modules/logviewer/css/app.css": "/modules/logviewer/css/app.css",
     "/js/voyager/voyager_custom.js": "/js/voyager/voyager_custom.js",
     "/modules/customer/js/app.js": "/modules/customer/js/app.js",
+    "/modules/logviewer/js/app.js": "/modules/logviewer/js/app.js",
     "/modules/maintenancemode/js/app.js": "/modules/maintenancemode/js/app.js",
     "/modules/post/js/app.js": "/modules/post/js/app.js"
 }

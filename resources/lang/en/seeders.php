@@ -81,6 +81,7 @@ return [
         'maintenance'  => 'Maintenance',
         'preference'   => 'Preferences',
         'admin'        => 'Administration',
+        'logs'         => 'Logs', 
     ],
     'roles'      => [
         'admin' => 'Administrator',

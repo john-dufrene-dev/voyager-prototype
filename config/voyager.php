@@ -234,6 +234,8 @@ return [
         'cache' => false,
     ],
 
+    // Activate logs when environment is NOT local
+    'logs_in_production' => true,
     // Activate modules when environment is NOT local
     'modules_in_production' => true,
     // Activate compass when environment is NOT local
