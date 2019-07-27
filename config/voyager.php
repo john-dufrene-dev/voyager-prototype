@@ -207,7 +207,7 @@ return [
     ],
 
     'additional_js' => [
-        'js/voyager/voyager_custom.js',
+        'modules/voyagerbaseextend/js/app.js',
     ],
 
     'googlemaps' => [

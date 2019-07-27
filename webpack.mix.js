@@ -11,8 +11,7 @@ const mix = require('laravel-mix');
  |
  */
 
-mix.js('resources/js/app.js', 'public/js')
-    .js('resources/assets/js/voyager/voyager_custom.js', 'public/js/voyager')
+mix.js('resources/js/app.js', 'public/js');
 
 mix.sass('resources/sass/app.scss', 'public/css');
 
@@ -24,6 +23,10 @@ mix.sass('resources/sass/app.scss', 'public/css');
  | Add module asset
  |
  */
+
+// Module VoyagerBaseExtend
+mix.js('Modules/VoyagerBaseExtend/Resources/assets/js/app.js', 'public/modules/voyagerbaseextend/js');
+mix.sass('Modules/VoyagerBaseExtend/Resources/assets/sass/app.scss', 'public/modules/voyagerbaseextend/css');
 
 // Module Post
 mix.js('Modules/Post/Resources/assets/js/app.js', 'public/modules/post/js');
@@ -38,6 +41,10 @@ mix.sass('Modules/Customer/Resources/assets/sass/app.scss', 'public/modules/cust
 mix.js('Modules/MaintenanceMode/Resources/assets/js/app.js', 'public/modules/maintenancemode/js');
 mix.sass('Modules/MaintenanceMode/Resources/assets/sass/app.scss', 'public/modules/maintenancemode/css');
 
-// Module Maintenance
+// Module Logviewer
 mix.js('Modules/LogViewer/Resources/assets/js/app.js', 'public/modules/logviewer/js');
 mix.sass('Modules/LogViewer/Resources/assets/sass/app.scss', 'public/modules/logviewer/css');
+
+// Module PassportAuthentification
+mix.js('Modules/PassportAuthentification/Resources/assets/js/app.js', 'public/modules/passportauth/js');
+mix.sass('Modules/PassportAuthentification/Resources/assets/sass/app.scss', 'public/modules/passportauth/css');

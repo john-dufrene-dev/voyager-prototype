@@ -11,18 +11,19 @@
 |
 */
 
-// VOYAGER ROUTES
-Route::group(['prefix' => 'admin'], function () {
+if(Module::find('ModulesManagement')->enabled()) {
+    Route::group(['prefix' => 'admin'], function () {
 
-    $moduleNamespace = 'Modules\ModulesManagement\Http\Controllers';
+        $moduleNamespace = 'Modules\ModulesManagement\Http\Controllers';
 
-    // Modules Routes
-    Route::group([
-        'as'     => 'modules.',
-        'prefix' => 'modules',
-        ], function () use ($moduleNamespace) {
-            Route::get('/', ['uses' => 'VoyagerModulesManagementController@index',  'as' => 'index']);
-            Route::post('/', ['uses' => 'VoyagerModulesManagementController@index',  'as' => 'post']);
+        // Modules Routes
+        Route::group([
+            'as'     => 'modules.',
+            'prefix' => 'modules',
+            ], function () use ($moduleNamespace) {
+                Route::get('/', ['uses' => 'VoyagerModulesManagementController@index',  'as' => 'index']);
+                Route::post('/', ['uses' => 'VoyagerModulesManagementController@index',  'as' => 'post']);
+        });
+
     });
-
-});
+}

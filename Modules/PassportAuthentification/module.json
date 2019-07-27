@@ -1,0 +1,14 @@
+{
+    "name": "PassportAuthentification",
+    "alias": "passportauthentification",
+    "description": "",
+    "keywords": [],
+    "active": 1,
+    "order": 0,
+    "providers": [
+        "Modules\\PassportAuthentification\\Providers\\PassportAuthentificationServiceProvider"
+    ],
+    "aliases": {},
+    "files": [],
+    "requires": []
+}

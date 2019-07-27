@@ -1,4 +1,4 @@
-@extends('themes.'.config('prototype.theme').'./layouts/default')
+@extends('themes.'.config('prototype.theme').'.layouts.default')
 
 @section('meta_robots', 'index,follow')
 @section('meta_title') @parent | Liste des articles @endsection
@@ -6,7 +6,10 @@
 @section('meta_keywords') Articles,Posts @endsection
 @section('page_title_meta')  @parent | Liste des articles @endsection
 @section('page_title') Liste des articles @endsection
-@section('page_subtitle') {{ count($posts) }} @endsection
+@section('page_subtitle') @if(0 == count($posts)) Aucun articles 
+    @elseif(1 == count($posts)) {{ count($posts) }} article
+    @else {{ count($posts) }} articles
+    @endif @endsection
 
 @section('css')
     @parent

@@ -1,0 +1,25 @@
+{
+    "name": "jddev/passportauthentification",
+    "description": "",
+    "authors": [
+        {
+            "name": "John Dufrene",
+            "email": "john.dufrene.pro@gmail.com"
+        }
+    ],
+    "extra": {
+        "laravel": {
+            "providers": [
+                "Modules\\PassportAuthentification\\Providers\\PassportAuthentificationServiceProvider"
+            ],
+            "aliases": {
+                
+            }
+        }
+    },
+    "autoload": {
+        "psr-4": {
+            "Modules\\PassportAuthentification\\": ""
+        }
+    }
+}

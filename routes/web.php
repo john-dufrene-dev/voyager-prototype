@@ -23,14 +23,8 @@ if(Module::find('VoyagerBaseExtend')->disabled()) {
     });
 }
 
-
-// ACCOUNT ROUTES
-if (config('prototype.account') ) {
-
-    Route::get('/oauth/token/get', 'Api\ApiTokenController@get')->name('token.oauth.get');
+Route::get('/oauth/token/get', '\App\Http\Controllers\Api\ApiTokenController@get')->name('token.oauth.get');
 // Route::get('/oauth/token/refresh', 'Api\ApiTokenController@refresh')->name('token.oauth.refresh'); IN PROGRESS
-    Route::get('/passport', 'Pages\PassportController@index')->name('pages.passport');
-}
 
 if(Module::find('Customer')->enabled())
     Route::get(__('routes.account'), 'Pages\AccountController@index')->name('pages.account');

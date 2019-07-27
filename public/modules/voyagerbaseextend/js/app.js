@@ -86,6 +86,103 @@
 /************************************************************************/
 /******/ ({
 
+/***/ "./Modules/VoyagerBaseExtend/Resources/assets/js/app.js":
+/*!**************************************************************!*\
+  !*** ./Modules/VoyagerBaseExtend/Resources/assets/js/app.js ***!
+  \**************************************************************/
+/*! no exports provided */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var tinymce_plugins_preview__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tinymce/plugins/preview */ "./node_modules/tinymce/plugins/preview/index.js");
+/* harmony import */ var tinymce_plugins_preview__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(tinymce_plugins_preview__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var tinymce_plugins_media__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! tinymce/plugins/media */ "./node_modules/tinymce/plugins/media/index.js");
+/* harmony import */ var tinymce_plugins_media__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(tinymce_plugins_media__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var tinymce_plugins_autolink__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! tinymce/plugins/autolink */ "./node_modules/tinymce/plugins/autolink/index.js");
+/* harmony import */ var tinymce_plugins_autolink__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(tinymce_plugins_autolink__WEBPACK_IMPORTED_MODULE_2__);
+/* harmony import */ var tinymce_plugins_searchreplace__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! tinymce/plugins/searchreplace */ "./node_modules/tinymce/plugins/searchreplace/index.js");
+/* harmony import */ var tinymce_plugins_searchreplace__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(tinymce_plugins_searchreplace__WEBPACK_IMPORTED_MODULE_3__);
+/* harmony import */ var tinymce_plugins_wordcount__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! tinymce/plugins/wordcount */ "./node_modules/tinymce/plugins/wordcount/index.js");
+/* harmony import */ var tinymce_plugins_wordcount__WEBPACK_IMPORTED_MODULE_4___default = /*#__PURE__*/__webpack_require__.n(tinymce_plugins_wordcount__WEBPACK_IMPORTED_MODULE_4__);
+/* harmony import */ var tinymce_plugins_advlist__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! tinymce/plugins/advlist */ "./node_modules/tinymce/plugins/advlist/index.js");
+/* harmony import */ var tinymce_plugins_advlist__WEBPACK_IMPORTED_MODULE_5___default = /*#__PURE__*/__webpack_require__.n(tinymce_plugins_advlist__WEBPACK_IMPORTED_MODULE_5__);
+/* harmony import */ var tinymce_plugins_insertdatetime__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! tinymce/plugins/insertdatetime */ "./node_modules/tinymce/plugins/insertdatetime/index.js");
+/* harmony import */ var tinymce_plugins_insertdatetime__WEBPACK_IMPORTED_MODULE_6___default = /*#__PURE__*/__webpack_require__.n(tinymce_plugins_insertdatetime__WEBPACK_IMPORTED_MODULE_6__);
+/* harmony import */ var tinymce_plugins_imagetools__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! tinymce/plugins/imagetools */ "./node_modules/tinymce/plugins/imagetools/index.js");
+/* harmony import */ var tinymce_plugins_imagetools__WEBPACK_IMPORTED_MODULE_7___default = /*#__PURE__*/__webpack_require__.n(tinymce_plugins_imagetools__WEBPACK_IMPORTED_MODULE_7__);
+/* harmony import */ var tinymce_plugins_charmap__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! tinymce/plugins/charmap */ "./node_modules/tinymce/plugins/charmap/index.js");
+/* harmony import */ var tinymce_plugins_charmap__WEBPACK_IMPORTED_MODULE_8___default = /*#__PURE__*/__webpack_require__.n(tinymce_plugins_charmap__WEBPACK_IMPORTED_MODULE_8__);
+/* harmony import */ var tinymce_plugins_hr__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! tinymce/plugins/hr */ "./node_modules/tinymce/plugins/hr/index.js");
+/* harmony import */ var tinymce_plugins_hr__WEBPACK_IMPORTED_MODULE_9___default = /*#__PURE__*/__webpack_require__.n(tinymce_plugins_hr__WEBPACK_IMPORTED_MODULE_9__);
+/* harmony import */ var _tinymce_tinymce_custom__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ./tinymce/tinymce_custom */ "./Modules/VoyagerBaseExtend/Resources/assets/js/tinymce/tinymce_custom.js");
+/* harmony import */ var _tinymce_tinymce_custom__WEBPACK_IMPORTED_MODULE_10___default = /*#__PURE__*/__webpack_require__.n(_tinymce_tinymce_custom__WEBPACK_IMPORTED_MODULE_10__);
+// Plugins
+
+
+
+
+
+
+
+
+
+ // .js
+
+
+
+/***/ }),
+
+/***/ "./Modules/VoyagerBaseExtend/Resources/assets/js/tinymce/tinymce_custom.js":
+/*!*********************************************************************************!*\
+  !*** ./Modules/VoyagerBaseExtend/Resources/assets/js/tinymce/tinymce_custom.js ***!
+  \*********************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+function tinymce_init_callback(editor) {
+  editor.remove();
+  editor = null;
+  var editor_config = {
+    path_absolute: "/",
+    menubar: false,
+    selector: 'textarea.richTextBox',
+    min_height: 300,
+    skin_url: $('meta[name="assets-path"]').attr('content') + '?path=js/skins/voyager',
+    plugins: 'insertdatetime, advlist, wordcount, imagetools, searchreplace, autolink, hr, charmap, preview, link, image, code, table, textcolor, lists, media',
+    toolbar: 'preview searchreplace | styleselect bold italic underline charmap hr | forecolor backcolor | alignleft aligncenter alignright | bullist numlist outdent indent | link image media table | insertdatetime code',
+    relative_urls: false,
+    file_browser_callback: function file_browser_callback(field_name, url, type, win) {
+      var x = window.innerWidth || document.documentElement.clientWidth || document.getElementsByTagName('body')[0].clientWidth;
+      var y = window.innerHeight || document.documentElement.clientHeight || document.getElementsByTagName('body')[0].clientHeight;
+      var cmsURL = editor_config.path_absolute + 'admin/filemanager?field_name=' + field_name;
+
+      if (type == 'image') {
+        cmsURL = cmsURL + "&type=Images";
+      } else {
+        cmsURL = cmsURL + "&type=Files";
+      }
+
+      tinyMCE.activeEditor.windowManager.open({
+        file: cmsURL,
+        title: 'Filemanager',
+        width: x * 0.8,
+        height: y * 0.8,
+        resizable: "yes",
+        close_previous: "no"
+      });
+    },
+    convert_urls: false,
+    image_caption: true,
+    image_title: true
+  };
+  tinymce.init(editor_config);
+}
+
+tinymce_init_callback(tinymce);
+
+/***/ }),
+
 /***/ "./node_modules/tinymce/plugins/advlist/index.js":
 /*!*******************************************************!*\
   !*** ./node_modules/tinymce/plugins/advlist/index.js ***!
@@ -7527,111 +7624,14 @@ var wordcount = (function () {
 
 /***/ }),
 
-/***/ "./resources/assets/js/voyager/tinymce/tinymce_custom.js":
-/*!***************************************************************!*\
-  !*** ./resources/assets/js/voyager/tinymce/tinymce_custom.js ***!
-  \***************************************************************/
-/*! no static exports found */
-/***/ (function(module, exports) {
-
-function tinymce_init_callback(editor) {
-  editor.remove();
-  editor = null;
-  var editor_config = {
-    path_absolute: "/",
-    menubar: false,
-    selector: 'textarea.richTextBox',
-    min_height: 300,
-    skin_url: $('meta[name="assets-path"]').attr('content') + '?path=js/skins/voyager',
-    plugins: 'insertdatetime, advlist, wordcount, imagetools, searchreplace, autolink, hr, charmap, preview, link, image, code, table, textcolor, lists, media',
-    toolbar: 'preview searchreplace | styleselect bold italic underline charmap hr | forecolor backcolor | alignleft aligncenter alignright | bullist numlist outdent indent | link image media table | insertdatetime code',
-    relative_urls: false,
-    file_browser_callback: function file_browser_callback(field_name, url, type, win) {
-      var x = window.innerWidth || document.documentElement.clientWidth || document.getElementsByTagName('body')[0].clientWidth;
-      var y = window.innerHeight || document.documentElement.clientHeight || document.getElementsByTagName('body')[0].clientHeight;
-      var cmsURL = editor_config.path_absolute + 'admin/filemanager?field_name=' + field_name;
-
-      if (type == 'image') {
-        cmsURL = cmsURL + "&type=Images";
-      } else {
-        cmsURL = cmsURL + "&type=Files";
-      }
-
-      tinyMCE.activeEditor.windowManager.open({
-        file: cmsURL,
-        title: 'Filemanager',
-        width: x * 0.8,
-        height: y * 0.8,
-        resizable: "yes",
-        close_previous: "no"
-      });
-    },
-    convert_urls: false,
-    image_caption: true,
-    image_title: true
-  };
-  tinymce.init(editor_config);
-}
-
-tinymce_init_callback(tinymce);
-
-/***/ }),
-
-/***/ "./resources/assets/js/voyager/voyager_custom.js":
-/*!*******************************************************!*\
-  !*** ./resources/assets/js/voyager/voyager_custom.js ***!
-  \*******************************************************/
-/*! no exports provided */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony import */ var tinymce_plugins_preview__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tinymce/plugins/preview */ "./node_modules/tinymce/plugins/preview/index.js");
-/* harmony import */ var tinymce_plugins_preview__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(tinymce_plugins_preview__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var tinymce_plugins_media__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! tinymce/plugins/media */ "./node_modules/tinymce/plugins/media/index.js");
-/* harmony import */ var tinymce_plugins_media__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(tinymce_plugins_media__WEBPACK_IMPORTED_MODULE_1__);
-/* harmony import */ var tinymce_plugins_autolink__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! tinymce/plugins/autolink */ "./node_modules/tinymce/plugins/autolink/index.js");
-/* harmony import */ var tinymce_plugins_autolink__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(tinymce_plugins_autolink__WEBPACK_IMPORTED_MODULE_2__);
-/* harmony import */ var tinymce_plugins_searchreplace__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! tinymce/plugins/searchreplace */ "./node_modules/tinymce/plugins/searchreplace/index.js");
-/* harmony import */ var tinymce_plugins_searchreplace__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(tinymce_plugins_searchreplace__WEBPACK_IMPORTED_MODULE_3__);
-/* harmony import */ var tinymce_plugins_wordcount__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! tinymce/plugins/wordcount */ "./node_modules/tinymce/plugins/wordcount/index.js");
-/* harmony import */ var tinymce_plugins_wordcount__WEBPACK_IMPORTED_MODULE_4___default = /*#__PURE__*/__webpack_require__.n(tinymce_plugins_wordcount__WEBPACK_IMPORTED_MODULE_4__);
-/* harmony import */ var tinymce_plugins_advlist__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! tinymce/plugins/advlist */ "./node_modules/tinymce/plugins/advlist/index.js");
-/* harmony import */ var tinymce_plugins_advlist__WEBPACK_IMPORTED_MODULE_5___default = /*#__PURE__*/__webpack_require__.n(tinymce_plugins_advlist__WEBPACK_IMPORTED_MODULE_5__);
-/* harmony import */ var tinymce_plugins_insertdatetime__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! tinymce/plugins/insertdatetime */ "./node_modules/tinymce/plugins/insertdatetime/index.js");
-/* harmony import */ var tinymce_plugins_insertdatetime__WEBPACK_IMPORTED_MODULE_6___default = /*#__PURE__*/__webpack_require__.n(tinymce_plugins_insertdatetime__WEBPACK_IMPORTED_MODULE_6__);
-/* harmony import */ var tinymce_plugins_imagetools__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! tinymce/plugins/imagetools */ "./node_modules/tinymce/plugins/imagetools/index.js");
-/* harmony import */ var tinymce_plugins_imagetools__WEBPACK_IMPORTED_MODULE_7___default = /*#__PURE__*/__webpack_require__.n(tinymce_plugins_imagetools__WEBPACK_IMPORTED_MODULE_7__);
-/* harmony import */ var tinymce_plugins_charmap__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! tinymce/plugins/charmap */ "./node_modules/tinymce/plugins/charmap/index.js");
-/* harmony import */ var tinymce_plugins_charmap__WEBPACK_IMPORTED_MODULE_8___default = /*#__PURE__*/__webpack_require__.n(tinymce_plugins_charmap__WEBPACK_IMPORTED_MODULE_8__);
-/* harmony import */ var tinymce_plugins_hr__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! tinymce/plugins/hr */ "./node_modules/tinymce/plugins/hr/index.js");
-/* harmony import */ var tinymce_plugins_hr__WEBPACK_IMPORTED_MODULE_9___default = /*#__PURE__*/__webpack_require__.n(tinymce_plugins_hr__WEBPACK_IMPORTED_MODULE_9__);
-/* harmony import */ var _tinymce_tinymce_custom__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ./tinymce/tinymce_custom */ "./resources/assets/js/voyager/tinymce/tinymce_custom.js");
-/* harmony import */ var _tinymce_tinymce_custom__WEBPACK_IMPORTED_MODULE_10___default = /*#__PURE__*/__webpack_require__.n(_tinymce_tinymce_custom__WEBPACK_IMPORTED_MODULE_10__);
-// Plugins
-
-
-
-
-
-
-
-
-
- // .js
-
-
-
-/***/ }),
-
 /***/ 1:
-/*!*************************************************************!*\
-  !*** multi ./resources/assets/js/voyager/voyager_custom.js ***!
-  \*************************************************************/
+/*!********************************************************************!*\
+  !*** multi ./Modules/VoyagerBaseExtend/Resources/assets/js/app.js ***!
+  \********************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(/*! C:\wamp64\www\projet\laravel\voyager-prototype\resources\assets\js\voyager\voyager_custom.js */"./resources/assets/js/voyager/voyager_custom.js");
+module.exports = __webpack_require__(/*! C:\wamp64\www\projet\laravel\voyager-prototype\Modules\VoyagerBaseExtend\Resources\assets\js\app.js */"./Modules/VoyagerBaseExtend/Resources/assets/js/app.js");
 
 
 /***/ })

@@ -13,21 +13,6 @@ window.Vue = require('vue');
 
 Vue.component('example-component', require('../components/ExampleComponent.vue').default);
 
-Vue.component(
-    'passport-clients',
-    require('../components/passport/Clients.vue').default
-);
-
-Vue.component(
-    'passport-authorized-clients',
-    require('../components/passport/AuthorizedClients.vue').default
-);
-
-Vue.component(
-    'passport-personal-access-tokens',
-    require('../components/passport/PersonalAccessTokens.vue').default
-);
-
 if (process.env.MIX_ENV_MODE === 'production') {
     Vue.config.devtools = false;
     Vue.config.debug = false;

@@ -1,4 +1,3 @@
-{{-- Ne supporte que deux niveaux d'imbrigations --}}
 @foreach($items as $item)
     @php ($hasChildren = count($item->children) > 0)
     <li>

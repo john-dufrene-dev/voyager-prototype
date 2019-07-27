@@ -1,4 +1,4 @@
-@extends('themes.'.config('prototype.theme').'./layouts/default')
+@extends('themes.'.config('prototype.theme').'.layouts.default')
 
 @section('content')
 <div class="container">
