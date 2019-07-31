@@ -1450,7 +1450,7 @@ module.exports = function spread(callback) {
 
 
 var bind = __webpack_require__(/*! ./helpers/bind */ "./node_modules/axios/lib/helpers/bind.js");
-var isBuffer = __webpack_require__(/*! is-buffer */ "./node_modules/axios/node_modules/is-buffer/index.js");
+var isBuffer = __webpack_require__(/*! is-buffer */ "./node_modules/is-buffer/index.js");
 
 /*global toString:true*/
 
@@ -1750,28 +1750,6 @@ module.exports = {
   extend: extend,
   trim: trim
 };
-
-
-/***/ }),
-
-/***/ "./node_modules/axios/node_modules/is-buffer/index.js":
-/*!************************************************************!*\
-  !*** ./node_modules/axios/node_modules/is-buffer/index.js ***!
-  \************************************************************/
-/*! no static exports found */
-/***/ (function(module, exports) {
-
-/*!
- * Determine if an object is a Buffer
- *
- * @author   Feross Aboukhadijeh <https://feross.org>
- * @license  MIT
- */
-
-module.exports = function isBuffer (obj) {
-  return obj != null && obj.constructor != null &&
-    typeof obj.constructor.isBuffer === 'function' && obj.constructor.isBuffer(obj)
-}
 
 
 /***/ }),
@@ -6250,6 +6228,28 @@ __webpack_require__.r(__webpack_exports__);
 
 }));
 //# sourceMappingURL=bootstrap.js.map
+
+
+/***/ }),
+
+/***/ "./node_modules/is-buffer/index.js":
+/*!*****************************************!*\
+  !*** ./node_modules/is-buffer/index.js ***!
+  \*****************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+/*!
+ * Determine if an object is a Buffer
+ *
+ * @author   Feross Aboukhadijeh <https://feross.org>
+ * @license  MIT
+ */
+
+module.exports = function isBuffer (obj) {
+  return obj != null && obj.constructor != null &&
+    typeof obj.constructor.isBuffer === 'function' && obj.constructor.isBuffer(obj)
+}
 
 
 /***/ }),
@@ -16885,7 +16885,7 @@ return jQuery;
   var undefined;
 
   /** Used as the semantic version number. */
-  var VERSION = '4.17.15';
+  var VERSION = '4.17.14';
 
   /** Used as the size to enable large array optimizations. */
   var LARGE_ARRAY_SIZE = 200;
@@ -49451,14 +49451,14 @@ if (false) {}
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(/*! C:\wamp64\www\projet\laravel\voyager-prototype\resources\js\app.js */"./resources/js/app.js");
-__webpack_require__(/*! C:\wamp64\www\projet\laravel\voyager-prototype\resources\sass\app.scss */"./resources/sass/app.scss");
-__webpack_require__(/*! C:\wamp64\www\projet\laravel\voyager-prototype\Modules\VoyagerBaseExtend\Resources\assets\sass\app.scss */"./Modules/VoyagerBaseExtend/Resources/assets/sass/app.scss");
-__webpack_require__(/*! C:\wamp64\www\projet\laravel\voyager-prototype\Modules\Post\Resources\assets\sass\app.scss */"./Modules/Post/Resources/assets/sass/app.scss");
-__webpack_require__(/*! C:\wamp64\www\projet\laravel\voyager-prototype\Modules\Customer\Resources\assets\sass\app.scss */"./Modules/Customer/Resources/assets/sass/app.scss");
-__webpack_require__(/*! C:\wamp64\www\projet\laravel\voyager-prototype\Modules\MaintenanceMode\Resources\assets\sass\app.scss */"./Modules/MaintenanceMode/Resources/assets/sass/app.scss");
-__webpack_require__(/*! C:\wamp64\www\projet\laravel\voyager-prototype\Modules\LogViewer\Resources\assets\sass\app.scss */"./Modules/LogViewer/Resources/assets/sass/app.scss");
-module.exports = __webpack_require__(/*! C:\wamp64\www\projet\laravel\voyager-prototype\Modules\PassportAuthentification\Resources\assets\sass\app.scss */"./Modules/PassportAuthentification/Resources/assets/sass/app.scss");
+__webpack_require__(/*! D:\wamp64\www\projets\laravel\voyager-prototype\resources\js\app.js */"./resources/js/app.js");
+__webpack_require__(/*! D:\wamp64\www\projets\laravel\voyager-prototype\resources\sass\app.scss */"./resources/sass/app.scss");
+__webpack_require__(/*! D:\wamp64\www\projets\laravel\voyager-prototype\Modules\VoyagerBaseExtend\Resources\assets\sass\app.scss */"./Modules/VoyagerBaseExtend/Resources/assets/sass/app.scss");
+__webpack_require__(/*! D:\wamp64\www\projets\laravel\voyager-prototype\Modules\Post\Resources\assets\sass\app.scss */"./Modules/Post/Resources/assets/sass/app.scss");
+__webpack_require__(/*! D:\wamp64\www\projets\laravel\voyager-prototype\Modules\Customer\Resources\assets\sass\app.scss */"./Modules/Customer/Resources/assets/sass/app.scss");
+__webpack_require__(/*! D:\wamp64\www\projets\laravel\voyager-prototype\Modules\MaintenanceMode\Resources\assets\sass\app.scss */"./Modules/MaintenanceMode/Resources/assets/sass/app.scss");
+__webpack_require__(/*! D:\wamp64\www\projets\laravel\voyager-prototype\Modules\LogViewer\Resources\assets\sass\app.scss */"./Modules/LogViewer/Resources/assets/sass/app.scss");
+module.exports = __webpack_require__(/*! D:\wamp64\www\projets\laravel\voyager-prototype\Modules\PassportAuthentification\Resources\assets\sass\app.scss */"./Modules/PassportAuthentification/Resources/assets/sass/app.scss");
 
 
 /***/ })

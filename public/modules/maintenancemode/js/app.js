@@ -105,6 +105,21 @@ $(document).ready(function () {
       }
     });
   });
+  $(".status-active-ip").click(function () {
+    $.post({
+      url: "/admin/maintenance/ajax/status",
+      data: {
+        status_ip: $(this).data("status"),
+        id_maintenance_ip: $(this).data("ip-id")
+      },
+      success: function success(data) {
+        window.location.href = data;
+      },
+      error: function error(err) {
+        console.log('error ' + err);
+      }
+    });
+  });
 });
 
 /***/ }),
@@ -116,7 +131,7 @@ $(document).ready(function () {
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(/*! C:\wamp64\www\projet\laravel\voyager-prototype\Modules\MaintenanceMode\Resources\assets\js\app.js */"./Modules/MaintenanceMode/Resources/assets/js/app.js");
+module.exports = __webpack_require__(/*! D:\wamp64\www\projets\laravel\voyager-prototype\Modules\MaintenanceMode\Resources\assets\js\app.js */"./Modules/MaintenanceMode/Resources/assets/js/app.js");
 
 
 /***/ })

@@ -313,4 +313,23 @@ class VoyagerMaintenanceModeController extends BaseVoyagerBaseController
 
         return 'error is not an ajax request';
     }
+
+    /*
+    * @return ajax IP
+    */
+    public function updateAjaxStatusIp(Request $request)
+    {
+        if( $request->ajax() ) {
+
+            $new_status = ($request->status_ip == 0) ? 1 : 0;
+
+            $ip = MaintenanceIp::find($request->id_maintenance_ip);
+            $ip->active = $new_status;
+            $ip->save();
+
+            return route('voyager.maintenance.index');
+        }
+
+        return 'error is not an ajax request';
+    }
 }

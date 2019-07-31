@@ -193,9 +193,17 @@
                                                 @elseif($row->type == 'checkbox')
                                                     @if(property_exists($row->details, 'on') && property_exists($row->details, 'off'))
                                                         @if($data->{$row->field})
-                                                            <span class="label label-info">{{ $row->details->on }}</span>
+                                                            <span class="label label-info status-active-ip" 
+                                                            data-ip-id="{{ $data->id }}"
+                                                            data-status="1">
+                                                                {{ $row->details->on }}
+                                                            </span>
                                                         @else
-                                                            <span class="label label-primary">{{ $row->details->off }}</span>
+                                                            <span class="label label-primary status-active-ip"
+                                                            data-ip-id="{{ $data->id }}"
+                                                            data-status="0">
+                                                                {{ $row->details->off }}
+                                                            </span>
                                                         @endif
                                                     @else
                                                     {{ $data->{$row->field} }}

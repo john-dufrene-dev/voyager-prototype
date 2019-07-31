@@ -104,7 +104,7 @@
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(/*! C:\wamp64\www\projet\laravel\voyager-prototype\Modules\Customer\Resources\assets\js\app.js */"./Modules/Customer/Resources/assets/js/app.js");
+module.exports = __webpack_require__(/*! D:\wamp64\www\projets\laravel\voyager-prototype\Modules\Customer\Resources\assets\js\app.js */"./Modules/Customer/Resources/assets/js/app.js");
 
 
 /***/ })

@@ -27,6 +27,11 @@ if(Module::find('MaintenanceMode')->enabled()) {
                 'uses' => 'VoyagerMaintenanceModeController@getAjaxIp', 
                 'as' => 'maintenance.ajax.ip']
             );
+
+            Route::post('/maintenance/ajax/status', [
+                'uses' => 'VoyagerMaintenanceModeController@updateAjaxStatusIP', 
+                'as' => 'maintenance.ajax.status']
+            );
         
             event(new RoutingAfter());
         });
