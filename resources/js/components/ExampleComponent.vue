@@ -17,7 +17,9 @@
 <script>
     export default {
         mounted() {
-            console.log('Component mounted.')
+            if (process.env.MIX_ENV_MODE != 'production') {
+                console.log('Component mounted.')
+            }
         }
     }
 </script>

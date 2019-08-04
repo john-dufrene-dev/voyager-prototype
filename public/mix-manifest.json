@@ -1,5 +1,6 @@
 {
     "/js/app.js": "/js/app.js",
+    "/js/config/dependencies.js": "/js/config/dependencies.js",
     "/css/app.css": "/css/app.css",
     "/modules/voyagerbaseextend/css/app.css": "/modules/voyagerbaseextend/css/app.css",
     "/modules/post/css/app.css": "/modules/post/css/app.css",
