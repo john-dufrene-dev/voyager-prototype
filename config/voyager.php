@@ -231,7 +231,8 @@ return [
     'settings' => [
         // Enables Laravel cache method for
         // storing cache values between requests
-        'cache' => false,
+        // enable if cache is enable with apc/memcache
+        'cache' => true,
     ],
 
     // Activate logs when environment is NOT local
