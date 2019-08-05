@@ -135,6 +135,14 @@ Route::group(['prefix' => 'admin'], function () {
                 Route::get('/', ['uses' => 'VoyagerCompassExtendController@index',  'as' => 'index']);
                 Route::post('/', ['uses' => 'VoyagerCompassExtendController@index',  'as' => 'post']);
             });
+
+            // Ajax Routes
+            Route::group([
+                'as'     => 'voyagerbaseextend.ajax.statut.',
+                'prefix' => 'voyagerbaseextend',
+            ], function () use ($moduleNamespace) {
+                Route::post('/ajax/statut', ['uses' => 'VoyagerBaseAjaxExtendController@updateMultiplesStatuts',  'as' => 'post']);
+            });
     
             event(new RoutingAdminAfter());
         });

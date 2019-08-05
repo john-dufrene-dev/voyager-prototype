@@ -12,3 +12,4 @@ import 'tinymce/plugins/hr';
 
 // .js
 import './tinymce/tinymce_custom';
+import './partials/bulk-active';

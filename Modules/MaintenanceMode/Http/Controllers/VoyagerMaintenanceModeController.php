@@ -17,6 +17,7 @@ class VoyagerMaintenanceModeController extends BaseVoyagerBaseController
     use BreadRelationshipParser, CorsSettingTable;
 
     protected $maintenance_name = 'MAINTENANCE_MODE';
+    protected $bulk_active = true;
 
     //***************************************
     //               ____
@@ -130,8 +131,9 @@ class VoyagerMaintenanceModeController extends BaseVoyagerBaseController
         // Check value maintenance mode
         $maintenanceValue = $this->getCorsValue($this->maintenance_name);
 
-        // Get personal Ip
+        // Get personal Ip + active field
         $ip = $request->ip();
+        $active_field = $this->bulk_active;
 
         $view = 'maintenancemode::admin.bread.browse';
 
@@ -141,6 +143,7 @@ class VoyagerMaintenanceModeController extends BaseVoyagerBaseController
 
         return Voyager::view($view, compact(
             'ip',
+            'active_field',
             'maintenanceValue',
             'dataType',
             'dataTypeContent',

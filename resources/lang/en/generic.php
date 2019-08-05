@@ -107,4 +107,10 @@ return [
     'whoopsie'               => 'Whoopsie!',
     'yes'                    => 'Yes',
     'yes_please'             => 'Yes, Please',
+    'active_selection'       => 'Active selection',
+    'disable_selection'      => 'Disable selection',
+    'nothink_to_enable'      => 'You haven\'t selected anything to enable',
+    'nothink_to_disable'     => 'You haven\'t selected anything to disable',
+    'update_status_success'  => 'Status activation performed successfully',
+    'update_status_danger'   => 'Disabling status successfully completed',
 ];

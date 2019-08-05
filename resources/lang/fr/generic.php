@@ -107,4 +107,10 @@ return [
     'whoopsie'               => 'Oups !',
     'yes'                    => 'Oui',
     'yes_please'             => 'Oui SVP',
+    'active_selection'       => 'Activer la selection',
+    'disable_selection'      => 'Désactiver la selection',
+    'nothink_to_enable'      => 'Vous n\'avez sélectionné aucun élément à activer',
+    'nothink_to_disable'     => 'Vous n\'avez sélectionné aucun élément à désactiver',
+    'update_status_success'  => 'Mise a jour des status effectuée avec succès',
+    'update_status_danger'  => 'Désactivation des statuts effectuée avec succès',
 ];
