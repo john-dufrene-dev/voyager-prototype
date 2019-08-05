@@ -89,7 +89,7 @@
 
 @stop
 @section('javascript')
-    <script>
+    <script type="application/javascript">
         $('document').ready(function(){
             $('.collapse-head').click(function(){
                 var collapseContainer = $(this).parent();
@@ -104,7 +104,7 @@
         });
     </script>
     <!-- JS for commands -->
-    <script>
+    <script type="application/javascript">
 
         $(document).ready(function(){
             $('.command').click(function(){

@@ -2,7 +2,7 @@
 
 @section('css')
     @parent
-    <link href="{{ mix('modules/customer/css/app.css') }}" rel="stylesheet">
+    <link href="{{ mix('modules/customer/css/app.css') }}" rel="stylesheet" type="text/css">
 @stop
 
 @section('content')
@@ -90,5 +90,5 @@
 
 @section('scripts')
     @parent
-    <script src="{{ mix('modules/customer/js/app.js') }}" defer></script>
+    <script type="application/javascript" src="{{ mix('modules/customer/js/app.js') }}" defer async></script>
 @stop

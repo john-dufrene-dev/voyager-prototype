@@ -2,7 +2,7 @@
 
 @section('css')
     @parent
-    <link href="{{ mix('modules/maintenancemode/css/app.css') }}" rel="stylesheet">
+    <link href="{{ mix('modules/maintenancemode/css/app.css') }}" rel="stylesheet" type="text/css">
 @stop
 
 @section('page_title', __('voyager::generic.viewing').' '.$dataType->display_name_plural)
@@ -421,5 +421,5 @@
             $('.selected_ids').val(ids);
         });
     </script>
-    <script src="{{ mix('modules/maintenancemode/js/app.js') }}" defer></script>
+    <script type="application/javascript" src="{{ mix('modules/maintenancemode/js/app.js') }}" defer async></script>
 @stop

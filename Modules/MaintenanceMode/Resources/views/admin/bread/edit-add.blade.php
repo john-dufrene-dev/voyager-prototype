@@ -206,5 +206,5 @@
             $('[data-toggle="tooltip"]').tooltip();
         });
     </script>
-    <script src="{{ mix('modules/maintenancemode/js/app.js') }}" defer></script>
+    <script type="application/javascript" src="{{ mix('modules/maintenancemode/js/app.js') }}" defer async></script>
 @stop

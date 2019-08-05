@@ -8,12 +8,12 @@
 @section('page_title') Liste des articles @endsection
 @section('page_subtitle') @if(0 == count($posts)) Aucun articles 
     @elseif(1 == count($posts)) {{ count($posts) }} article
-    @else {{ count($posts) }} articles
-    @endif @endsection
+    @else {{ count($posts) }} articles @endif 
+@endsection
 
 @section('css')
     @parent
-    <link href="{{ mix('modules/post/css/app.css') }}" rel="stylesheet">
+    <link href="{{ mix('modules/post/css/app.css') }}" rel="stylesheet" type="text/css">
 @stop
 
 @section('content')
@@ -59,5 +59,5 @@
 
 @section('scripts')
     @parent
-    <script src="{{ mix('modules/post/js/app.js') }}" defer></script>
+    <script type="application/javascript" src="{{ mix('modules/post/js/app.js') }}" defer async></script>
 @stop

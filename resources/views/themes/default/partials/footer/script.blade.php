@@ -1,5 +1,5 @@
 <!-- Scripts -->
 @section('scripts')
-    <script src="{{ mix('js/config/dependencies.js') }}" defer></script>
-    <script src="{{ mix('js/app.js') }}" defer></script>
+    <script type="application/javascript" src="{{ mix('js/config/dependencies.js') }}" defer async></script>
+    <script type="application/javascript" src="{{ mix('js/app.js') }}" defer async></script>
 @show

@@ -10,7 +10,7 @@
 
 @section('css')
     @parent
-    <link href="{{ mix('modules/post/css/app.css') }}" rel="stylesheet">
+    <link href="{{ mix('modules/post/css/app.css') }}" rel="stylesheet" type="text/css">
 @stop
 
 @section('content')
@@ -26,5 +26,5 @@
 
 @section('scripts')
     @parent
-    <script src="{{ mix('modules/post/js/app.js') }}" defer></script>
+    <script type="application/javascript" src="{{ mix('modules/post/js/app.js') }}" defer async></script>
 @stop
