@@ -48,12 +48,9 @@
             <div class="col-md-12">
                 <div class="panel panel-bordered">
                     <div class="panel-body">
-                        @can('edit', app($dataType->model_name))
-                            @if(true == $active_field)
-                                @include('voyagerbaseextend::admin.partials.bulk-active')
-                            @endif
-                        @endcan
+
                      {{-- Change status maintenance mode --}}
+                     
                         <div class="maintenance-button">
                             <form action="{{ route('voyager.maintenance.turn') }}" class="cmd_form" method="POST">
                                 {{ csrf_field() }}
@@ -299,6 +296,17 @@
                                     @endforeach
                                 </tbody>
                             </table>
+
+                            {{-- Action enable/disable multiples --}}
+
+                            @can('edit', app($dataType->model_name))
+                                @if(true == $active_field)
+                                    @include('voyagerbaseextend::admin.partials.bulk-active')
+                                @endif
+                            @endcan
+
+                            {{-- Action enable/disable multiples --}}
+
                         </div>
                         @if ($isServerSide)
                             <div class="pull-left">

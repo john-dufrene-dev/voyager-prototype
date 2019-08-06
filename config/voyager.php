@@ -232,7 +232,7 @@ return [
         // Enables Laravel cache method for
         // storing cache values between requests
         // enable if cache is enable with apc/memcache
-        'cache' => true,
+        'cache' => env('VOYAGER_CACHE_ENABLE', false),
     ],
 
     // Activate logs when environment is NOT local

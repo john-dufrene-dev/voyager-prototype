@@ -1,1 +1,1 @@
-.voyager #bulk_active_btn,.voyager #bulk_disable_btn{margin-top:2px}@media (max-width:768px){#bulk_active_btn span,#bulk_disable_btn span{display:none}}
+.voyager #bulk_active_btn i,.voyager #bulk_disable_btn i{position:relative;top:2px}@media (max-width:768px){#bulk_active_btn span,#bulk_disable_btn span{display:none}}
