@@ -30,7 +30,7 @@ class CustomerLoginController extends Controller
     // login from for customer
     public function showLoginForm(Session $session)
     {
-        return view('customer::auth.login');
+        return view('customer::themes.' . config('customer.theme') . '.auth.login');
     }
 
     /**

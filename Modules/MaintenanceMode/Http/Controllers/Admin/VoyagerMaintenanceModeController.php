@@ -1,6 +1,6 @@
 <?php
 
-namespace Modules\MaintenanceMode\Http\Controllers;
+namespace Modules\MaintenanceMode\Http\Controllers\Admin;
 
 use Illuminate\Http\Request;
 use TCG\Voyager\Facades\Voyager;
@@ -35,6 +35,10 @@ class VoyagerMaintenanceModeController extends BaseVoyagerBaseController
     {
         if(Module::find('MaintenanceMode')->disabled())
             abort(403,'Module Maintenance is not allowed');
+        
+        // module voyagerBaseExtend is required
+        if(Module::find('VoyagerBaseExtend')->disabled())
+            abort(403,'Module VoyagerBaseExtend is required');
 
         if(!$this->checkCors($this->maintenance_name))
             abort(403,'MAINTENANCE_MODE value is not allowed');

@@ -11,11 +11,6 @@
 |
 */
 
-// GENERALS ROUTES
-Route::get('/', function () {
-    return view('themes.'.config('prototype.theme').'.modules.home.index');
-});
-
 // VOYAGER ROUTES
 if(Module::find('VoyagerBaseExtend')->disabled()) {
     Route::group(['prefix' => 'admin'], function () {
@@ -25,9 +20,6 @@ if(Module::find('VoyagerBaseExtend')->disabled()) {
 
 Route::get('/oauth/token/get', '\App\Http\Controllers\Api\ApiTokenController@get')->name('token.oauth.get');
 // Route::get('/oauth/token/refresh', 'Api\ApiTokenController@refresh')->name('token.oauth.refresh'); IN PROGRESS
-
-if(Module::find('Customer')->enabled())
-    Route::get(__('routes.account'), 'Pages\AccountController@index')->name('pages.account');
 
 // FILEMANAGER ROUTES
 Route::group(['middleware' => 'admin.user'], function () {

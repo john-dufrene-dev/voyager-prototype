@@ -21,8 +21,8 @@ Route::group(['prefix' => 'admin'], function () {
         'as'     => 'admin.logs.',
         'prefix' => 'logs',
     ], function () use ($moduleNamespace) {
-        Route::get('/', ['uses' => 'VoyagerLogsExtendController@index',  'as' => 'index']);
-        Route::post('/', ['uses' => 'VoyagerLogsExtendController@index',  'as' => 'post']);
+        Route::get('/', ['uses' => 'Admin\VoyagerLogsExtendController@index',  'as' => 'index']);
+        Route::post('/', ['uses' => 'Admin\VoyagerLogsExtendController@index',  'as' => 'post']);
     });
 
 });

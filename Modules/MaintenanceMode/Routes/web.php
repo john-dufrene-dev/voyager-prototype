@@ -19,17 +19,17 @@ if(Module::find('MaintenanceMode')->enabled()) {
             event(new Routing());
         
             Route::post('maintenance/store/turn', [
-                'uses' => 'VoyagerMaintenanceModeController@StoreTurnMaintenanceMode', 
+                'uses' => 'Admin\VoyagerMaintenanceModeController@StoreTurnMaintenanceMode', 
                 'as' => 'maintenance.turn']
             );
 
             Route::post('/maintenance/ajax/ip', [
-                'uses' => 'VoyagerMaintenanceModeController@getAjaxIp', 
+                'uses' => 'Admin\VoyagerMaintenanceModeController@getAjaxIp', 
                 'as' => 'maintenance.ajax.ip']
             );
 
             Route::post('/maintenance/ajax/status', [
-                'uses' => 'VoyagerMaintenanceModeController@updateAjaxStatusIP', 
+                'uses' => 'Admin\VoyagerMaintenanceModeController@updateAjaxStatusIP', 
                 'as' => 'maintenance.ajax.status']
             );
         

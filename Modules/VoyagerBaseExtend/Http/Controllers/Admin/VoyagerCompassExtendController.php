@@ -1,6 +1,6 @@
 <?php
 
-namespace Modules\VoyagerBaseExtend\Http\Controllers;
+namespace Modules\VoyagerBaseExtend\Http\Controllers\Admin;
 
 use Artisan;
 use Illuminate\Http\Request;

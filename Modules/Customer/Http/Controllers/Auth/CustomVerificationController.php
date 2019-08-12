@@ -50,6 +50,6 @@ class CustomVerificationController extends Controller
     {
         return $request->user()->hasVerifiedEmail()
                         ? redirect($this->redirectPath())
-                        : view('customer::auth.verify');
+                        : view('customer::themes.' . config('customer.theme') . '.auth.verify');
     }
 }

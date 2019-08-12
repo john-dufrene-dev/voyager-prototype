@@ -1,6 +1,6 @@
 <?php
 
-namespace Modules\LogViewer\Http\Controllers;
+namespace Modules\LogViewer\Http\Controllers\Admin;
 
 use Illuminate\Http\Request;
 use TCG\Voyager\Facades\Voyager;

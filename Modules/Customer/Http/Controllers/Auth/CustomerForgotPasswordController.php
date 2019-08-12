@@ -40,7 +40,7 @@ class CustomerForgotPasswordController extends Controller
      */
     public function showLinkRequestForm()
     {
-        return view('customer::auth.passwords.email');
+        return view('customer::themes.' . config('customer.theme') . '.auth.passwords.email');
     }
 
     /**

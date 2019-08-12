@@ -1,6 +1,6 @@
 <?php
 
-namespace Modules\VoyagerBaseExtend\Http\Controllers;
+namespace Modules\VoyagerBaseExtend\Http\Controllers\Admin;
 
 use Illuminate\Http\Request;
 use TCG\Voyager\Facades\Voyager;

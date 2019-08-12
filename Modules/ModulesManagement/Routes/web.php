@@ -21,8 +21,8 @@ if(Module::find('ModulesManagement')->enabled()) {
             'as'     => 'modules.',
             'prefix' => 'modules',
             ], function () use ($moduleNamespace) {
-                Route::get('/', ['uses' => 'VoyagerModulesManagementController@index',  'as' => 'index']);
-                Route::post('/', ['uses' => 'VoyagerModulesManagementController@index',  'as' => 'post']);
+                Route::get('/', ['uses' => 'Admin\VoyagerModulesManagementController@index',  'as' => 'index']);
+                Route::post('/', ['uses' => 'Admin\VoyagerModulesManagementController@index',  'as' => 'post']);
         });
 
     });

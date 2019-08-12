@@ -1,6 +1,6 @@
 <?php
 
-namespace Modules\PassportAuthentification\Http\Controllers;
+namespace Modules\PassportAuthentification\Http\Controllers\Admin;
 
 use Illuminate\Http\Request;
 use Illuminate\Http\Response;

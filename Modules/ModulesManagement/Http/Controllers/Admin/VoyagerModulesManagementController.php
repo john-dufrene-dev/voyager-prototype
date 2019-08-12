@@ -1,6 +1,6 @@
 <?php
 
-namespace Modules\ModulesManagement\Http\Controllers;
+namespace Modules\ModulesManagement\Http\Controllers\Admin;
 
 use Artisan;
 use Exception;

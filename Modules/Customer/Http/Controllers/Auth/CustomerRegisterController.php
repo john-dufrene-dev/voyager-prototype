@@ -52,7 +52,7 @@ class CustomerRegisterController extends Controller
      */
     public function showRegistrationForm()
     {
-        return view('customer::auth.register');
+        return view('customer::themes.' . config('customer.theme') . '.auth.register');
     }
 
     /**

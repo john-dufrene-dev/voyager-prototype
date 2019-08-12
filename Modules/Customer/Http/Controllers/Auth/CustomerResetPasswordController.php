@@ -52,7 +52,7 @@ class CustomerResetPasswordController extends Controller
      */
     public function showResetForm(Request $request, $token = null)
     {
-        return view('customer::auth.passwords.reset')->with(
+        return view('customer::themes.' . config('customer.theme') . '.auth.passwords.reset')->with(
             ['token' => $token, 'email' => $request->email]
         );
     }

@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Controllers\Pages;
+namespace Modules\Customer\Http\Controllers\Account;
 
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
@@ -24,6 +24,6 @@ class AccountController extends Controller
      */
     public function index()
     {
-        return view('themes.'.config('prototype.theme').'.modules.account.index');
+        return view('customer::themes.' . config('customer.theme') . '.account.index');
     }
 }

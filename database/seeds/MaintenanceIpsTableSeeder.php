@@ -26,7 +26,7 @@ class MaintenanceIpsTableSeeder extends Seeder
                 'display_name_plural'   => __('seeders.data_types.maintenance.plural'),
                 'icon'                  => 'voyager-warning',
                 'model_name'            => 'Modules\\MaintenanceMode\\Entities\\MaintenanceIp',
-                'controller'            => 'Modules\\MaintenanceMode\\Http\\Controllers\\VoyagerMaintenanceModeController',
+                'controller'            => 'Modules\\MaintenanceMode\\Http\\Controllers\\Admin\\VoyagerMaintenanceModeController',
                 'generate_permissions'  => 1,
                 'description'           => '',
             ])->save();

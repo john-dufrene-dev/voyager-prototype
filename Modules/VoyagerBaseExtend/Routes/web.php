@@ -132,8 +132,8 @@ Route::group(['prefix' => 'admin'], function () {
                 'as'     => 'compass.',
                 'prefix' => 'compass',
             ], function () use ($moduleNamespace) {
-                Route::get('/', ['uses' => 'VoyagerCompassExtendController@index',  'as' => 'index']);
-                Route::post('/', ['uses' => 'VoyagerCompassExtendController@index',  'as' => 'post']);
+                Route::get('/', ['uses' => 'Admin\VoyagerCompassExtendController@index',  'as' => 'index']);
+                Route::post('/', ['uses' => 'Admin\VoyagerCompassExtendController@index',  'as' => 'post']);
             });
 
             // Ajax Routes
@@ -141,7 +141,7 @@ Route::group(['prefix' => 'admin'], function () {
                 'as'     => 'voyagerbaseextend.ajax.statut.',
                 'prefix' => 'voyagerbaseextend',
             ], function () use ($moduleNamespace) {
-                Route::post('/ajax/statut', ['uses' => 'VoyagerBaseAjaxExtendController@updateMultiplesStatuts',  'as' => 'post']);
+                Route::post('/ajax/statut', ['uses' => 'Admin\VoyagerBaseAjaxExtendController@updateMultiplesStatuts',  'as' => 'post']);
             });
     
             event(new RoutingAdminAfter());

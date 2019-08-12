@@ -11,4 +11,4 @@
 |
 */
 if(Module::find('PassportAuthentification')->enabled())
-    Route::get('admin/passport', 'VoyagerPassportAuthentificationController@index')->name('modules.passport.index');
+    Route::get('admin/passport', 'Admin\VoyagerPassportAuthentificationController@index')->name('modules.passport.index');

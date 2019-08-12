@@ -30,6 +30,10 @@ mix.sass('resources/sass/app.scss', 'public/css');
 mix.js('Modules/VoyagerBaseExtend/Resources/assets/js/app.js', 'public/modules/voyagerbaseextend/js');
 mix.sass('Modules/VoyagerBaseExtend/Resources/assets/sass/app.scss', 'public/modules/voyagerbaseextend/css');
 
+// Module HomePage
+mix.js('Modules/HomePage/Resources/assets/js/app.js', 'public/modules/homepage/js');
+mix.sass('Modules/HomePage/Resources/assets/sass/app.scss', 'public/modules/homepage/css');
+
 // Module Post
 mix.js('Modules/Post/Resources/assets/js/app.js', 'public/modules/post/js');
 mix.sass('Modules/Post/Resources/assets/sass/app.scss', 'public/modules/post/css');

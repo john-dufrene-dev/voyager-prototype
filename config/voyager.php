@@ -245,7 +245,7 @@ return [
     'compass_choice_commands' => true,
     // Choices commands to activate
     'compass_commands' => [
-        'clear-compiled',
+        'optimize',
         'optimize:clear',
     ],
 

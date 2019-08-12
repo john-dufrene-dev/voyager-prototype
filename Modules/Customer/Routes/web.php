@@ -27,6 +27,8 @@ if (config('prototype.account') ) {
     Route::get('password/reset/{token}', 'Auth\CustomerResetPasswordController@showResetForm')->name('password.reset');
     Route::post('password/reset', 'Auth\CustomerResetPasswordController@reset')->name('password.update');
 
+    Route::get(__('routes.account'), 'Account\AccountController@index')->name('pages.account');
+
     // Email Verification Routes...
     // Route::get('email/verify', 'Auth\VerificationController@show')->name('verification.notice');
     // Route::get('email/verify/{id}', 'Auth\VerificationController@verify')->name('verification.verify');
