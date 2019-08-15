@@ -19,6 +19,20 @@ class VoyagerMaintenanceModeController extends BaseVoyagerBaseController
     protected $maintenance_name = 'MAINTENANCE_MODE';
     protected $bulk_active = true;
 
+    /**
+     * Create a new controller instance.
+     *
+     * @return void
+     */
+    public function __construct()
+    {
+        if(Module::find('MaintenanceMode')->disabled())
+            abort(403,'Module Maintenance is not allowed');
+        
+        if(Module::find('VoyagerBaseExtend')->disabled())
+            abort(403,'Module VoyagerBaseExtend is required');
+    }
+
     //***************************************
     //               ____
     //              |  _ \
@@ -33,13 +47,6 @@ class VoyagerMaintenanceModeController extends BaseVoyagerBaseController
 
     public function index(Request $request)
     {
-        if(Module::find('MaintenanceMode')->disabled())
-            abort(403,'Module Maintenance is not allowed');
-        
-        // module voyagerBaseExtend is required
-        if(Module::find('VoyagerBaseExtend')->disabled())
-            abort(403,'Module VoyagerBaseExtend is required');
-
         if(!$this->checkCors($this->maintenance_name))
             abort(403,'MAINTENANCE_MODE value is not allowed');
             

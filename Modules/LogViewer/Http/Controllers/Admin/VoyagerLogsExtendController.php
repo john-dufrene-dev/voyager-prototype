@@ -21,7 +21,7 @@ class VoyagerLogsExtendController extends BaseVoyagerCompassController
         $this->middleware('admin.user');
 
         if(Module::find('LogViewer')->disabled())
-            abort(403, 'Module not allowed.');
+            abort(403, 'Module LogViewer not allowed.');
         
         $this->request = app('request');
     }

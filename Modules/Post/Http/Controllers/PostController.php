@@ -2,17 +2,21 @@
 
 namespace Modules\Post\Http\Controllers;
 
-use Modules\Post\Entities\Post;
 use Illuminate\Http\Request;
 use Illuminate\Http\Response;
 use Illuminate\Support\Carbon;
+use Modules\Post\Entities\Post;
 use Illuminate\Routing\Controller;
+use Nwidart\Modules\Facades\Module;
 
 class PostController extends Controller
 {
     public function __construct()
     {
         $this->middleware('auth')->only(['create', 'edit', 'store', 'destroy']);
+
+        if(Module::find('Post')->disabled())
+            abort(404, 'Not Found');
     }
     /**
      * Display a listing of the resource.

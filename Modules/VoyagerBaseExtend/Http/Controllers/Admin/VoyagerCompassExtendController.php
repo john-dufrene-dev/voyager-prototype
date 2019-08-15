@@ -24,9 +24,8 @@ class VoyagerCompassExtendController extends BaseVoyagerCompassController
     public function __construct()
     {
         if(Module::find('VoyagerBaseExtend')->disabled())
-            abort(403, 'Module not allowed.');
+            abort(403, 'Module VoyagerBaseExtend not allowed.');
 
-        $this->request = app('request');
         $this->compass_choice_commands = config('voyager.compass_choice_commands');
         $this->compass_commands = config('voyager.compass_commands');
     }
@@ -59,19 +58,14 @@ class VoyagerCompassExtendController extends BaseVoyagerCompassController
                 }
 
                 $artisan_output = $process->getOutput();
-
-                //$artisan_output = exec('cd ' . base_path() . ' && php artisan ' . $command . $args);
-                // Artisan::call($command . $args);
-                // $artisan_output = Artisan::output();
             } catch (Exception $e) {
                 $artisan_output = $e->getMessage();
             }
             $active_tab = 'commands';
         }
 
-        // get the full list of artisan commands and store the output
         $commands = $this->getArtisanCommands();
 
-        return view('voyagerbaseextend::admin.compass.index', compact('active_tab', 'commands', 'artisan_output'))->with($message);
+        return view('voyagerbaseextend::admin.compass.index', compact('active_tab', 'commands', 'artisan_output'));
     }
 }

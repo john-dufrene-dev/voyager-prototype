@@ -18,6 +18,9 @@ class VoyagerPassportAuthentificationController extends Controller
     public function __construct()
     {
         $this->middleware('admin.user');
+
+        if(Module::find('PassportAuthentification')->disabled())
+            abort(403, 'Module PassportAuthentification is not allowed.');
     }
 
     /**
@@ -27,9 +30,6 @@ class VoyagerPassportAuthentificationController extends Controller
      */
     public function index()
     {
-        if(Module::find('PassportAuthentification')->disabled())
-            abort(403, 'Module is not allowed.');
-
         if(!Auth::user()->hasRole(['admin'])) {
             abort(403, 'Unauthorized action.');
         }

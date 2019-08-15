@@ -22,6 +22,6 @@ class CategoryAdminController extends BaseVoyagerBaseController
 
     public function __construct() {
         if(Module::find('Post')->disabled())
-            abort(403, 'Module not allowed.');
+            abort(403, 'Module Post is not allowed.');
     }
 }

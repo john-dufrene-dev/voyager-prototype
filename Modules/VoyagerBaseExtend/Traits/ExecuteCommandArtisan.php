@@ -18,6 +18,18 @@ trait ExecuteCommandArtisan
         return $commands;
     }
 
+    protected function getArtisanCommandsChoice($choice)
+    {
+        Artisan::call('list');
+
+        // Get the output from the previous command
+        $artisan_output = Artisan::output();
+        $artisan_output = $this->cleanArtisanOutput($artisan_output);
+        $commands = $this->getCommandsFromOutputChoice($artisan_output, $choice);
+
+        return $commands;
+    }
+
     protected function cleanArtisanOutput($output)
     {
 
@@ -49,6 +61,24 @@ trait ExecuteCommandArtisan
                         array_push($commands, $command);
                     }
                 } else {
+                    $command = (object) ['name' => trim(@$parts[0]), 'description' => trim(@$parts[1])];
+                    array_push($commands, $command);
+                }
+            }
+        }
+
+        return $commands;
+    }
+
+    private function getCommandsFromOutputChoice($output, $choice)
+    {
+        $commands = [];
+
+        foreach ($output as $output_line) {
+            if (empty(trim(substr($output_line, 0, 2)))) {
+                $parts = preg_split('/  +/', trim($output_line));
+            
+                if(in_array($parts[0], $choice)) {
                     $command = (object) ['name' => trim(@$parts[0]), 'description' => trim(@$parts[1])];
                     array_push($commands, $command);
                 }

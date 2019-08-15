@@ -8,7 +8,7 @@
     "providers": [
         "Modules\\LogViewer\\Providers\\LogViewerServiceProvider"
     ],
-    "aliases": {},
+    "aliases": [],
     "files": [],
     "requires": []
 }

@@ -272,7 +272,7 @@ class MenuItemsTableSeeder extends Seeder
             ])->save();
         }
 
-        // 15
+        // 16
         $menuItem = MenuItem::firstOrNew([
             'menu_id' => $menu->id,
             'title'   => __('seeders.menu_items.logs'),
@@ -286,6 +286,23 @@ class MenuItemsTableSeeder extends Seeder
                 'color'      => null,
                 'parent_id'  => 6,
                 'order'      => 20,
+            ])->save();
+        }
+
+        // 17
+        $menuItem = MenuItem::firstOrNew([
+            'menu_id' => $menu->id,
+            'title'   => __('seeders.menu_items.modules'),
+            'url'     => '',
+            'route'   => 'modules.index',
+        ]);
+        if (!$menuItem->exists) {
+            $menuItem->fill([
+                'target'     => '_self',
+                'icon_class' => 'voyager-star-two',
+                'color'      => null,
+                'parent_id'  => 4,
+                'order'      => 21,
             ])->save();
         }
 
