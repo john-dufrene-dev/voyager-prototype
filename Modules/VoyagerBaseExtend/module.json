@@ -1,7 +1,10 @@
 {
     "name": "VoyagerBaseExtend",
+    "author": "John Dufrene",
+    "version": "1.0@beta",
     "alias": "voyagerbaseextend",
-    "description": "",
+    "description": "Module surcouche de voyager ( IN PROGRESS )",
+    "theme": "admin",
     "keywords": [],
     "active": 1,
     "order": 0,

@@ -24,7 +24,7 @@ class PostController extends Controller
      */
     public function index()
     {
-        return view('post::themes.' . config('post.theme') . '.index', [
+        return view('post::themes.' . Module::find('Post')->theme . '.index', [
             'posts' => $this->getPosts(),
         ]);
     }
@@ -37,7 +37,7 @@ class PostController extends Controller
      */
     public function show($slug)
     {
-        return view('post::themes.' . config('post.theme') . '.show', [
+        return view('post::themes.' . Module::find('Post')->theme . '.show', [
             'post' => $this->getPost($slug),
             'relatedPosts' => $this->getRelatedPosts($slug),
         ]);

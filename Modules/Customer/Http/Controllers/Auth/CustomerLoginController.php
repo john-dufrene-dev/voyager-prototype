@@ -3,6 +3,7 @@
 namespace Modules\Customer\Http\Controllers\Auth;
 
 use Illuminate\Http\Request;
+use Nwidart\Modules\Facades\Module;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Session;
@@ -30,7 +31,7 @@ class CustomerLoginController extends Controller
     // login from for customer
     public function showLoginForm(Session $session)
     {
-        return view('customer::themes.' . config('customer.theme') . '.auth.login');
+        return view('customer::themes.' . Module::find('Customer')->theme . '.auth.login');
     }
 
     /**

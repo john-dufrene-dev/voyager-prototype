@@ -1,7 +1,10 @@
 {
     "name": "Customer",
+    "author": "John Dufrene",
+    "version": "1.0@beta",
     "alias": "customer",
-    "description": "",
+    "description": "Module de gestion des clients ( IN PROGRESS )",
+    "theme": "default",
     "keywords": [],
     "active": 1,
     "order": 0,

@@ -2,11 +2,11 @@
 
 return [
 
-    'enabled' => env('HOOKS_ENABLED', true),
+    'enabled' => env('HOOKS_ENABLED', false),
 
-    'add-route'            => true,
-    'add-hook-menu-item'   => true,
-    'add-hook-permissions' => true,
-    'publish-vendor-files' => true,
+    'add-route'            => false,
+    'add-hook-menu-item'   => false,
+    'add-hook-permissions' => false,
+    'publish-vendor-files' => false,
 
 ];

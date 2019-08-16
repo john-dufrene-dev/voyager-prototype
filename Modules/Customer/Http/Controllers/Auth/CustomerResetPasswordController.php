@@ -3,6 +3,7 @@
 namespace Modules\Customer\Http\Controllers\Auth;
 
 use Illuminate\Http\Request;
+use Nwidart\Modules\Facades\Module;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Password;
@@ -52,7 +53,7 @@ class CustomerResetPasswordController extends Controller
      */
     public function showResetForm(Request $request, $token = null)
     {
-        return view('customer::themes.' . config('customer.theme') . '.auth.passwords.reset')->with(
+        return view('customer::themes.' . Module::find('Customer')->theme . '.auth.passwords.reset')->with(
             ['token' => $token, 'email' => $request->email]
         );
     }

@@ -3,6 +3,7 @@
 namespace Modules\Customer\Http\Controllers\Auth;
 
 use Illuminate\Http\Request;
+use Nwidart\Modules\Facades\Module;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Password;
@@ -40,7 +41,7 @@ class CustomerForgotPasswordController extends Controller
      */
     public function showLinkRequestForm()
     {
-        return view('customer::themes.' . config('customer.theme') . '.auth.passwords.email');
+        return view('customer::themes.' . Module::find('Customer')->theme . '.auth.passwords.email');
     }
 
     /**

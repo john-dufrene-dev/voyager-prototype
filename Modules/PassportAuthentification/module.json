@@ -1,7 +1,10 @@
 {
     "name": "PassportAuthentification",
+    "author": "John Dufrene",
+    "version": "1.0@beta",
     "alias": "passportauthentification",
-    "description": "",
+    "description": "Module authentification pour l'API ( IN PROGRESS )",
+    "theme": "admin",
     "keywords": [],
     "active": 1,
     "order": 0,

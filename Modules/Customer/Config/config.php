@@ -1,6 +1,5 @@
 <?php
 
 return [
-    'name' => 'Customer',
-    'theme' => 'default',
+    'name' => 'Customer'
 ];

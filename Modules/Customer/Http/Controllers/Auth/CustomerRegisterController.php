@@ -4,6 +4,7 @@ namespace Modules\Customer\Http\Controllers\Auth;
 
 use Illuminate\Support\Str;
 use Illuminate\Http\Request;
+use Nwidart\Modules\Facades\Module;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
@@ -52,7 +53,7 @@ class CustomerRegisterController extends Controller
      */
     public function showRegistrationForm()
     {
-        return view('customer::themes.' . config('customer.theme') . '.auth.register');
+        return view('customer::themes.' . Module::find('Customer')->theme . '.auth.register');
     }
 
     /**

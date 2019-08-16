@@ -1,7 +1,10 @@
 {
     "name": "MaintenanceMode",
+    "author": "John Dufrene",
+    "version": "1.0@beta",
     "alias": "maintenancemode",
-    "description": "",
+    "description": "Module de maintenance ( IN PRGRESS )",
+    "theme": "admin",
     "keywords": [],
     "active": 1,
     "order": 0,

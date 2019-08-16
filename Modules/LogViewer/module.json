@@ -1,7 +1,10 @@
 {
     "name": "LogViewer",
+    "author": "John Dufrene",
+    "version": "1.0@beta",
     "alias": "logviewer",
-    "description": "",
+    "description": "Module de gestion des logs ( IN PROGRESS )",
+    "theme": "admin",
     "keywords": [],
     "active": 1,
     "order": 0,

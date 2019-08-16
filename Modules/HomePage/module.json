@@ -1,7 +1,10 @@
 {
     "name": "HomePage",
+    "author": "John Dufrene",
+    "version": "1.0@beta",
     "alias": "homepage",
-    "description": "",
+    "description": "Module de configuration de la page d'accueil (IN PROGRESS )",
+    "theme": "default",
     "keywords": [],
     "active": 1,
     "order": 0,

@@ -3,6 +3,7 @@
 namespace Modules\Customer\Http\Controllers\Account;
 
 use Illuminate\Http\Request;
+use Nwidart\Modules\Facades\Module;
 use App\Http\Controllers\Controller;
 
 class AccountController extends Controller
@@ -24,6 +25,6 @@ class AccountController extends Controller
      */
     public function index()
     {
-        return view('customer::themes.' . config('customer.theme') . '.account.index');
+        return view('customer::themes.' . Module::find('Customer')->theme . '.account.index');
     }
 }

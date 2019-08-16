@@ -1,7 +1,10 @@
 {
     "name": "Post",
+    "author": "John Dufrene",
+    "version": "1.0@beta",
     "alias": "post",
-    "description": "",
+    "description": "Module des articles de blog ( IN PROGRESS )",
+    "theme": "default",
     "keywords": [],
     "active": 1,
     "order": 0,

@@ -2,6 +2,7 @@
 
 namespace Modules\Customer\Http\Controllers\Auth;
 
+use Nwidart\Modules\Facades\Module;
 use App\Http\Controllers\Controller;
 use Illuminate\Foundation\Auth\VerifiesEmails;
 
@@ -50,6 +51,6 @@ class CustomVerificationController extends Controller
     {
         return $request->user()->hasVerifiedEmail()
                         ? redirect($this->redirectPath())
-                        : view('customer::themes.' . config('customer.theme') . '.auth.verify');
+                        : view('customer::themes.' . Module::find('Customer')->theme . '.auth.verify');
     }
 }
