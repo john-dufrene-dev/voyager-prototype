@@ -1,1 +1,28 @@
 // Utilities
+
+// BUTTONS
+.btn-prototype {
+    color: #000;
+    background-color: $primarycolor;
+    border-color: $primarycolor;
+    &:hover {
+        color:$body-bg;
+    }
+    &:hover, &:focus, &:active {
+        box-shadow: none;
+    }
+}
+
+.btn-outline-prototype {
+    color: #000;
+    border-color: $primarycolor;
+
+    &:hover {
+        color: #fff;
+        background-color: $primarycolor;
+        border-color: $primarycolor;
+    }
+    &:hover, &:focus, &:active {
+        box-shadow: none;
+    }
+}

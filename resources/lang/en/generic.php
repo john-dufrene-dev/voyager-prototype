@@ -113,4 +113,5 @@ return [
     'nothink_to_disable'     => 'You haven\'t selected anything to disable',
     'update_status_success'  => 'Status activation performed successfully',
     'update_status_danger'   => 'Disabling status successfully completed',
+    'all_our_articles'      => 'All our articles',
 ];

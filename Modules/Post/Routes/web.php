@@ -11,4 +11,6 @@
 |
 */
 
-Route::resource('articles', 'PostController')->only(['index', 'show']);
+Route::get('articles', 'PostController@index')->name('articles.index');
+Route::get('articles/{category}', 'PostController@category')->name('articles.category');
+Route::get('articles/{category}/{post}', 'PostController@show')->name('articles.show');

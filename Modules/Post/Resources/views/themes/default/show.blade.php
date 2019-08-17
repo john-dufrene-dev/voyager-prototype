@@ -1,4 +1,4 @@
-@extends('themes.'.config('prototype.theme').'.layouts.default')
+@extends('themes.' . config('prototype.theme') . '.layouts.default')
 
 @section('meta_robots', 'index,follow')
 @section('meta_title') @parent | {!! $post->seo_title !!} @endsection
@@ -6,7 +6,8 @@
 @section('meta_keywords') {!! $post->meta_keywords !!} @endsection
 @section('page_title_meta') @parent | {!! $post->title !!} @endsection
 @section('page_title') {{ $post->title }} @endsection
-@section('page_subtitle') {!! 'Posté le : ' . $post->created_at->format('jS M. Y') !!} @endsection
+@section('page_subtitle') @section('page_fluid') container @endsection
+Article ppublié le : {{  $post->published_date }} @endsection
 
 @section('css')
     @parent

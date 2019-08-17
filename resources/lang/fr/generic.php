@@ -113,4 +113,5 @@ return [
     'nothink_to_disable'     => 'Vous n\'avez sélectionné aucun élément à désactiver',
     'update_status_success'  => 'Mise a jour des status effectuée avec succès',
     'update_status_danger'  => 'Désactivation des statuts effectuée avec succès',
+    'all_our_articles'      => 'Tous nos articles',''
 ];
