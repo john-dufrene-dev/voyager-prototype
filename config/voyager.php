@@ -247,6 +247,8 @@ return [
     'compass_commands' => [
         'optimize',
         'optimize:clear',
+        'debugbar:clear',
+        'telescope:clear',
     ],
 
     'media' => [

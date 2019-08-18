@@ -58,7 +58,7 @@
 
                         <div class="form-group row mb-0">
                             <div class="col-md-8 offset-md-4">
-                                <button type="submit" class="btn btn-primary">
+                                <button type="submit" class="btn btn-outline-prototype">
                                     {{ __('auth.login') }}
                                 </button>
 
@@ -80,7 +80,7 @@
                     <h4>{{ __('customer::auth.Infos register') }}</h4>
                     <p>{{ __('customer::auth.Infos register part 1') }} <a href="#">{{ __('customer::auth.Confidentiality') }}</a>
                     {{ __('customer::auth.Infos register part 2') }} <a href="#"> {{ __('customer::auth.CGV') }} </a> .</p>
-                    <a href="{{ route('register') }}" class="btn btn-primary">{{ __('auth.register') }}</a>
+                    <a href="{{ route('register') }}" class="btn btn-outline-prototype">{{ __('auth.register') }}</a>
                 </div>
             </div>
         </div>

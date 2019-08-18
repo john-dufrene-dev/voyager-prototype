@@ -78,7 +78,7 @@ class PrototypeCommand extends Command
         $this->info('Migrating the database tables into your application');
         $this->call('migrate', ['--force' => $this->option('force')]);
 
-        $this->info('Attempting to set Voyager User model as parent to App\User');
+        $this->info('Attempting to set Prototype User model as parent to App\User');
         if (file_exists(app_path('User.php'))) {
             $str = file_get_contents(app_path('User.php'));
 
@@ -136,6 +136,12 @@ class PrototypeCommand extends Command
         $this->info('Adding the storage symlink to your public folder');
         $this->call('storage:link');
 
-        $this->info('Successfully installed Voyager! Enjoy');
+        $this->info('Install the requierement for passport');
+        $this->call('passport:install');
+
+        $this->info('Install the requierement for telescope');
+        $this->call('telescope:install');
+
+        $this->info('Successfully installed Prototype! Enjoy');
     }
 }

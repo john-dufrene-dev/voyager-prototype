@@ -12,8 +12,7 @@
 
 ## Installation
 
-__1. Install Laravel + Voyager__
-_(Replace the $VARs with your own values)_
+__1. Install Laravel + Prototype__
 
 ```bash
 # 1.0 Install Laravel
@@ -28,23 +27,11 @@ composer install && npm install
 # 1.3 Generate a Laravel key
 php artisan key:generate
 
-# 1.4 Run the Voyager Installer
-php artisan prototype:install (--with-dummy OPTIONNAL)
+# 1.4 Run the prototype Installer
+php artisan prototype:install --with-dummy
 
-# 1.5 Create a Voyager Admin User
-php artisan prototype:admin $YOUR_EMAIL --create
-
-# 1.6 Run the Passport installer
-php artisan passport:install
-php artisan passport:keys
-
-# 1.7 Publish the package’s config and assets
+# 1.5 Publish the package’s config and assets
 php artisan vendor:publish --tag=lfm_public
-
-# OPTIONS :
-# 1. Run the Telescope installer (Optionnal)
-php artisan telescope:install
-php artisan migrate
 
 ```
 

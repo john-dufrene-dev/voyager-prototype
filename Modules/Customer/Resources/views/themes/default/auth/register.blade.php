@@ -68,7 +68,7 @@
 
                         <div class="form-group row mb-0">
                             <div class="col-md-6 offset-md-4">
-                                <button type="submit" class="btn btn-primary">
+                                <button type="submit" class="btn btn-outline-prototype">
                                     {{ __('auth.register') }}
                                 </button>
                             </div>
@@ -83,7 +83,7 @@
                 <div class="card-body">
                     <h4>{{ __('customer::auth.Connect to your account') }}</h4>
                     <p>{{ __('customer::auth.Infos connexion') }}.</p>
-                    <a href="{{ route('login') }}" class="btn btn-primary">{{ __('auth.login') }}</a>
+                    <a href="{{ route('login') }}" class="btn btn-outline-prototype">{{ __('auth.login') }}</a>
                 </div>
             </div>
         </div>
