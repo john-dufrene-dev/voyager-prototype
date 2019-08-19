@@ -66,16 +66,16 @@ Route::group(['prefix' => 'admin'], function () {
                 'as'     => 'menus.',
                 'prefix' => 'menus/{menu}',
             ], function () use ($namespacePrefix) {
-                Route::get('builder', ['uses' => $namespacePrefix.'VoyagerMenuController@builder',    'as' => 'builder']);
-                Route::post('order', ['uses' => $namespacePrefix.'VoyagerMenuController@order_item', 'as' => 'order']);
+                Route::get('builder', ['uses' => 'Admin\VoyagerMenuExtendController@builder',    'as' => 'builder']);
+                Route::post('order', ['uses' => 'Admin\VoyagerMenuExtendController@order_item', 'as' => 'order']);
     
                 Route::group([
                     'as'     => 'item.',
                     'prefix' => 'item',
                 ], function () use ($namespacePrefix) {
-                    Route::delete('{id}', ['uses' => $namespacePrefix.'VoyagerMenuController@delete_menu', 'as' => 'destroy']);
-                    Route::post('/', ['uses' => $namespacePrefix.'VoyagerMenuController@add_item',    'as' => 'add']);
-                    Route::put('/', ['uses' => $namespacePrefix.'VoyagerMenuController@update_item', 'as' => 'update']);
+                    Route::delete('{id}', ['uses' => 'Admin\VoyagerMenuExtendController@delete_menu', 'as' => 'destroy']);
+                    Route::post('/', ['uses' => 'Admin\VoyagerMenuExtendController@add_item',    'as' => 'add']);
+                    Route::put('/', ['uses' => 'Admin\VoyagerMenuExtendController@update_item', 'as' => 'update']);
                 });
             });
     

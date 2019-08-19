@@ -11,7 +11,7 @@ use Symfony\Component\Process\Process;
 use Modules\LogViewer\Entities\LogViewer;
 use Symfony\Component\Process\Exception\ProcessFailedException;
 use Symfony\Component\HttpKernel\Exception\AccessDeniedHttpException;
-use TCG\Voyager\Http\Controllers\VoyagerCompassController as BaseVoyagerCompassController;
+use App\Voyager\Http\Controllers\VoyagerCompassController as BaseVoyagerCompassController;
 
 class VoyagerLogsExtendController extends BaseVoyagerCompassController
 {
@@ -59,7 +59,7 @@ class VoyagerLogsExtendController extends BaseVoyagerCompassController
             app('files')->delete(LogViewer::pathToLogFile(base64_decode($this->request->input('del'))));
 
             return $this->redirect($this->request->url().'?logs=true')->with([
-                'message'    => __('voyager::compass.commands.delete_success').' '.base64_decode($this->request->input('del')),
+                'message'    => __('compass.commands.delete_success').' '.base64_decode($this->request->input('del')),
                 'alert-type' => 'success',
                 ]);
         } elseif ($this->request->has('delall')) {
@@ -69,7 +69,7 @@ class VoyagerLogsExtendController extends BaseVoyagerCompassController
             }
 
             return $this->redirect($this->request->url().'?logs=true')->with([
-                'message'    => __('voyager::compass.commands.delete_all_success'),
+                'message'    => __('compass.commands.delete_all_success'),
                 'alert-type' => 'success',
                 ]);
         }

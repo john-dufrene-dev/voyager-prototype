@@ -16,12 +16,12 @@ class Post extends \TCG\Voyager\Models\Post
 
     public function link() 
     {
-    	return url('/' . __('seo.articles.url') . '/' . $this->category->translate()->slug . '/' . $this->translate()->slug);
+    	return url(__('routes.articles') . '/' . $this->category->translate()->slug . '/' . $this->translate()->slug);
     }
 
     public function linkToCategory() 
     {
-    	return url('/' . __('seo.articles.url') . '/' . $this->category->translate()->slug);
+    	return url(__('routes.articles') . '/' . $this->category->translate()->slug);
     }
 
     public function image()

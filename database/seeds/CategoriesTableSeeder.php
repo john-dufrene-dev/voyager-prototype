@@ -169,7 +169,7 @@ class CategoriesTableSeeder extends Seeder
             $menuItem->fill([
                 'target'     => '_self',
                 'icon_class' => 'voyager-categories',
-                'color'      => null,
+                'color'      => '#000000',
                 'parent_id'  => 3,
                 'order'      => 11,
             ])->save();

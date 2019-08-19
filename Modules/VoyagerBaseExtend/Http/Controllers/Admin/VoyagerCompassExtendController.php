@@ -11,7 +11,7 @@ use Symfony\Component\Process\Process;
 use Modules\VoyagerBaseExtend\Traits\ExecuteCommandArtisan;
 use Symfony\Component\Process\Exception\ProcessFailedException;
 use Symfony\Component\HttpKernel\Exception\AccessDeniedHttpException;
-use TCG\Voyager\Http\Controllers\VoyagerCompassController as BaseVoyagerCompassController;
+use App\Voyager\Http\Controllers\VoyagerCompassController as BaseVoyagerCompassController;
 
 class VoyagerCompassExtendController extends BaseVoyagerCompassController
 {

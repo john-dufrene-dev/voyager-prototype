@@ -25,7 +25,7 @@
 
     <div class="page-content compass container-fluid">
         <ul class="nav nav-tabs">
-            <li @if(empty($active_tab) || (isset($active_tab) && $active_tab == 'logs')){!! 'class="active"' !!}@endif><a data-toggle="tab" href="#logs"><i class="voyager-logbook"></i> {{ __('voyager::compass.logs.title') }}</a></li>
+            <li @if(empty($active_tab) || (isset($active_tab) && $active_tab == 'logs')){!! 'class="active"' !!}@endif><a data-toggle="tab" href="#logs"><i class="voyager-logbook"></i> {{ __('compass.logs.title') }}</a></li>
         </ul>
 
         <div class="tab-content">
@@ -67,7 +67,7 @@
         $('#table-log').DataTable({
           "order": [1, 'desc'],
           "stateSave": true,
-          "language": {!! json_encode(__('voyager::datatable')) !!},
+          "language": {!! json_encode(__('datatable')) !!},
           "stateSaveCallback": function (settings, data) {
             window.localStorage.setItem("datatable", JSON.stringify(data));
           },
@@ -79,7 +79,7 @@
         });
 
         $('#delete-log, #delete-all-log').click(function () {
-          return confirm('{{ __('voyager::generic.are_you_sure') }}');
+          return confirm('{{ __('generic.are_you_sure') }}');
         });
       });
     </script>

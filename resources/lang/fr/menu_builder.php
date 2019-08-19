@@ -27,4 +27,6 @@ return [
     'updated_order'        => 'Elément de menu réordonné avec succès.',
     'url'                  => 'URL pour l\'élément de menu',
     'usage_hint'           => 'Vous pouvez afficher un menu n\'importe où sur le site en appelant|Vous pouvez afficher ce menu n\'importe où sur le site en appelant',
+    'no_choice_module'     => 'Aucun choix',
+    'choice_module'        => 'Choix du module',
 ];

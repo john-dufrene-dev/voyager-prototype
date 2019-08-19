@@ -241,7 +241,7 @@ class PagesTableSeeder extends Seeder
             $menuItem->fill([
                 'target'     => '_self',
                 'icon_class' => 'voyager-file-text',
-                'color'      => null,
+                'color'      => '#000000',
                 'parent_id'  => 2,
                 'order'      => 8,
             ])->save();

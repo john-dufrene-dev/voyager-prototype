@@ -3,7 +3,6 @@
 return [
     'homepage'         => [
         'homepage'              => 'Home',
-        'url'                   => '/',
         'meta_title'            => 'Meta title Homepage',
         'meta_description'      => 'Meta description Homepage',
         'meta_keywords'         => 'Accueil,home',
@@ -12,7 +11,6 @@ return [
     ],
     'articles'         => [
         'my-posts'              => 'Our articles',
-        'url'                   => 'our-articles',
         'meta_title'            => 'List of our articles',
         'meta_description'      => 'Discover the list of our articles',
         'meta_keywords'         => 'Articles,Posts',

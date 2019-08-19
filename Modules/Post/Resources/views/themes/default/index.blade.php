@@ -37,8 +37,9 @@
                         </li>
                     @foreach($categories->translate() as $cat)
                         <li class="list-group-item 
-                        @if(isset($category) && isset($category->translate()->slug) && ($category->translate()->slug == $cat->slug))
-                        {{ 'active' }} @endif">
+                        @if(isset($category) 
+                        && ($category->translate()->slug == $cat->translate()->slug))
+                        active @endif">
                             <a class="text-center" href="{{ route('articles.category', $cat->translate()->slug) }}">
                             {{ $cat->translate()->name }}</a>
                         </li>

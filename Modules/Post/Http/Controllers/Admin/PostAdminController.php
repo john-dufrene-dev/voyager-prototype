@@ -239,7 +239,7 @@ class PostAdminController extends BaseVoyagerBaseController
         return redirect()
         ->route("voyager.{$dataType->slug}.index")
         ->with([
-            'message'    => __('voyager::generic.successfully_updated')." {$dataType->display_name_singular}",
+            'message'    => __('generic.successfully_updated')." {$dataType->display_name_singular}",
             'alert-type' => 'success',
         ]);
     }
@@ -314,7 +314,7 @@ class PostAdminController extends BaseVoyagerBaseController
         return redirect()
         ->route("voyager.{$dataType->slug}.index")
         ->with([
-                'message'    => __('voyager::generic.successfully_added_new')." {$dataType->display_name_singular}",
+                'message'    => __('generic.successfully_added_new')." {$dataType->display_name_singular}",
                 'alert-type' => 'success',
             ]);
     }
@@ -363,11 +363,11 @@ class PostAdminController extends BaseVoyagerBaseController
         $res = $data->destroy($ids);
         $data = $res
             ? [
-                'message'    => __('voyager::generic.successfully_deleted')." {$displayName}",
+                'message'    => __('generic.successfully_deleted')." {$displayName}",
                 'alert-type' => 'success',
             ]
             : [
-                'message'    => __('voyager::generic.error_deleting')." {$displayName}",
+                'message'    => __('generic.error_deleting')." {$displayName}",
                 'alert-type' => 'error',
             ];
 

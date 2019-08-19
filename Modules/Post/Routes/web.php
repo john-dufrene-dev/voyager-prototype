@@ -11,6 +11,6 @@
 |
 */
 
-Route::get(__('seo.articles.url'), 'PostController@index')->name('articles.index');
-Route::get(__('seo.articles.url') . '/{category}', 'PostController@category')->name('articles.category');
-Route::get(__('seo.articles.url') . '/{category}/{post}', 'PostController@show')->name('articles.show');
+Route::get(__('routes.articles'), 'PostController@index')->name('articles.index');
+Route::get(__('routes.articles') . '/{category}', 'PostController@category')->name('articles.category');
+Route::get(__('routes.articles') . '/{category}/{post}', 'PostController@show')->name('articles.show');

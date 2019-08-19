@@ -333,11 +333,11 @@ class PostsTableSeeder extends Seeder
         ]);
         if (!$menuItem->exists) {
             $menuItem->fill([
-                'target'     => '_self',
-                'icon_class' => 'voyager-news',
-                'color'      => null,
-                'parent_id'  => 3,
-                'order'      => 10,
+                'target'            => '_self',
+                'icon_class'        => 'voyager-news',
+                'color'             => '#000000',
+                'parent_id'         => 3,
+                'order'             => 10,
             ])->save();
         }
 

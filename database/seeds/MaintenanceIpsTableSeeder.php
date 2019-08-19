@@ -149,7 +149,7 @@ class MaintenanceIpsTableSeeder extends Seeder
             $menuItem->fill([
                 'target'     => '_self',
                 'icon_class' => 'voyager-warning',
-                'color'      => null,
+                'color'      => '#000000',
                 'parent_id'  => 5,
                 'order'      => 15,
             ])->save();
