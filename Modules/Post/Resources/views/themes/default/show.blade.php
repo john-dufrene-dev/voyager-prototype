@@ -1,13 +1,13 @@
 @extends('themes.' . config('prototype.theme') . '.layouts.default')
 
 @section('meta_robots', 'index,follow')
-@section('meta_title') @parent | {!! $post->seo_title !!} @endsection
-@section('meta_description') {!! $post->meta_description !!} @endsection
-@section('meta_keywords') {!! $post->meta_keywords !!} @endsection
-@section('page_title_meta') @parent | {!! $post->title !!} @endsection
-@section('page_title') {{ $post->title }} @endsection
+@section('meta_title') @parent | {!! $post->translate()->seo_title !!} @endsection
+@section('meta_description') {!! $post->translate()->meta_description !!} @endsection
+@section('meta_keywords') {!! $post->translate()->meta_keywords !!} @endsection
+@section('page_title_meta') @parent | {!! $post->translate()->title !!} @endsection
+@section('page_title') {{ $post->translate()->title }} @endsection
 @section('page_subtitle') @section('page_fluid') container @endsection
-Article ppublié le : {{  $post->published_date }} @endsection
+{{ __('post::post.published_for') }} : {{  $post->translate()->published_date }} @endsection
 
 @section('css')
     @parent
@@ -19,7 +19,7 @@ Article ppublié le : {{  $post->published_date }} @endsection
     @include('themes.'.config('prototype.theme').'.partials.header.page-title')
 
     <div class="container">
-        <p>{!! $post->body !!}</p>
+        <p>{!! $post->translate()->body !!}</p>
         <img src="{{Voyager::image($post->thumbnail('medium'))}}" />
     </div>
 

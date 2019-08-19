@@ -1,4 +1,4 @@
-@foreach($items as $item)
+@foreach($items->translate() as $item)
     @php ($hasChildren = count($item->children) > 0)
     <li>
         <a target="{{ $item->target }}" href="{{ url($item->url) }}" 

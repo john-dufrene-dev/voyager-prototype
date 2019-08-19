@@ -11,17 +11,17 @@ class Post extends \TCG\Voyager\Models\Post
 {
     public function getShortExcerptAttribute()
     {
-        return Str::words($this->excerpt, 30, '...');
+        return Str::words($this->translate()->excerpt, 30, '...');
     }
 
     public function link() 
     {
-    	return url('/articles/' . $this->category->slug . '/' . $this->slug);
+    	return url('/' . __('seo.articles.url') . '/' . $this->category->translate()->slug . '/' . $this->translate()->slug);
     }
 
     public function linkToCategory() 
     {
-    	return url('/articles/' . $this->category->slug);
+    	return url('/' . __('seo.articles.url') . '/' . $this->category->translate()->slug);
     }
 
     public function image()

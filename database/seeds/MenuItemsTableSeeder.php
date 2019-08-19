@@ -312,8 +312,8 @@ class MenuItemsTableSeeder extends Seeder
         // 1
         $menuItem_2 = MenuItem::firstOrNew([
             'menu_id' => $menu_2->id,
-            'title'   => __('prototype.home.homepage'),
-            'url'     => '/',
+            'title'   => __('seo.homepage.homepage'),
+            'url'     => __('seo.homepage.url'),
         ]);
         if (!$menuItem_2->exists) {
             $menuItem_2->fill([
@@ -328,8 +328,8 @@ class MenuItemsTableSeeder extends Seeder
         // 2
         $menuItem_2 = MenuItem::firstOrNew([
             'menu_id' => $menu_2->id,
-            'title'   => __('prototype.blog.my-posts'),
-            'url'     => '/articles',
+            'title'   => __('seo.articles.my-posts'),
+            'url'     => __('seo.articles.url'),
         ]);
         if (!$menuItem_2->exists) {
             $menuItem_2->fill([

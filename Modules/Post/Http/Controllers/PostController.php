@@ -32,9 +32,10 @@ class PostController extends Controller
     	return view('post::themes.' . Module::find('Post')->theme . '.index', compact('posts', 'categories', 'seo'));
     }
 
-    public function category($slug){
+    public function category($slug)
+    {
+        $category = Category::whereTranslation('slug', $slug)->firstOrFail();
         
-        $category = Category::where('slug', '=', $slug)->firstOrFail();
         $posts = $this->getPostsByCategory($slug);
         $categories = Category::all();
 
@@ -51,7 +52,6 @@ class PostController extends Controller
     {
         return view('post::themes.' . Module::find('Post')->theme . '.show', [
             'post' => $this->getPost($slug),
-            'relatedPosts' => $this->getRelatedPosts($slug),
         ]);
     }
 
@@ -71,7 +71,7 @@ class PostController extends Controller
 
     public function getPostsByCategory($slug)
     {
-        $category = Category::where('slug', '=', $slug)->firstOrFail();
+        $category = Category::whereTranslation('slug', '=', $slug)->firstOrFail();
 
         $posts = Post::where([
             ['status', '=', 'PUBLISHED'],
