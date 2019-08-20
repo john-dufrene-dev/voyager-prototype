@@ -15,6 +15,7 @@ class AddLinkToModuleToMenuItemTable extends Migration
     {
         Schema::table('menu_items', function (Blueprint $table) {
             $table->string('link_to_module')->nullable()->after('color');
+            $table->boolean('active_item')->default(1);
         });
     }
 
@@ -27,6 +28,7 @@ class AddLinkToModuleToMenuItemTable extends Migration
     {
         Schema::table('menu_items', function (Blueprint $table) {
             $table->dropColumn('link_to_module');
+            $table->dropColumn('active_item');
         });
     }
 }

@@ -110,4 +110,24 @@ class VoyagerMenuExtendController extends BaseVoyagerMenuController
             }
         }
     }
+
+    public function updateActiveItem(Request $request) {
+
+        if( $request->ajax() ) {
+
+            $id = $request->input('id');
+            $active = $request->input('active');
+
+            $new_active_item = ($active == 0) ? 1 : 0 ;
+
+            $model = MenuItem::findOrFail($id);
+
+            $model->active_item = $new_active_item;
+            $model->save();
+
+            return $request->server('HTTP_REFERER');
+        }
+
+        return 'error is not an ajax request';
+    }
 }

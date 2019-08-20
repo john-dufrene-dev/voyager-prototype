@@ -27,7 +27,7 @@ class PostController extends Controller
     public function index()
     {
         $posts = $this->getPosts();
-        $categories = Category::all();
+        $categories = Category::all('id','name','slug');
 
     	return view('post::themes.' . Module::find('Post')->theme . '.index', compact('posts', 'categories', 'seo'));
     }
@@ -37,7 +37,7 @@ class PostController extends Controller
         $category = Category::whereTranslation('slug', $slug)->firstOrFail();
         
         $posts = $this->getPostsByCategory($slug);
-        $categories = Category::all();
+        $categories = Category::all('id','name','slug');
 
         return view('post::themes.' . Module::find('Post')->theme . '.index', compact('posts', 'category', 'categories'));
     }
@@ -100,7 +100,7 @@ class PostController extends Controller
         // The post
         $post = $this->getPost($slug);
         // Related posts (based on tags)
-        $relatedPosts = array();
+        $relatedPosts = [];
         if (!empty(trim($post->tags))) {
             $tags = explode(',', $post->tags);
             $relatedPosts = Post::where([

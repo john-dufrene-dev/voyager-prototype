@@ -141,7 +141,17 @@ Route::group(['prefix' => 'admin'], function () {
                 'as'     => 'voyagerbaseextend.ajax.statut.',
                 'prefix' => 'voyagerbaseextend',
             ], function () use ($moduleNamespace) {
-                Route::post('/ajax/statut', ['uses' => 'Admin\VoyagerBaseAjaxExtendController@updateMultiplesStatuts',  'as' => 'post']);
+
+                Route::post('/ajax/statut', [
+                    'uses' => 'Admin\VoyagerBaseAjaxExtendController@updateMultiplesStatuts',  
+                    'as' => 'post']
+                );
+
+                Route::post('/ajax/updateactiveitem', [
+                    'uses' => 'Admin\VoyagerMenuExtendController@updateActiveItem', 
+                    'as' => 'active.item'
+                ]);
+
             });
     
             event(new RoutingAdminAfter());

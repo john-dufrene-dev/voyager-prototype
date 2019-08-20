@@ -10,6 +10,11 @@
     @include('voyager::multilingual.language-selector')
 @stop
 
+@section('css')
+    @parent
+
+@endsection
+
 @section('content')
     @include('voyager::menus.partial.notice')
 
@@ -74,6 +79,22 @@
                     {{ csrf_field() }}
                     <div class="modal-body">
                         @include('voyager::multilingual.language-selector')
+                        @if($menu->name != 'admin')
+                        <div id="m_active_item">
+                            <ul class="radio radio-menu-active-item">
+                                <li>
+                                    <input type="radio" id="active_item_on" name="active_item" value="1">
+                                    <label for="active_item_on">ON</label>
+                                    <div class="check"></div>
+                                </li>
+                                <li>
+                                    <input type="radio" id="active_item_off" name="active_item" value="0">
+                                    <label for="active_item_off">OFF</label>
+                                    <div class="check"></div>
+                                </li>
+                            </ul>
+                        </div>
+                        @endif
                         <label for="name">{{ __('menu_builder.item_title') }}</label>
                         @include('voyager::multilingual.input-hidden', ['_field_name' => 'title', '_field_trans' => ''])
                         <input type="text" class="form-control" id="m_title" name="title" placeholder="{{ __('generic.title') }}"><br>
@@ -186,6 +207,7 @@
                 $m_color            = $('#m_color'),
                 $m_target           = $('#m_target'),
                 $m_link_to_module   = $('#m_link_to_module'),
+                $m_active_item      = $('#m_active_item'),
                 $m_id               = $('#m_id');
 
             /**
@@ -206,6 +228,26 @@
             });
 
             /**
+             * Change active item Menu
+             */
+             $('.item_actions').on('click', '.active-item-ajax', function (e) {
+                $.post({
+                    url: "/admin/voyagerbaseextend/ajax/updateactiveitem", 
+                    data:{
+                        id: $(this).data('id'),
+                        active: $(this).data('active_item'),
+                    },
+                    success: function(data){
+                        window.location.href = data;
+                        toastr.success("{{ __('menu_builder.active_item_change') }}");
+                    },
+                    error: function(err) {
+                        console.log('error ' + err)
+                    }
+                });
+            });
+
+            /**
              * Menu Modal is Open
              */
             $m_modal.on('show.bs.modal', function(e, data) {
@@ -220,6 +262,7 @@
                     $m_hd_edit.hide();
                     $m_target.val('_self').change();
                     $m_link_to_module.val('').change();
+                    $m_active_item.val('').change();
                     $m_link_type.val('url').change();
                     $m_url.val('');
                     $m_icon_class.val('');
@@ -250,6 +293,12 @@
                         $m_link_to_module.find("option[value='{{ $module->name }}']").attr('selected', 'selected');
                     }    
                     @endforeach
+                    
+                    if (_src.data('active_item') == 1 ) {
+                        $("#active_item_on").prop("checked", true);
+                    } else {
+                        $("#active_item_off").prop("checked", true);
+                    }
 
                     if (_src.data('target') == '_self') {
                         $m_target.val('_self').change();
@@ -316,6 +365,7 @@
                     toastr.success("{{ __('menu_builder.updated_order') }}");
                 });
             });
+
         });
     </script>
 @stop

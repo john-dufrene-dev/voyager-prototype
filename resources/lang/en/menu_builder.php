@@ -29,4 +29,5 @@ return [
     'usage_hint'           => 'You can output a menu anywhere on your site by calling|You can output this menu anywhere on your site by calling',
     'no_choice_module'     => 'No choice',
     'choice_module'        => 'Choice of the module',
+    'active_item_change'   => 'Menu status changed successfully',
 ];
