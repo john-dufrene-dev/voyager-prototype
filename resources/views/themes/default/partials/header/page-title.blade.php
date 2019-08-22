@@ -1,3 +1,5 @@
+@yield('breadcrumbs')
+
 <div id="page-title" class="container mt-4">
     <h1 class="text-center">@yield('page_title')</h1>
 </div>
@@ -12,5 +14,3 @@
         </div>
     </div>
 @endif
-
-{{-- @include('voyager-frontend::partials.breadcrumbs') --}}

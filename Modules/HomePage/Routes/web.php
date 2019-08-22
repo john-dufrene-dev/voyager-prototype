@@ -12,3 +12,8 @@
 */
 
 Route::get('/', 'HomePageController@index')->name('home.index');
+
+// Home
+Breadcrumbs::for('home.index', function ($trail) {
+    $trail->push(__('seo.homepage.homepage'), route('home.index'));
+});

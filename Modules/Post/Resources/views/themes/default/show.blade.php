@@ -8,6 +8,10 @@
 @section('page_title') {{ $post->translate()->title }} @endsection
 @section('page_subtitle') @section('page_fluid') container @endsection
 {{ __('post::post.published_for') }} : {{  $post->translate()->published_date }} @endsection
+@section('breadcrumbs')
+    {{ Breadcrumbs::view('themes.' . config('prototype.theme') . '.partials.breadcrumbs.bootstrap4',
+    'articles.show', $post->category , $post) }}
+@endsection
 
 @section('css')
     @parent
