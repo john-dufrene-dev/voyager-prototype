@@ -16,7 +16,7 @@ class VoyagerBaseAjaxExtendController extends Controller
             $ids = $request->bulk_ids;
 
             foreach($ids as $id) {
-                $model = $namespace::find($id);
+                $model = $namespace::findOrFail($id);
                 $model->active = $request->bulk_active_model_statut;
                 $model->save();
             }

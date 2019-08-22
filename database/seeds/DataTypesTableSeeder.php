@@ -32,7 +32,7 @@ class DataTypesTableSeeder extends Seeder
                 'display_name_singular' => __('seeders.data_types.menu.singular'),
                 'display_name_plural'   => __('seeders.data_types.menu.plural'),
                 'icon'                  => 'voyager-list',
-                'model_name'            => 'TCG\\Voyager\\Models\\Menu',
+                'model_name'            => 'Modules\\VoyagerBaseExtend\\Entities\\Menus\\Menu',
                 'controller'            => '',
                 'generate_permissions'  => 1,
                 'description'           => '',
