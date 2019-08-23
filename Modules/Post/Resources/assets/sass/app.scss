@@ -1,42 +1,5 @@
-@import "../../../../../resources/sass/settings";
-@import "../../../../../resources/sass/utilities";
+@import "../../../../../resources/sass/components/default/settings";
+@import "../../../../../resources/sass/components/default/utilities";
 
-.category-all {
-    ul {
-        li {
-            background-color: $body-bg;
-            border-color: $primarycolor!important;
-            a {
-                letter-spacing:1px;
-                text-transform:uppercase;
-                color:#000;
-                text-decoration: none;
-                &:hover {
-                    font-weight:bold;
-                    color: $primarycolor;
-                }
-            }
-        }
-        .active {
-            a {
-                font-weight:bold;
-                color: $primarycolor;
-            } 
-            background-color: $body-bg;
-        }
-    }
-}
+@import "./themes/default";
 
-article.posts-all {
-    .card-body {
-        background-color: $body-bg;
-        .posts-category a {
-            letter-spacing:1px;
-            color:#000;
-            text-decoration: none;
-            &:hover {
-                font-weight:bold;
-            } 
-        }
-    }
-}

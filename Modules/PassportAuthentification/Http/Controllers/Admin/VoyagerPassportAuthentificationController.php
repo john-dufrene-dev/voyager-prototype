@@ -34,6 +34,6 @@ class VoyagerPassportAuthentificationController extends Controller
             abort(403, 'Unauthorized action.');
         }
         
-        return view('passportauthentification::passport.index');
+        return view('passportauthentification::admin.passport.index');
     }
 }

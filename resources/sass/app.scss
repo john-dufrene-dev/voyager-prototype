@@ -1,24 +1,2 @@
-// Fonts
-@import 'components/fonts-global';
-
-// Variables
-@import 'settings';
-
-// Bootstrap
-@import '~bootstrap/scss/bootstrap';
-
-// Blocks
-// @import "blocks/blocks";
-
-// Theme
-@import "utilities";
-
-// Components
-@import "components/global";
-@import "components/top-bar";
-@import "components/page-title";
-@import "components/breadcrumbs";
-
-// Layouts
-@import "layouts/default";
-@import "layouts/custom";
+// Themes => Change your theme here
+@import "themes/default";

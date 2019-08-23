@@ -3,21 +3,7 @@
 * includes Vue and other libraries. It is a great starting point when
 * building robust, powerful web applications using Vue and Laravel.
 */
+import './config/bootstrap';
 
-require('./bootstrap');
-
-/**
-* Load general configuration
-*/
-
-require('./config/vue');
-
-/**
-* Next, we will create a fresh Vue application instance and attach it to
-* the page. Then, you may begin adding components to this application
-* or customize the JavaScript scaffolding to fit your unique needs.
-*/
-
-const app = new Vue({
-    el: '#app',
-});
+// Update your theme here
+import './themes/default';

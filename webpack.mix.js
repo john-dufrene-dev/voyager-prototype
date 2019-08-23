@@ -11,7 +11,7 @@ const mix = require('laravel-mix');
  |
  */
 
-mix.js('resources/js/config/dependencies.js', 'public/js/config');
+mix.js('resources/js/dependencies.js', 'public/js');
 
 mix.js('resources/js/app.js', 'public/js');
 
