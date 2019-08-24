@@ -11,5 +11,7 @@ import 'tinymce/plugins/charmap';
 import 'tinymce/plugins/hr';
 
 // JS
+
 import './default/tinymce/tinymce_custom';
+import './default/partials/menus-items';
 import './default/partials/bulk-active';
