@@ -9,6 +9,12 @@ use Nwidart\Modules\Facades\Module;
 
 class HomePageController extends Controller
 {
+    public function __construct()
+    {
+        if(Module::find('Homepage')->disabled())
+            abort(403, 'Module Homepage is not allowed.');
+    }
+
     /**
      * Display a listing of the resource.
      * @return Response
