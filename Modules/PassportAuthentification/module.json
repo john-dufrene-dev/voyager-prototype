@@ -3,7 +3,7 @@
     "author": "John Dufrene",
     "version": "1.0@beta",
     "alias": "passportauthentification",
-    "description": "Module authentification pour l'API ( IN PROGRESS )",
+    "description": "Module authentification pour l'API",
     "theme": "admin",
     "keywords": [],
     "active": 1,

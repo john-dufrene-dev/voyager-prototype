@@ -3,7 +3,7 @@
     "author": "John Dufrene",
     "version": "1.0@beta",
     "alias": "maintenancemode",
-    "description": "Module de maintenance ( IN PRGRESS )",
+    "description": "Module de maintenance",
     "theme": "admin",
     "keywords": [],
     "active": 1,

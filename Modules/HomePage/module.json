@@ -3,7 +3,7 @@
     "author": "John Dufrene",
     "version": "1.0@beta",
     "alias": "homepage",
-    "description": "Module de configuration de la page d'accueil (IN PROGRESS )",
+    "description": "Module de configuration de la page d'accueil",
     "theme": "default",
     "keywords": [],
     "active": 1,

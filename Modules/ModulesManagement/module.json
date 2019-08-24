@@ -3,7 +3,7 @@
     "author": "John Dufrene",
     "version": "1.0@beta",
     "alias": "modulesmanagement",
-    "description": "Module de gestion des modules (IN PROGRESS )",
+    "description": "Module de gestion des modules",
     "theme": "admin",
     "keywords": [],
     "active": 1,

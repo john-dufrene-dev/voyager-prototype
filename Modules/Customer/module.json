@@ -3,7 +3,7 @@
     "author": "John Dufrene",
     "version": "1.0@beta",
     "alias": "customer",
-    "description": "Module de gestion des clients ( IN PROGRESS )",
+    "description": "Module de gestion des clients",
     "theme": "default",
     "keywords": [],
     "active": 1,

@@ -3,7 +3,7 @@
     "author": "John Dufrene",
     "version": "1.0@beta",
     "alias": "post",
-    "description": "Module des articles de blog ( IN PROGRESS )",
+    "description": "Module des articles de blog",
     "theme": "default",
     "keywords": [],
     "active": 1,

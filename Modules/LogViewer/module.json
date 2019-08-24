@@ -3,7 +3,7 @@
     "author": "John Dufrene",
     "version": "1.0@beta",
     "alias": "logviewer",
-    "description": "Module de gestion des logs ( IN PROGRESS )",
+    "description": "Module de gestion des logs",
     "theme": "admin",
     "keywords": [],
     "active": 1,
