@@ -35,6 +35,9 @@ class CustomVerificationController extends Controller
      */
     public function __construct()
     {
+        if(Module::find('Customer')->disabled())
+            abort(404, 'Not Found');
+            
         $this->middleware('auth');
         $this->middleware('signed')->only('verify');
         $this->middleware('throttle:6,1')->only('verify', 'resend');

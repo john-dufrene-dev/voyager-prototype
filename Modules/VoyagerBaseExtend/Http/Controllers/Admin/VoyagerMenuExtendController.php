@@ -15,7 +15,7 @@ class VoyagerMenuExtendController extends BaseVoyagerMenuController
     public function __construct()
     {
         if(Module::find('VoyagerBaseExtend')->disabled())
-            abort(403, 'Module VoyagerBaseExtend not allowed.');
+            abort(403, 'Module VoyagerBaseExtend is not allowed.');
     }
 
     public function builder($id)

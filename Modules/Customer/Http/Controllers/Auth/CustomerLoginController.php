@@ -19,6 +19,9 @@ class CustomerLoginController extends Controller
 
     public function __construct()
     {
+        if(Module::find('Customer')->disabled())
+            abort(404, 'Not Found');
+            
         $this->middleware('guest')->except('logout');
         $this->redirectTo = __('routes.account');
     }

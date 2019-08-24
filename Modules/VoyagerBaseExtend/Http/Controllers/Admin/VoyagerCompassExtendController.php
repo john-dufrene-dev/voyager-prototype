@@ -24,7 +24,7 @@ class VoyagerCompassExtendController extends BaseVoyagerCompassController
     public function __construct()
     {
         if(Module::find('VoyagerBaseExtend')->disabled())
-            abort(403, 'Module VoyagerBaseExtend not allowed.');
+            abort(403, 'Module VoyagerBaseExtend is not allowed.');
 
         $this->compass_choice_commands = config('voyager.compass_choice_commands');
         $this->compass_commands = config('voyager.compass_commands');

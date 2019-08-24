@@ -12,7 +12,7 @@ class HomePageController extends Controller
     public function __construct()
     {
         if(Module::find('Homepage')->disabled())
-            abort(403, 'Module Homepage is not allowed.');
+            abort(404, 'Not Found');
     }
 
     /**
