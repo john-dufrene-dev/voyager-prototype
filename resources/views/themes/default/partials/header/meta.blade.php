@@ -13,8 +13,8 @@
 <!-- CSRF Token -->
 <meta name="csrf-token" content="{{ csrf_token() }}">
 <!-- Theme -->
-<meta name="prototype-theme" content="{{ config('prototype.theme') }}">
-<meta name="prototype-color-primary" content="{{ config('prototype.colors.primary') }}">
-<meta name="prototype-color-secondary" content="{{ config('prototype.colors.secondary') }}">
+<meta name="prototype-theme" content="{{ Theme::get() }}">
+<meta name="prototype-color-primary" content="{{ Theme::primary() }}">
+<meta name="prototype-color-secondary" content="{{ Theme::secondary() }}">
 
 <title>@section('page_title_meta') {{ setting('site.title', config('seo.page_title_meta')) }} @show</title>

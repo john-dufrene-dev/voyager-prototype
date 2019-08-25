@@ -1,0 +1,25 @@
+{
+    "name": "jddev/historieslogs",
+    "description": "",
+    "authors": [
+        {
+            "name": "John Dufrene",
+            "email": "john.dufrene.pro@gmail.com"
+        }
+    ],
+    "extra": {
+        "laravel": {
+            "providers": [
+                "Modules\\HistoriesLogs\\Providers\\HistoriesLogsServiceProvider"
+            ],
+            "aliases": {
+                
+            }
+        }
+    },
+    "autoload": {
+        "psr-4": {
+            "Modules\\HistoriesLogs\\": ""
+        }
+    }
+}

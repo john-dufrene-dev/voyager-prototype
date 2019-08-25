@@ -54,3 +54,11 @@ mix.sass('Modules/LogViewer/Resources/assets/sass/app.scss', 'public/modules/log
 // Module PassportAuthentification
 mix.js('Modules/PassportAuthentification/Resources/assets/js/app.js', 'public/modules/passportauth/js');
 mix.sass('Modules/PassportAuthentification/Resources/assets/sass/app.scss', 'public/modules/passportauth/css');
+
+// Module HistoriesLogs
+mix.js('Modules/HistoriesLogs/Resources/assets/js/app.js', 'public/modules/historieslogs/js');
+mix.sass('Modules/HistoriesLogs/Resources/assets/sass/app.scss', 'public/modules/historieslogs/css');
+
+// Module ModulesManagement
+mix.js('Modules/ModulesManagement/Resources/assets/js/app.js', 'public/modules/modulesmanagement/js');
+mix.sass('Modules/ModulesManagement/Resources/assets/sass/app.scss', 'public/modules/modulesmanagement/css');

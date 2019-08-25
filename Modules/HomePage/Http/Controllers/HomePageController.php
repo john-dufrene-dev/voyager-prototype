@@ -21,6 +21,6 @@ class HomePageController extends Controller
      */
     public function index()
     {
-        return view('homepage::themes.' . Module::find('Customer')->theme . '.index');
+        return view('homepage::themes.' . Module::find('HomePage')->theme . '.index');
     }
 }

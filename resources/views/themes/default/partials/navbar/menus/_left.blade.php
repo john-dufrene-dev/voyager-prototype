@@ -12,7 +12,7 @@
                     </a>
                     @if ($hasChildren)
                         <ul>
-                            @include('themes.'.config('prototype.theme').'.partials.navbar.menus._left', 
+                            @include(Theme::use().'partials.navbar.menus._left', 
                             ['items' => $item->translate()->children])
                         </ul>
                     @endif
@@ -29,7 +29,7 @@
                     </a>
                     @if ($hasChildren)
                         <ul>
-                            @include('themes.'.config('prototype.theme').'.partials.navbar.menus._left', 
+                            @include(Theme::use().'partials.navbar.menus._left', 
                             ['items' => $item->children])
                         </ul>
                     @endif

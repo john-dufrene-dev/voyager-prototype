@@ -227,6 +227,8 @@ return [
         'Validator' => Illuminate\Support\Facades\Validator::class,
         'View' => Illuminate\Support\Facades\View::class,
 
+        // Own Facades
+        'Theme' => Modules\VoyagerBaseExtend\Support\ThemeBuilder::class,
     ],
 
 ];

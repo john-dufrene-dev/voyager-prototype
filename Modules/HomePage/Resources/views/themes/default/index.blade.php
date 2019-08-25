@@ -1,4 +1,4 @@
-@extends('themes.'.config('prototype.theme').'.layouts.default')
+@extends(Theme::use().'layouts.default')
 
 @section('meta_robots', 'index,follow')
 @section('meta_title') @parent | {{ __('seo.homepage.meta_title') }} @endsection
@@ -9,7 +9,7 @@
 
 @section('content')
 
-@include('themes.'.config('prototype.theme').'.partials.header.page-title')
+@include(Theme::use().'partials.header.page-title')
 
 <div class="container">
 

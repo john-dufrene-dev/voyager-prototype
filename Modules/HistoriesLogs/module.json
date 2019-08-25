@@ -1,0 +1,17 @@
+{
+    "name": "HistoriesLogs",
+    "author": "John Dufrene",
+    "version": "1.0@beta",
+    "alias": "historieslogs",
+    "description": "Module de notifications/mails",
+    "theme": "default",
+    "keywords": [],
+    "active": 1,
+    "order": 0,
+    "providers": [
+        "Modules\\HistoriesLogs\\Providers\\HistoriesLogsServiceProvider"
+    ],
+    "aliases": [],
+    "files": [],
+    "requires": []
+}

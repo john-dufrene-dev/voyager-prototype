@@ -2,6 +2,7 @@
 
 namespace Modules\Customer\Http\Controllers\Auth;
 
+use App\User;
 use Illuminate\Support\Str;
 use Illuminate\Http\Request;
 use Nwidart\Modules\Facades\Module;
@@ -11,7 +12,9 @@ use Illuminate\Support\Facades\Hash;
 use Illuminate\Auth\Events\Registered;
 use Modules\Customer\Entities\Customer;
 use Illuminate\Support\Facades\Validator;
+use Illuminate\Support\Facades\Notification;
 use Illuminate\Foundation\Auth\RegistersUsers;
+use Modules\HistoriesLogs\Notifications\NewUserNotification;
 
 class CustomerRegisterController extends Controller
 {
@@ -29,6 +32,12 @@ class CustomerRegisterController extends Controller
     use RegistersUsers;
 
     protected $redirectTo = '/mon-compte';
+
+    /**
+     * User who receive notification when a customer is create
+     * @return array
+     */
+    protected $roles_for_notifications = ['notifiable'];
 
     /**
      * Create a new controller instance.
@@ -105,6 +114,13 @@ class CustomerRegisterController extends Controller
 
         $customer = Customer::where('email', $request->email)->first();
         session(['id_customer' => $customer->id]);
+
+        $users = User::whereHas('roles', function($q) {
+            $q->whereIn('roles.name', $this->roles_for_notifications);
+        })->get();
+
+        // Send message User with Role "notifiable"
+        Notification::send($users, new NewUserNotification(['customer' => $request->email]));
 
         return $this->registered($request, $user)
                         ?: redirect($this->redirectPath());

@@ -1,4 +1,4 @@
-@extends('themes.' . config('prototype.theme') . '.layouts.default')
+@extends(Theme::use().'layouts.default')
 
 @section('meta_robots', 'index,follow')
 @section('meta_title') @parent | {{ __('seo.articles.meta_title') }}
@@ -16,10 +16,10 @@
     {{ __('post::post.banner_field') }} @endsection
 @section('breadcrumbs')
     @if(route::is('articles.category'))
-        {{ Breadcrumbs::view('themes.' . config('prototype.theme') . '.partials.breadcrumbs.bootstrap4',
+        {{ Breadcrumbs::view(Theme::use().'partials.breadcrumbs.bootstrap4',
         'articles.category', $category) }}
     @else
-        {{ Breadcrumbs::view('themes.' . config('prototype.theme') . '.partials.breadcrumbs.bootstrap4',
+        {{ Breadcrumbs::view(Theme::use().'partials.breadcrumbs.bootstrap4',
         'articles.index') }}
     @endif
 @endsection
@@ -31,7 +31,7 @@
 
 @section('content')
 
-    @include('themes.' . config('prototype.theme') . '.partials.header.page-title')
+    @include(Theme::use().'partials.header.page-title')
 
     @if (count($posts) > 0)
         <div class="container">
@@ -94,7 +94,7 @@
                         </article>                        
                         @endforeach
                     </div>
-                    {{ $posts->links('themes.'.config('prototype.theme').'.partials.pagination.custom_2') }}
+                    {{ $posts->links(Theme::use().'partials.pagination.custom_2') }}
                 </div>
             </div>
             

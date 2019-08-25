@@ -4,22 +4,25 @@ return [
 
     /*
     |--------------------------------------------------------------------------
-    | Account configuration
+    | Themes configuration
     |--------------------------------------------------------------------------
-    | Activate customer account
+    | Choice template theme
     |
     */
 
-    'account' => true,
+    'theme' => 'default',
 
     /*
     |--------------------------------------------------------------------------
-    | Active API configuration
+    | Theme colors configuration
     |--------------------------------------------------------------------------
-    | Activate API
+    | Choice colors themes
     |
     */
 
-    'api' => true,
+    'colors' => [
+        'primary' => '#00bc88',
+        'secondary' => '#000',
+    ],
 
 ];

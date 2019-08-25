@@ -84,8 +84,10 @@ return [
         'logs'         => 'Logs', 
     ],
     'roles'      => [
-        'admin' => 'Administrator',
-        'user'  => 'Normal User',
+        'admin'         => 'Administrator',
+        'user'          => 'Client User',
+        'demo'          => 'Demo User',
+        'notifiable'    => 'Notifiable user',
     ],
     'settings'   => [
         'admin' => [

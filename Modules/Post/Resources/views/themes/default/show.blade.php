@@ -1,4 +1,4 @@
-@extends('themes.' . config('prototype.theme') . '.layouts.default')
+@extends(Theme::use().'layouts.default')
 
 @section('meta_robots', 'index,follow')
 @section('meta_title') @parent | {!! $post->translate()->seo_title !!} @endsection
@@ -9,7 +9,7 @@
 @section('page_subtitle') @section('page_fluid') container @endsection
 {{ __('post::post.published_for') }} : {{  $post->translate()->published_date }} @endsection
 @section('breadcrumbs')
-    {{ Breadcrumbs::view('themes.' . config('prototype.theme') . '.partials.breadcrumbs.bootstrap4',
+    {{ Breadcrumbs::view(Theme::use().'partials.breadcrumbs.bootstrap4',
     'articles.show', $post->category , $post) }}
 @endsection
 
@@ -20,7 +20,7 @@
 
 @section('content')
 
-    @include('themes.'.config('prototype.theme').'.partials.header.page-title')
+    @include(Theme::use().'partials.header.page-title')
 
     <div class="container">
         <p>{!! $post->translate()->body !!}</p>

@@ -23,5 +23,19 @@ class RolesTableSeeder extends Seeder
                     'display_name' => __('seeders.roles.user'),
                 ])->save();
         }
+
+        $role = Role::firstOrNew(['name' => 'demo']);
+        if (!$role->exists) {
+            $role->fill([
+                    'display_name' => __('seeders.roles.demo'),
+                ])->save();
+        }
+
+        $role = Role::firstOrNew(['name' => 'notifiable']);
+        if (!$role->exists) {
+            $role->fill([
+                    'display_name' => __('seeders.roles.notifiable'),
+                ])->save();
+        }
     }
 }

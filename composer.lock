@@ -2280,16 +2280,16 @@
         },
         {
             "name": "league/flysystem",
-            "version": "1.0.54",
+            "version": "1.0.55",
             "source": {
                 "type": "git",
                 "url": "https://github.com/thephpleague/flysystem.git",
-                "reference": "c681ed22508947a941f113d6cf51bdcf4b84faf9"
+                "reference": "33c91155537c6dc899eacdc54a13ac6303f156e6"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/thephpleague/flysystem/zipball/c681ed22508947a941f113d6cf51bdcf4b84faf9",
-                "reference": "c681ed22508947a941f113d6cf51bdcf4b84faf9",
+                "url": "https://api.github.com/repos/thephpleague/flysystem/zipball/33c91155537c6dc899eacdc54a13ac6303f156e6",
+                "reference": "33c91155537c6dc899eacdc54a13ac6303f156e6",
                 "shasum": ""
             },
             "require": {
@@ -2360,7 +2360,7 @@
                 "sftp",
                 "storage"
             ],
-            "time": "2019-08-23T21:50:05+00:00"
+            "time": "2019-08-24T11:17:19+00:00"
         },
         {
             "name": "league/oauth2-server",
@@ -5332,16 +5332,16 @@
     "packages-dev": [
         {
             "name": "barryvdh/laravel-debugbar",
-            "version": "v3.2.6",
+            "version": "v3.2.7",
             "source": {
                 "type": "git",
                 "url": "https://github.com/barryvdh/laravel-debugbar.git",
-                "reference": "bf19d9362d0efd1e97c67a76f13f8085953bbbbd"
+                "reference": "8794e7a3b7f3a0e7222bcd088f5f44b2b6ff8e61"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/barryvdh/laravel-debugbar/zipball/bf19d9362d0efd1e97c67a76f13f8085953bbbbd",
-                "reference": "bf19d9362d0efd1e97c67a76f13f8085953bbbbd",
+                "url": "https://api.github.com/repos/barryvdh/laravel-debugbar/zipball/8794e7a3b7f3a0e7222bcd088f5f44b2b6ff8e61",
+                "reference": "8794e7a3b7f3a0e7222bcd088f5f44b2b6ff8e61",
                 "shasum": ""
             },
             "require": {
@@ -5396,7 +5396,7 @@
                 "profiler",
                 "webprofiler"
             ],
-            "time": "2019-08-22T07:52:30+00:00"
+            "time": "2019-08-22T14:29:54+00:00"
         },
         {
             "name": "beyondcode/laravel-dump-server",
