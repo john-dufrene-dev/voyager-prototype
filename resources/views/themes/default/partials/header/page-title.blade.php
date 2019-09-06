@@ -1,6 +1,6 @@
 @yield('breadcrumbs')
 
-<div id="page-title" class="container mt-4">
+<div id="page-title" class="container mt-4 h1-page-title">
     <h1 class="text-center">@yield('page_title')</h1>
 </div>
 

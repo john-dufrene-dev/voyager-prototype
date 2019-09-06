@@ -51,7 +51,17 @@ class PostAdminController extends BaseVoyagerBaseController
         $getter = $dataType->server_side ? 'paginate' : 'get';
 
         $search = (object) ['value' => $request->get('s'), 'key' => $request->get('key'), 'filter' => $request->get('filter')];
-        $searchable = $dataType->server_side ? array_keys(SchemaManager::describeTable(app($dataType->model_name)->getTable())->toArray()) : '';
+
+        $searchNames = [];
+        if ($dataType->server_side) {
+            $searchable = array_keys(SchemaManager::describeTable(app($dataType->model_name)->getTable())->toArray());
+            $dataRow = Voyager::model('DataRow')->whereDataTypeId($dataType->id)->get();
+            foreach ($searchable as $key => $value) {
+                $displayName = $dataRow->where('field', $value)->first()->getTranslatedAttribute('display_name');
+                $searchNames[$value] = $displayName ?: ucwords(str_replace('_', ' ', $value));
+            }
+        }
+
         $orderBy = $request->get('order_by', $dataType->order_column);
         $sortOrder = $request->get('sort_order', null);
         $usesSoftDeletes = false;
@@ -128,6 +138,18 @@ class PostAdminController extends BaseVoyagerBaseController
         // Check if a default search key is set
         $defaultSearchKey = $dataType->default_search_key ?? null;
 
+        // Actions
+        $actions = [];
+        if (!empty($dataTypeContent->first())) {
+            foreach (Voyager::actions() as $action) {
+                $action = new $action($dataType, $dataTypeContent->first());
+
+                if ($action->shouldActionDisplayOnDataType()) {
+                    $actions[] = $action;
+                }
+            }
+        }
+
         $view = 'post::admin.posts.browse';
 
         if (view()->exists("post::admin.$slug.browse")) {
@@ -135,6 +157,7 @@ class PostAdminController extends BaseVoyagerBaseController
         }
 
         return Voyager::view($view, compact(
+            'actions',
             'dataType',
             'dataTypeContent',
             'isModelTranslatable',
@@ -142,7 +165,7 @@ class PostAdminController extends BaseVoyagerBaseController
             'orderBy',
             'orderColumn',
             'sortOrder',
-            'searchable',
+            'searchNames',
             'isServerSide',
             'defaultSearchKey',
             'usesSoftDeletes',
@@ -215,7 +238,7 @@ class PostAdminController extends BaseVoyagerBaseController
         $dataType = Voyager::model('DataType')->where('slug', '=', $slug)->first();
 
         // Compatibility with Model binding.
-        $id = $id instanceof Model ? $id->{$id->getKeyName()} : $id;
+        $id = $id instanceof \Illuminate\Database\Eloquent\Model ? $id->{$id->getKeyName()} : $id;
 
         $model = app($dataType->model_name);
         if ($dataType->scope && $dataType->scope != '' && method_exists($model, 'scope'.ucfirst($dataType->scope))) {
@@ -239,7 +262,7 @@ class PostAdminController extends BaseVoyagerBaseController
         return redirect()
         ->route("voyager.{$dataType->slug}.index")
         ->with([
-            'message'    => __('generic.successfully_updated')." {$dataType->display_name_singular}",
+            'message'    => __('generic.successfully_updated')." {$dataType->getTranslatedAttribute('display_name_singular')}",
             'alert-type' => 'success',
         ]);
     }
@@ -314,7 +337,7 @@ class PostAdminController extends BaseVoyagerBaseController
         return redirect()
         ->route("voyager.{$dataType->slug}.index")
         ->with([
-                'message'    => __('generic.successfully_added_new')." {$dataType->display_name_singular}",
+                'message'    => __('generic.successfully_added_new')." {$dataType->getTranslatedAttribute('display_name_singular')}",
                 'alert-type' => 'success',
             ]);
     }
@@ -358,7 +381,7 @@ class PostAdminController extends BaseVoyagerBaseController
             }
         }
 
-        $displayName = count($ids) > 1 ? $dataType->display_name_plural : $dataType->display_name_singular;
+        $displayName = count($ids) > 1 ? $dataType->getTranslatedAttribute('display_name_plural') : $dataType->getTranslatedAttribute('display_name_singular');
 
         $res = $data->destroy($ids);
         $data = $res
