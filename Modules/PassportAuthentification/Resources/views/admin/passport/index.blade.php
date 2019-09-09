@@ -22,5 +22,5 @@
 @endsection
 
 @section('javascript')
-    <script type="application/javascript" src="{{ mix('modules/passportauth/js/app.js') }}" defer async></script>
+    <script type="application/javascript" src="{{ mix('modules/passportauth/js/app.js') }}"></script>
 @endsection

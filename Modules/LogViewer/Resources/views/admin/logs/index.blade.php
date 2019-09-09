@@ -83,5 +83,5 @@
         });
       });
     </script>
-    <script type="application/javascript" src="{{ mix('modules/logviewer/js/app.js') }}" defer async></script>
+    <script type="application/javascript" src="{{ mix('modules/logviewer/js/app.js') }}"></script>
 @stop

@@ -22,14 +22,11 @@
 
     @include(Theme::use().'partials.header.page-title')
 
-    <div class="container">
-        <p>{!! $post->translate()->body !!}</p>
-        <img src="{{Voyager::image($post->thumbnail('medium'))}}" />
-    </div>
+    @include('post::themes.' . Module::find('Post')->theme . '.includes.post')
 
 @endsection
 
 @section('scripts')
     @parent
-    <script type="application/javascript" src="{{ mix('modules/post/js/app.js') }}" defer async></script>
+    <script type="application/javascript" src="{{ mix('modules/post/js/app.js') }}"></script>
 @stop

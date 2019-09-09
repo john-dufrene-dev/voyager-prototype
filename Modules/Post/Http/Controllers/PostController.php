@@ -24,22 +24,51 @@ class PostController extends Controller
      * Display a listing of the resource.
      * @return Response
      */
-    public function index()
+    public function index(Request $request)
     {
         $posts = $this->getPosts();
+        $total = $this->totalPosts();
         $categories = Category::all('id','name','slug');
 
-    	return view('post::themes.' . Module::find('Post')->theme . '.index', compact('posts', 'categories', 'seo'));
+        if ($request->ajax()) {
+            return view('post::themes.' . Module::find('Post')->theme . '.includes.posts', compact(
+                'posts', 
+                'categories',
+                'total'
+            ));
+        }
+
+    	return view('post::themes.' . Module::find('Post')->theme . '.index', compact(
+            'posts',
+            'categories', 
+            'seo',
+            'total'
+        ));
     }
 
-    public function category($slug)
+    public function category($slug, Request $request)
     {
         $category = Category::whereTranslation('slug', $slug)->firstOrFail();
         
+        $total = $this->totalPostsCategory($slug);
         $posts = $this->getPostsByCategory($slug);
         $categories = Category::all('id','name','slug');
 
-        return view('post::themes.' . Module::find('Post')->theme . '.index', compact('posts', 'category', 'categories'));
+        if ($request->ajax()) {
+            return view('post::themes.' . Module::find('Post')->theme . '.includes.posts', compact(
+                'posts',
+                'category',
+                'categories',
+                'total'
+            ));
+        }
+
+        return view('post::themes.' . Module::find('Post')->theme . '.index', compact(
+            'posts', 
+            'category', 
+            'categories',
+            'total'
+        ));
     }
 
     /**
@@ -56,6 +85,29 @@ class PostController extends Controller
     }
 
     ////// SQL REQUEST //////
+
+    public function totalPosts()
+    {
+        // Get featured post
+        $posts = Post::where([
+            ['status', '=', 'PUBLISHED'],
+        ])->whereDate('published_date', '<=', Carbon::now())->count();
+        
+        return $posts;
+    }
+
+    public function totalPostsCategory($slug)
+    {
+        $category = Category::whereTranslation('slug', '=', $slug)->firstOrFail();
+
+        $posts = Post::where([
+            ['status', '=', 'PUBLISHED'],
+        ])->whereDate('published_date', '<=', Carbon::now())
+            ->where('category_id', '=', $category->id)->count();
+    
+        return $posts;
+    }
+
 
     public function getPosts()
     {
