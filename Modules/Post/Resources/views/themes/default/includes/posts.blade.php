@@ -1,5 +1,5 @@
 @if (count($posts) > 0)
-    <div class="container">
+    <div id="post-component" class="container">
 
         <div class="row">
             

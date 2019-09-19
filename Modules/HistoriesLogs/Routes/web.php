@@ -11,6 +11,6 @@
 |
 */
 
-Route::prefix('historieslogs')->group(function() {
-    Route::get('/', 'HistoriesLogsController@index');
-});
+// Route::prefix('historieslogs')->group(function() {
+//     Route::get('/', 'HistoriesLogsController@index');
+// });

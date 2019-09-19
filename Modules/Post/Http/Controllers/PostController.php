@@ -79,6 +79,7 @@ class PostController extends Controller
      */
     public function show($category, $slug)
     {
+
         return view('post::themes.' . Module::find('Post')->theme . '.show', [
             'post' => $this->getPost($slug),
         ]);

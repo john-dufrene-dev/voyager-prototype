@@ -13,11 +13,15 @@
 
 <div class="container">
 
-    <div class="row justify-content-center">
-        
+    <div id="homepage" class="row justify-content-center">
         <example-component></example-component>
-
     </div>
+
 </div>
 
 @endsection
+
+@section('scripts')
+    @parent
+    <script type="application/javascript" src="{{ mix('modules/homepage/js/app.js') }}"></script>
+@stop

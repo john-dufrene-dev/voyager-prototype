@@ -62,3 +62,7 @@ mix.sass('Modules/HistoriesLogs/Resources/assets/sass/app.scss', 'public/modules
 // Module ModulesManagement
 mix.js('Modules/ModulesManagement/Resources/assets/js/app.js', 'public/modules/modulesmanagement/js');
 mix.sass('Modules/ModulesManagement/Resources/assets/sass/app.scss', 'public/modules/modulesmanagement/css');
+
+if (mix.inProduction()) {
+    mix.version();
+}
