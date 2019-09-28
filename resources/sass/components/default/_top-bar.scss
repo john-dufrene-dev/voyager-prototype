@@ -40,6 +40,15 @@
             }
         }
     }
+    .right-navbar {
+        a {
+            i {
+                padding: 8px;
+                font-size:18px;
+                color: $primarycolor;
+            }
+        }
+    }
     .left-navbar, .right-navbar {
         text-transform:uppercase;
         letter-spacing: 1px;
@@ -56,13 +65,13 @@
             }
         }
         .active {
-            color: $primarycolor;
             font-weight:bold; 
         }
         ul li {
             display: block;
             position: relative;
             float: left;
+            z-index: 99999999999;
             a {
                 margin:0;
                 padding:8px;
@@ -70,22 +79,120 @@
                 text-decoration: none;
                 white-space: nowrap;
                 &:hover {
-                    color:$primarycolor;
+                    font-weight: bold;
                     background-color:$light;
                 }
             }
+        } 
+    }
+    .right-navbar {
+        ul {
+        position:relative;
+            .right-first, .right-second {
+                left:0;
+                padding:5px;
+                position:absolute;
+                background-color: white;
+                width:250px;
+                min-width:215px;
+                box-shadow:0 0.125rem 0.25rem rgba(0, 0, 0, 0.050);
+            }
+            .right-second {
+                top:45px;
+            }
         }
-        
     }
 }
+
+.navbar-light .btn-navbar-bottom {
+    font-size:14px;
+    border: transparent;
+    border-radius: 0;
+}
+
+.bottom-navbar {
+    background-color: rgb(250, 248, 248);
+    li {
+        ul { 
+            display: none;
+            padding-top:5px;
+        }
+        &:hover {
+            > ul {
+                display: block;
+                position: absolute;
+                z-index: 99999999;
+            }
+        }
+        li {
+            list-style: none;
+            background-color: white;
+            width:250px;
+            min-width:215px;
+            box-shadow:0 0.125rem 0.25rem rgba(0, 0, 0, 0.050);
+            &:hover li {
+                float:none;
+            }
+        }
+    }
+    ul {
+        &:before,&:after {
+            content: " "; /* 1 */
+            display: table; /* 2 */
+        }
+        &:after {
+            clear: both;
+        }
+        ul {
+            ul {
+                right: 0;
+                top: 40px;
+            }
+        }
+    }
+    .bottom-collapse-navbar {
+        text-transform:uppercase;
+        letter-spacing: 1px;
+        font-size:15px;
+        a {
+            text-decoration:none;
+            color: $secondarycolor;
+            margin: 0 15px;
+            &:hover{
+                font-weight: bold;
+                transition: all 0.3s ease;
+            }
+        }
+        .active {
+            font-weight:bold; 
+        }
+        ul li {
+            a {
+                margin:0;
+                padding:8px;
+                display: block;
+                text-decoration: none;
+                white-space: nowrap;
+                &:hover {
+                    font-weight: bold;
+                }
+            }
+        } 
+    }
+}
+
 
 ////////////////////////////////////////////////////////////
 // Media Query Navbar header //////////////////////////////
 //////////////////////////////////////////////////////////
 
 @media all and (max-width: 760px) {
-    #headerNavbar {
-        padding-top:15px;
+    .bottom-navbar { 
+        // background-color: transparent; 
+        box-shadow: none!important;
+    }
+    #headerNavbar, .bottom-navbar {
+        // padding-top:15px;
         li {
             li {
                 background-color:transparent;
@@ -106,21 +213,20 @@
                 }
             }
         }
-        .left-navbar, .right-navbar {
+        .left-navbar, .right-navbar, .bottom-collapse-navbar {
             a {
                 font-size:13px;
                 padding: 7px;
                 &:hover{
-                    color:$primarycolor;
                     background-color:transparent;
                 }
             }
             .active {
-                color:$primarycolor;
                 font-weight:bold;
             }
             ul li {
                 a {
+                    margin:0;
                     padding:7px;
                     &:hover{
                         background-color:transparent;

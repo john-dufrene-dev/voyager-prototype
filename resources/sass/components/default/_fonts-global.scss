@@ -1,1 +1,6 @@
-@import url('https://fonts.googleapis.com/css?family=Nunito');
+@import '~@fortawesome/fontawesome-free/css/all.min.css';
+
+@font-face {
+    font-family: 'Nunito';
+    src: url('../../fonts/nunito/Nunito-Regular.ttf') format('truetype');
+}
