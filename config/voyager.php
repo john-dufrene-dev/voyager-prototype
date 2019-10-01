@@ -124,8 +124,8 @@ return [
          * Select languages that are supported.
          */
         'locales' => [
-            'en',
             'fr',
+            'en',
         ],
     ],
 

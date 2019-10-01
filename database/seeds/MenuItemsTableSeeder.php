@@ -202,9 +202,25 @@ class MenuItemsTableSeeder extends Seeder
             ])->save();
         }
 
-        // order 15 = maintenance page
-
         // 12
+        $menuItem = MenuItem::firstOrNew([
+            'menu_id' => $menu->id,
+            'title'   => __('seeders.menu_items.pages'),
+            'url'     => '',
+        ]);
+        if (!$menuItem->exists) {
+            $menuItem->fill([
+                'target'     => '_self',
+                'icon_class' => 'voyager-sort',
+                'color'      => '#000000',
+                'parent_id'  => 5,
+                'order'      => 15,
+            ])->save();
+        }
+
+        // order 16 = maintenance page
+
+        // 13
         $menuItem = MenuItem::firstOrNew([
             'menu_id' => $menu->id,
             'title'   => __('seeders.menu_items.database'),
@@ -217,11 +233,11 @@ class MenuItemsTableSeeder extends Seeder
                 'icon_class' => 'voyager-data',
                 'color'      => '#000000',
                 'parent_id'  => 6,
-                'order'      => 16,
+                'order'      => 17,
             ])->save();
         }
 
-        // 13
+        // 14
         $menuItem = MenuItem::firstOrNew([
             'menu_id' => $menu->id,
             'title'   => __('seeders.menu_items.bread'),
@@ -234,11 +250,11 @@ class MenuItemsTableSeeder extends Seeder
                 'icon_class' => 'voyager-bread',
                 'color'      => '#000000',
                 'parent_id'  => 6,
-                'order'      => 17,
+                'order'      => 18,
             ])->save();
         }
 
-        // 14
+        // 15
         $menuItem = MenuItem::firstOrNew([
             'menu_id' => $menu->id,
             'title'   => __('seeders.menu_items.users'),
@@ -251,11 +267,11 @@ class MenuItemsTableSeeder extends Seeder
                 'icon_class' => 'voyager-person',
                 'color'      => '#000000',
                 'parent_id'  => 7,
-                'order'      => 18,
+                'order'      => 19,
             ])->save();
         }
 
-        // 15
+        // 16
         $menuItem = MenuItem::firstOrNew([
             'menu_id' => $menu->id,
             'title'   => __('seeders.menu_items.roles'),
@@ -268,11 +284,11 @@ class MenuItemsTableSeeder extends Seeder
                 'icon_class' => 'voyager-lock',
                 'color'      => '#000000',
                 'parent_id'  => 7,
-                'order'      => 19,
+                'order'      => 20,
             ])->save();
         }
 
-        // 16
+        // 17
         $menuItem = MenuItem::firstOrNew([
             'menu_id' => $menu->id,
             'title'   => __('seeders.menu_items.logs'),
@@ -285,11 +301,11 @@ class MenuItemsTableSeeder extends Seeder
                 'icon_class' => 'voyager-logbook',
                 'color'      => '#000000',
                 'parent_id'  => 6,
-                'order'      => 20,
+                'order'      => 21,
             ])->save();
         }
 
-        // 17
+        // 18
         $menuItem = MenuItem::firstOrNew([
             'menu_id' => $menu->id,
             'title'   => __('seeders.menu_items.modules'),
@@ -302,7 +318,24 @@ class MenuItemsTableSeeder extends Seeder
                 'icon_class' => 'voyager-star-two',
                 'color'      => '#000000',
                 'parent_id'  => 4,
-                'order'      => 21,
+                'order'      => 22,
+            ])->save();
+        }
+
+        // 19
+        $menuItem = MenuItem::firstOrNew([
+            'menu_id' => $menu->id,
+            'title'   => __('seeders.menu_items.home'),
+            'url'     => '',
+            'route'   => 'voyager.config.pages.settings.home',
+        ]);
+        if (!$menuItem->exists) {
+            $menuItem->fill([
+                'target'     => '_self',
+                'icon_class' => 'voyager-home',
+                'color'      => '#000000',
+                'parent_id'  => 12,
+                'order'      => 23,
             ])->save();
         }
 

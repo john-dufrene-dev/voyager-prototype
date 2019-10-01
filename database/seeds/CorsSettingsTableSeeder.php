@@ -19,6 +19,36 @@ class CorsSettingsTableSeeder extends Seeder
                 'cors_value'     => 0,
                 'active'       => 1,
             ]);
+
+            CorsSetting::create([
+                'cors_name'      => 'PAGE_HOME_META_TITLE',
+                'cors_value'     => 'Page d\'accueil',
+                'active'       => 1,
+            ]);
+
+            CorsSetting::create([
+                'cors_name'      => 'PAGE_HOME_META_DESCRIPTION',
+                'cors_value'     => 'Description de la page d\'accueil',
+                'active'       => 1,
+            ]);
+
+            CorsSetting::create([
+                'cors_name'      => 'PAGE_HOME_META_KEYWORDS',
+                'cors_value'     => 'accueil',
+                'active'       => 1,
+            ]);
+                
+            CorsSetting::create([
+                'cors_name'      => 'SERVICE_CLIENT_ACTIVE',
+                'cors_value'     => 1,
+                'active'       => 1,
+            ]);
+
+            CorsSetting::create([
+                'cors_name'      => 'SERVICE_CLIENT_NUMBER',
+                'cors_value'     => 'XX XX XX XX XX',
+                'active'       => 1,
+            ]);
         }
     }
 }

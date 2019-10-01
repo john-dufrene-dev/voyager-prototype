@@ -2,8 +2,10 @@
 
 namespace Modules\VoyagerBaseExtend\Entities;
 
+use TCG\Voyager\Facades\Voyager;
 use TCG\Voyager\Traits\Translatable;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Builder;
 
 class CorsSetting extends Model
 {

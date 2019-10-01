@@ -112,6 +112,15 @@ return [
     'nothink_to_enable'      => 'Vous n\'avez sélectionné aucun élément à activer',
     'nothink_to_disable'     => 'Vous n\'avez sélectionné aucun élément à désactiver',
     'update_status_success'  => 'Mise a jour des status effectuée avec succès',
-    'update_status_danger'  => 'Désactivation des statuts effectuée avec succès',
-    'all_our_articles'      => 'Tous nos articles',''
+    'update_status_danger'   => 'Désactivation des statuts effectuée avec succès',
+    'all_our_articles'       => 'Tous nos articles',
+    'client_service'         => 'Service client',
+    'number_service_client'  => 'Numéro du service client',
+    'active_service_client'  => 'Activer le numéro du service client',
+    'config_home_page_title' => 'Configuration de la page d\'accueil',
+    'update_homepage'        => 'Mettre à jour la page d\'accueil',
+    'referer_seo'            => 'Référencement seo',
+    'meta_description'       => 'Meta description',
+    'meta_keywords'          => 'Meta keywords',
+    'meta_title'             => 'Meta title',
 ];

@@ -108,4 +108,36 @@ trait CorsSettingTable
 
         return $cors->save();
     }
+
+    /**
+     * Get the specified option value.
+     *
+     * @param  string  $key
+     * @param  mixed   $default
+     * @return mixed
+     */
+    public static function findModelCors($key, $default = null)
+    {
+        if ($option = CorsSetting::where('cors_name', $key)->first()) {
+            return $option;
+        }
+
+        return $default;
+    }
+
+    /**
+     * Get the specified option value.
+     *
+     * @param  string  $key
+     * @param  mixed   $default
+     * @return mixed
+     */
+    public static function get($key, $default = null)
+    {
+        if ($option = CorsSetting::where('cors_name', $key)->first()) {
+            return $option->translate()->cors_value;
+        }
+
+        return $default;
+    }
 }

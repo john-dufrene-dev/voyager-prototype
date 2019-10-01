@@ -1,11 +1,12 @@
 <?php
 
+use TCG\Voyager\Models\Page;
 use Illuminate\Database\Seeder;
 use TCG\Voyager\Models\Category;
 use TCG\Voyager\Models\DataType;
 use TCG\Voyager\Models\MenuItem;
-use TCG\Voyager\Models\Page;
 use TCG\Voyager\Models\Translation;
+use Modules\VoyagerBaseExtend\Entities\CorsSetting;
 
 class TranslationsTableSeeder extends Seeder
 {
@@ -20,6 +21,7 @@ class TranslationsTableSeeder extends Seeder
         $this->categoriesTranslations();
         $this->pagesTranslations();
         $this->menusTranslations();
+        $this->corsTranslations();
     }
 
     /**
@@ -247,6 +249,12 @@ class TranslationsTableSeeder extends Seeder
             $this->trans('en', $this->arr($_tpl, $_item->id), 'General');
         }
 
+        $_item = $this->findMenuItem('Accueil');
+        if ($_item->exists) {
+            $this->trans('fr', $this->arr($_tpl, $_item->id), 'Accueil');
+            $this->trans('en', $this->arr($_tpl, $_item->id), 'Home');
+        }
+
         // MENU HEADER
 
         $_item = $this->findMenuItem('Accueil');
@@ -262,6 +270,34 @@ class TranslationsTableSeeder extends Seeder
         }
 
         // MENU FOOTER
+    }
+
+    /**
+     * Auto generate CorsSetting Translations.
+     *
+     * @return void
+     */
+    private function corsTranslations()
+    {
+        // Adding translations for 'cors_settings'
+        //
+        $cors = CorsSetting::where('cors_name', 'PAGE_HOME_META_TITLE')->firstOrFail();
+        if ($cors->exists) {
+            $this->trans('fr', $this->arr(['cors_settings', 'cors_value'], $cors->id), 'Page d\'accueil');
+            $this->trans('en', $this->arr(['cors_settings', 'cors_value'], $cors->id), 'Home page');
+        }
+
+        $cors = CorsSetting::where('cors_name', 'PAGE_HOME_META_KEYWORDS')->firstOrFail();
+        if ($cors->exists) {
+            $this->trans('fr', $this->arr(['cors_settings', 'cors_value'], $cors->id), 'accueil');
+            $this->trans('en', $this->arr(['cors_settings', 'cors_value'], $cors->id), 'home');
+        }
+
+        $cors = CorsSetting::where('cors_name', 'PAGE_HOME_META_DESCRIPTION')->firstOrFail();
+        if ($cors->exists) {
+            $this->trans('fr', $this->arr(['cors_settings', 'cors_value'], $cors->id), 'Description de la page d\'accueil');
+            $this->trans('en', $this->arr(['cors_settings', 'cors_value'], $cors->id), 'Homepage description');
+        }
     }
 
     private function findMenuItem($title)

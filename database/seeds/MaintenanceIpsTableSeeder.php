@@ -151,7 +151,7 @@ class MaintenanceIpsTableSeeder extends Seeder
                 'icon_class' => 'voyager-warning',
                 'color'      => '#000000',
                 'parent_id'  => 5,
-                'order'      => 15,
+                'order'      => 16,
             ])->save();
         }
 
