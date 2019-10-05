@@ -2,13 +2,20 @@
 
 namespace Modules\Post\Entities;
 
-use Illuminate\Database\Eloquent\Model;
 use TCG\Voyager\Facades\Voyager;
 use TCG\Voyager\Traits\Translatable;
+use Illuminate\Database\Eloquent\Model;
+use Spatie\Activitylog\Traits\LogsActivity;
 
 class Category extends \TCG\Voyager\Models\Category
 {
-    use Translatable;
+    use Translatable, LogsActivity;
+    
+    protected static $logAttributes = ['*'];
+    
+    protected static $logOnlyDirty = true;
+
+    protected static $logName = 'categories';
 
     protected $translatable = ['slug', 'name'];
 

@@ -142,6 +142,12 @@ class PrototypeCommand extends Command
         $this->info('Install the requierement for telescope');
         $this->call('telescope:install');
 
+        $this->info('Clear all activities logs');
+        $this->call('activitylog:clean', ['--days' => '0']);
+
+        $this->info('Publish laravel file-manager vendor');
+        $this->call('vendor:publish', ['--tag' => 'fm_public']);
+
         $this->info('Successfully installed Prototype! Enjoy');
     }
 }

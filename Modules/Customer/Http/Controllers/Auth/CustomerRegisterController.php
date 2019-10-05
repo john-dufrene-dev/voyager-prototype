@@ -37,7 +37,7 @@ class CustomerRegisterController extends Controller
      * User who receive notification when a customer is create
      * @return array
      */
-    protected $roles_for_notifications = ['notifiable'];
+    protected $roles_for_notifications = ['admin', 'notifiable'];
 
     /**
      * Create a new controller instance.

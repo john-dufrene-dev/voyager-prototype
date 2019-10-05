@@ -17,6 +17,7 @@
         "laravel/telescope": "^2.0",
         "laravel/tinker": "^1.0",
         "nwidart/laravel-modules": "^5.0",
+        "spatie/laravel-activitylog": "^3.8",
         "tcg/voyager": "^1.2",
         "unisharp/laravel-filemanager": "^1.9"
     },

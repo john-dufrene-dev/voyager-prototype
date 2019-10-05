@@ -28,6 +28,14 @@ return [
         'title'            => 'Title',
         'updated_at'       => 'Updated At',
         'ip_maintenance'   => 'IP adress',
+        'description'      => 'Description',
+        'model'            => 'Model ID',
+        'model_type'       => 'Model type',
+        'causer'           => 'Updated by',
+        'causer_type'      => 'User type',
+        'properties'       => 'Properties',
+        'state'            => 'Model action',
+        'model_name'       => 'Model name',
     ],
     'data_types' => [
         'category' => [
@@ -58,6 +66,10 @@ return [
             'singular' => 'Maintenance mode',
             'plural'   => 'Maintenance mode',
         ],
+        'historylog'     => [
+            'singular' => 'Log activity journal',
+            'plural'   => 'Logs activities',
+        ],
     ],
     'menu_items' => [
         'bread'        => 'BREAD',
@@ -81,8 +93,9 @@ return [
         'maintenance'  => 'Maintenance',
         'preference'   => 'Preferences',
         'admin'        => 'Administration',
-        'logs'         => 'Logs',
+        'logs'         => 'Server logs',
         'home'         => 'Home', 
+        'history'      => 'Logs activity', 
     ],
     'roles'      => [
         'admin'         => 'Administrator',

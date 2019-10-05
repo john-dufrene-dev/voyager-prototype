@@ -26,5 +26,6 @@ class VoyagerDatabaseSeeder extends Seeder
         $this->seed('SettingsTableSeeder');
         $this->seed('MaintenanceIpsTableSeeder');
         $this->seed('CorsSettingsTableSeeder');
+        $this->seed('HistoryLogTableSeeder');
     }
 }

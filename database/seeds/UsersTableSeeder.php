@@ -19,7 +19,7 @@ class UsersTableSeeder extends Seeder
             $role = Role::where('name', 'admin')->firstOrFail();
             $role_demo = Role::where('name', 'demo')->firstOrFail();
             $role_client = Role::where('name', 'user')->firstOrFail();
-            $role_notifiable = Role::where('name', 'notifiable')->firstOrFail();
+            $role_admin = Role::where('name', 'admin')->firstOrFail();
 
             User::create([
                 'name'           => 'Admin',
@@ -45,11 +45,11 @@ class UsersTableSeeder extends Seeder
                 'role_id'        => $role_demo->id,
             ]);
             
-            $client = User::where('name', 'Client')->firstOrFail();
+            $admin = User::where('name', 'Admin')->firstOrFail();
 
             DB::table('user_roles')->insert([[
-                'user_id' => $client->id,
-                'role_id' => $role_notifiable->id
+                'user_id' => $admin->id,
+                'role_id' => $role_admin->id
             ]]);
         }
     }

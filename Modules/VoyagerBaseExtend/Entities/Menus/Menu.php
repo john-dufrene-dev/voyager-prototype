@@ -2,16 +2,25 @@
 
 namespace Modules\VoyagerBaseExtend\Entities\Menus;
 
-use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Str;
-use TCG\Voyager\Events\MenuDisplay;
 use TCG\Voyager\Facades\Voyager;
+use TCG\Voyager\Events\MenuDisplay;
+use Illuminate\Database\Eloquent\Model;
+use Spatie\Activitylog\Traits\LogsActivity;
 
 /**
  * @todo: Refactor this class by using something like MenuBuilder Helper.
  */
 class Menu extends Model
 {
+    use LogsActivity;
+    
+    protected static $logAttributes = ['*'];
+    
+    protected static $logOnlyDirty = true;
+
+    protected static $logName = 'menus';
+
     protected $table = 'menus';
 
     protected $guarded = [];

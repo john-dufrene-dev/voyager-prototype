@@ -41,13 +41,13 @@
 
                         <div class="card mb-4">
                             <a href="{{ $post->link() }}">
-                                <img class="bd-placeholder-img card-img-top" width="100%" height="225" src="{{ $post->image() }}" />
+                                <img class="bd-placeholder-img card-img-top" width="100%" height="225" src="{{ $post->img() }}" />
                             </a> 
                             <div class="card-body">
                                 <h3>{{ $post->translate()->title }}</h3>
                                 <h6 class="posts-category">{{ __('post::post.category') }}  : 
                                     <a href="{{ $post->linkToCategory() }}">{{ $post->category->translate()->name }}</a></h6>
-                                <p class="card-text">{{{ isset($post->translate()->excerpt) ? $post->getShortExcerptAttribute() : '...' }}}</p>
+                                <p class="card-text">{{{ isset($post->excerpt) ? $post->getShortExcerptAttribute() : '...' }}}</p>
                                 <div class="d-flex justify-content-between align-items-center">
                                     <small class="text-muted"> {{ __('post::post.posted_at') }} : 
                                     {{ Carbon\Carbon::parse($post->created_at)->toFormattedDateString() }} </small>

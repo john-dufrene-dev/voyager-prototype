@@ -3,12 +3,19 @@
 namespace Modules\Customer\Entities;
 
 use Illuminate\Notifications\Notifiable;
+use Spatie\Activitylog\Traits\LogsActivity;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Modules\HistoriesLogs\Notifications\MailResetPasswordNotification;
 
 class Customer extends Authenticatable
 {
-    use Notifiable;
+    use Notifiable, LogsActivity;
+    
+    protected static $logAttributes = ['*'];
+    
+    protected static $logOnlyDirty = true;
+
+    protected static $logName = 'customers';
 
     protected $table = 'customers';
 

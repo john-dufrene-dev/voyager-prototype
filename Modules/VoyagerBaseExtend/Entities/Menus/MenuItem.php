@@ -2,14 +2,21 @@
 
 namespace Modules\VoyagerBaseExtend\Entities\Menus;
 
-use Illuminate\Database\Eloquent\Model;
-use Illuminate\Support\Facades\Route;
 use TCG\Voyager\Facades\Voyager;
 use TCG\Voyager\Traits\Translatable;
+use Illuminate\Support\Facades\Route;
+use Illuminate\Database\Eloquent\Model;
+use Spatie\Activitylog\Traits\LogsActivity;
 
 class MenuItem extends Model
 {
-    use Translatable;
+    use Translatable, LogsActivity;
+    
+    protected static $logAttributes = ['*'];
+    
+    protected static $logOnlyDirty = true;
+
+    protected static $logName = 'menu_items';
 
     protected $translatorMethods = [
         'link' => 'translatorLink',

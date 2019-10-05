@@ -288,6 +288,8 @@ class MenuItemsTableSeeder extends Seeder
             ])->save();
         }
 
+        // order 21 = history log page
+
         // 17
         $menuItem = MenuItem::firstOrNew([
             'menu_id' => $menu->id,
@@ -298,10 +300,10 @@ class MenuItemsTableSeeder extends Seeder
         if (!$menuItem->exists) {
             $menuItem->fill([
                 'target'     => '_self',
-                'icon_class' => 'voyager-logbook',
+                'icon_class' => 'voyager-bug',
                 'color'      => '#000000',
                 'parent_id'  => 6,
-                'order'      => 21,
+                'order'      => 22,
             ])->save();
         }
 
@@ -318,7 +320,7 @@ class MenuItemsTableSeeder extends Seeder
                 'icon_class' => 'voyager-star-two',
                 'color'      => '#000000',
                 'parent_id'  => 4,
-                'order'      => 22,
+                'order'      => 23,
             ])->save();
         }
 
@@ -335,7 +337,7 @@ class MenuItemsTableSeeder extends Seeder
                 'icon_class' => 'voyager-home',
                 'color'      => '#000000',
                 'parent_id'  => 12,
-                'order'      => 23,
+                'order'      => 24,
             ])->save();
         }
 

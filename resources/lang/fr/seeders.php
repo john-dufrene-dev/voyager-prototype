@@ -28,6 +28,14 @@ return [
         'title'            => 'Titre',
         'updated_at'       => 'Mis à jour le',
         'ip_maintenance'   => 'Adresse IP',
+        'description'      => 'Description',
+        'model'            => 'ID du modèle',
+        'model_type'       => 'Type de modèle',
+        'causer'           => 'Mis à jour par',
+        'causer_type'      => 'Type d\'utilisateur',
+        'properties'       => 'Propriétés',
+        'state'            => 'Action sur modèle',
+        'model_name'       => 'Nom du modèle',
     ],
     'data_types' => [
         'category' => [
@@ -58,6 +66,10 @@ return [
             'singular' => 'Mode maintenance',
             'plural'   => 'Mode maintenance',
         ],
+        'historylog'     => [
+            'singular' => 'Log d\'activité',
+            'plural'   => 'Logs d\'activités',
+        ],
     ],
     'menu_items' => [
         'bread'        => 'BREAD',
@@ -81,8 +93,9 @@ return [
         'maintenance'  => 'Maintenance',
         'preference'   => 'Préférences',
         'admin'        => 'Administration',
-        'logs'         => 'Logs',
+        'logs'         => 'Logs serveur',
         'home'         => 'Accueil',  
+        'history'      => 'Logs d\'activités',
     ],
     'roles'      => [
         'admin'         => 'Administrateur',

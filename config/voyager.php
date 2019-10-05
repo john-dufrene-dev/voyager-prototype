@@ -249,6 +249,8 @@ return [
         'optimize:clear',
         'debugbar:clear',
         'telescope:clear',
+        'event:clear',
+        'activitylog:clean',
     ],
 
     'media' => [

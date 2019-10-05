@@ -4,7 +4,7 @@
         link="{{ route('articles.category', [$post->category->translate()->slug]) }}"
         category="{{ $post->category->translate()->name }}"
         body="{{ $post->translate()->body }}"
-        image="{{ $post->image() }}">
+        image="{{ $post->img() }}">
     </post-component>
 
 </div>

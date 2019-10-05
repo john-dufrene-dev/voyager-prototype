@@ -30,9 +30,6 @@ php artisan key:generate
 # 1.4 Run the prototype Installer
 php artisan prototype:install --with-dummy
 
-# 1.5 Publish the package’s config and assets
-php artisan vendor:publish --tag=lfm_public
-
 ```
 
 __2. Troubleshooting__
