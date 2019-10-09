@@ -36,6 +36,7 @@ return [
         'properties'       => 'Properties',
         'state'            => 'Model action',
         'model_name'       => 'Model name',
+        'user_name'        => 'User',
     ],
     'data_types' => [
         'category' => [

@@ -41,7 +41,6 @@ class PostController extends Controller
     	return view('post::themes.' . Module::find('Post')->theme . '.index', compact(
             'posts',
             'categories', 
-            'seo',
             'total'
         ));
     }

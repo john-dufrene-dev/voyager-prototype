@@ -327,6 +327,12 @@ class TranslationsTableSeeder extends Seeder
         if ($datarows->exists) {
             $this->trans('en', $this->arr(['data_rows', 'display_name'], $datarows->id), 'Updated at');
         }
+        $datarows = DataRow::where('display_name', 'Utilisateur')
+            ->where('data_type_id', $id)
+            ->firstOrFail();
+        if ($datarows->exists) {
+            $this->trans('en', $this->arr(['data_rows', 'display_name'], $datarows->id), 'User');
+        }
         $datarows = DataRow::where('display_name', 'Type d\'utilisateur')->firstOrFail();
         if ($datarows->exists) {
             $this->trans('en', $this->arr(['data_rows', 'display_name'], $datarows->id), 'User type');

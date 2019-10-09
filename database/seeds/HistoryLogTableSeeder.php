@@ -183,6 +183,32 @@ class HistoryLogTableSeeder extends Seeder
             ])->save();
         }
 
+        $dataRow = $this->dataRow($historyDataType, 'history_log_belongsto_user_relationship');
+        if (!$dataRow->exists) {
+            $dataRow->fill([
+                'type'         => 'relationship',
+                'display_name' => __('seeders.data_rows.user_name'),
+                'required'     => 0,
+                'browse'       => 1,
+                'read'         => 1,
+                'edit'         => 1,
+                'add'          => 1,
+                'delete'       => 0,
+                'details'      => [
+                    'model'     => 'App\\User',
+                    'table'  => 'users',
+                    'type'  => 'belongsTo',
+                    'column' => 'causer_id',
+                    'key' => 'id',
+                    'label' => 'name',
+                    'pivot_table' => null,
+                    'pivot' => '0',
+                    'taggable' => null,
+                ],
+                'order'        => 11,
+            ])->save();
+        }
+
         //Menu Item
         $menu = Menu::where('name', 'admin')->firstOrFail();
         $menuItem = MenuItem::firstOrNew([

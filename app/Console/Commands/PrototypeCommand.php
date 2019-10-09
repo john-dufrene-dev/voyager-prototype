@@ -3,13 +3,14 @@
 namespace App\Console\Commands;
 
 use Illuminate\Console\Command;
-use Illuminate\Filesystem\Filesystem;
-use Intervention\Image\ImageServiceProviderLaravel5;
-use Symfony\Component\Console\Input\InputOption;
-use Symfony\Component\Process\Process;
-use TCG\Voyager\Providers\VoyagerDummyServiceProvider;
 use TCG\Voyager\Traits\Seedable;
+use Illuminate\Filesystem\Filesystem;
+use Symfony\Component\Process\Process;
 use TCG\Voyager\VoyagerServiceProvider;
+use App\Providers\DummyContentServiceProvider;
+use Symfony\Component\Console\Input\InputOption;
+use Intervention\Image\ImageServiceProviderLaravel5;
+use TCG\Voyager\Providers\VoyagerDummyServiceProvider;
 
 class PrototypeCommand extends Command
 {
@@ -119,7 +120,7 @@ class PrototypeCommand extends Command
         if ($this->option('with-dummy')) {
             $this->info('Publishing dummy content');
             $tags = ['dummy_seeds', 'dummy_content', 'dummy_config', 'dummy_migrations'];
-            $this->call('vendor:publish', ['--provider' => VoyagerDummyServiceProvider::class, '--tag' => $tags]);
+            $this->call('vendor:publish', ['--provider' => DummyContentServiceProvider::class, '--tag' => $tags]);
 
             $this->info('Migrating dummy tables');
             $this->call('migrate');

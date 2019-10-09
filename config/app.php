@@ -175,6 +175,10 @@ return [
         App\Providers\EventServiceProvider::class,
         App\Providers\TelescopeServiceProvider::class,
         App\Providers\RouteServiceProvider::class,
+        /*
+         * Publishable Dummy Content, just in console command
+         */ 
+        App\Providers\DummyContentServiceProvider::class,
 
     ],
 
