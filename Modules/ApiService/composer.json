@@ -1,0 +1,25 @@
+{
+    "name": "jddev/apiservice",
+    "description": "",
+    "authors": [
+        {
+            "name": "John Dufrene",
+            "email": "john.dufrene.pro@gmail.com"
+        }
+    ],
+    "extra": {
+        "laravel": {
+            "providers": [
+                "Modules\\ApiService\\Providers\\ApiServiceServiceProvider"
+            ],
+            "aliases": {
+                
+            }
+        }
+    },
+    "autoload": {
+        "psr-4": {
+            "Modules\\ApiService\\": ""
+        }
+    }
+}

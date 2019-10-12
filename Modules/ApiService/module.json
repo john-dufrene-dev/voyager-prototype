@@ -1,0 +1,17 @@
+{
+    "name": "ApiService",
+    "author": "",
+    "version": "1.0@beta",
+    "alias": "apiservice",
+    "description": "",
+    "theme": "default",
+    "keywords": [],
+    "active": 1,
+    "order": 0,
+    "providers": [
+        "Modules\\ApiService\\Providers\\ApiServiceServiceProvider"
+    ],
+    "aliases": {},
+    "files": [],
+    "requires": []
+}

@@ -18,9 +18,6 @@ if(Module::find('VoyagerBaseExtend')->disabled()) {
     });
 }
 
-Route::get('/oauth/token/get', '\App\Http\Controllers\Api\ApiTokenController@get')->name('token.oauth.get');
-// Route::get('/oauth/token/refresh', 'Api\ApiTokenController@refresh')->name('token.oauth.refresh'); IN PROGRESS
-
 // FILEMANAGER ROUTES
 Route::group(['middleware' => 'admin.user'], function () {
     Route::get('/admin/filemanager', '\UniSharp\LaravelFilemanager\Controllers\LfmController@show');
