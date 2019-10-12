@@ -175,10 +175,12 @@ return [
         App\Providers\EventServiceProvider::class,
         App\Providers\TelescopeServiceProvider::class,
         App\Providers\RouteServiceProvider::class,
+        
         /*
-         * Publishable Dummy Content, just in console command
+         * Modules Providers...
          */ 
-        App\Providers\DummyContentServiceProvider::class,
+        App\Providers\Modules\DummyContentServiceProvider::class,
+        App\Providers\Modules\OverrideConfigProvider::class,
 
     ],
 

@@ -49,6 +49,12 @@ class CorsSettingsTableSeeder extends Seeder
                 'cors_value'     => 'XX XX XX XX XX',
                 'active'       => 1,
             ]);
+
+            CorsSetting::create([
+                'cors_name'      => 'ACTIVITY_LOGGER_ENABLED',
+                'cors_value'     => '1',
+                'active'       => 1,
+            ]);
         }
     }
 }

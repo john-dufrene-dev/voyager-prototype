@@ -1,5 +1,8 @@
 <?php
 
+use TCG\Voyager\Events\Routing;
+use TCG\Voyager\Events\RoutingAfter;
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -11,6 +14,17 @@
 |
 */
 
-// Route::prefix('historieslogs')->group(function() {
-//     Route::get('/', 'HistoriesLogsController@index');
-// });
+if(Module::find('HistoriesLogs')->enabled()) {
+    Route::group(['prefix' => 'admin'], function () {
+        Route::group(['as' => 'voyager.'], function () {
+            event(new Routing());
+        
+            Route::post('history-log/store/turn', [
+                'uses' => 'Admin\HistoryLogAdminController@ActiveHistoryLog', 
+                'as' => 'historylog.turn']
+            );
+        
+            event(new RoutingAfter());
+        });
+    });
+}

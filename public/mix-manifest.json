@@ -1,6 +1,6 @@
 {
     "/js/app.js": "/js/app.js?id=a6813bd20e9bbd0b167d",
-    "/js/dependencies.js": "/js/dependencies.js?id=77a89441c0fb5f124e2a",
+    "/js/dependencies.js": "/js/dependencies.js?id=721d0817560dd3500cf9",
     "/css/app.css": "/css/app.css?id=ec9fdc7240198c5b9fb6",
     "/modules/voyagerbaseextend/css/app.css": "/modules/voyagerbaseextend/css/app.css?id=72fefe328e7f4b520c5e",
     "/modules/homepage/css/app.css": "/modules/homepage/css/app.css?id=d41d8cd98f00b204e980",
@@ -11,7 +11,9 @@
     "/modules/passportauth/css/app.css": "/modules/passportauth/css/app.css?id=d41d8cd98f00b204e980",
     "/modules/historieslogs/css/app.css": "/modules/historieslogs/css/app.css?id=d41d8cd98f00b204e980",
     "/modules/modulesmanagement/css/app.css": "/modules/modulesmanagement/css/app.css?id=d41d8cd98f00b204e980",
+    "/modules/historieslogs/css/admin.css": "/modules/historieslogs/css/admin.css?id=42421858e73cb81d0c83",
     "/modules/customer/js/app.js": "/modules/customer/js/app.js?id=a8e4195a6b3ec5f1a725",
+    "/modules/historieslogs/js/admin.js": "/modules/historieslogs/js/admin.js?id=e121fd924a6fe61be1e7",
     "/modules/historieslogs/js/app.js": "/modules/historieslogs/js/app.js?id=03d5ca47c9b8ca56cc46",
     "/modules/homepage/js/app.js": "/modules/homepage/js/app.js?id=b354565bb5d67fedef51",
     "/modules/logviewer/js/app.js": "/modules/logviewer/js/app.js?id=aa59d21f7eebf8b62897",

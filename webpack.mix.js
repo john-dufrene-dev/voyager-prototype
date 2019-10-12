@@ -63,6 +63,10 @@ mix.sass('Modules/HistoriesLogs/Resources/assets/sass/app.scss', 'public/modules
 mix.js('Modules/ModulesManagement/Resources/assets/js/app.js', 'public/modules/modulesmanagement/js');
 mix.sass('Modules/ModulesManagement/Resources/assets/sass/app.scss', 'public/modules/modulesmanagement/css');
 
+// Module HistoriesLogs : ADMIN
+mix.js('Modules/HistoriesLogs/Resources/assets/js/admin.js', 'public/modules/historieslogs/js');
+mix.sass('Modules/HistoriesLogs/Resources/assets/sass/admin.scss', 'public/modules/historieslogs/css');
+
 if (mix.inProduction()) {
     mix.version();
 }

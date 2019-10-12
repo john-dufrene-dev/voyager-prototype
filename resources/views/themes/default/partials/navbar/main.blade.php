@@ -29,7 +29,7 @@
         alt="{{ setting('site.title') }}" title="{{ setting('site.title') }}" /></a>
         @endif
 
-        @if(Cors::get('SERVICE_CLIENT_ACTIVE') == 1)
+        @if(get_cors('SERVICE_CLIENT_ACTIVE') == 1)
             <div class="service-client">
                 <span>{{ __('generic.client_service') }}</span><br>
                 <span class="service-client-number"> {{ Cors::get('SERVICE_CLIENT_NUMBER') }} </span>
