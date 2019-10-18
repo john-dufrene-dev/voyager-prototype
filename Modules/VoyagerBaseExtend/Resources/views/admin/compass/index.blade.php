@@ -16,8 +16,6 @@
 
 @section('content')
 
-    <div id="gradient_bg"></div>
-
     <div class="container-fluid">
         @include('voyager::alerts')
     </div>

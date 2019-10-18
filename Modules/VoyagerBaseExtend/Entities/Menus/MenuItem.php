@@ -28,6 +28,11 @@ class MenuItem extends Model
 
     protected $translatable = ['title'];
 
+    protected $relations = [
+        'menu',
+        'translations',
+    ];
+
     public static function boot()
     {
         parent::boot();

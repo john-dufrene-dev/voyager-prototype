@@ -23,6 +23,11 @@ class Category extends \TCG\Voyager\Models\Category
 
     protected $fillable = ['slug', 'name'];
 
+    protected $relations = [
+        'posts',
+        'translations',
+    ];
+
     public function posts()
     {
         return $this->hasMany(Voyager::modelClass('Post'));

@@ -25,6 +25,10 @@ class Menu extends Model
 
     protected $guarded = [];
 
+    protected $relations = [
+        'items',
+    ];
+
     public static function boot()
     {
         parent::boot();

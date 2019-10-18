@@ -16,6 +16,11 @@ class User extends \TCG\Voyager\Models\User
 
     protected $guarded = [];
 
+    protected $relations = [
+        'roles',
+        'role',
+    ];
+
     public $additional_attributes = ['locale'];
 
     public function getAvatarAttribute($value)

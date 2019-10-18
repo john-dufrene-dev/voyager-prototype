@@ -5,6 +5,7 @@ namespace Modules\MaintenanceMode\Http\Controllers\Admin;
 use Illuminate\Http\Request;
 use TCG\Voyager\Facades\Voyager;
 use Nwidart\Modules\Facades\Module;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Session;
 use TCG\Voyager\Database\Schema\SchemaManager;
 use Modules\MaintenanceMode\Entities\MaintenanceIp;
@@ -65,7 +66,7 @@ class VoyagerMaintenanceModeController extends BaseVoyagerBaseController
 
         $searchNames = [];
         if ($dataType->server_side) {
-            $searchable = array_keys(SchemaManager::describeTable(app($dataType->model_name)->getTable())->toArray());
+            $searchable = SchemaManager::describeTable(app($dataType->model_name)->getTable())->pluck('name')->toArray();
             $dataRow = Voyager::model('DataRow')->whereDataTypeId($dataType->id)->get();
             foreach ($searchable as $key => $value) {
                 $displayName = $dataRow->where('field', $value)->first()->getTranslatedAttribute('display_name');
@@ -75,21 +76,10 @@ class VoyagerMaintenanceModeController extends BaseVoyagerBaseController
 
         $orderBy = $request->get('order_by', $dataType->order_column);
         $sortOrder = $request->get('sort_order', null);
-        $usesSoftDeletes = false;
-        $showSoftDeleted = false;
-        $orderColumn = [];
-        if ($orderBy) {
-            $index = $dataType->browseRows->where('field', $orderBy)->keys()->first() + 1;
-            $orderColumn = [[$index, 'desc']];
-            if (!$sortOrder && isset($dataType->order_direction)) {
-                $sortOrder = $dataType->order_direction;
-                $orderColumn = [[$index, $dataType->order_direction]];
-            } else {
-                $orderColumn = [[$index, 'desc']];
-            }
-        }
 
         // Next Get or Paginate the actual content from the MODEL that corresponds to the slug DataType
+        $usesSoftDeletes = false;
+        $showSoftDeleted = false;
         if (strlen($dataType->model_name) != 0) {
             $model = app($dataType->model_name);
 
@@ -168,6 +158,30 @@ class VoyagerMaintenanceModeController extends BaseVoyagerBaseController
         $ip = $request->ip();
         $active_field = $this->bulk_active;
 
+        // Define showCheckboxColumn
+        $showCheckboxColumn = false;
+        if (Auth::user()->can('delete', app($dataType->model_name))) {
+            $showCheckboxColumn = true;
+        } else {
+            foreach($actions as $action) {
+                if (method_exists($action, 'massAction')) {
+                    $showCheckboxColumn = true;
+                }
+            }
+        }
+        // Define orderColumn
+        $orderColumn = [];
+        if ($orderBy) {
+            $index = $dataType->browseRows->where('field', $orderBy)->keys()->first() + ($showCheckboxColumn ? 1 : 0);
+            $orderColumn = [[$index, 'desc']];
+            if (!$sortOrder && isset($dataType->order_direction)) {
+                $sortOrder = $dataType->order_direction;
+                $orderColumn = [[$index, $dataType->order_direction]];
+            } else {
+                $orderColumn = [[$index, 'desc']];
+            }
+        }
+
         $view = 'maintenancemode::admin.bread.browse';
 
         if (view()->exists("maintenancemode::admin.$slug.browse")) {
@@ -190,7 +204,8 @@ class VoyagerMaintenanceModeController extends BaseVoyagerBaseController
             'isServerSide',
             'defaultSearchKey',
             'usesSoftDeletes',
-            'showSoftDeleted'
+            'showSoftDeleted',
+            'showCheckboxColumn'
         ));
     }
 

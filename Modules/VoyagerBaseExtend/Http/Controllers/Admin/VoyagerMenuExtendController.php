@@ -6,9 +6,10 @@ use Illuminate\Support\Arr;
 use Illuminate\Http\Request;
 use TCG\Voyager\Facades\Voyager;
 use Nwidart\Modules\Facades\Module;
+use Illuminate\Support\Facades\Auth;
+use Modules\VoyagerBaseExtend\Entities\Menus\Menu;
 use Modules\VoyagerBaseExtend\Entities\Menus\MenuItem;
 use App\Voyager\Http\Controllers\VoyagerMenuController as BaseVoyagerMenuController;
-use Modules\VoyagerBaseExtend\Entities\Menus\Menu;
 
 class VoyagerMenuExtendController extends BaseVoyagerMenuController
 {
@@ -24,7 +25,7 @@ class VoyagerMenuExtendController extends BaseVoyagerMenuController
 
         $modules = Module::all();
 
-        app('VoyagerAuth')->user()->can('edit', $menu);
+        Auth::guard(app('VoyagerGuard'))->user()->can('edit', $menu);
 
         $isModelTranslatable = is_bread_translatable(app(MenuItem::class));
 
@@ -39,7 +40,7 @@ class VoyagerMenuExtendController extends BaseVoyagerMenuController
     {
         $menu = app(Menu::class);
 
-        app('VoyagerAuth')->user()->can('add', $menu);
+        Auth::guard(app('VoyagerGuard'))->user()->can('add', $menu);
 
         $data = $this->prepareParameters(
             $request->all()
@@ -79,7 +80,7 @@ class VoyagerMenuExtendController extends BaseVoyagerMenuController
 
         $menuItem = app(MenuItem::class)->findOrFail($id);
 
-        app('VoyagerAuth')->user()->can('edit', $menuItem->menu);
+        Auth::guard(app('VoyagerGuard'))->user()->can('edit', $menuItem);
 
         if (is_bread_translatable($menuItem)) {
             $trans = $this->prepareMenuTranslations($data);

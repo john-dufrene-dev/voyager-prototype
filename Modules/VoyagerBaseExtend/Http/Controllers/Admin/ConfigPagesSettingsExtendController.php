@@ -6,6 +6,7 @@ use Exception;
 use Illuminate\Http\Request;
 use TCG\Voyager\Facades\Voyager;
 use Nwidart\Modules\Facades\Module;
+use Illuminate\Support\Facades\Auth;
 use TCG\Voyager\Traits\Translatable;
 use TCG\Voyager\Http\Controllers\Controller;
 use Modules\VoyagerBaseExtend\Entities\CorsSetting;
@@ -23,7 +24,7 @@ class ConfigPagesSettingsExtendController extends Controller
 
     public function home(Request $request) {
 
-        app('VoyagerAuth')->user()->hasPermissionOrAbort('browse_configs');
+        Auth::guard(app('VoyagerGuard'))->user()->hasPermissionOrAbort('browse_configs');
 
         $isModelTranslatable = is_bread_translatable(app(CorsSetting::class));
 
@@ -34,7 +35,7 @@ class ConfigPagesSettingsExtendController extends Controller
 
     public function homeUpdate(Request $request) {
 
-        app('VoyagerAuth')->user()->hasPermissionOrAbort('browse_configs');
+        Auth::guard(app('VoyagerGuard'))->user()->hasPermissionOrAbort('browse_configs');
 
         if ($request->isMethod('post')) {
 

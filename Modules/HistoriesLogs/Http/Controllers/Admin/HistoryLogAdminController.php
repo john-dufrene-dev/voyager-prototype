@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use TCG\Voyager\Facades\Voyager;
 use Illuminate\Support\Facades\DB;
 use Nwidart\Modules\Facades\Module;
+use Illuminate\Support\Facades\Auth;
 use TCG\Voyager\Events\BreadDataAdded;
 use TCG\Voyager\Events\BreadDataDeleted;
 use TCG\Voyager\Events\BreadDataUpdated;
@@ -57,7 +58,7 @@ class HistoryLogAdminController extends BaseVoyagerBaseController
 
         $searchNames = [];
         if ($dataType->server_side) {
-            $searchable = array_keys(SchemaManager::describeTable(app($dataType->model_name)->getTable())->toArray());
+            $searchable = SchemaManager::describeTable(app($dataType->model_name)->getTable())->pluck('name')->toArray();
             $dataRow = Voyager::model('DataRow')->whereDataTypeId($dataType->id)->get();
             foreach ($searchable as $key => $value) {
                 $displayName = $dataRow->where('field', $value)->first()->getTranslatedAttribute('display_name');
@@ -67,21 +68,10 @@ class HistoryLogAdminController extends BaseVoyagerBaseController
 
         $orderBy = $request->get('order_by', $dataType->order_column);
         $sortOrder = $request->get('sort_order', null);
-        $usesSoftDeletes = false;
-        $showSoftDeleted = false;
-        $orderColumn = [];
-        if ($orderBy) {
-            $index = $dataType->browseRows->where('field', $orderBy)->keys()->first() + 1;
-            $orderColumn = [[$index, 'desc']];
-            if (!$sortOrder && isset($dataType->order_direction)) {
-                $sortOrder = $dataType->order_direction;
-                $orderColumn = [[$index, $dataType->order_direction]];
-            } else {
-                $orderColumn = [[$index, 'desc']];
-            }
-        }
 
         // Next Get or Paginate the actual content from the MODEL that corresponds to the slug DataType
+        $usesSoftDeletes = false;
+        $showSoftDeleted = false;
         if (strlen($dataType->model_name) != 0) {
             $model = app($dataType->model_name);
 
@@ -156,6 +146,30 @@ class HistoryLogAdminController extends BaseVoyagerBaseController
         // Check value maintenance mode
         $activeHistory = get_cors('ACTIVITY_LOGGER_ENABLED');
 
+        // Define showCheckboxColumn
+        $showCheckboxColumn = false;
+        if (Auth::user()->can('delete', app($dataType->model_name))) {
+            $showCheckboxColumn = true;
+        } else {
+            foreach($actions as $action) {
+                if (method_exists($action, 'massAction')) {
+                    $showCheckboxColumn = true;
+                }
+            }
+        }
+        // Define orderColumn
+        $orderColumn = [];
+        if ($orderBy) {
+            $index = $dataType->browseRows->where('field', $orderBy)->keys()->first() + ($showCheckboxColumn ? 1 : 0);
+            $orderColumn = [[$index, 'desc']];
+            if (!$sortOrder && isset($dataType->order_direction)) {
+                $sortOrder = $dataType->order_direction;
+                $orderColumn = [[$index, $dataType->order_direction]];
+            } else {
+                $orderColumn = [[$index, 'desc']];
+            }
+        }
+
         $view = 'historieslogs::admin.bread.browse';
 
         if (view()->exists("voyager::$slug.browse")) {
@@ -176,6 +190,7 @@ class HistoryLogAdminController extends BaseVoyagerBaseController
             'defaultSearchKey',
             'usesSoftDeletes',
             'showSoftDeleted',
+            'showCheckboxColumn',
             'activeHistory'
         ));
     }

@@ -212,7 +212,7 @@
                             <div class="form-group">
                                 <label for="category_id">{{ __('voyager::post.category') }}</label>
                                 <select class="form-control" name="category_id">
-                                    @foreach(Modules\Post\Entities\Category::all() as $category)
+                                        @foreach(Modules\Post\Entities\Category::all() as $category)
                                         <option value="{{ $category->id }}"@if(isset($dataTypeContent->category_id) && $dataTypeContent->category_id == $category->id) selected="selected"@endif>{{ $category->name }}</option>
                                     @endforeach
                                 </select>
@@ -342,7 +342,7 @@
                $('#confirm_delete_modal').modal('show');
            });
             $('#confirm_delete').on('click', function(){
-               $.post('{{ route('voyager.media.remove') }}', params, function (response) {
+               $.post('{{ route('voyager.'.$dataType->slug.'.media.remove') }}', params, function (response) {
                    if ( response
                        && response.data
                        && response.data.status

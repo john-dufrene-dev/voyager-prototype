@@ -28,38 +28,25 @@ class ApiController extends \TCG\Voyager\Http\Controllers\Controller
     //
     //*********************************************
 
-    public function browse(Request $request, $slug)
+    public function browseBread(Request $request, $slug)
     {
         $dataType = Datatype::where('slug', '=', $slug)->first();
 
-    	$authorized = auth()->user()->can('browse', app($dataType->model_name));
-
-    	if(!$authorized){
-    		abort(403, 'Unauthorized');
-    	}
-
-    	// Next Get or Paginate the actual content from the MODEL that corresponds to the slug DataType
-        if (strlen($dataType->model_name) != 0) {
-
-	    	$model = app($dataType->model_name);
-	        $query = $model::select('*');
-
-	        $relationships = $this->getRelationships($dataType);
-
-	        // If a column has a relationship associated with it, we do not want to show that field
-	        $this->removeRelationshipField($dataType, 'browse');
-
-	        $dataTypeContent = call_user_func([$query->with($relationships)->orderBy($model->getKeyName(), 'DESC'), 'paginate']);
-
-	        $dataTypeContent = $this->resolveRelations($dataTypeContent, $dataType);
-
-	    } else {
-            // If Model doesn't exist, get data from table name
-            $dataTypeContent = call_user_func([DB::table($dataType->name), $getter]);
-            $model = false;
+        if(is_null($dataType)) {
+            return $this->sendError('Bread not found.');
         }
 
-        return response()->json($dataTypeContent);
+        $model = app($dataType->model_name);
+
+        if(count($model->getRelations()) > 0) {
+            $query = $model::with($model->getRelations());
+        } else {
+            $query = $model::select('*');
+        }
+
+        $dataTypeContent = call_user_func([$query->orderBy($model->getKeyName(), 'DESC'), 'paginate']);
+
+        return $this->sendResponse($dataTypeContent, 'Bread retrieved successfully.');
     }
 
 
@@ -75,148 +62,31 @@ class ApiController extends \TCG\Voyager\Http\Controllers\Controller
     //
     //*********************************************
 
-    public function read(Request $request, $slug, $id)
+    public function readBread(Request $request, $slug, $id)
     {
         $slug = $this->getSlug($request);
 
         $dataType = Datatype::where('slug', '=', $slug)->first();
 
-        $relationships = $this->getRelationships($dataType);
+        if(is_null($dataType)) {
+            return $this->sendError('Bread not found.');
+        } 
 
-        if (strlen($dataType->model_name) != 0) {
-            $model = app($dataType->model_name);
-            $dataTypeContent = call_user_func([$model->with($relationships), 'findOrFail'], $id);
+        $model = app($dataType->model_name);
+
+        if(count($model->getRelations()) > 0) {
+            $query = $model::with($model->getRelations());
         } else {
-            // If Model doest exist, get data from table name
-            $dataTypeContent = DB::table($dataType->name)->where('id', $id)->first();
+            $query = $model::select('*');
         }
 
-        // Replace relationships' keys for labels and create READ links if a slug is provided.
-        $dataTypeContent = $this->resolveRelations($dataTypeContent, $dataType, true);
+        $dataTypeContent = call_user_func([$query, 'find'], $id);
 
-        // If a column has a relationship associated with it, we do not want to show that field
-        $this->removeRelationshipField($dataType, 'read');
+        if(!$dataTypeContent) {
+            return $this->sendError($slug . ' with id ' . $id . ' not found.');
+        } 
 
-        // Check permission
-        $this->authorize('read', $dataTypeContent);
-
-        // Check if BREAD is Translatable
-        $isModelTranslatable = is_bread_translatable($dataTypeContent);
-
-        return response()->json($dataTypeContent);
-
-    }
-
-    //*********************************************
-    //                ______
-    //               |  ____|
-    //               | |__
-    //               |  __|
-    //               | |____
-    //               |______|
-    //
-    //  API Edit an item of our Data Type BR(E)AD
-    //
-    //*********************************************
-
-    public function edit(Request $request, $slug, $id)
-    {
-
-        $slug = $this->getSlug($request);
-
-        $dataType = Datatype::where('slug', '=', $slug)->first();
-
-        // Compatibility with Model binding.
-        $id = $id instanceof Model ? $id->{$id->getKeyName()} : $id;
-
-        $data = call_user_func([$dataType->model_name, 'findOrFail'], $id);
-
-
-        // Check permission
-        $this->authorize('edit', $data);
-
-        if(!$this->isValidJson($request->getContent())){
-            abort('400', 'Invalid JSON structure.');
-        }
-
-
-        $data = $this->insertUpdateData($request, $slug, $dataType->editRows, $data);
-
-        if(isset($data)){
-            return response()->json(['success' => true, 'data' => $data]);
-        } else{
-            abort('400', 'Could not update content, error with data received');
-        }
-
-    }
-
-
-    //*********************************************
-    //
-    //                   /\
-    //                  /  \
-    //                 / /\ \
-    //                / ____ \
-    //               /_/    \_\
-    //
-    //
-    // API Add a new item of our Data Type BRE(A)D
-    //
-    //*********************************************
-
-    public function add(Request $request)
-    {
-        $slug = $this->getSlug($request);
-
-        $dataType = Datatype::where('slug', '=', $slug)->first();
-
-        // Check permission
-        $this->authorize('add', app($dataType->model_name));
-
-        if(!$this->isValidJson($request->getContent())){
-            abort('400', 'Invalid JSON structure.');
-        }
-
-        $data = $this->insertUpdateData($request, $slug, $dataType->addRows, new $dataType->model_name());
-
-        if(isset($data)){
-            return response()->json(['success' => true, 'data' => $data]);
-        } else{
-            abort('400', 'Could not add content, error with data received');
-        }
-
-    }
-
-
-    //*********************************************
-    //                _____
-    //               |  __ \
-    //               | |  | |
-    //               | |  | |
-    //               | |__| |
-    //               |_____/
-    //
-    //         API Delete an item BREA(D)
-    //
-    //*********************************************
-
-    public function delete(Request $request, $slug, $id)
-    {
-        $slug = $this->getSlug($request);
-
-        $dataType = Datatype::where('slug', '=', $slug)->first();
-
-        // Check permission
-        $this->authorize('delete', app($dataType->model_name));
-
-        $data = call_user_func([$dataType->model_name, 'findOrFail'], $id);
-
-        $res = $data->delete($id);
-
-        if ($res) {
-            return response()->json(['success' => true, 'message' => 'Successfully deleted']);
-        }
-
+        return $this->sendResponse($dataTypeContent, 'Bread retrieved successfully.');
     }
 
     public function getSlug(Request $request)
@@ -230,33 +100,40 @@ class ApiController extends \TCG\Voyager\Http\Controllers\Controller
         return $slug;
     }
 
-    public function insertUpdateData($request, $slug, $rows, $data)
+    /**
+     * success response method.
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function sendResponse($result, $message)
     {
+    	$response = [
+            'success' => true,
+            'data'    => $result,
+            'message' => $message,
+        ];
 
-        foreach ($rows as $row) {
+        return response()->json($response, 200);
+    }
 
-            $options = json_decode($row->details);
 
-            $content = $this->getContentBasedOnType($request, $slug, $row, $options);
+    /**
+     * return error response.
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function sendError($error, $errorMessages = [], $code = 404)
+    {
+    	$response = [
+            'success' => false,
+            'message' => $error,
+        ];
 
-            if(isset($request->{$row->field})){
-                $data->{$row->field} = $content;
-            }
+        if(!empty($errorMessages)){
+            $response['data'] = $errorMessages;
         }
 
-        $data->save();
-
-        return $data;
-    }
-
-    public function getContentBasedOnType(Request $request, $slug, $row, $options = null)
-    {
-        return (new Text($request, $slug, $row, $options))->handle();
-    }
-
-    private function isValidJson($string) {
-     json_decode($string);
-     return (json_last_error() == JSON_ERROR_NONE);
+        return response()->json($response, $code);
     }
 
 }

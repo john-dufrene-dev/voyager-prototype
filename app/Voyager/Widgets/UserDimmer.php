@@ -5,6 +5,7 @@ namespace App\Voyager\Widgets;
 use App\User;
 use Illuminate\Support\Str;
 use TCG\Voyager\Facades\Voyager;
+use Illuminate\Support\Facades\Auth;
 
 class UserDimmer extends BaseDimmer
 {
@@ -43,6 +44,6 @@ class UserDimmer extends BaseDimmer
      */
     public function shouldBeDisplayed()
     {
-        return app('VoyagerAuth')->user()->can('browse', app(User::class));
+        return Auth::guard(app('VoyagerGuard'))->user()->can('browse', app(User::class));
     }
 }

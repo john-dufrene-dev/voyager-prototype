@@ -13,21 +13,7 @@ use Illuminate\Http\Request;
 |
 */
 
-// Route::middleware('auth:api')->get('/apiservice', function (Request $request) {
-//     return $request->user();
-// });
-
-// BROWSE
-// Route::get('/{datatype}', '\Modules\ApiService\Http\Controllers\Api\ApiController@browse');
-
-// // READ
-// Route::get('/{datatype}/{id}', '\Modules\ApiService\Http\Controllers\Api\ApiController@read');
-
-// // EDIT
-// Route::put('/{datatype}/{id}', '\Modules\ApiService\Http\Controllers\Api\ApiController@edit');
-
-// // ADD
-// Route::post('/{datatype}', '\Modules\ApiService\Http\Controllers\Api\ApiController@add');
-
-// // DELETE
-// Route::delete('/{datatype}/{id}', '\Modules\ApiService\Http\Controllers\Api\ApiController@delete');
+// BROWSE BREAD
+Route::get('/{datatype}', '\Modules\ApiService\Http\Controllers\Api\ApiController@browseBread');
+// READ BREAD
+Route::get('/{datatype}/{id}', '\Modules\ApiService\Http\Controllers\Api\ApiController@readBread');

@@ -37,7 +37,6 @@ mix.sass('Modules/HomePage/Resources/assets/sass/app.scss', 'public/modules/home
 // Module Post
 mix.js('Modules/Post/Resources/assets/js/app.js', 'public/modules/post/js');
 mix.sass('Modules/Post/Resources/assets/sass/app.scss', 'public/modules/post/css');
-// .copyDirectory('resources/assets/images', 'public/images') in progress for posts
 
 // Module Customer
 mix.js('Modules/Customer/Resources/assets/js/app.js', 'public/modules/customer/js');
@@ -52,7 +51,7 @@ mix.js('Modules/LogViewer/Resources/assets/js/app.js', 'public/modules/logviewer
 mix.sass('Modules/LogViewer/Resources/assets/sass/app.scss', 'public/modules/logviewer/css');
 
 // Module PassportAuthentification
-mix.js('Modules/PassportAuthentification/Resources/assets/js/app.js', 'public/modules/passportauth/js');
+mix.js('Modules/PassportAuthentification/Resources/assets/js/admin.js', 'public/modules/passportauth/js');
 mix.sass('Modules/PassportAuthentification/Resources/assets/sass/app.scss', 'public/modules/passportauth/css');
 
 // Module HistoriesLogs
@@ -68,5 +67,5 @@ mix.js('Modules/HistoriesLogs/Resources/assets/js/admin.js', 'public/modules/his
 mix.sass('Modules/HistoriesLogs/Resources/assets/sass/admin.scss', 'public/modules/historieslogs/css');
 
 if (mix.inProduction()) {
-    mix.version();
+    mix.version()
 }

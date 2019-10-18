@@ -5,6 +5,7 @@ namespace App\Voyager\Widgets;
 use Illuminate\Support\Str;
 use Modules\Post\Entities\Post;
 use TCG\Voyager\Facades\Voyager;
+use Illuminate\Support\Facades\Auth;
 
 class PostDimmer extends BaseDimmer
 {
@@ -43,6 +44,6 @@ class PostDimmer extends BaseDimmer
      */
     public function shouldBeDisplayed()
     {
-        return app('VoyagerAuth')->user()->can('browse', app(Post::class));
+        return Auth::guard(app('VoyagerGuard'))->user()->can('browse', app(Post::class));
     }
 }

@@ -14,4 +14,8 @@ class HistoryLog extends Model
     protected $table = 'history_log';
 
     protected $translatable = ['description'];
+
+    protected $relations = [
+        'translations',
+    ];
 }

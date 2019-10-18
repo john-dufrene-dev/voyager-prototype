@@ -11,10 +11,8 @@
             <a href="{{ route('voyager.'.$dataType->slug.'.create') }}" class="btn btn-success btn-add-new">
                 <i class="voyager-plus"></i> <span>{{ __('voyager::generic.add_new') }}</span>
             </a>
-        @endcan
-        @php $showCheckboxColumn = false @endphp
+        @endcan 
         @can('delete', app($dataType->model_name))
-            @php $showCheckboxColumn = true @endphp
             @include('voyager::partials.bulk-delete')
         @endcan
         @can('edit', app($dataType->model_name))
@@ -31,7 +29,6 @@
         @endcan
         @foreach($actions as $action)
             @if (method_exists($action, 'massAction'))
-                @php $showCheckboxColumn = true @endphp
                 @include('voyager::bread.partials.actions', ['action' => $action, 'data' => null])
             @endif
         @endforeach
@@ -344,7 +341,7 @@
                 })
             @endif
             $('.select_all').on('click', function(e) {
-                $('input[name="row_id"]').prop('checked', $(this).prop('checked'));
+                $('input[name="row_id"]').prop('checked', $(this).prop('checked')).trigger('change');
             });
         });
 

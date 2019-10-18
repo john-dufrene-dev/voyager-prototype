@@ -22,4 +22,8 @@ class MaintenanceIp extends Model
     protected $table = 'maintenance_ips';
 
     protected $fillable = ['name_maintenance','ip_maintenance'];
+
+    protected $relations = [
+        'translations',
+    ];
 }
