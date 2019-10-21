@@ -1,17 +1,10 @@
 @extends(Theme::use().'layouts.default')
 
 @section('meta_robots', 'index,follow')
-@section('meta_title') @parent | 
-@if(null != Cors::get('PAGE_HOME_META_TITLE')) {{ Cors::get('PAGE_HOME_META_TITLE') }}
-@else {{ __('seo.homepage.meta_title') }} @endif @endsection
-@section('meta_description') @parent |
-@if(null != Cors::get('PAGE_HOME_META_DESCRIPTION')) {{ Cors::get('PAGE_HOME_META_DESCRIPTION') }}
-@else {{ __('seo.homepage.meta_description') }} @endif @endsection
-@section('meta_keywords') @if(null != Cors::get('PAGE_HOME_META_KEYWORDS')) {{ Cors::get('PAGE_HOME_META_KEYWORDS') }}
-@else {{ __('seo.homepage.meta_keywords') }} @endif @endsection
-@section('page_title_meta') @parent |
-@if(null != Cors::get('PAGE_HOME_META_TITLE')) {{ Cors::get('PAGE_HOME_META_TITLE') }}
-@else {{ __('seo.homepage.page_title_meta') }} @endif @endsection
+@section('meta_title') @parent | {{ get_cors('PAGE_HOME_META_TITLE') ?? __('seo.homepage.meta_title') }} @endsection
+@section('meta_description') @parent | {{ get_cors('PAGE_HOME_META_DESCRIPTION') ?? __('seo.homepage.meta_description') }} @endsection
+@section('meta_keywords') {{ get_cors('PAGE_HOME_META_KEYWORDS') ?? __('seo.homepage.meta_keywords') }} @endsection
+@section('page_title_meta') @parent | {{ get_cors('PAGE_HOME_META_TITLE') ?? __('seo.homepage.page_title_meta') }} @endsection
 @section('page_title') {{ __('seo.homepage.page_title') }} @endsection
 
 @section('content')

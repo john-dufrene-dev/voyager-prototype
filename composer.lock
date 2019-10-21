@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "89d93c53e926977abd1701aadceeccc0",
+    "content-hash": "854d241d7040a775db0495cbfa84e09e",
     "packages": [
         {
             "name": "anahkiasen/underscore-php",
@@ -422,16 +422,16 @@
         },
         {
             "name": "davejamesmiller/laravel-breadcrumbs",
-            "version": "5.3.0",
+            "version": "5.3.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/davejamesmiller/laravel-breadcrumbs.git",
-                "reference": "1edeee4a77f467293aa5e5ea4a0b8f010216b8da"
+                "reference": "40a73bc9b32fbbee18938dc92228dea161365245"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/davejamesmiller/laravel-breadcrumbs/zipball/1edeee4a77f467293aa5e5ea4a0b8f010216b8da",
-                "reference": "1edeee4a77f467293aa5e5ea4a0b8f010216b8da",
+                "url": "https://api.github.com/repos/davejamesmiller/laravel-breadcrumbs/zipball/40a73bc9b32fbbee18938dc92228dea161365245",
+                "reference": "40a73bc9b32fbbee18938dc92228dea161365245",
                 "shasum": ""
             },
             "require": {
@@ -477,7 +477,7 @@
             "keywords": [
                 "laravel"
             ],
-            "time": "2019-09-03T15:24:57+00:00"
+            "time": "2019-10-20T18:25:39+00:00"
         },
         {
             "name": "defuse/php-encryption",
@@ -2680,16 +2680,16 @@
         },
         {
             "name": "nesbot/carbon",
-            "version": "2.25.2",
+            "version": "2.25.3",
             "source": {
                 "type": "git",
                 "url": "https://github.com/briannesbitt/Carbon.git",
-                "reference": "443fe5f1498147e0fbc792142b5dc43e2e8a533f"
+                "reference": "d07636581795383e2fea2d711212d30f941f2039"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/briannesbitt/Carbon/zipball/443fe5f1498147e0fbc792142b5dc43e2e8a533f",
-                "reference": "443fe5f1498147e0fbc792142b5dc43e2e8a533f",
+                "url": "https://api.github.com/repos/briannesbitt/Carbon/zipball/d07636581795383e2fea2d711212d30f941f2039",
+                "reference": "d07636581795383e2fea2d711212d30f941f2039",
                 "shasum": ""
             },
             "require": {
@@ -2743,7 +2743,7 @@
                 "datetime",
                 "time"
             ],
-            "time": "2019-10-14T14:18:59+00:00"
+            "time": "2019-10-20T11:05:44+00:00"
         },
         {
             "name": "nikic/php-parser",
@@ -2868,16 +2868,16 @@
         },
         {
             "name": "opis/closure",
-            "version": "3.4.0",
+            "version": "3.4.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/opis/closure.git",
-                "reference": "60a97fff133b1669a5b1776aa8ab06db3f3962b7"
+                "reference": "e79f851749c3caa836d7ccc01ede5828feb762c7"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/opis/closure/zipball/60a97fff133b1669a5b1776aa8ab06db3f3962b7",
-                "reference": "60a97fff133b1669a5b1776aa8ab06db3f3962b7",
+                "url": "https://api.github.com/repos/opis/closure/zipball/e79f851749c3caa836d7ccc01ede5828feb762c7",
+                "reference": "e79f851749c3caa836d7ccc01ede5828feb762c7",
                 "shasum": ""
             },
             "require": {
@@ -2925,7 +2925,7 @@
                 "serialization",
                 "serialize"
             ],
-            "time": "2019-09-02T21:07:33+00:00"
+            "time": "2019-10-19T18:38:51+00:00"
         },
         {
             "name": "paragonie/random_compat",
@@ -7726,7 +7726,7 @@
     "prefer-stable": true,
     "prefer-lowest": false,
     "platform": {
-        "php": "^7.1.3"
+        "php": "^7.2"
     },
     "platform-dev": []
 }

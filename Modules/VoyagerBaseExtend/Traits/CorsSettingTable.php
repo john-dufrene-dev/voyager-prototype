@@ -135,7 +135,12 @@ trait CorsSettingTable
     public static function get($key, $default = null)
     {
         if ($option = CorsSetting::where('cors_name', $key)->first()) {
-            return $option->translate()->cors_value;
+
+            if( true == config('voyager.multilingual.enabled') ) {
+                return $option->translate()->cors_value;
+            }
+
+            return $option->cors_value;
         }
 
         return $default;

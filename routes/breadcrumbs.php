@@ -23,14 +23,17 @@ Breadcrumbs::for('articles.index', function ($trail) {
 
 // Home > Articles > [Category]
 Breadcrumbs::for('articles.category', function ($trail, $category) {
+    $cat = (true == config('voyager.multilingual.enabled') ) ? $category->translate() : $category;
     $trail->parent('articles.index');
-    $trail->push($category->translate()->name, route('articles.category', $category->translate()->slug));
+    $trail->push($cat->name, route('articles.category', $cat->slug));
 });
 
 // Home > Articles > [Category] > [Post]
 Breadcrumbs::for('articles.show', function ($trail, $category, $post) {
+    $pt = (true == config('voyager.multilingual.enabled') ) ? $post->translate() : $post;
+    $cat = (true == config('voyager.multilingual.enabled') ) ? $category->translate() : $category;
     $trail->parent('articles.category', $category);
-    $trail->push($post->translate()->title, route('articles.show', [
-        $category->translate()->slug, $post->translate()->slug
+    $trail->push($pt->title, route('articles.show', [
+        $cat->slug, $pt->slug
     ]));
 });

@@ -5,16 +5,30 @@
                 @php ($hasChildren = count($item->children) > 0)
                 
                 <li>
-                    <a target="{{ $item->translate()->target }}" href="{{ $item->link() }}" 
-                    @if($item->children->count()) @endif class="nav-link 
-                    @if($item->children->count()) dropdown-toggle @endif
-                    @if(url($item->link()) == url()->current()) active @endif ">{{ $item->translate()->title }}
-                    </a>
-                    @if ($hasChildren)
-                        <ul>
-                            @include(Theme::use().'partials.navbar.menus._left', 
-                            ['items' => $item->translate()->children])
-                        </ul>
+                    @if( true == config('voyager.multilingual.enabled') )
+                        <a target="{{ $item->translate()->target }}" href="{{ $item->link() }}" 
+                        @if($item->children->count()) @endif class="nav-link 
+                        @if($item->children->count()) dropdown-toggle @endif
+                        @if(url($item->link()) == url()->current()) active @endif ">{{ $item->translate()->title }}
+                        </a>
+                        @if ($hasChildren)
+                            <ul>
+                                @include(Theme::use().'partials.navbar.menus._left', 
+                                ['items' => $item->translate()->children])
+                            </ul>
+                        @endif
+                    @else
+                        <a target="{{ $item->target }}" href="{{ $item->link() }}" 
+                        @if($item->children->count()) @endif class="nav-link 
+                        @if($item->children->count()) dropdown-toggle @endif
+                        @if(url($item->link()) == url()->current()) active @endif ">{{ $item->title }}
+                        </a>
+                        @if ($hasChildren)
+                            <ul>
+                                @include(Theme::use().'partials.navbar.menus._left', 
+                                ['items' => $item->children])
+                            </ul>
+                        @endif
                     @endif
                 </li>
             @endif

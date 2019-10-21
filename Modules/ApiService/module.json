@@ -11,7 +11,7 @@
     "providers": [
         "Modules\\ApiService\\Providers\\ApiServiceServiceProvider"
     ],
-    "aliases": {},
+    "aliases": [],
     "files": [],
     "requires": []
 }
