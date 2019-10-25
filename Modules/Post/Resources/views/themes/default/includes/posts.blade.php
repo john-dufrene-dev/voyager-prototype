@@ -45,14 +45,14 @@
                             </a> 
                             <div class="card-body">
                                 <h3>{{ $post->translate()->title }}</h3>
-                                <h6 class="posts-category">{{ __('post::post.category') }}  : 
+                                <h6 class="posts-category">{{ __('modules.post.category') }}  : 
                                     <a href="{{ $post->linkToCategory() }}">{{ $post->category->translate()->name }}</a></h6>
                                 <p class="card-text">{{{ isset($post->excerpt) ? $post->getShortExcerptAttribute() : '...' }}}</p>
                                 <div class="d-flex justify-content-between align-items-center">
-                                    <small class="text-muted"> {{ __('post::post.posted_at') }} : 
+                                    <small class="text-muted"> {{ __('modules.post.posted_at') }} : 
                                     {{ Carbon\Carbon::parse($post->created_at)->toFormattedDateString() }} </small>
                                 </div>
-                                <a href="{{ $post->link() }}" class="btn btn-block btn-outline-prototype mt-4">{{ __('post::post.discover_article') }}</a>
+                                <a href="{{ $post->link() }}" class="btn btn-block btn-outline-prototype mt-4">{{ __('modules.post.discover_article') }}</a>
                             </div>
                         </div>
 
@@ -65,5 +65,5 @@
         
     </div>
 @else
-    <div class="container">{{ __('post::post.no_articles') }} </div>
+    <div class="container">{{ __('modules.post.no_articles') }} </div>
 @endif

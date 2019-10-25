@@ -81,8 +81,8 @@
             <div class="card">
                 <div class="card-header">{{ __('auth.login') }}</div>
                 <div class="card-body">
-                    <h4>{{ __('customer::auth.Connect to your account') }}</h4>
-                    <p>{{ __('customer::auth.Infos connexion') }}.</p>
+                    <h4>{{ __('modules.auth.Connect to your account') }}</h4>
+                    <p>{{ __('modules.auth.Infos connexion') }}.</p>
                     <a href="{{ route('login') }}" class="btn btn-outline-prototype">{{ __('auth.login') }}</a>
                 </div>
             </div>

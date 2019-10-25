@@ -1,7 +1,7 @@
 @extends('voyager::master')
 
 @section('page_header')
-    <h1 class="page-title"><i class="voyager-star-two"></i> {{ __('modulesmanagement::modules.module_management') }} </h1>
+    <h1 class="page-title"><i class="voyager-star-two"></i> {{ __('modules.modules.module_management') }} </h1>
 @stop
 
 @section('page_header_actions')
@@ -14,7 +14,7 @@
 
         <div class="tab-content">
             <div id="commands" class="tab-pane fade in active">
-                <h3><i class="voyager-terminal"></i> {{ __('modulesmanagement::modules.module') }} <small> {{ __('modulesmanagement::modules.module_description') }} </small></h3>
+                <h3><i class="voyager-terminal"></i> {{ __('modules.modules.module') }} <small> {{ __('modules.modules.module_description') }} </small></h3>
                 <div id="command_lists">
                     @if($artisan_output)
                         <pre>

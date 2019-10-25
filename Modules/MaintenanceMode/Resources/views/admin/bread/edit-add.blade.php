@@ -95,7 +95,7 @@
                         <div class="panel-footer">
                             @section('submit-buttons')
                                 <button type="submit" class="btn btn-primary save">{{ __('generic.save') }}</button>
-                                <div id="add-ip" class="btn btn-warning save">{{ __('maintenancemode::maintenance.my_ip') }}</div>
+                                <div id="add-ip" class="btn btn-warning save">{{ __('modules.maintenance.my_ip') }}</div>
                             @stop
                             @yield('submit-buttons')
                         </div>

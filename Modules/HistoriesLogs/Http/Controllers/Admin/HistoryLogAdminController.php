@@ -206,10 +206,10 @@ class HistoryLogAdminController extends BaseVoyagerBaseController
         if($request->get('cors_value') == get_cors($this->history_name)) {
             if($request->get('cors_value') == 1) {
                 return redirect()->route('voyager.history-log.index')
-                    ->with(['message' => __('historieslogs::historylog.in_history_active'), 'alert-type' => 'warning']);
+                    ->with(['message' => __('modules.historylog.in_history_active'), 'alert-type' => 'warning']);
             } else {
                 return redirect()->route('voyager.history-log.index')
-                    ->with(['message' => __('historieslogs::historylog.no_history_active'), 'alert-type' => 'warning']);
+                    ->with(['message' => __('modules.historylog.no_history_active'), 'alert-type' => 'warning']);
             }
         }
 
@@ -217,16 +217,16 @@ class HistoryLogAdminController extends BaseVoyagerBaseController
         if($request->get('cors_value') == 1) {
             $this->updateCors($this->history_name, $request->get('cors_value'));
             return redirect()->route('voyager.history-log.index')
-                ->with(['message' => __('historieslogs::historylog.enable_history'), 'alert-type' => 'success']);
+                ->with(['message' => __('modules.historylog.enable_history'), 'alert-type' => 'success']);
         } else {
             $this->updateCors($this->history_name, $request->get('cors_value'));
             return redirect()->route('voyager.history-log.index')
-                ->with(['message' => __('historieslogs::historylog.disable_history'), 'alert-type' => 'success']);
+                ->with(['message' => __('modules.historylog.disable_history'), 'alert-type' => 'success']);
         }
 
         // An error occured
         $this->updateCors($this->maintenhistory_nameance_name, 0);
         return redirect()->route('voyager.history-log.index')
-            ->with(['message' => __('historieslogs::historylog.error_history'), 'alert-type' => 'danger']);
+            ->with(['message' => __('modules.historylog.error_history'), 'alert-type' => 'danger']);
     }
 }

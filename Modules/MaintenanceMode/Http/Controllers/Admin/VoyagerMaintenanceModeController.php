@@ -321,7 +321,7 @@ class VoyagerMaintenanceModeController extends BaseVoyagerBaseController
         if(0 == MaintenanceIp::count()) {
             $this->updateCors($this->maintenance_name,0);
             return redirect()->route('voyager.maintenance.index')
-                ->with(['message' => __('maintenancemode::maintenance.no_ip'), 'alert-type' => 'danger']);
+                ->with(['message' => __('modules.maintenance.no_ip'), 'alert-type' => 'danger']);
         }
 
         // If our Ip is configure : IN PROGRESS
@@ -330,10 +330,10 @@ class VoyagerMaintenanceModeController extends BaseVoyagerBaseController
         if($request->get('cors_value') == $this->getCorsValue($this->maintenance_name)) {
             if($request->get('cors_value') == 1) {
                 return redirect()->route('voyager.maintenance.index')
-                    ->with(['message' => __('maintenancemode::maintenance.in_maintenance'), 'alert-type' => 'warning']);
+                    ->with(['message' => __('modules.maintenance.in_maintenance'), 'alert-type' => 'warning']);
             } else {
                 return redirect()->route('voyager.maintenance.index')
-                    ->with(['message' => __('maintenancemode::maintenance.no_maintenance'), 'alert-type' => 'warning']);
+                    ->with(['message' => __('modules.maintenance.no_maintenance'), 'alert-type' => 'warning']);
             }
         }
 
@@ -341,17 +341,17 @@ class VoyagerMaintenanceModeController extends BaseVoyagerBaseController
         if($request->get('cors_value') == 1) {
             $this->updateCors($this->maintenance_name,$request->get('cors_value'));
             return redirect()->route('voyager.maintenance.index')
-                ->with(['message' => __('maintenancemode::maintenance.enable_maintenance'), 'alert-type' => 'success']);
+                ->with(['message' => __('modules.maintenance.enable_maintenance'), 'alert-type' => 'success']);
         } else {
             $this->updateCors($this->maintenance_name,$request->get('cors_value'));
             return redirect()->route('voyager.maintenance.index')
-                ->with(['message' => __('maintenancemode::maintenance.disable_maintenance'), 'alert-type' => 'success']);
+                ->with(['message' => __('modules.maintenance.disable_maintenance'), 'alert-type' => 'success']);
         }
 
         // An error occured
         $this->updateCors($this->maintenance_name,0);
         return redirect()->route('voyager.maintenance.index')
-            ->with(['message' => __('maintenancemode::maintenance.error_maintenance'), 'alert-type' => 'danger']);
+            ->with(['message' => __('modules.maintenance.error_maintenance'), 'alert-type' => 'danger']);
     }
 
     /*

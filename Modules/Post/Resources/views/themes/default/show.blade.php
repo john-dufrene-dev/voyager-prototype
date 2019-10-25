@@ -8,7 +8,7 @@
 @section('page_title')  @if( true == config('voyager.multilingual.enabled')) {{ $post->translate()->title }} @else {{ $post->title }} @endif @endsection
 
 @section('page_subtitle') @section('page_fluid') container @endsection
-{{ __('post::post.published_for') }} : @if( true == config('voyager.multilingual.enabled')) {{ $post->translate()->published_date }} @else {{ $post->published_date }} @endif @endsection
+{{ __('modules.post.published_for') }} : @if( true == config('voyager.multilingual.enabled')) {{ $post->translate()->published_date }} @else {{ $post->published_date }} @endif @endsection
 @section('breadcrumbs')
     {{ Breadcrumbs::view(Theme::use().'partials.breadcrumbs.bootstrap4',
     'articles.show', $post->category , $post) }}

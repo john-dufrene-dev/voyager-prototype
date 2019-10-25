@@ -63,7 +63,7 @@
                                         <div class="check"></div>
                                     </li>
                                 </ul>
-                                <button class="btn btn-info btn-lg" type="submit">{{ __('historieslogs::historylog.btn_mode') }}</button>
+                                <button class="btn btn-info btn-lg" type="submit">{{ __('modules.historylog.btn_mode') }}</button>
                             </form>
                         </div><hr>
     

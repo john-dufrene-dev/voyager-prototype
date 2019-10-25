@@ -10,8 +10,8 @@
 @section('page_header')
     <h1 class="page-title">
         <i class="voyager-logbook"></i>
-        <p> {{__('logviewer::logs.logs_server')}} </p>
-        <span class="page-description"> {{__('logviewer::logs.logs_server_description')}} </span>
+        <p> {{__('modules.logs.logs_server')}} </p>
+        <span class="page-description"> {{__('modules.logs.logs_server_description')}} </span>
     </h1>
 @stop
 

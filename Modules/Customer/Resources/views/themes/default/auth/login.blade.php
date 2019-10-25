@@ -64,7 +64,7 @@
 
                                 @if (Route::has('password.request'))
                                     <a class="btn btn-link" href="{{ route('password.request') }}">
-                                        {{ __('customer::auth.Forgot your password ?') }}
+                                        {{ __('modules.auth.Forgot your password ?') }}
                                     </a>
                                 @endif
                             </div>
@@ -77,9 +77,9 @@
             <div class="card">
                 <div class="card-header">{{ __('auth.register') }}</div>
                 <div class="card-body">
-                    <h4>{{ __('customer::auth.Infos register') }}</h4>
-                    <p>{{ __('customer::auth.Infos register part 1') }} <a href="#">{{ __('customer::auth.Confidentiality') }}</a>
-                    {{ __('customer::auth.Infos register part 2') }} <a href="#"> {{ __('customer::auth.CGV') }} </a> .</p>
+                    <h4>{{ __('modules.auth.Infos register') }}</h4>
+                    <p>{{ __('modules.auth.Infos register part 1') }} <a href="#">{{ __('modules.auth.Confidentiality') }}</a>
+                    {{ __('modules.auth.Infos register part 2') }} <a href="#"> {{ __('modules.auth.CGV') }} </a> .</p>
                     <a href="{{ route('register') }}" class="btn btn-outline-prototype">{{ __('auth.register') }}</a>
                 </div>
             </div>

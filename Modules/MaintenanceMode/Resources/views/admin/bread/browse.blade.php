@@ -64,12 +64,12 @@
                                         <div class="check"></div>
                                     </li>
                                 </ul>
-                                <button class="btn btn-info btn-lg" type="submit">{{ __('maintenancemode::maintenance.btn_mode') }}</button>
+                                <button class="btn btn-info btn-lg" type="submit">{{ __('modules.maintenance.btn_mode') }}</button>
                             </form>
                         </div>
                         <div class="alert alert-info">
-                            <strong>{{ __('maintenancemode::maintenance.how_work') }} :</strong>
-                            <p>{{ __('maintenancemode::maintenance.ip_register') }} : <code>{{$ip}}</code> . {{ __('maintenancemode::maintenance.ip_perso') }}.</p>
+                            <strong>{{ __('modules.maintenance.how_work') }} :</strong>
+                            <p>{{ __('modules.maintenance.ip_register') }} : <code>{{$ip}}</code> . {{ __('modules.maintenance.ip_perso') }}.</p>
                         </div><hr>
 
                         {{-- END change status maintenance mode --}}

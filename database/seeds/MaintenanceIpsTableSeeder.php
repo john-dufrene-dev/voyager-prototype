@@ -78,8 +78,8 @@ class MaintenanceIpsTableSeeder extends Seeder
                     'validation' => [
                         'rule'     => 'required|unique:maintenance_ips',
                         'messages'  => [
-                            'required'  => __('maintenancemode::maintenance.field_require') ,
-                            'unique'    => __('maintenancemode::maintenance.field_unique') ,
+                            'required'  => __('modules.maintenance.field_require') ,
+                            'unique'    => __('modules.maintenance.field_unique') ,
                         ]
                     ],
                 ],

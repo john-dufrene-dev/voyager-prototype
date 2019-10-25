@@ -13,7 +13,7 @@
     @if(Route::is('articles.category')) {{ $category->translate()->name }} 
     @else {{ __('seo.articles.page_title') }}   @endif @endsection
 @section('page_subtitle') @section('page_fluid') container @endsection 
-    {{ __('post::post.banner_field') }} @endsection
+    {{ __('modules.post.banner_field') }} @endsection
 @section('breadcrumbs')
     @if(route::is('articles.category'))
         {{ Breadcrumbs::view(Theme::use().'partials.breadcrumbs.bootstrap4',
