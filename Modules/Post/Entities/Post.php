@@ -10,13 +10,28 @@ use Spatie\Activitylog\Traits\LogsActivity;
 
 class Post extends \TCG\Voyager\Models\Post
 {
-    use LogsActivity;
+    use Translatable, LogsActivity;
     
     protected static $logAttributes = ['*'];
     
     protected static $logOnlyDirty = true;
 
     protected static $logName = 'posts';
+
+    protected $translatable = [
+        'title', 
+        'seo_title', 
+        'excerpt',
+        'body', 
+        'meta_title', 
+        'meta_description', 
+        'meta_keywords',
+    ];
+
+    protected $relations = [
+        'category',
+        'translations'
+    ];
 
     public function getShortExcerptAttribute()
     {
@@ -25,12 +40,20 @@ class Post extends \TCG\Voyager\Models\Post
 
     public function link() 
     {
-    	return url(__('routes.articles') . '/' . $this->category->translate()->slug . '/' . $this->translate()->slug);
+        $link = ( true == config('voyager.multilingual.enabled') ) 
+        ? $this->category->translate()->slug . '/' . $this->translate()->slug 
+        : $this->category->slug . '/' . $this->slug;
+
+    	return url(__('routes.articles') . '/' . $link);
     }
 
     public function linkToCategory() 
     {
-    	return url(__('routes.articles') . '/' . $this->category->translate()->slug);
+        $link = ( true == config('voyager.multilingual.enabled') ) 
+        ? $this->category->translate()->slug 
+        : $this->category->slug;
+
+    	return url(__('routes.articles') . '/' . $link);
     }
 
     public function img()

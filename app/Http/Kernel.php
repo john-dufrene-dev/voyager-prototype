@@ -65,6 +65,7 @@ class Kernel extends HttpKernel
         'client' => \Laravel\Passport\Http\Middleware\CheckClientCredentials::class,
         // your custom middleware class 
         'customer' => \App\Http\Middleware\Modules\RedirectIfNotCustomer::class,
+        'ajax.request' => \App\Http\Middleware\Modules\IfAjaxRequest::class,
     ];
 
     /**

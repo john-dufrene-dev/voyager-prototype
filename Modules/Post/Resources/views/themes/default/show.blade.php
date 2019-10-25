@@ -1,13 +1,14 @@
 @extends(Theme::use().'layouts.default')
 
 @section('meta_robots', 'index,follow')
-@section('meta_title') @parent | {!! $post->translate()->seo_title !!} @endsection
-@section('meta_description') {!! $post->translate()->meta_description !!} @endsection
-@section('meta_keywords') {!! $post->translate()->meta_keywords !!} @endsection
-@section('page_title_meta') @parent | {!! $post->translate()->title !!} @endsection
-@section('page_title') {{ $post->translate()->title }} @endsection
+@section('meta_title') @parent | @if( true == config('voyager.multilingual.enabled')) {{ $post->translate()->seo_title }} @else {{ $post->seo_title }} @endif @endsection
+@section('meta_description') @if( true == config('voyager.multilingual.enabled')) {{ $post->translate()->meta_description }} @else {{ $post->meta_description }} @endif @endsection
+@section('meta_keywords') @if( true == config('voyager.multilingual.enabled')) {{ $post->translate()->meta_keywords }} @else {{ $post->meta_keywords }} @endif @endsection
+@section('page_title_meta') @parent | @if( true == config('voyager.multilingual.enabled')) {{ $post->translate()->title }} @else {{ $post->title }} @endif @endsection
+@section('page_title')  @if( true == config('voyager.multilingual.enabled')) {{ $post->translate()->title }} @else {{ $post->title }} @endif @endsection
+
 @section('page_subtitle') @section('page_fluid') container @endsection
-{{ __('post::post.published_for') }} : {{  $post->translate()->published_date }} @endsection
+{{ __('post::post.published_for') }} : @if( true == config('voyager.multilingual.enabled')) {{ $post->translate()->published_date }} @else {{ $post->published_date }} @endif @endsection
 @section('breadcrumbs')
     {{ Breadcrumbs::view(Theme::use().'partials.breadcrumbs.bootstrap4',
     'articles.show', $post->category , $post) }}

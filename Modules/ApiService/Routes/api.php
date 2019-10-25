@@ -13,7 +13,19 @@ use Illuminate\Http\Request;
 |
 */
 
+// RESSOURCES
+Route::group([
+    'as'     => 'v1.',
+    'prefix' => 'v1',
+], function () {
+    // POSTS
+    Route::get('/posts', '\Modules\ApiService\Http\Controllers\Api\Models\ApiPostsController@index')
+        ->name('posts.index');
+    Route::get('/posts/{id}', '\Modules\ApiService\Http\Controllers\Api\Models\ApiPostsController@show')
+        ->name('posts.show');
+});
+
 // BROWSE BREAD
-Route::get('/{datatype}', '\Modules\ApiService\Http\Controllers\Api\ApiController@browseBread');
+Route::get('/{datatype}', '\Modules\ApiService\Http\Controllers\Api\ApiController@browseBread')->name('api.bread.index');
 // READ BREAD
-Route::get('/{datatype}/{id}', '\Modules\ApiService\Http\Controllers\Api\ApiController@readBread');
+Route::get('/{datatype}/{id}', '\Modules\ApiService\Http\Controllers\Api\ApiController@readBread')->name('api.bread.show');

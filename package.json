@@ -27,6 +27,7 @@
     "dependencies": {
         "@fortawesome/fontawesome-free": "^5.11.2",
         "rich-filemanager": "^2.7.6",
+        "vue-i18n": "^8.15.0",
         "vue-resource": "^1.5.1"
     }
 }
