@@ -131,8 +131,10 @@ class PrototypeCommand extends Command
             $this->call('vendor:publish', ['--provider' => VoyagerServiceProvider::class, '--tag' => ['config', 'voyager_avatar']]);
         }
 
-        $this->info('Setting up the hooks');
-        $this->call('hook:setup');
+        if( true == config('voyager-hooks.enabled') ) {
+            $this->info('Setting up the hooks');
+            $this->call('hook:setup');
+        }
 
         $this->info('Adding the storage symlink to your public folder');
         $this->call('storage:link');
