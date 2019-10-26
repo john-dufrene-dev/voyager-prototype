@@ -1,4 +1,17 @@
 window.Vue = require('vue');
+import VueInternationalization from 'vue-i18n';
+
+window.Locale = require('../../vue-i18n-locales.generated.js');
+
+window.lang = document.documentElement.lang.substr(0, 2);
+// or however you determine your current app locale
+
+window.i18n = new VueInternationalization({
+    locale: lang,
+    messages: Locale
+});
+
+Vue.config.lang = lang
 
 /**
  * The following block of code may be used to automatically register your

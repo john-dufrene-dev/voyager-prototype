@@ -1,5 +1,5 @@
 {
-    "/js/app.js": "/js/app.js?id=a6813bd20e9bbd0b167d",
+    "/js/app.js": "/js/app.js?id=26081ec52ab1d8356895",
     "/js/dependencies.js": "/js/dependencies.js?id=dda39553925ef441d942",
     "/css/app.css": "/css/app.css?id=e5c52e4fe6a73495e91f",
     "/modules/voyagerbaseextend/css/app.css": "/modules/voyagerbaseextend/css/app.css?id=2855ccc4f4838dc9d149",
@@ -12,14 +12,15 @@
     "/modules/historieslogs/css/app.css": "/modules/historieslogs/css/app.css?id=d41d8cd98f00b204e980",
     "/modules/modulesmanagement/css/app.css": "/modules/modulesmanagement/css/app.css?id=d41d8cd98f00b204e980",
     "/modules/historieslogs/css/admin.css": "/modules/historieslogs/css/admin.css?id=42421858e73cb81d0c83",
-    "/modules/customer/js/app.js": "/modules/customer/js/app.js?id=a8e4195a6b3ec5f1a725",
-    "/modules/historieslogs/js/admin.js": "/modules/historieslogs/js/admin.js?id=e121fd924a6fe61be1e7",
-    "/modules/historieslogs/js/app.js": "/modules/historieslogs/js/app.js?id=03d5ca47c9b8ca56cc46",
-    "/modules/homepage/js/app.js": "/modules/homepage/js/app.js?id=630b6145d2178849bbb1",
-    "/modules/logviewer/js/app.js": "/modules/logviewer/js/app.js?id=aa59d21f7eebf8b62897",
-    "/modules/maintenancemode/js/app.js": "/modules/maintenancemode/js/app.js?id=c298202cb2a9ab24ec6e",
-    "/modules/modulesmanagement/js/app.js": "/modules/modulesmanagement/js/app.js?id=ee25fa5db8c77ae513c0",
-    "/modules/passportauth/js/admin.js": "/modules/passportauth/js/admin.js?id=1a8b3c731bf7d2ec2165",
-    "/modules/post/js/app.js": "/modules/post/js/app.js?id=dd3b63fde50c199d885a",
-    "/modules/voyagerbaseextend/js/app.js": "/modules/voyagerbaseextend/js/app.js?id=c1197febe4baa38beff8"
+    "/js/vue-i18n-locales.generated.js": "/js/vue-i18n-locales.generated.js?id=b5ffdeaae9c93c193d88",
+    "/modules/customer/js/app.js": "/modules/customer/js/app.js?id=6d66f8bccaed2ade0ec6",
+    "/modules/historieslogs/js/admin.js": "/modules/historieslogs/js/admin.js?id=b679f82e7ca864260d58",
+    "/modules/historieslogs/js/app.js": "/modules/historieslogs/js/app.js?id=80338f699daa8c4ba7b8",
+    "/modules/homepage/js/app.js": "/modules/homepage/js/app.js?id=061c47a7b61c26cbd17b",
+    "/modules/logviewer/js/app.js": "/modules/logviewer/js/app.js?id=f1af92be12b6eb985e27",
+    "/modules/maintenancemode/js/app.js": "/modules/maintenancemode/js/app.js?id=b4e0c7f1d30014fc10b2",
+    "/modules/modulesmanagement/js/app.js": "/modules/modulesmanagement/js/app.js?id=6b0b061507731e00a0e5",
+    "/modules/passportauth/js/admin.js": "/modules/passportauth/js/admin.js?id=ae13b3b8daf5372be984",
+    "/modules/post/js/app.js": "/modules/post/js/app.js?id=64a29862d18a3aac77be",
+    "/modules/voyagerbaseextend/js/app.js": "/modules/voyagerbaseextend/js/app.js?id=8efe5898479090985ccf"
 }

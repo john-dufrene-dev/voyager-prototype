@@ -149,6 +149,9 @@ class PrototypeCommand extends Command
         $this->info('Publish laravel file-manager vendor');
         $this->call('vendor:publish', ['--tag' => 'fm_public']);
 
+        $this->info('Generate translation for vue-js');
+        $this->call('vue-i18n:generate', ['--format' => 'umd']);
+
         $this->info('Successfully installed Prototype! Enjoy');
     }
 }

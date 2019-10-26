@@ -2,4 +2,5 @@ Vue.component('example-component', require('./default/components/ExampleComponen
 
 const homepage = new Vue({
     el: '#homepage',
+    i18n,
 });

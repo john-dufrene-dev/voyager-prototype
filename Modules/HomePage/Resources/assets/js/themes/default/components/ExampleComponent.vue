@@ -9,6 +9,8 @@
                         I'm an example component.
                     </div>
 
+                    <!-- <p>{{ $t("seo.homepage.homepage") }}</p> -->
+
                     <!-- <div class="card-body">
                         <ul v-for="post in posts">
                             <li> {{ post.excerpt }} </li>
@@ -26,7 +28,7 @@
         data () {
             return {
                 posts: [],
-                errored: false
+                errored: false,
             }
         },
         mounted() {
