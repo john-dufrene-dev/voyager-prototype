@@ -46,6 +46,11 @@ return [
             'provider' => 'users',
         ],
 
+        'jwt' => [
+            'driver' => 'jwt',
+            'provider' => 'users',
+        ],
+
         'admin' => [
             'driver' => 'session',
             'provider' => 'admins',

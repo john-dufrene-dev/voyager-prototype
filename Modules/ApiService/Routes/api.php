@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Http\Request;
+use Dingo\Api\Routing\Router;
 
 /*
 |--------------------------------------------------------------------------
@@ -13,16 +14,33 @@ use Illuminate\Http\Request;
 |
 */
 
-// RESSOURCES
+$api = app(Router::class);
+
 Route::group([
-    'as'     => 'v1.',
-    'prefix' => 'v1',
-], function () {
-    // POSTS
-    Route::get('/posts', '\Modules\ApiService\Http\Controllers\Api\Models\ApiPostsController@index')
-        ->name('posts.index');
-    Route::get('/posts/{slug}', '\Modules\ApiService\Http\Controllers\Api\Models\ApiPostsController@show')
-        ->name('posts.show');
+
+    'middleware' => 'api',
+    'prefix' => 'auth/token'
+
+], function ($router) {
+
+    Route::post('login', '\Modules\ApiService\Http\Controllers\Api\Auth\AuthApiController@login')
+    ->name('jwt.login');
+    Route::post('logout', '\Modules\ApiService\Http\Controllers\Api\Auth\AuthApiController@logout')
+    ->name('jwt.logout');
+    Route::post('refresh', '\Modules\ApiService\Http\Controllers\Api\Auth\AuthApiController@refresh')
+    ->name('jwt.refresh');
+    Route::post('me', '\Modules\ApiService\Http\Controllers\Api\Auth\AuthApiController@me')
+    ->name('jwt.me');
+
+});
+
+// RESSOURCES
+$api->version('v1', [], function (Router $api) {
+
+    // Post
+    $api->get('posts', '\Modules\ApiService\Http\Controllers\Api\V1\PostController@index');
+    $api->get('posts/{slug}', '\Modules\ApiService\Http\Controllers\Api\V1\PostController@show');
+
 });
 
 // BROWSE BREAD

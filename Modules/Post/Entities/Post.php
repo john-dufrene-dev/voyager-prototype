@@ -23,7 +23,6 @@ class Post extends \TCG\Voyager\Models\Post
         'seo_title', 
         'excerpt',
         'body', 
-        'meta_title', 
         'meta_description', 
         'meta_keywords',
     ];
@@ -56,9 +55,9 @@ class Post extends \TCG\Voyager\Models\Post
     	return url(__('routes.articles') . '/' . $link);
     }
 
-    public function img()
+    public function img($img = 'medium')
     {
-    	return \Voyager::image($this->thumbnail('medium'));
+    	return \Voyager::image($this->thumbnail($img));
     }
     
     public function category()

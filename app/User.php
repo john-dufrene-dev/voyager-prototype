@@ -5,12 +5,13 @@ namespace App;
 use Carbon\Carbon;
 use Laravel\Passport\HasApiTokens;
 use TCG\Voyager\Traits\VoyagerUser;
+use Tymon\JWTAuth\Contracts\JWTSubject;
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Contracts\Auth\MustVerifyEmail;
 use TCG\Voyager\Contracts\User as UserContract;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 
-class User extends \TCG\Voyager\Models\User
+class User extends \TCG\Voyager\Models\User implements JWTSubject
 {
     use HasApiTokens, Notifiable, VoyagerUser;
 
@@ -52,6 +53,35 @@ class User extends \TCG\Voyager\Models\User
     {
         return $this->settings->get('locale');
     }
+
+    // Rest omitted for brevity
+
+    /**
+     * Get the identifier that will be stored in the subject claim of the JWT.
+     *
+     * @return mixed
+     */
+    public function getJWTIdentifier()
+    {
+        return $this->getKey();
+    }
+
+    /**
+     * Return a key value array, containing any custom claims to be added to the JWT.
+     *
+     * @return array
+     */
+    public function getJWTCustomClaims()
+    {
+        return [];
+    }
+
+    public function setPasswordAttribute($password)
+    {
+        if ( !empty($password) ) {
+            $this->attributes['password'] = bcrypt($password);
+        }
+    } 
 
     public function isAdmin()
     {
