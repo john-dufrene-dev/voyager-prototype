@@ -76,13 +76,6 @@ class User extends \TCG\Voyager\Models\User implements JWTSubject
         return [];
     }
 
-    public function setPasswordAttribute($password)
-    {
-        if ( !empty($password) ) {
-            $this->attributes['password'] = bcrypt($password);
-        }
-    } 
-
     public function isAdmin()
     {
         foreach ($this->role()->get() as $role)
