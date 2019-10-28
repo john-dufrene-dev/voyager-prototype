@@ -19,7 +19,7 @@ class PostController extends Controller
 
     public function __construct()
     {
-        // $this->middleware('ajax.request');
+        $this->middleware('ajax.request');
 
         $this->is_translatable = (true == config('voyager.multilingual.enabled')) ? true : false;
         $this->relations  = ( true == $this->is_translatable ) 
