@@ -37,6 +37,8 @@ class PrototypeCommand extends Command
         return [
             ['force', null, InputOption::VALUE_NONE, 'Force the operation to run when in production', null],
             ['with-dummy', null, InputOption::VALUE_NONE, 'Install with dummy data', null],
+            ['production', null, InputOption::VALUE_NONE, 
+            'Yarn must be install in your environnement you can alternatively change to npm', null],
         ];
     }
 
@@ -153,6 +155,16 @@ class PrototypeCommand extends Command
 
         $this->info('Generate translation for vue-js');
         $this->call('vue-i18n:generate', ['--format' => 'umd']);
+
+        $this->info('Generate jwt token secret');
+        $this->call('jwt:secret');
+
+        if ($this->option('production')) {
+            $this->info('Compiling assets in production');
+            $process = new Process('yarn prod');
+            $process->setTimeout(null); // Setting timeout to null to prevent installation from stopping at a certain point in time
+            $process->setWorkingDirectory(base_path())->run();
+        }
 
         $this->info('Successfully installed Prototype! Enjoy');
     }
