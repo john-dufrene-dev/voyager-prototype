@@ -29,7 +29,6 @@
         @endcan
         @foreach($actions as $action)
             @if (method_exists($action, 'massAction'))
-                @php $showCheckboxColumn = true @endphp
                 @include('voyager::bread.partials.actions', ['action' => $action, 'data' => null])
             @endif
         @endforeach
@@ -45,8 +44,8 @@
                 <div class="panel panel-bordered">
                     <div class="panel-body">
 
-                     {{-- Change status maintenance mode --}}
-                     
+                        {{-- Change status maintenance mode --}}
+
                         <div class="maintenance-button">
                             <form action="{{ route('voyager.maintenance.turn') }}" class="cmd_form" method="POST">
                                 {{ csrf_field() }}
@@ -105,7 +104,7 @@
                                 @endif
                             </form>
                         @endif
-
+                        
                         <div class="table-responsive">
                             <table id="dataTable" class="table table-hover">
                                 <thead>
@@ -192,23 +191,26 @@
                                                     {!! $row->details->options->{$data->{$row->field}} ?? '' !!}
 
                                                 @elseif($row->type == 'date' || $row->type == 'timestamp')
-                                                    {{ property_exists($row->details, 'format') ? \Carbon\Carbon::parse($data->{$row->field})->formatLocalized($row->details->format) : $data->{$row->field} }}
-                                                    
-                                                    @elseif($row->type == 'checkbox')
+                                                    @if ( property_exists($row->details, 'format') && !is_null($data->{$row->field}) )
+                                                        {{ \Carbon\Carbon::parse($data->{$row->field})->formatLocalized($row->details->format) }}
+                                                    @else
+                                                        {{ $data->{$row->field} }}
+                                                    @endif
+                                                @elseif($row->type == 'checkbox')
                                                     @if(property_exists($row->details, 'on') && property_exists($row->details, 'off'))
-                                                        @if($data->{$row->field})
-                                                            <span class="label label-info status-active-ip" 
-                                                            data-ip-id="{{ $data->id }}"
-                                                            data-status="1">
-                                                                {{ $row->details->on }}
-                                                            </span>
-                                                        @else
-                                                            <span class="label label-primary status-active-ip"
-                                                            data-ip-id="{{ $data->id }}"
-                                                            data-status="0">
-                                                                {{ $row->details->off }}
-                                                            </span>
-                                                        @endif
+                                                    @if($data->{$row->field})
+                                                    <span class="label label-info status-active-ip" 
+                                                    data-ip-id="{{ $data->id }}"
+                                                    data-status="1">
+                                                        {{ $row->details->on }}
+                                                    </span>
+                                                @else
+                                                    <span class="label label-primary status-active-ip"
+                                                    data-ip-id="{{ $data->id }}"
+                                                    data-status="0">
+                                                        {{ $row->details->off }}
+                                                    </span>
+                                                @endif
                                                     @else
                                                     {{ $data->{$row->field} }}
                                                     @endif
@@ -341,7 +343,7 @@
         <div class="modal-dialog">
             <div class="modal-content">
                 <div class="modal-header">
-                    <button type="button" class="close" data-dismiss="modal" aria-label="{{ __('vgeneric.close') }}"><span aria-hidden="true">&times;</span></button>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="{{ __('generic.close') }}"><span aria-hidden="true">&times;</span></button>
                     <h4 class="modal-title"><i class="voyager-trash"></i> {{ __('voyager::generic.delete_question') }} {{ strtolower($dataType->getTranslatedAttribute('display_name_singular')) }}?</h4>
                 </div>
                 <div class="modal-footer">
@@ -401,7 +403,7 @@
 
         var deleteFormAction;
         $('td').on('click', '.delete', function (e) {
-            $('#delete_form')[0].action = '{{ route('voyager.'.$dataType->slug.'.destroy', ['id' => '__id']) }}'.replace('__id', $(this).data('id'));
+            $('#delete_form')[0].action = '{{ route('voyager.'.$dataType->slug.'.destroy', '__id') }}'.replace('__id', $(this).data('id'));
             $('#delete_modal').modal('show');
         });
 

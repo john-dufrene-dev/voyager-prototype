@@ -60,9 +60,9 @@ class VoyagerMaintenanceModeController extends BaseVoyagerBaseController
         // Check permission
         $this->authorize('browse', app($dataType->model_name));
 
-        $search = (object) ['value' => $request->get('s'), 'key' => $request->get('key'), 'filter' => $request->get('filter')];
-
         $getter = $dataType->server_side ? 'paginate' : 'get';
+
+        $search = (object) ['value' => $request->get('s'), 'key' => $request->get('key'), 'filter' => $request->get('filter')];
 
         $searchNames = [];
         if ($dataType->server_side) {
@@ -157,13 +157,12 @@ class VoyagerMaintenanceModeController extends BaseVoyagerBaseController
         // Get personal Ip + active field
         $ip = $request->ip();
         $active_field = $this->bulk_active;
-
         // Define showCheckboxColumn
         $showCheckboxColumn = false;
         if (Auth::user()->can('delete', app($dataType->model_name))) {
             $showCheckboxColumn = true;
         } else {
-            foreach($actions as $action) {
+            foreach ($actions as $action) {
                 if (method_exists($action, 'massAction')) {
                     $showCheckboxColumn = true;
                 }

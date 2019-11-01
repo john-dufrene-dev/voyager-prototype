@@ -43,6 +43,6 @@ __2. Troubleshooting__
 - DB::statement("CREATE DATABASE `YOUR_DATABASE`");
 
 # 1.1 Error symfony/console
-- Problem when update symfony/console to "4.3.5" => Commands will not be correctly executed
+- Problem when update symfony/console to "4.3.5" => Commands will not be correctly executed, use exec() instead of new Process()
 
 ---

@@ -50,6 +50,9 @@ class VoyagerCompassExtendController extends BaseVoyagerCompassController
             $args = (isset($args)) ? ' '.$args : '';
 
             try {
+
+                // Symfony 4.3.5 problem with new Process() => using exec()
+                
                 $process = new Process('cd '.base_path().' && php artisan '.$command.$args);
                 $process->run();
 
@@ -58,6 +61,11 @@ class VoyagerCompassExtendController extends BaseVoyagerCompassController
                 }
 
                 $artisan_output = $process->getOutput();
+
+                // $artisan_output = exec('cd ' . base_path() . ' && php artisan ' . $command . $args);
+                // Artisan::call($command . $args);
+                // $artisan_output = Artisan::output();
+
             } catch (Exception $e) {
                 $artisan_output = $e->getMessage();
             }

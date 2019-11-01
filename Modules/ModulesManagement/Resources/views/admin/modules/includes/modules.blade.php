@@ -25,7 +25,7 @@
                         @else {{ __('modules.modules.no_author') }} @endif</td>
                 <td>@if($module->version) {{ $module->version }}
                         @else 1.0 @endif</td>
-                <td>@if($module->description) {{ str_limit($module->description, 60) }}
+                <td>@if($module->description) {{ Str::limit($module->description, 60) }}
                     @else {{ __('modules.modules.no_description') }} @endif</td>
                 <td>@if ( $module->theme && $module->theme != 'admin' ) {{ $module->theme }}
                     @elseif ( $module->theme && $module->theme == 'admin' ) 
