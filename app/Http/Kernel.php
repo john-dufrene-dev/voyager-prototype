@@ -64,9 +64,12 @@ class Kernel extends HttpKernel
         'throttle' => \Illuminate\Routing\Middleware\ThrottleRequests::class,
         'verified' => \Illuminate\Auth\Middleware\EnsureEmailIsVerified::class,
         'client' => \Laravel\Passport\Http\Middleware\CheckClientCredentials::class,
+        'cacheResponse' => \Spatie\ResponseCache\Middlewares\CacheResponse::class,
+        'doNotCacheResponse' => \Spatie\ResponseCache\Middlewares\DoNotCacheResponse::class,
         // your custom middleware class 
         'customer' => \App\Http\Middleware\Modules\RedirectIfNotCustomer::class,
         'ajax.request' => \App\Http\Middleware\Modules\IfAjaxRequest::class,
+        
     ];
 
     /**

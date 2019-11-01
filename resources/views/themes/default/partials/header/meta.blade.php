@@ -1,6 +1,6 @@
 <meta charset="UTF-8">
 
-<meta name="robots" content="@yield('meta_robots', config('prototype.seo.robots'))">
+<meta name="robots" content="@yield('meta_robots', config('seo.robots'))">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="description" content="@section('meta_description') {{ setting('site.description', config('seo.meta_description')) }} @show">
 <meta name="keywords" content="@section('meta_keywords') {{ setting('site.keywords', config('seo.meta_keywords')) }} @show">
