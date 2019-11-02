@@ -37,7 +37,7 @@
                         this.translations = res.data.data.translations;
                     }
 
-                    console.log(this.post)
+                    // console.log(this.post)
                 })
                 .catch(err => {
                     console.log(err)

@@ -411,5 +411,5 @@
             $('.selected_ids').val(ids);
         });
     </script>
-    <script type="application/javascript" src="{{ mix('modules/historieslogs/js/admin.js') }}"></script>
+    <script src="{{ mix('modules/historieslogs/js/admin.js') }}"></script>
 @stop

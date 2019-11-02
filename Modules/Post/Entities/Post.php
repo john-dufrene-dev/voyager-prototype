@@ -34,7 +34,10 @@ class Post extends \TCG\Voyager\Models\Post
 
     public function getShortExcerptAttribute()
     {
-        return Str::words($this->translate()->excerpt, 30, '...');
+        $excerpt = ( true == config('voyager.multilingual.enabled') ) 
+        ? $this->translate()->excerpt : $this->excerpt;
+
+        return Str::words($excerpt, 30, '...');
     }
 
     public function link() 

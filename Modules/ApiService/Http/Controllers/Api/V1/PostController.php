@@ -14,7 +14,7 @@ class PostController extends Controller
     use Helpers;
 
     protected $pagination = 5;
-    protected $_is_translatable;
+    protected $is_translatable;
     protected $relations = [];
 
     public function __construct()

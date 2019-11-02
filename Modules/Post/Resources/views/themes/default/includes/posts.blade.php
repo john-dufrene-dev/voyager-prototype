@@ -41,7 +41,7 @@
 
                         <div class="card mb-4">
                             <a href="{{ $post->link() }}">
-                                <img class="bd-placeholder-img card-img-top" width="100%" height="225" src="{{ $post->img() }}" />
+                                <img class="bd-placeholder-img card-img-top" alt="{{ $post->translate()->title }}" src="{{ $post->img() }}" />
                             </a> 
                             <div class="card-body">
                                 <h3>{{ $post->translate()->title }}</h3>

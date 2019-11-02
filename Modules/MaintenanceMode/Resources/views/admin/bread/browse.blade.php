@@ -439,5 +439,5 @@
             $('.selected_ids').val(ids);
         });
     </script>
-    <script type="application/javascript" src="{{ mix('modules/maintenancemode/js/app.js') }}"></script>
+    <script src="{{ mix('modules/maintenancemode/js/app.js') }}"></script>
 @stop

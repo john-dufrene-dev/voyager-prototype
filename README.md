@@ -4,6 +4,7 @@
 
 - PHP >= 7.2
     - PHP extension `sqlite3` (required for `teamtnt/tntsearch`)
+- Laravel 6
 - MariaDB 10.3
 - Node & NPM
 - Composer
@@ -29,7 +30,10 @@ composer install && npm install
 php artisan key:generate
 
 # 1.4 Run the prototype Installer
-php artisan prototype:install --with-dummy
+php artisan prototype:install --with-dummy # --production Only in production
+
+# 1.5 If you are in Production
+composer install --optimize-autoloader --no-dev # Only in production
 
 ```
 

@@ -22,5 +22,5 @@
 @endsection
 
 @section('javascript')
-    <script type="application/javascript" src="{{ mix('modules/passportauth/js/admin.js') }}"></script>
+    <script src="{{ mix('modules/passportauth/js/admin.js') }}"></script>
 @endsection
