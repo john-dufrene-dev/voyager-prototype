@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "58b4488fe778702cfb00ad2a8a45cfa0",
+    "content-hash": "965f0fd0674800553bd84ad7ec9eba30",
     "packages": [
         {
             "name": "anahkiasen/underscore-php",
@@ -858,16 +858,16 @@
         },
         {
             "name": "doctrine/dbal",
-            "version": "v2.9.2",
+            "version": "v2.9.3",
             "source": {
                 "type": "git",
                 "url": "https://github.com/doctrine/dbal.git",
-                "reference": "22800bd651c1d8d2a9719e2a3dc46d5108ebfcc9"
+                "reference": "7345cd59edfa2036eb0fa4264b77ae2576842035"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/doctrine/dbal/zipball/22800bd651c1d8d2a9719e2a3dc46d5108ebfcc9",
-                "reference": "22800bd651c1d8d2a9719e2a3dc46d5108ebfcc9",
+                "url": "https://api.github.com/repos/doctrine/dbal/zipball/7345cd59edfa2036eb0fa4264b77ae2576842035",
+                "reference": "7345cd59edfa2036eb0fa4264b77ae2576842035",
                 "shasum": ""
             },
             "require": {
@@ -908,16 +908,16 @@
             ],
             "authors": [
                 {
+                    "name": "Guilherme Blanco",
+                    "email": "guilhermeblanco@gmail.com"
+                },
+                {
                     "name": "Roman Borschel",
                     "email": "roman@code-factory.org"
                 },
                 {
                     "name": "Benjamin Eberlei",
                     "email": "kontakt@beberlei.de"
-                },
-                {
-                    "name": "Guilherme Blanco",
-                    "email": "guilhermeblanco@gmail.com"
                 },
                 {
                     "name": "Jonathan Wage",
@@ -936,7 +936,7 @@
                 "php",
                 "queryobject"
             ],
-            "time": "2018-12-31T03:27:51+00:00"
+            "time": "2019-11-02T22:19:34+00:00"
         },
         {
             "name": "doctrine/event-manager",
@@ -4123,75 +4123,6 @@
             "time": "2019-09-03T23:58:45+00:00"
         },
         {
-            "name": "rinvex/laravel-cacheable",
-            "version": "v3.0.0",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/rinvex/laravel-cacheable.git",
-                "reference": "8689dd6753a73c22ace53983c32eb5df4c0a389c"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/rinvex/laravel-cacheable/zipball/8689dd6753a73c22ace53983c32eb5df4c0a389c",
-                "reference": "8689dd6753a73c22ace53983c32eb5df4c0a389c",
-                "shasum": ""
-            },
-            "require": {
-                "illuminate/cache": "^6.0.0",
-                "illuminate/contracts": "^6.0.0",
-                "illuminate/database": "^6.0.0",
-                "php": "^7.2.0"
-            },
-            "require-dev": {
-                "codedungeon/phpunit-result-printer": "^0.26.0",
-                "illuminate/container": "^6.0.0",
-                "phpunit/phpunit": "^8.3.0"
-            },
-            "type": "library",
-            "autoload": {
-                "psr-4": {
-                    "Rinvex\\Cacheable\\": "src/"
-                }
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "MIT"
-            ],
-            "authors": [
-                {
-                    "name": "Rinvex LLC",
-                    "email": "help@rinvex.com",
-                    "homepage": "https://rinvex.com"
-                },
-                {
-                    "name": "Abdelrahman Omran",
-                    "email": "me@omranic.com",
-                    "homepage": "https://omranic.com",
-                    "role": "Project Lead"
-                },
-                {
-                    "name": "The Generous Laravel Community",
-                    "homepage": "https://github.com/rinvex/laravel-cacheable/contributors"
-                }
-            ],
-            "description": "Rinvex Cacheable is a granular, intuitive, and fluent caching system for eloquent models. Simple, but yet powerful, plug-n-play with no hassle.",
-            "homepage": "https://rinvex.com",
-            "keywords": [
-                "cache",
-                "cacheable",
-                "eloquent",
-                "fluent",
-                "granular",
-                "intuitive",
-                "laravel",
-                "model",
-                "query",
-                "rinvex",
-                "trait"
-            ],
-            "time": "2019-09-22T21:13:42+00:00"
-        },
-        {
             "name": "seld/jsonlint",
             "version": "1.7.2",
             "source": {
@@ -4361,70 +4292,6 @@
                 "user"
             ],
             "time": "2019-10-15T07:39:07+00:00"
-        },
-        {
-            "name": "spatie/laravel-responsecache",
-            "version": "6.3.0",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/spatie/laravel-responsecache.git",
-                "reference": "0d0a5c86619215f5d59aeadf14a6cfb4b4bcfbef"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/spatie/laravel-responsecache/zipball/0d0a5c86619215f5d59aeadf14a6cfb4b4bcfbef",
-                "reference": "0d0a5c86619215f5d59aeadf14a6cfb4b4bcfbef",
-                "shasum": ""
-            },
-            "require": {
-                "laravel/framework": "~5.7.0|~5.8.0|^6.0",
-                "nesbot/carbon": "~1.19 || ^2.0",
-                "php": "^7.3"
-            },
-            "require-dev": {
-                "mockery/mockery": "^1.0",
-                "orchestra/testbench": "~3.7.0|~3.8.0|^4.0",
-                "phpunit/phpunit": "^7.0|^8.0"
-            },
-            "type": "library",
-            "extra": {
-                "laravel": {
-                    "providers": [
-                        "Spatie\\ResponseCache\\ResponseCacheServiceProvider"
-                    ],
-                    "aliases": {
-                        "ResponseCache": "Spatie\\ResponseCache\\Facades\\ResponseCache"
-                    }
-                }
-            },
-            "autoload": {
-                "psr-4": {
-                    "Spatie\\ResponseCache\\": "src"
-                }
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "MIT"
-            ],
-            "authors": [
-                {
-                    "name": "Freek Van der Herten",
-                    "email": "freek@spatie.be",
-                    "homepage": "https://spatie.be",
-                    "role": "Developer"
-                }
-            ],
-            "description": "Speed up a Laravel application by caching the entire response",
-            "homepage": "https://github.com/spatie/laravel-responsecache",
-            "keywords": [
-                "cache",
-                "laravel",
-                "laravel-responsecache",
-                "performance",
-                "response",
-                "spatie"
-            ],
-            "time": "2019-09-02T06:43:32+00:00"
         },
         {
             "name": "spatie/string",

@@ -5,12 +5,11 @@ namespace Modules\VoyagerBaseExtend\Entities;
 use TCG\Voyager\Facades\Voyager;
 use TCG\Voyager\Traits\Translatable;
 use Illuminate\Database\Eloquent\Model;
-use Rinvex\Cacheable\CacheableEloquent;
 use Illuminate\Database\Eloquent\Builder;
 
 class CorsSetting extends Model
 {
-    use Translatable, CacheableEloquent;
+    use Translatable;
     
     protected static $logAttributes = ['*'];
     

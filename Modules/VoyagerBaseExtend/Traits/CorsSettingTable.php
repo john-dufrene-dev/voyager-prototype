@@ -2,6 +2,7 @@
 
 namespace Modules\VoyagerBaseExtend\Traits;
 
+use Illuminate\Support\Facades\Cache;
 use Modules\VoyagerBaseExtend\Entities\CorsSetting;
 
 trait CorsSettingTable
@@ -89,6 +90,12 @@ trait CorsSettingTable
 
         foreach ($names as $key => $value) {
             CorsSetting::updateOrCreate(['cors_name' => $name], ['cors_value' => $value]);
+
+            if(Cache::has('cors_'.$name)) {
+                Cache::forget('cors_'.$name);
+                Cache::put('cors_'.$name, $value);
+            }
+
         }
 
         // @todo: return the option
@@ -101,10 +108,15 @@ trait CorsSettingTable
      * @param  mixed   $value
      * @return mixed
      */
-    public function updateCors($name,$value)
+    public function updateCors($name, $value)
     {
-        $cors = CorsSetting::where('cors_name',$name)->firstOrFail();
+        $cors = CorsSetting::where('cors_name', $name)->firstOrFail();
         $cors->cors_value = $value;
+
+        if(Cache::has('cors_'.$name)) {
+            Cache::forget('cors_'.$name);
+            Cache::put('cors_'.$name, $value);
+        }
 
         return $cors->save();
     }
@@ -134,12 +146,18 @@ trait CorsSettingTable
      */
     public static function get($key, $default = null)
     {
+        if(Cache::has('cors_'.$key)) {
+            return Cache::get('cors_'.$key);
+        }
+
         if ($option = CorsSetting::where('cors_name', $key)->first()) {
 
             if( true == config('voyager.multilingual.enabled') ) {
+                Cache::put('cors_'.$key, $option->translate()->cors_value);
                 return $option->translate()->cors_value;
             }
 
+            Cache::put('cors_'.$key, $option->cors_value);
             return $option->cors_value;
         }
 
