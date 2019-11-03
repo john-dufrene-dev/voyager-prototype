@@ -7,8 +7,8 @@
 <meta name="author" content="@section('meta_author') {{ setting('site.author', config('seo.meta_author')) }} @show">
 <meta name="title" content="@section('meta_title') {{ setting('site.meta_title', config('seo.meta_title')) }} @show">
 
-<link rel="shortcut icon" href="/img/favicon.ico" type="image/x-icon" />
-<link rel="apple-touch-icon-precomposed" href="/images/apple-touch-icon.png" type="image/png" />
+<link rel="shortcut icon" href="/favicon.ico" type="image/x-icon" />
+<link rel="apple-touch-icon-precomposed" href="/apple-touch-icon.png" type="image/png" />
 
 <!-- CSRF Token -->
 <meta name="csrf-token" content="{{ csrf_token() }}">
