@@ -60,7 +60,7 @@ class ApiServiceServiceProvider extends ServiceProvider
         ],'views');
 
         $this->loadViewsFrom(array_merge(array_map(function ($path) {
-            return $path . '/modules/apiservice';
+            return $path . '/';
         }, \Config::get('view.paths')), [$sourcePath]), 'apiservice');
     }
 

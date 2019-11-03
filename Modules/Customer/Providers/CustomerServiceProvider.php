@@ -60,7 +60,7 @@ class CustomerServiceProvider extends ServiceProvider
         ],'views');
 
         $this->loadViewsFrom(array_merge(array_map(function ($path) {
-            return $path . '/modules/customer';
+            return $path . '/';
         }, \Config::get('view.paths')), [$sourcePath]), 'customer');
     }
 

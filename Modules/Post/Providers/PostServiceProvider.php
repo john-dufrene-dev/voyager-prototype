@@ -60,7 +60,7 @@ class PostServiceProvider extends ServiceProvider
         ],'views');
 
         $this->loadViewsFrom(array_merge(array_map(function ($path) {
-            return $path . '/modules/post';
+            return $path . '/';
         }, \Config::get('view.paths')), [$sourcePath]), 'post');
     }
 

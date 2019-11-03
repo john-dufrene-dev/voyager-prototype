@@ -60,7 +60,7 @@ class HomePageServiceProvider extends ServiceProvider
         ],'views');
 
         $this->loadViewsFrom(array_merge(array_map(function ($path) {
-            return $path . '/modules/homepage';
+            return $path . '/';
         }, \Config::get('view.paths')), [$sourcePath]), 'homepage');
     }
 

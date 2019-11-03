@@ -60,7 +60,7 @@ class MaintenanceModeServiceProvider extends ServiceProvider
         ],'views');
 
         $this->loadViewsFrom(array_merge(array_map(function ($path) {
-            return $path . '/modules/maintenancemode';
+            return $path . '/';
         }, \Config::get('view.paths')), [$sourcePath]), 'maintenancemode');
     }
 
