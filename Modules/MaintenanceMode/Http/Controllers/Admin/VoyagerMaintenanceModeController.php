@@ -27,10 +27,10 @@ class VoyagerMaintenanceModeController extends BaseVoyagerBaseController
      */
     public function __construct()
     {
-        if(Module::find('MaintenanceMode')->disabled())
+        if(Module::find('MaintenanceMode')->isDisabled())
             abort(403,'Module Maintenance is not allowed');
         
-        if(Module::find('VoyagerBaseExtend')->disabled())
+        if(Module::find('VoyagerBaseExtend')->isDisabled())
             abort(403,'Module VoyagerBaseExtend is required');
     }
 

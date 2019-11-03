@@ -15,7 +15,7 @@ class AccountController extends Controller
      */
     public function __construct()
     {
-        if(Module::find('Customer')->disabled())
+        if(Module::find('Customer')->isDisabled())
             abort(404, 'Not Found');
             
         $this->middleware('customer');
@@ -28,6 +28,6 @@ class AccountController extends Controller
      */
     public function index()
     {
-        return view('customer::themes.' . Module::find('Customer')->theme . '.account.index');
+        return view('customer::themes.' . Module::find('Customer')->get('theme') . '.account.index');
     }
 }

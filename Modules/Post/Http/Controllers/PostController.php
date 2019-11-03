@@ -16,7 +16,7 @@ class PostController extends Controller
 
     public function __construct()
     {
-        if(Module::find('Post')->disabled())
+        if(Module::find('Post')->isDisabled())
             abort(404, 'Not Found');
     }
 
@@ -31,14 +31,14 @@ class PostController extends Controller
         $categories = Category::all('id','name','slug');
 
         if ($request->ajax()) {
-            return view('post::themes.' . Module::find('Post')->theme . '.includes.posts', compact(
+            return view('post::themes.' . Module::find('Post')->get('theme') . '.includes.posts', compact(
                 'posts', 
                 'categories',
                 'total'
             ));
         }
 
-    	return view('post::themes.' . Module::find('Post')->theme . '.index', compact(
+    	return view('post::themes.' . Module::find('Post')->get('theme') . '.index', compact(
             'posts',
             'categories', 
             'total'
@@ -54,7 +54,7 @@ class PostController extends Controller
         $categories = Category::all('id','name','slug');
 
         if ($request->ajax()) {
-            return view('post::themes.' . Module::find('Post')->theme . '.includes.posts', compact(
+            return view('post::themes.' . Module::find('Post')->get('theme') . '.includes.posts', compact(
                 'posts',
                 'category',
                 'categories',
@@ -62,7 +62,7 @@ class PostController extends Controller
             ));
         }
 
-        return view('post::themes.' . Module::find('Post')->theme . '.index', compact(
+        return view('post::themes.' . Module::find('Post')->get('theme') . '.index', compact(
             'posts', 
             'category', 
             'categories',
@@ -79,7 +79,7 @@ class PostController extends Controller
     public function show($category, $slug)
     {
 
-        return view('post::themes.' . Module::find('Post')->theme . '.show', [
+        return view('post::themes.' . Module::find('Post')->get('theme') . '.show', [
             'post' => $this->getPost($slug),
         ]);
     }

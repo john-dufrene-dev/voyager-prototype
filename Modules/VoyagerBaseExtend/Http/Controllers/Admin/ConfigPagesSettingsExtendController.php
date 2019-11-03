@@ -18,7 +18,7 @@ class ConfigPagesSettingsExtendController extends Controller
         Translatable;
     
     public function __construct() {
-        if(Module::find('VoyagerBaseExtend')->disabled())
+        if(Module::find('VoyagerBaseExtend')->isDisabled())
             abort(403, 'Module VoyagerBaseExtend is not allowed.');
     }
 

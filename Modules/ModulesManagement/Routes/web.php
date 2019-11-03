@@ -11,7 +11,7 @@
 |
 */
 
-if(Module::find('ModulesManagement')->enabled()) {
+if(Module::find('ModulesManagement')->isEnabled()) {
     Route::group(['prefix' => 'admin'], function () {
 
         $moduleNamespace = 'Modules\ModulesManagement\Http\Controllers';

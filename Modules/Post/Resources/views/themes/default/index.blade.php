@@ -34,7 +34,7 @@
     @include(Theme::use().'partials.header.page-title')
 
     <div id="posts_container">
-        @include('post::themes.' . Module::find('Post')->theme . '.includes.posts')
+        @include('post::themes.' . Module::find('Post')->get('theme') . '.includes.posts')
     </div>
 
 @endsection

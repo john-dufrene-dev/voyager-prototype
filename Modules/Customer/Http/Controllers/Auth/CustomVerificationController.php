@@ -35,7 +35,7 @@ class CustomVerificationController extends Controller
      */
     public function __construct()
     {
-        if(Module::find('Customer')->disabled())
+        if(Module::find('Customer')->isDisabled())
             abort(404, 'Not Found');
             
         $this->middleware('auth');
@@ -54,6 +54,6 @@ class CustomVerificationController extends Controller
     {
         return $request->user()->hasVerifiedEmail()
                         ? redirect($this->redirectPath())
-                        : view('customer::themes.' . Module::find('Customer')->theme . '.auth.verify');
+                        : view('customer::themes.' . Module::find('Customer')->get('theme') . '.auth.verify');
     }
 }

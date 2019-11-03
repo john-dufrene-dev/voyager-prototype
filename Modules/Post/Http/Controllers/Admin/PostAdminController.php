@@ -22,7 +22,7 @@ class PostAdminController extends BaseVoyagerBaseController
     use BreadRelationshipParser;
 
     public function __construct() {
-        if(Module::find('Post')->disabled())
+        if(Module::find('Post')->isDisabled())
             abort(403, 'Module Post is not allowed.');
     }
     

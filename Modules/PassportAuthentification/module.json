@@ -6,7 +6,6 @@
     "description": "Module authentification pour l'API",
     "theme": "admin",
     "keywords": [],
-    "active": 1,
     "order": 0,
     "providers": [
         "Modules\\PassportAuthentification\\Providers\\PassportAuthentificationServiceProvider"

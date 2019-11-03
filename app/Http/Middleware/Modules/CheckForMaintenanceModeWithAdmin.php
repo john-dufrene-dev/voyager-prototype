@@ -47,7 +47,7 @@ class CheckForMaintenanceModeWithAdmin extends Middleware
      */
     public function handle($request, Closure $next)
     {
-        if(Module::find('MaintenanceMode')->disabled())
+        if(Module::find('MaintenanceMode')->isDisabled())
             return $next($request);
 
         if(true != $this->checkCors($this->maintenance_name))

@@ -19,7 +19,7 @@ class VoyagerPassportAuthentificationController extends Controller
     {
         $this->middleware('admin.user');
 
-        if(Module::find('PassportAuthentification')->disabled())
+        if(Module::find('PassportAuthentification')->isDisabled())
             abort(403, 'Module PassportAuthentification is not allowed.');
     }
 

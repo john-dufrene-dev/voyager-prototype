@@ -1,0 +1,12 @@
+{
+    "ApiService": true,
+    "Customer": true,
+    "HistoriesLogs": true,
+    "HomePage": true,
+    "LogViewer": true,
+    "MaintenanceMode": true,
+    "ModulesManagement": true,
+    "PassportAuthentification": true,
+    "Post": true,
+    "VoyagerBaseExtend": true
+}

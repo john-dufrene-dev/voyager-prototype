@@ -19,7 +19,7 @@ class CustomerLoginController extends Controller
 
     public function __construct()
     {
-        if(Module::find('Customer')->disabled())
+        if(Module::find('Customer')->isDisabled())
             abort(404, 'Not Found');
             
         $this->middleware('guest')->except('logout');
@@ -34,7 +34,7 @@ class CustomerLoginController extends Controller
     // login from for customer
     public function showLoginForm(Session $session)
     {
-        return view('customer::themes.' . Module::find('Customer')->theme . '.auth.login');
+        return view('customer::themes.' . Module::find('Customer')->get('theme') . '.auth.login');
     }
 
     /**

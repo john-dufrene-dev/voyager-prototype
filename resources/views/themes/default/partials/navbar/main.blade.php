@@ -43,7 +43,7 @@
             </ul> --}}
 
             <!-- Right Side Of Navbar -->
-            @if(Module::find('Customer')->enabled())
+            @if(Module::find('Customer')->isEnabled())
                 <ul class="navbar-nav ml-auto right-navbar"> 
                     @include(Theme::use().'partials.navbar.menus._right')
                 </ul>

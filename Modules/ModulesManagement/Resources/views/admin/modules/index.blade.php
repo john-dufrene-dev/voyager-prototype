@@ -16,9 +16,9 @@
             <div id="commands" class="tab-pane fade in active">
                 <h3><i class="voyager-terminal"></i> {{ __('modules.modules.module') }} <small> {{ __('modules.modules.module_description') }} </small></h3>
                 <div id="command_lists">
-                    @if($artisan_output)
+                    @if (session('artisan_output'))
                         <pre>
-                            <i class="close-output voyager-x">{{ __('compass.commands.clear_output') }}</i><span class="art_out">{{ __('compass.commands.command_output') }}:</span>{{ trim(trim($artisan_output,'"')) }}
+                            <i class="close-output voyager-x">{{ __('compass.commands.clear_output') }}</i><span class="art_out">{{ __('compass.commands.command_output') }}:</span>{{ trim(trim(session('artisan_output'),'"')) }}
                         </pre>
                     @endif
                 </div>

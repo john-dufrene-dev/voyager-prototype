@@ -6,7 +6,6 @@
     "description": "Module surcouche de voyager",
     "theme": "admin",
     "keywords": [],
-    "active": 1,
     "order": 0,
     "providers": [
         "Modules\\VoyagerBaseExtend\\Providers\\VoyagerBaseExtendServiceProvider"

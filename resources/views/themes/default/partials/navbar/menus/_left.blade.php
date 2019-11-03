@@ -1,7 +1,7 @@
 @foreach($items as $item)
     @if( $item->active_item == 1 )
         @if(!empty($item->link_to_module))
-            @if(Module::find($item->link_to_module)->enabled())
+            @if(Module::find($item->link_to_module)->isEnabled())
                 @php ($hasChildren = count($item->children) > 0)
                 
                 <li>

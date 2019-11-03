@@ -31,7 +31,7 @@ class CustomerForgotPasswordController extends Controller
      */
     public function __construct()
     {
-        if(Module::find('Customer')->disabled())
+        if(Module::find('Customer')->isDisabled())
             abort(404, 'Not Found');
             
         $this->middleware('guest');
@@ -44,7 +44,7 @@ class CustomerForgotPasswordController extends Controller
      */
     public function showLinkRequestForm()
     {
-        return view('customer::themes.' . Module::find('Customer')->theme . '.auth.passwords.email');
+        return view('customer::themes.' . Module::find('Customer')->get('theme') . '.auth.passwords.email');
     }
 
     /**

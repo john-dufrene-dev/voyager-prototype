@@ -14,7 +14,7 @@ use TCG\Voyager\Events\RoutingAfter;
 |
 */
 
-if(Module::find('HistoriesLogs')->enabled()) {
+if(Module::find('HistoriesLogs')->isEnabled()) {
     Route::group(['prefix' => 'admin'], function () {
         Route::group(['as' => 'voyager.'], function () {
             event(new Routing());

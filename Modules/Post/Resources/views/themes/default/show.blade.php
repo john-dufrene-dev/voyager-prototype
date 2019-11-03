@@ -23,7 +23,7 @@
 
     @include(Theme::use().'partials.header.page-title')
 
-    @include('post::themes.' . Module::find('Post')->theme . '.includes.post')
+    @include('post::themes.' . Module::find('Post')->get('theme') . '.includes.post')
 
 @endsection
 

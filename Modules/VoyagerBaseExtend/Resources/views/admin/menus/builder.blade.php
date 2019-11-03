@@ -121,9 +121,9 @@
                         <select id="m_link_to_module" class="form-control" name="link_to_module">
                             <option value=""> -- {{ __('menu_builder.no_choice_module') }} --</option>
                             @foreach($modules as $module)
-                            <option value="{{ $module->name }}" 
-                            @if( $module->name == $menu->link_to_module ) 
-                            selected="selected" @endif > Module -- {{ $module->name }} --
+                            <option value="{{ $module->get('name')}}" 
+                            @if( $module->get('name')== $menu->link_to_module ) 
+                            selected="selected" @endif > Module -- {{ $module->get('name')}} --
                             </option>
                             @endforeach
                         </select><br>
@@ -291,8 +291,8 @@
                     } 
 
                     @foreach ($modules as $module)
-                    if (_src.data('link_to_module') == '{{ $module->name }}') {
-                        $m_link_to_module.find("option[value='{{ $module->name }}']").attr('selected', 'selected');
+                    if (_src.data('link_to_module') == '{{ $module->get('name')}}') {
+                        $m_link_to_module.find("option[value='{{ $module->get('name')}}']").attr('selected', 'selected');
                     }    
                     @endforeach
                     

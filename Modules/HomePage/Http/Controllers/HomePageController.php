@@ -11,7 +11,7 @@ class HomePageController extends Controller
 {
     public function __construct()
     {
-        if(Module::find('Homepage')->disabled())
+        if(Module::find('Homepage')->isDisabled())
             abort(404, 'Not Found');
     }
 
@@ -21,6 +21,6 @@ class HomePageController extends Controller
      */
     public function index()
     {
-        return view('homepage::themes.' . Module::find('HomePage')->theme . '.index');
+        return view('homepage::themes.' . Module::find('HomePage')->get('theme') . '.index');
     }
 }

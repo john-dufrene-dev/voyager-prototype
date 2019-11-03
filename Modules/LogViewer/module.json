@@ -6,7 +6,6 @@
     "description": "Module de gestion des logs",
     "theme": "admin",
     "keywords": [],
-    "active": 1,
     "order": 0,
     "providers": [
         "Modules\\LogViewer\\Providers\\LogViewerServiceProvider"

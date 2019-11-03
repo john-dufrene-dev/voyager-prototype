@@ -12,7 +12,7 @@
 */
 
 // VOYAGER ROUTES
-if(Module::find('VoyagerBaseExtend')->disabled()) {
+if(Module::find('VoyagerBaseExtend')->isDisabled()) {
     Route::group(['prefix' => 'admin'], function () {
         Voyager::routes();
     });

@@ -25,7 +25,7 @@ class VoyagerModulesManagementController extends Controller
     {
         $this->middleware('admin.user');
         
-        if(Module::find('ModulesManagement')->disabled())
+        if(Module::find('ModulesManagement')->isDisabled())
             abort(403, 'Module ModuleManagement is not allowed.');
     }
 
@@ -72,6 +72,8 @@ class VoyagerModulesManagementController extends Controller
             } catch (Exception $e) {
                 $artisan_output = $e->getMessage();
             }
+            
+            return redirect()->route('modules.index')->with('artisan_output', $artisan_output);
         }
 
         $commands = $this->getArtisanCommandsChoice($this->module_commands);

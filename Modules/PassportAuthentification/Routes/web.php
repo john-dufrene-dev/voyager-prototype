@@ -10,5 +10,5 @@
 | contains the "web" middleware group. Now create something great!
 |
 */
-if(Module::find('PassportAuthentification')->enabled())
+if(Module::find('PassportAuthentification')->isEnabled())
     Route::get('admin/passport', 'Admin\VoyagerPassportAuthentificationController@index')->name('modules.passport.index');

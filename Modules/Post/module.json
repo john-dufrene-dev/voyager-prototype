@@ -6,7 +6,6 @@
     "description": "Module des articles de blog",
     "theme": "default",
     "keywords": [],
-    "active": 1,
     "order": 0,
     "providers": [
         "Modules\\Post\\Providers\\PostServiceProvider"

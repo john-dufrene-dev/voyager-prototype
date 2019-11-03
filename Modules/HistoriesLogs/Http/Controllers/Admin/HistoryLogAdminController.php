@@ -25,7 +25,7 @@ class HistoryLogAdminController extends BaseVoyagerBaseController
     protected $history_name = 'ACTIVITY_LOGGER_ENABLED';
 
     public function __construct() {
-        if(Module::find('HistoriesLogs')->disabled())
+        if(Module::find('HistoriesLogs')->isDisabled())
             abort(403, 'Module HistoriesLogs is not allowed.');
     }
 

@@ -13,7 +13,7 @@ use TCG\Voyager\Events\RoutingAfter;
 | contains the "web" middleware group. Now create something great!
 |
 */
-if(Module::find('MaintenanceMode')->enabled()) {
+if(Module::find('MaintenanceMode')->isEnabled()) {
     Route::group(['prefix' => 'admin'], function () {
         Route::group(['as' => 'voyager.'], function () {
             event(new Routing());

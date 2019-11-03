@@ -46,7 +46,7 @@ class CustomerRegisterController extends Controller
      */
     public function __construct()
     {
-        if(Module::find('Customer')->disabled())
+        if(Module::find('Customer')->isDisabled())
             abort(404, 'Not Found');
 
         $this->middleware('guest');
@@ -65,7 +65,7 @@ class CustomerRegisterController extends Controller
      */
     public function showRegistrationForm()
     {
-        return view('customer::themes.' . Module::find('Customer')->theme . '.auth.register');
+        return view('customer::themes.' . Module::find('Customer')->get('theme') . '.auth.register');
     }
 
     /**
