@@ -1,11 +1,17 @@
 <template>
 
     <div v-if="is_translatable == true">
+        <div id="page-title" class="container mt-4 h1-page-title">
+            <h1 class="text-center">{{ translations.title }}</h1>
+        </div>
         <a :href="post.link_to_category">{{ translations.category.name }}</a> 
         <div v-html="translations.description"></div> 
         <img :src="post.image_medium"/>
     </div>
     <div v-else>
+        <div id="page-title" class="container mt-4 h1-page-title">
+            <h1 class="text-center">{{ post.title }}</h1>
+        </div>
         <a :href="post.link_to_category">{{ category.name }}</a> 
         <div v-html="post.description"></div> 
         <img :src="post.image_medium"/>

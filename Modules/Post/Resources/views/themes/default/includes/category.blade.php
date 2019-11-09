@@ -1,7 +1,3 @@
-<div id="page-title" class="container mt-4 h1-page-title">
-    <h1 class="text-center"> {{ __('seo.articles.page_title') }} </h1>
-</div>
-
 @if (count($posts) > 0)
 @php $translatable = (true == config('voyager.multilingual.enabled')) ? true : false @endphp
     <div id="post-component" class="container">

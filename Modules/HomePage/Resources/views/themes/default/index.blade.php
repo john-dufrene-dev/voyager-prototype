@@ -1,15 +1,10 @@
 @extends(Theme::use().'layouts.default')
 
-@section('meta_robots', 'index,follow')
-@section('meta_title') @parent | {{ get_cors('PAGE_HOME_META_TITLE') ?? __('seo.homepage.meta_title') }} @endsection
-@section('meta_description') @parent | {{ get_cors('PAGE_HOME_META_DESCRIPTION') ?? __('seo.homepage.meta_description') }} @endsection
-@section('meta_keywords') {{ get_cors('PAGE_HOME_META_KEYWORDS') ?? __('seo.homepage.meta_keywords') }} @endsection
-@section('page_title_meta') @parent | {{ get_cors('PAGE_HOME_META_TITLE') ?? __('seo.homepage.page_title_meta') }} @endsection
-@section('page_title') {{ __('seo.homepage.page_title') }} @endsection
-
 @section('content')
 
-@include(Theme::use().'partials.header.page-title')
+<div id="page-title" class="container mt-4 h1-page-title">
+    <h1 class="text-center"> {{ __('seo.homepage.page_title') }} </h1>
+</div>
 
 <div class="container">
 

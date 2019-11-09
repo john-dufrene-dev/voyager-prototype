@@ -49,4 +49,7 @@ __2. Troubleshooting__
 # 1.1 Error symfony/console
 - Problem when update symfony/console to "4.3.5" => Commands will not be correctly executed, use exec() instead of new Process()
 
+# 1.2 Update translation JS
+- use php artisan vue-i18n:generate --format= "umd" to update translation JS 
+
 ---

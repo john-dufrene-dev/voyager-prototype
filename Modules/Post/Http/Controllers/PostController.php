@@ -9,15 +9,20 @@ use Modules\Post\Entities\Post;
 use Illuminate\Routing\Controller;
 use Modules\Post\Entities\Category;
 use Nwidart\Modules\Facades\Module;
+use Artesaos\SEOTools\Facades\SEOMeta;
+use Modules\Post\Repositories\PostRepository;
 
 class PostController extends Controller
 {
-    protected $pagination = 6;
+    protected $pagination = 5;
+    protected $postRepository;
 
     public function __construct()
     {
         if(Module::find('Post')->isDisabled())
             abort(404, 'Not Found');
+        
+        $this->postRepository = new PostRepository;
     }
 
     /**
@@ -26,146 +31,85 @@ class PostController extends Controller
      */
     public function index(Request $request)
     {
-        $posts = $this->getPosts();
-        $total = $this->totalPosts();
-        $categories = Category::all('id','name','slug');
+        SEOMeta::setTitle( __('seo.articles.meta_title') );
+        SEOMeta::setDescription( __('seo.articles.meta_description') );
+        SEOMeta::setKeywords( __('seo.articles.meta_keywords') );
+        SEOMeta::setRobots('index,follow');
+        
+        $posts = $this->postRepository->getPosts($this->pagination);
+        $categories = (true == config('voyager.multilingual.enabled')) 
+            ? Category::with(['translations'])->get('id','name','slug') 
+            : Category::all('id','name','slug');
 
         if ($request->ajax()) {
             return view('post::themes.' . Module::find('Post')->get('theme') . '.includes.posts', compact(
                 'posts', 
                 'categories',
-                'total'
             ));
         }
 
     	return view('post::themes.' . Module::find('Post')->get('theme') . '.index', compact(
             'posts',
             'categories', 
-            'total'
         ));
     }
 
     public function category($slug, Request $request)
-    {
-        $category = Category::whereTranslation('slug', $slug)->firstOrFail();
+    {     
+        $posts = $this->postRepository->getPostsByCategory($slug, $this->pagination);
         
-        $total = $this->totalPostsCategory($slug);
-        $posts = $this->getPostsByCategory($slug);
-        $categories = Category::all('id','name','slug');
+        $categories = (true == config('voyager.multilingual.enabled')) 
+            ? Category::with(['translations'])->get('id','name','slug') 
+            : Category::all('id','name','slug');
+
+        SEOMeta::setTitle( $title = (true == config('voyager.multilingual.enabled')) 
+        ? __('seo.articles.meta_title') .  ' - ' .$posts[0]->category->translate()->name 
+        : __('seo.articles.meta_title') .  ' - ' . $posts[0]->category->name);
+        SEOMeta::setDescription( $description = (true == config('voyager.multilingual.enabled')) 
+            ? $posts[0]->category->translate()->name 
+            : $posts[0]->category->name );
+        SEOMeta::setKeywords( $keywords = (true == config('voyager.multilingual.enabled')) 
+            ? $posts[0]->category->translate()->name 
+            : $posts[0]->category->name );
+        SEOMeta::setRobots('index,follow');
 
         if ($request->ajax()) {
-            return view('post::themes.' . Module::find('Post')->get('theme') . '.includes.posts', compact(
+            return view('post::themes.' . Module::find('Post')->get('theme') . '.includes.category', compact(
                 'posts',
-                'category',
                 'categories',
-                'total'
             ));
         }
 
-        return view('post::themes.' . Module::find('Post')->get('theme') . '.index', compact(
+        return view('post::themes.' . Module::find('Post')->get('theme') . '.category', compact(
             'posts', 
-            'category', 
             'categories',
-            'total'
         ));
     }
 
     /**
      * Display the specified resource.
      *
-     * @param  int  $id
+     * @param  string  $slug
      * @return \Illuminate\Http\Response
      */
     public function show($category, $slug)
     {
+        $is_translatable = config('voyager.multilingual.enabled');  
+        $post = $this->postRepository->getPost($slug);
+
+        SEOMeta::setTitle( $title = (true == $is_translatable) 
+        ? $post->category->translate()->name . ' - ' . $post->translate()->title 
+        : $post->category->name . ' - ' .$post->title );
+        SEOMeta::setDescription( $description = (true == $is_translatable) 
+            ? $post->translate()->meta_description 
+            : $post->meta_description );
+        SEOMeta::setKeywords( $keywords = (true == $is_translatable) 
+            ? $post->translate()->meta_keywords 
+            : $post->meta_keywords );
+        SEOMeta::setRobots('index,follow');
 
         return view('post::themes.' . Module::find('Post')->get('theme') . '.show', [
-            'post' => $this->getPost($slug),
+            'post' => $post,
         ]);
-    }
-
-    ////// SQL REQUEST //////
-
-    public function totalPosts()
-    {
-        // Get featured post
-        $posts = Post::where([
-            ['status', '=', 'PUBLISHED'],
-        ])->whereDate('published_date', '<=', Carbon::now())->count();
-        
-        return $posts;
-    }
-
-    public function totalPostsCategory($slug)
-    {
-        $category = Category::whereTranslation('slug', '=', $slug)->firstOrFail();
-
-        $posts = Post::where([
-            ['status', '=', 'PUBLISHED'],
-        ])->whereDate('published_date', '<=', Carbon::now())
-            ->where('category_id', '=', $category->id)->count();
-    
-        return $posts;
-    }
-
-
-    public function getPosts()
-    {
-        // Get featured post
-        $posts = Post::where([
-            ['status', '=', 'PUBLISHED'],
-        ])->whereDate('published_date', '<=', Carbon::now())
-            ->orderBy('created_at', 'DESC')
-            ->paginate($this->pagination);
-        
-        return $posts;
-    }
-
-    public function getPostsByCategory($slug)
-    {
-        $category = Category::whereTranslation('slug', '=', $slug)->firstOrFail();
-
-        $posts = Post::where([
-            ['status', '=', 'PUBLISHED'],
-        ])->whereDate('published_date', '<=', Carbon::now())
-            ->where('category_id', '=', $category->id)
-            ->orderBy('created_at', 'DESC')
-            ->paginate($this->pagination);
-    
-        return $posts;
-    }
-
-    public function getPost($slug)
-    {
-        // The post
-        $post = Post::where([
-                ['slug', '=', $slug],
-                ['status', '=', 'PUBLISHED'],
-            ])->whereDate('published_date', '<=', Carbon::now())
-            ->firstOrFail();
-
-        return $post;
-    }
-
-    public function getRelatedPosts($slug)
-    {
-        // The post
-        $post = $this->getPost($slug);
-        // Related posts (based on tags)
-        $relatedPosts = [];
-        if (!empty(trim($post->tags))) {
-            $tags = explode(',', $post->tags);
-            $relatedPosts = Post::where([
-                    ['id', '!=', $post->id],
-                ])->where(function ($query) use ($tags) {
-                    foreach ($tags as $tag) {
-                        $query->orWhere('tags', 'LIKE', '%'.trim($tag).'%');
-                    }
-                })->limit(4)
-                ->orderBy('created_at', 'desc')
-                ->get();
-        }
-
-        return $relatedPosts;
     }
 }

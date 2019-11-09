@@ -9,7 +9,7 @@
     "license": "MIT",
     "require": {
         "php": "^7.2",
-        "davejamesmiller/laravel-breadcrumbs": "^5.2",
+        "artesaos/seotools": "^0.16.0",
         "dingo/api": "^2.4",
         "fideloper/proxy": "^4.0",
         "hmazter/laravel-schedule-list": "^2.0",
