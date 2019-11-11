@@ -11,9 +11,15 @@ const mix = require('laravel-mix');
  |
  */
 
-mix.js('resources/js/dependencies.js', 'public/js');
-mix.js('resources/js/app.js', 'public/js');
-mix.js('resources/js/vue-i18n-locales.generated.js', 'public/js');
+mix.js('resources/js/vendor.js', 'public/js/single');
+mix.js('resources/js/app.js', 'public/js/single');
+mix.js('resources/js/vue-i18n-locales.generated.js', 'public/js/single');
+
+mix.combine([
+    'public/js/single/vendor.js', 
+    'public/js/single/app.js',
+    'public/js/single/vue-i18n-locales.generated.css'
+], 'public/js/app.min.js');
 
 mix.sass('resources/sass/app.scss', 'public/css');
 
@@ -67,5 +73,5 @@ mix.js('Modules/HistoriesLogs/Resources/assets/js/admin.js', 'public/modules/his
 mix.sass('Modules/HistoriesLogs/Resources/assets/sass/admin.scss', 'public/modules/historieslogs/css');
 
 if (mix.inProduction()) {
-    mix.version()
+    mix.version();
 }

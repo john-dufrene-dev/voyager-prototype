@@ -1,6 +1,6 @@
 {
-    "/js/app.js": "/js/app.js?id=8b1c02e44f90808dfb43",
-    "/js/dependencies.js": "/js/dependencies.js?id=dda39553925ef441d942",
+    "/js/single/app.js": "/js/single/app.js?id=8b1c02e44f90808dfb43",
+    "/js/single/vendor.js": "/js/single/vendor.js?id=fcebbb610efdad6aceee",
     "/css/app.css": "/css/app.css?id=df33533a439f58710098",
     "/modules/voyagerbaseextend/css/app.css": "/modules/voyagerbaseextend/css/app.css?id=2855ccc4f4838dc9d149",
     "/modules/homepage/css/app.css": "/modules/homepage/css/app.css?id=d41d8cd98f00b204e980",
@@ -12,7 +12,7 @@
     "/modules/historieslogs/css/app.css": "/modules/historieslogs/css/app.css?id=d41d8cd98f00b204e980",
     "/modules/modulesmanagement/css/app.css": "/modules/modulesmanagement/css/app.css?id=d41d8cd98f00b204e980",
     "/modules/historieslogs/css/admin.css": "/modules/historieslogs/css/admin.css?id=42421858e73cb81d0c83",
-    "/js/vue-i18n-locales.generated.js": "/js/vue-i18n-locales.generated.js?id=b5ffdeaae9c93c193d88",
+    "/js/single/vue-i18n-locales.generated.js": "/js/single/vue-i18n-locales.generated.js?id=b5ffdeaae9c93c193d88",
     "/modules/customer/js/app.js": "/modules/customer/js/app.js?id=6d66f8bccaed2ade0ec6",
     "/modules/historieslogs/js/admin.js": "/modules/historieslogs/js/admin.js?id=b679f82e7ca864260d58",
     "/modules/historieslogs/js/app.js": "/modules/historieslogs/js/app.js?id=80338f699daa8c4ba7b8",
@@ -22,5 +22,6 @@
     "/modules/modulesmanagement/js/app.js": "/modules/modulesmanagement/js/app.js?id=6b0b061507731e00a0e5",
     "/modules/passportauth/js/admin.js": "/modules/passportauth/js/admin.js?id=ae13b3b8daf5372be984",
     "/modules/post/js/app.js": "/modules/post/js/app.js?id=672bb58261f2088b4f1e",
-    "/modules/voyagerbaseextend/js/app.js": "/modules/voyagerbaseextend/js/app.js?id=8efe5898479090985ccf"
+    "/modules/voyagerbaseextend/js/app.js": "/modules/voyagerbaseextend/js/app.js?id=8efe5898479090985ccf",
+    "/js/app.min.js": "/js/app.min.js?id=d39e1daf5ff5eff2955f"
 }

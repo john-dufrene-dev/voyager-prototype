@@ -41,15 +41,32 @@ __2. Troubleshooting__
 
 ```bash
 
+# 1.0 Error symfony/console
+- Problem when update symfony/console to "4.3.5" => Commands will not be correctly executed, use exec() instead of new Process() : "Need to change controller"
+
+# 1.1 Optimization fail
+- When active multilanguage can\'t use php artisan optimize because Closure : "Need to create Controller"
+
+```
+
+__3. TodoList__
+
+```bash
+
+- IN PROGRESS
+
+```
+
+__4. Helpers__
+
+```bash
+
 # 1.0 Refresh all configurations
 - php artisan tinker
 - DB::statement("DROP DATABASE `YOUR_DATABASE`");
 - DB::statement("CREATE DATABASE `YOUR_DATABASE`");
 
-# 1.1 Error symfony/console
-- Problem when update symfony/console to "4.3.5" => Commands will not be correctly executed, use exec() instead of new Process()
-
-# 1.2 Update translation JS
+# 1.1 Update translation JS
 - use php artisan vue-i18n:generate --format= "umd" to update translation JS 
 
----
+```
