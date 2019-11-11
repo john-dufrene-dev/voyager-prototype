@@ -21,7 +21,7 @@ class PostController extends Controller
     {
         if(Module::find('Post')->isDisabled())
             abort(404, 'Not Found');
-        
+
         $this->postRepository = new PostRepository;
     }
 
@@ -35,29 +35,29 @@ class PostController extends Controller
         SEOMeta::setDescription( __('seo.articles.meta_description') );
         SEOMeta::setKeywords( __('seo.articles.meta_keywords') );
         SEOMeta::setRobots('index,follow');
-        
+
         $posts = $this->postRepository->getPosts($this->pagination);
-        $categories = (true == verify_trans() ) 
-            ? Category::with(['translations'])->get('id','name','slug') 
+        $categories = (true == verify_trans() )
+            ? Category::with(['translations'])->get('id','name','slug')
             : Category::all('id','name','slug');
 
         if ($request->ajax()) {
             return view('post::themes.' . Module::find('Post')->get('theme') . '.includes.posts', compact(
-                'posts', 
-                'categories',
+                'posts',
+                'categories'
             ));
         }
 
     	return view('post::themes.' . Module::find('Post')->get('theme') . '.index', compact(
             'posts',
-            'categories', 
+            'categories'
         ));
     }
 
     public function category($slug, Request $request)
-    {     
+    {
         $posts = $this->postRepository->getPostsByCategory($slug, $this->pagination);
-        
+
         $categories = (true == verify_trans() ) 
             ? Category::with(['translations'])->get('id','name','slug') 
             : Category::all('id','name','slug');
@@ -76,13 +76,13 @@ class PostController extends Controller
         if ($request->ajax()) {
             return view('post::themes.' . Module::find('Post')->get('theme') . '.includes.category', compact(
                 'posts',
-                'categories',
+                'categories'
             ));
         }
 
         return view('post::themes.' . Module::find('Post')->get('theme') . '.category', compact(
             'posts', 
-            'categories',
+            'categories'
         ));
     }
 
@@ -108,7 +108,7 @@ class PostController extends Controller
         SEOMeta::setRobots('index,follow');
 
         return view('post::themes.' . Module::find('Post')->get('theme') . '.show', [
-            'post' => $post,
+            'post' => $post
         ]);
     }
 }
