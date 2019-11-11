@@ -1,5 +1,5 @@
 @if (count($posts) > 0)
-@php $translatable = (true == config('voyager.multilingual.enabled')) ? true : false @endphp
+@php $translatable = (true == verify_trans() ) ? true : false @endphp
     <div id="post-component" class="container">
 
         <div class="row">

@@ -1,10 +1,10 @@
 {
-    "/js/app.js": "/js/app.js?id=26081ec52ab1d8356895",
+    "/js/app.js": "/js/app.js?id=8b1c02e44f90808dfb43",
     "/js/dependencies.js": "/js/dependencies.js?id=dda39553925ef441d942",
-    "/css/app.css": "/css/app.css?id=cbb336c32a7ad7441170",
+    "/css/app.css": "/css/app.css?id=df33533a439f58710098",
     "/modules/voyagerbaseextend/css/app.css": "/modules/voyagerbaseextend/css/app.css?id=2855ccc4f4838dc9d149",
     "/modules/homepage/css/app.css": "/modules/homepage/css/app.css?id=d41d8cd98f00b204e980",
-    "/modules/post/css/app.css": "/modules/post/css/app.css?id=c78fc9fda1c2ba947d49",
+    "/modules/post/css/app.css": "/modules/post/css/app.css?id=6a6dc1777fb1f31235c4",
     "/modules/customer/css/app.css": "/modules/customer/css/app.css?id=d41d8cd98f00b204e980",
     "/modules/maintenancemode/css/app.css": "/modules/maintenancemode/css/app.css?id=0aa3f53df867814fa736",
     "/modules/logviewer/css/app.css": "/modules/logviewer/css/app.css?id=d41d8cd98f00b204e980",
@@ -21,6 +21,6 @@
     "/modules/maintenancemode/js/app.js": "/modules/maintenancemode/js/app.js?id=b4e0c7f1d30014fc10b2",
     "/modules/modulesmanagement/js/app.js": "/modules/modulesmanagement/js/app.js?id=6b0b061507731e00a0e5",
     "/modules/passportauth/js/admin.js": "/modules/passportauth/js/admin.js?id=ae13b3b8daf5372be984",
-    "/modules/post/js/app.js": "/modules/post/js/app.js?id=be99ca471760c8ff4054",
+    "/modules/post/js/app.js": "/modules/post/js/app.js?id=672bb58261f2088b4f1e",
     "/modules/voyagerbaseextend/js/app.js": "/modules/voyagerbaseextend/js/app.js?id=8efe5898479090985ccf"
 }

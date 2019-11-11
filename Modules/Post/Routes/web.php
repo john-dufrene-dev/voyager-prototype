@@ -11,6 +11,6 @@
 |
 */
 
-Route::get(__('routes.articles'), 'PostController@index')->name('articles.index');
-Route::get(__('routes.articles') . '/{category}', 'PostController@category')->name('articles.category');
-Route::get(__('routes.articles') . '/{category}/{post}', 'PostController@show')->name('articles.show');
+Route::get('blog', 'PostController@index')->name('articles.index');
+Route::get('blog/{category}', 'PostController@category')->name('articles.category');
+Route::get('blog/{category}/{post}', 'PostController@show')->name('articles.show');

@@ -15,7 +15,7 @@ class CustomerLoginController extends Controller
 
     use AuthenticatesUsers;
 
-    protected $redirectTo = '/mon-compte';
+    protected $redirectTo = '/account';
 
     public function __construct()
     {
@@ -23,7 +23,6 @@ class CustomerLoginController extends Controller
             abort(404, 'Not Found');
             
         $this->middleware('guest')->except('logout');
-        $this->redirectTo = __('routes.account');
     }
 
     public function guard()
@@ -51,6 +50,9 @@ class CustomerLoginController extends Controller
         $request->session()->regenerate();
 
         $this->clearLoginAttempts($request);
+
+        // session()->flash('flash_toaster', 'Bon retour parmi nous ' . $customer->name);
+        // session()->flash('flash_bg_toaster', 'custom');
 
         return $this->authenticated($request, $this->guard()->user())
                 ?: redirect()->intended($this->redirectPath());

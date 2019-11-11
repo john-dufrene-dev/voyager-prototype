@@ -44,12 +44,19 @@ class Kernel extends HttpKernel
             \App\Http\Middleware\VerifyCsrfToken::class,
             \Illuminate\Routing\Middleware\SubstituteBindings::class,
             \Laravel\Passport\Http\Middleware\CreateFreshApiToken::class,
+            \App\Http\Middleware\Modules\Localization::class,
         ],
 
         'api' => [
             'throttle:60,1',
             'bindings',
         ],
+
+        'localization' => [
+            \App\Http\Middleware\EncryptCookies::class,
+            \Illuminate\Session\Middleware\StartSession::class,
+            \App\Http\Middleware\Modules\Localization::class,
+        ]
     ];
 
     /**

@@ -14,8 +14,17 @@
             
             @include(Theme::use().'partials.navbar.main')
 
+            {{-- <li><a href="{{ url('locale/en') }}" > EN</a></li>
+            <li><a href="{{ url('locale/fr') }}" >FR</a></li> --}}
+
             <main class="py-4 body-main">
+
+                @if ( session('flash_toaster') )
+                    @include(Theme::use().'partials.toaster.toast')
+                @endif
+
                 @yield('content')
+
             </main>
 
             @include(Theme::use().'partials.footer.main')

@@ -31,7 +31,7 @@ class CustomerRegisterController extends Controller
 
     use RegistersUsers;
 
-    protected $redirectTo = '/mon-compte';
+    protected $redirectTo = '/account';
 
     /**
      * User who receive notification when a customer is create
@@ -50,7 +50,6 @@ class CustomerRegisterController extends Controller
             abort(404, 'Not Found');
 
         $this->middleware('guest');
-        $this->redirectTo = __('routes.account');
     }
 
     public function guard()

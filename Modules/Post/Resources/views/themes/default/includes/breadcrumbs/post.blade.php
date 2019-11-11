@@ -11,17 +11,17 @@
         </li>
 
         <li class="breadcrumb-item">
-            @php $cat_slug = (true == config('voyager.multilingual.enabled')) 
+            @php $cat_slug = (true == verify_trans() ) 
                 ? $post->category->translate()->slug 
                 : $post->category->slug  @endphp
             <a href="{{ route('articles.category', $cat_slug ) }}">
-                @if( true == config('voyager.multilingual.enabled')) {{ $post->category->translate()->slug }} 
+                @if( true == verify_trans() ) {{ $post->category->translate()->slug }} 
                 @else {{ $post->category->slug }} @endif
             </a>
         </li>
         
         <li class="breadcrumb-item active" aria-current="page">
-            @if( true == config('voyager.multilingual.enabled')) {{ $post->translate()->title }} 
+            @if( true == verify_trans() ) {{ $post->translate()->title }} 
             @else {{ $post->title }} @endif
         </li>
 

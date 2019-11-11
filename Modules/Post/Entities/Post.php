@@ -34,7 +34,7 @@ class Post extends \TCG\Voyager\Models\Post
 
     public function getShortExcerptAttribute()
     {
-        $excerpt = ( true == config('voyager.multilingual.enabled') ) 
+        $excerpt = ( true == verify_trans() ) 
         ? $this->translate()->excerpt : $this->excerpt;
 
         return Str::words($excerpt, 30, '...');
@@ -42,20 +42,20 @@ class Post extends \TCG\Voyager\Models\Post
 
     public function link() 
     {
-        $link = ( true == config('voyager.multilingual.enabled') ) 
+        $link = ( true == verify_trans() ) 
         ? $this->category->translate()->slug . '/' . $this->translate()->slug 
         : $this->category->slug . '/' . $this->slug;
 
-    	return url(__('routes.articles') . '/' . $link);
+    	return url('blog/' . $link);
     }
 
     public function linkToCategory() 
     {
-        $link = ( true == config('voyager.multilingual.enabled') ) 
+        $link = ( true == verify_trans() ) 
         ? $this->category->translate()->slug 
         : $this->category->slug;
 
-    	return url(__('routes.articles') . '/' . $link);
+    	return url('blog/' . $link);
     }
 
     public function img($img = 'medium')

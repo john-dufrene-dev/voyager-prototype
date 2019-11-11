@@ -11,20 +11,9 @@ use Nwidart\Modules\Facades\Module;
 
 class PostRepository
 {
-    protected $is_translatable;
-    protected $relations = [];
-
-    public function __construct() 
-    {
-        $this->is_translatable = (true == config('voyager.multilingual.enabled')) ? true : false;
-        $this->relations  = ( true != $this->is_translatable ) 
-            ? ['category'] 
-            : ['category', 'translations'] ;
-    }
-
     public function getPosts($pagination = 5)
     {
-        $posts = Post::with($this->relations)
+        $posts = Post::with($this->get_relations())
             ->whereDate('published_date', '<=', Carbon::now())
             ->orderBy('created_at', 'DESC')
             ->paginate($pagination);
@@ -34,11 +23,11 @@ class PostRepository
 
     public function getPostsByCategory($slug, $pagination = 5)
     {
-        $category = ($this->is_translatable == true) 
+        $category = ( true == verify_trans() ) 
         ? Category::whereTranslation('slug', '=', $slug)->firstOrFail()
         : Category::where('slug', '=', $slug)->firstOrFail();
 
-        $posts = Post::with($this->relations)
+        $posts = Post::with($this->get_relations())
             ->where('category_id', '=', $category->id)
             ->whereDate('published_date', '<=', Carbon::now())
             ->orderBy('created_at', 'DESC')
@@ -49,7 +38,7 @@ class PostRepository
 
     public function getPost($slug)
     {
-        $post = Post::with($this->relations)
+        $post = Post::with($this->get_relations())
             ->where([
                 ['slug', '=', $slug],
                 ['status', '=', 'PUBLISHED']
@@ -78,5 +67,14 @@ class PostRepository
         }
 
         return $relatedPosts;
+    }
+
+    public function get_relations()
+    {
+        $relations  = ( true != verify_trans() ) 
+            ? ['category'] 
+            : ['category', 'translations'] ;
+
+        return $relations;
     }
 }

@@ -29,7 +29,7 @@ class CustomerResetPasswordController extends Controller
      *
      * @var string
      */
-    protected $redirectTo = '/mon-compte';
+    protected $redirectTo = '/account';
 
     /**
      * Create a new controller instance.
@@ -42,7 +42,6 @@ class CustomerResetPasswordController extends Controller
             abort(404, 'Not Found');
             
         $this->middleware('guest');
-        $this->redirectTo = __('routes.account');
     }
 
     /**

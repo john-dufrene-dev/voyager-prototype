@@ -24,7 +24,7 @@ class HomePageController extends Controller
     {
         SEOMeta::setTitle(get_cors('PAGE_HOME_META_TITLE') ?? __('seo.homepage.meta_title'));
         SEOMeta::setDescription(get_cors('PAGE_HOME_META_DESCRIPTION') ?? __('seo.homepage.meta_description'));
-        SEOMeta::setKeywords(get_cors('PAGE_HOME_META_DESCRIPTION') ?? __('seo.homepage.meta_description'));
+        SEOMeta::setKeywords(get_cors('PAGE_HOME_META_KEYWORDS') ?? __('seo.homepage.meta_keywords'));
         SEOMeta::setRobots('index,follow');
 
         return view('homepage::themes.' . Module::find('HomePage')->get('theme') . '.index');

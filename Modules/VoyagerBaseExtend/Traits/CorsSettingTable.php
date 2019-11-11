@@ -146,14 +146,13 @@ trait CorsSettingTable
      */
     public static function get($key, $default = null)
     {
-        if(Cache::has('cors_'.$key)) {
+        if(Cache::has('cors_'.$key) && false == verify_trans() ) {
             return Cache::get('cors_'.$key);
         }
 
         if ($option = CorsSetting::where('cors_name', $key)->first()) {
 
-            if( true == config('voyager.multilingual.enabled') ) {
-                Cache::put('cors_'.$key, $option->translate()->cors_value);
+            if( true == verify_trans() ) {
                 return $option->translate()->cors_value;
             }
 

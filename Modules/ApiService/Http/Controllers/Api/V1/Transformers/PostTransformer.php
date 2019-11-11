@@ -12,40 +12,10 @@ class PostTransformer extends TransformerAbstract
 
     public function transform(Post $post) : array
     {
-        if(request('short')) {
-
-            $datas = [
-                'model' => [
-                    'entity' => 'Post',
-                    'is_translatable' => $is_translatable = (true == config('voyager.multilingual.enabled')) 
-                    ? true 
-                    : false,
-                ],
-                'id' => $post->id,
-                'title' => $post->title,
-                'seo_title' => $post->seo_title,
-                'meta_description' => $post->meta_description,
-                'meta_keywords' => $post->meta_keywords,
-                'slug' => $post->slug,
-            ];
-    
-            if( true == $is_translatable ) {
-                $datas['translations'] = [
-                    'title' => $post->translate()->title,
-                    'seo_title' => $post->translate()->seo_title,
-                    'meta_description' => $post->translate()->meta_description,
-                    'meta_keywords' => $post->translate()->meta_keywords,
-                    'slug' => $post->translate()->slug,
-                ];
-            }
-    
-            return $datas;
-        }
-        
         $datas = [
             'model' => [
                 'entity' => 'Post',
-                'is_translatable' => $is_translatable = (true == config('voyager.multilingual.enabled')) 
+                'is_translatable' => $is_translatable = ( true == verify_trans() ) 
                 ? true 
                 : false,
             ],

@@ -11,7 +11,7 @@
         </li>
 
         @if($posts->total()  > 0) 
-            @if(true == config('voyager.multilingual.enabled')) 
+            @if(true == verify_trans() ) 
             <li class="breadcrumb-item active" aria-current="page"> {{ $posts[0]->category->translate()->slug }} </li>
             @else
             <li class="breadcrumb-item active" aria-current="page"> {{ $posts[0]->category->slug }} </li>

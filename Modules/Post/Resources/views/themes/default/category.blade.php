@@ -14,7 +14,7 @@
         <div id="page-title" class="container mt-4 h1-page-title">
             <h1 class="text-center"> 
             @if($posts->total() > 0)
-                @if(true == config('voyager.multilingual.enabled')) {{ $posts[0]->category->translate()->name }} 
+                @if(true == verify_trans() ) {{ $posts[0]->category->translate()->name }} 
                 @else {{ $posts[0]->category->name }} @endif
             @else
                 {{ __('modules.post.no_articles') }}

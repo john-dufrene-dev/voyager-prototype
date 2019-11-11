@@ -37,7 +37,7 @@ class PostController extends Controller
         SEOMeta::setRobots('index,follow');
         
         $posts = $this->postRepository->getPosts($this->pagination);
-        $categories = (true == config('voyager.multilingual.enabled')) 
+        $categories = (true == verify_trans() ) 
             ? Category::with(['translations'])->get('id','name','slug') 
             : Category::all('id','name','slug');
 
@@ -58,17 +58,17 @@ class PostController extends Controller
     {     
         $posts = $this->postRepository->getPostsByCategory($slug, $this->pagination);
         
-        $categories = (true == config('voyager.multilingual.enabled')) 
+        $categories = (true == verify_trans() ) 
             ? Category::with(['translations'])->get('id','name','slug') 
             : Category::all('id','name','slug');
 
-        SEOMeta::setTitle( $title = (true == config('voyager.multilingual.enabled')) 
+        SEOMeta::setTitle( $title = (true == verify_trans() )
         ? __('seo.articles.meta_title') .  ' - ' .$posts[0]->category->translate()->name 
         : __('seo.articles.meta_title') .  ' - ' . $posts[0]->category->name);
-        SEOMeta::setDescription( $description = (true == config('voyager.multilingual.enabled')) 
+        SEOMeta::setDescription( $description = (true == verify_trans() ) 
             ? $posts[0]->category->translate()->name 
             : $posts[0]->category->name );
-        SEOMeta::setKeywords( $keywords = (true == config('voyager.multilingual.enabled')) 
+        SEOMeta::setKeywords( $keywords = (true == verify_trans() )
             ? $posts[0]->category->translate()->name 
             : $posts[0]->category->name );
         SEOMeta::setRobots('index,follow');
@@ -94,16 +94,15 @@ class PostController extends Controller
      */
     public function show($category, $slug)
     {
-        $is_translatable = config('voyager.multilingual.enabled');  
         $post = $this->postRepository->getPost($slug);
 
-        SEOMeta::setTitle( $title = (true == $is_translatable) 
+        SEOMeta::setTitle( $title = (true == verify_trans() ) 
         ? $post->category->translate()->name . ' - ' . $post->translate()->title 
         : $post->category->name . ' - ' .$post->title );
-        SEOMeta::setDescription( $description = (true == $is_translatable) 
+        SEOMeta::setDescription( $description = (true == verify_trans() ) 
             ? $post->translate()->meta_description 
             : $post->meta_description );
-        SEOMeta::setKeywords( $keywords = (true == $is_translatable) 
+        SEOMeta::setKeywords( $keywords = (true == verify_trans() )
             ? $post->translate()->meta_keywords 
             : $post->meta_keywords );
         SEOMeta::setRobots('index,follow');

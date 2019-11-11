@@ -11,3 +11,15 @@ if (! function_exists('find_cors') ) {
         return Modules\VoyagerBaseExtend\Traits\CorsSettingTable::findModelCors($key, $default = null);
     }
 }
+
+if (! function_exists('verify_trans') ) {
+    function verify_trans() {
+        
+        if ( true == config('voyager.multilingual.enabled') 
+        && app()->getLocale() != config('voyager.multilingual.default') ) {
+            return true;
+        }
+
+        return false;
+    }
+}

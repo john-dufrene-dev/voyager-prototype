@@ -13,13 +13,13 @@
 if (config('prototype.account') ) {
     
     // Login Routes...
-    Route::get(__('routes.login'), 'Auth\CustomerLoginController@showLoginForm')->name('login');
-    Route::post(__('routes.login'), 'Auth\CustomerLoginController@login')->name('login.post');
-    Route::post(__('routes.logout'), 'Auth\CustomerLoginController@logout')->name('logout');
+    Route::get('login', 'Auth\CustomerLoginController@showLoginForm')->name('login');
+    Route::post('login', 'Auth\CustomerLoginController@login')->name('login.post');
+    Route::post('logout', 'Auth\CustomerLoginController@logout')->name('logout');
 
     // Registration Routes...
-    Route::get(__('routes.register'), 'Auth\CustomerRegisterController@showRegistrationForm')->name('register');
-    Route::post(__('routes.register'), 'Auth\CustomerRegisterController@register');
+    Route::get('register', 'Auth\CustomerRegisterController@showRegistrationForm')->name('register');
+    Route::post('register', 'Auth\CustomerRegisterController@register');
 
     // Password Reset Routes...
     Route::get('password/reset', 'Auth\CustomerForgotPasswordController@showLinkRequestForm')->name('password.request');
@@ -27,7 +27,7 @@ if (config('prototype.account') ) {
     Route::get('password/reset/{token}', 'Auth\CustomerResetPasswordController@showResetForm')->name('password.reset');
     Route::post('password/reset', 'Auth\CustomerResetPasswordController@reset')->name('password.update');
 
-    Route::get(__('routes.account'), 'Account\AccountController@index')->name('pages.account');
+    Route::get('account', 'Account\AccountController@index')->name('pages.account');
 
     // Email Verification Routes...
     // Route::get('email/verify', 'Auth\VerificationController@show')->name('verification.notice');

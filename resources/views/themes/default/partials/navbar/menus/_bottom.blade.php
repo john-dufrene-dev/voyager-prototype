@@ -5,7 +5,7 @@
                 @php ($hasChildren = count($item->children) > 0)
                 
                 <li>
-                    @if( true == config('voyager.multilingual.enabled') )
+                    @if( true == verify_trans() )
                         <a target="{{ $item->translate()->target }}" href="{{ $item->link() }}" 
                         @if($item->children->count()) @endif class="nav-link 
                         @if($item->children->count()) dropdown-toggle @endif

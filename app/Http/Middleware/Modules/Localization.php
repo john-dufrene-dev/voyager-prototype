@@ -3,24 +3,22 @@
 namespace App\Http\Middleware\Modules;
 
 use Closure;
-use Illuminate\Support\Facades\Auth;
 
-class RedirectIfAuthenticated
+class Localization
 {
     /**
      * Handle an incoming request.
      *
      * @param  \Illuminate\Http\Request  $request
      * @param  \Closure  $next
-     * @param  string|null  $guard
      * @return mixed
      */
-    public function handle($request, Closure $next, $guard = 'customer')
+    public function handle($request, Closure $next)
     {
-        if (Auth::guard($guard)->check()) {
-            return redirect('/account');
+        if(session()->has('locale')) {
+            app()->setlocale(session()->get('locale'));
         }
-
+                
         return $next($request);
     }
 }

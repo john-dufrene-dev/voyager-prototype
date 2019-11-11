@@ -11,6 +11,13 @@
 |
 */
 
+if( true == config('voyager.multilingual.enabled') ) {
+    Route::get('locale/{locale}', function ($locale){
+        Session::put('locale', $locale);
+        return redirect()->back();
+    });
+}
+
 // VOYAGER ROUTES
 if(Module::find('VoyagerBaseExtend')->isDisabled()) {
     Route::group(['prefix' => 'admin'], function () {

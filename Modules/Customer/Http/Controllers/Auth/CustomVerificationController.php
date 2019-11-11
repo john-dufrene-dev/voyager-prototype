@@ -26,7 +26,7 @@ class CustomVerificationController extends Controller
      *
      * @var string
      */
-    protected $redirectTo = '/mon-compte';
+    protected $redirectTo = '/account';
 
     /**
      * Create a new controller instance.
@@ -41,7 +41,6 @@ class CustomVerificationController extends Controller
         $this->middleware('auth');
         $this->middleware('signed')->only('verify');
         $this->middleware('throttle:6,1')->only('verify', 'resend');
-        $this->redirectTo = __('routes.account');
     }
 
     /**
