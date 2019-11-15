@@ -1,7 +1,7 @@
 {
-    "/js/single/app.js": "/js/single/app.js?id=8b1c02e44f90808dfb43",
+    "/js/single/app.js": "/js/single/app.js?id=82038e8eef77ff4a63b4",
     "/js/single/vendor.js": "/js/single/vendor.js?id=fcebbb610efdad6aceee",
-    "/css/app.css": "/css/app.css?id=df33533a439f58710098",
+    "/css/app.css": "/css/app.css?id=6c5bba272b007b6d9259",
     "/modules/voyagerbaseextend/css/app.css": "/modules/voyagerbaseextend/css/app.css?id=2855ccc4f4838dc9d149",
     "/modules/homepage/css/app.css": "/modules/homepage/css/app.css?id=d41d8cd98f00b204e980",
     "/modules/post/css/app.css": "/modules/post/css/app.css?id=6a6dc1777fb1f31235c4",
@@ -23,5 +23,5 @@
     "/modules/passportauth/js/admin.js": "/modules/passportauth/js/admin.js?id=ae13b3b8daf5372be984",
     "/modules/post/js/app.js": "/modules/post/js/app.js?id=672bb58261f2088b4f1e",
     "/modules/voyagerbaseextend/js/app.js": "/modules/voyagerbaseextend/js/app.js?id=8efe5898479090985ccf",
-    "/js/app.min.js": "/js/app.min.js?id=d39e1daf5ff5eff2955f"
+    "/js/app.min.js": "/js/app.min.js?id=b9eeeef234adae512804"
 }

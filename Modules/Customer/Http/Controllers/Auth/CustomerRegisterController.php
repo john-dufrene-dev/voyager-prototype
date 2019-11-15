@@ -111,9 +111,14 @@ class CustomerRegisterController extends Controller
 
         $this->guard()->login($user);
 
-        $customer = Customer::where('email', $request->email)->first();
-        session(['id_customer' => $customer->id]);
+        $token = Str::random(80);
+        
+        $user->api_token = hash('SHA256', $token);
+        $user->save();
 
+        $this->setCustomerSession($user, $token);
+
+        // $customer = Customer::where('email', $request->email)->first();
         $users = User::whereHas('roles', function($q) {
             $q->whereIn('roles.name', $this->roles_for_notifications);
         })->get();
@@ -123,6 +128,18 @@ class CustomerRegisterController extends Controller
 
         return $this->registered($request, $user)
                         ?: redirect($this->redirectPath());
+    }
+
+    protected function setCustomerSession($user, $token)
+    {
+        session([
+            'customer_session_authenticated' => [
+                'customer_id' => $user->getIdUser(),
+                'customer_name' => $user->getName(),
+                'customer_email' => $user->getEmail(),
+                'customer_api_token' => $token,
+            ],
+        ]);
     }
 
  }

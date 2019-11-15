@@ -12,10 +12,10 @@
 */
 
 if( true == config('voyager.multilingual.enabled') ) {
-    Route::get('locale/{locale}', function ($locale){
+    Route::get('language/{locale}', function ($locale){
         Session::put('locale', $locale);
         return redirect()->back();
-    });
+    })->name('language.change');
 }
 
 // VOYAGER ROUTES

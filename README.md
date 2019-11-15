@@ -53,7 +53,7 @@ __3. TodoList__
 
 ```bash
 
-- IN PROGRESS
+- Put api_token in Headers when customer is authenticated and get customer info with Vue
 
 ```
 

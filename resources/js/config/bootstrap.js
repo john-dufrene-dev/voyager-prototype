@@ -1,3 +1,5 @@
+import { AES, enc } from "crypto-js";
+
 /**
  * We'll load the axios HTTP library which allows us to easily issue requests
  * to our Laravel back-end. This library automatically handles sending the
@@ -5,7 +7,6 @@
  */
 
 window.axios = require('axios');
-
 window.axios.defaults.headers.common['X-Requested-With'] = 'XMLHttpRequest';
 
 /**
@@ -15,13 +16,42 @@ window.axios.defaults.headers.common['X-Requested-With'] = 'XMLHttpRequest';
  */
 
 let token = document.head.querySelector('meta[name="csrf-token"]');
-let theme = document.head.querySelector('meta[name="prototype-theme"]');
 
 if (token) {
     window.axios.defaults.headers.common['X-CSRF-TOKEN'] = token.content;
 } else {
     console.error('CSRF token not found: https://laravel.com/docs/csrf#csrf-x-csrf-token');
 }
+
+////////////////////////////////////////////////////////////////////////////////////////////////////
+
+/**
+ * 
+ * Encrypt: You can encrypt Object, Plain text
+ * Decrypt: You can decrypt Object, Plain text
+ *
+ */
+
+// EX 1 : Normal encryption Object
+
+// let data = [{id: 1}, {id: 2}]
+// let ciphertext = AES.encrypt(JSON.stringify(data), process.env.MIX_APP_KEY);
+// let bytes  = AES.decrypt(ciphertext.toString(), process.env.MIX_APP_KEY);
+// let decryptedData = JSON.parse(bytes.toString(enc.Utf8));
+// console.log(decryptedData);
+
+//  EX 2 : With base64 encryption
+
+// var encrypted = 'your_encrypted_value'
+// var key = 'your APP_KEY without base64:'
+// var encrypted_json = JSON.parse(Base64.decode(encrypted));
+// var decrypted = CryptoJS.AES.decrypt(encrypted_json.value, CryptoJS.enc.Base64.parse(key), {
+//     iv : CryptoJS.enc.Base64.parse(encrypted_json.iv),
+// });
+// var str = decrypted.toString(CryptoJS.enc.Utf8)
+// console.log(str)
+
+////////////////////////////////////////////////////////////////////////////////////////////////////
 
 /**
  * Echo exposes an expressive API for subscribing to channels and listening

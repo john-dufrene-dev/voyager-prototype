@@ -51,15 +51,23 @@ return [
             'provider' => 'users',
         ],
 
+        'customer'  => [
+            'driver'  => 'session',
+            'provider' => 'customers',
+        ],
+
+        'token' => [
+            'driver' => 'token',
+            'provider' => 'customers',
+            'hash' => true,
+        ],
+        
+        
+        // IN PROGRESS
         'admin' => [
             'driver' => 'session',
             'provider' => 'admins',
         ],
-
-        'customer'  => [
-            'driver'  => 'session',
-            'provider' => 'customers',
-          ],
     ],
 
     /*

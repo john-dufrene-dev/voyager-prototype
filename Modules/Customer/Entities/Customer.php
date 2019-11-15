@@ -19,9 +19,29 @@ class Customer extends Authenticatable
 
     protected $table = 'customers';
 
-    protected $fillable = ['name', 'email',  'password'];
+    protected $fillable = ['name', 'email',  'password', 'api_token'];
 
     protected $hidden = ['password',  'remember_token'];
+
+    public function getIdUser()
+    {
+        return $this->id;
+    }
+
+    public function getApiToken()
+    {
+        return $this->api_token;
+    }
+
+    public function getName()
+    {
+        return $this->name;
+    }
+
+    public function getEmail()
+    {
+        return $this->email;
+    }
 
     /**
      * Send the password reset notification.

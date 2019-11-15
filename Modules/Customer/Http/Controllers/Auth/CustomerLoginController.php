@@ -2,6 +2,7 @@
 
 namespace Modules\Customer\Http\Controllers\Auth;
 
+use Illuminate\Support\Str;
 use Illuminate\Http\Request;
 use Nwidart\Modules\Facades\Module;
 use App\Http\Controllers\Controller;
@@ -30,6 +31,24 @@ class CustomerLoginController extends Controller
         return Auth::guard('customer');
     }
 
+    /**
+     * Log the user out of the application.
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @return \Illuminate\Http\Response
+     */
+    public function logout(Request $request)
+    {
+        $this->guard()->logout();
+
+        $locale = session()->get('locale');
+
+        $request->session()->invalidate();
+        session()->put('locale', $locale);
+
+        return $this->loggedOut($request) ?: redirect('/');
+    }
+
     // login from for customer
     public function showLoginForm(Session $session)
     {
@@ -46,7 +65,6 @@ class CustomerLoginController extends Controller
     {
         $customer = Customer::where('email', $request->email)->first();
         
-        session(['id_customer' => $customer->id]);
         $request->session()->regenerate();
 
         $this->clearLoginAttempts($request);
@@ -58,4 +76,32 @@ class CustomerLoginController extends Controller
                 ?: redirect()->intended($this->redirectPath());
     }
 
+    /**
+     * The user has been authenticated.
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @param  mixed  $user
+     * @return mixed
+     */
+    protected function authenticated(Request $request, $user)
+    {
+        $token = Str::random(80);
+        
+        $user->api_token = hash('SHA256', $token);
+        $user->save();
+
+        $this->setCustomerSession($user, $token);
+    }
+
+    protected function setCustomerSession($user, $token)
+    {
+        session([
+            'customer_session_authenticated' => [
+                'customer_id' => $user->getIdUser(),
+                'customer_name' => $user->getName(),
+                'customer_email' => $user->getEmail(),
+                'customer_api_token' => $token,
+            ],
+        ]);
+    }
  }
