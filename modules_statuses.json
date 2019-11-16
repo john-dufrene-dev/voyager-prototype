@@ -8,5 +8,6 @@
     "ModulesManagement": true,
     "PassportAuthentification": true,
     "Post": true,
-    "VoyagerBaseExtend": true
+    "VoyagerBaseExtend": true,
+    "Prototype": true
 }

@@ -1,11 +1,11 @@
 <?php
 
-namespace $NAMESPACE$;
+namespace Modules\Prototype\Providers;
 
 use Illuminate\Support\ServiceProvider;
 use Illuminate\Database\Eloquent\Factory;
 
-class $CLASS$ extends ServiceProvider
+class PrototypeServiceProvider extends ServiceProvider
 {
     /**
      * Boot the application events.
@@ -18,7 +18,7 @@ class $CLASS$ extends ServiceProvider
         $this->registerConfig();
         $this->registerViews();
         $this->registerFactories();
-        $this->loadMigrationsFrom(module_path('$MODULE$', '$MIGRATIONS_PATH$'));
+        $this->loadMigrationsFrom(module_path('Prototype', 'Database/Migrations'));
     }
 
     /**
@@ -39,10 +39,10 @@ class $CLASS$ extends ServiceProvider
     protected function registerConfig()
     {
         $this->publishes([
-            module_path('$MODULE$', '$PATH_CONFIG$/config.php') => config_path('$LOWER_NAME$.php'),
+            module_path('Prototype', 'Config/config.php') => config_path('prototype.php'),
         ], 'config');
         $this->mergeConfigFrom(
-            module_path('$MODULE$', '$PATH_CONFIG$/config.php'), '$LOWER_NAME$'
+            module_path('Prototype', 'Config/config.php'), 'prototype'
         );
     }
 
@@ -53,17 +53,17 @@ class $CLASS$ extends ServiceProvider
      */
     public function registerViews()
     {
-        $viewPath = resource_path('views/modules/$LOWER_NAME$');
+        $viewPath = resource_path('views/modules/prototype');
 
-        $sourcePath = module_path('$MODULE$', '$PATH_VIEWS$');
+        $sourcePath = module_path('Prototype', 'Resources/views');
 
         $this->publishes([
             $sourcePath => $viewPath
         ],'views');
 
         $this->loadViewsFrom(array_merge(array_map(function ($path) {
-            return $path . '/modules/$LOWER_NAME$';
-        }, \Config::get('view.paths')), [$sourcePath]), '$LOWER_NAME$');
+            return $path . '/';
+        }, \Config::get('view.paths')), [$sourcePath]), 'prototype');
     }
 
     /**
@@ -73,12 +73,12 @@ class $CLASS$ extends ServiceProvider
      */
     public function registerTranslations()
     {
-        $langPath = resource_path('lang/modules/$LOWER_NAME$');
+        $langPath = resource_path('lang/modules/prototype');
 
         if (is_dir($langPath)) {
-            $this->loadTranslationsFrom($langPath, '$LOWER_NAME$');
+            $this->loadTranslationsFrom($langPath, 'prototype');
         } else {
-            $this->loadTranslationsFrom(module_path('$MODULE$', '$PATH_LANG$'), '$LOWER_NAME$');
+            $this->loadTranslationsFrom(module_path('Prototype', 'Resources/lang'), 'prototype');
         }
     }
 
@@ -90,7 +90,7 @@ class $CLASS$ extends ServiceProvider
     public function registerFactories()
     {
         if (! app()->environment('production') && $this->app->runningInConsole()) {
-            app(Factory::class)->load(module_path('$MODULE$', '$FACTORIES_PATH$'));
+            app(Factory::class)->load(module_path('Prototype', 'Database/factories'));
         }
     }
 
