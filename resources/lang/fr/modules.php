@@ -27,6 +27,7 @@ return [
         'no_description'            => 'Pas de description pour ce module',
         'no_theme'                  => 'Pas de thème prédéfini pour ce module',
         'admin_theme'               => 'Thème admin prédéfini',
+        'no_actions'               => 'Pas d\'actions possible',
     ],
     'auth'  => [
         'Infos register'            => 'Pas encore inscrit ?',

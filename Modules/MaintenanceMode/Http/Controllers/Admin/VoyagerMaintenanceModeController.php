@@ -9,7 +9,7 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Session;
 use TCG\Voyager\Database\Schema\SchemaManager;
 use Modules\MaintenanceMode\Entities\MaintenanceIp;
-use Modules\VoyagerBaseExtend\Traits\CorsSettingTable;
+use Modules\Prototype\Traits\CorsSettingTable;
 use TCG\Voyager\Http\Controllers\Traits\BreadRelationshipParser;
 use App\Voyager\Http\Controllers\VoyagerBaseController as BaseVoyagerBaseController;
 

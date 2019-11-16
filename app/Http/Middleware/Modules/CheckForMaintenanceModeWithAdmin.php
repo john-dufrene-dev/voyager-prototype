@@ -6,7 +6,7 @@ use Closure;
 use Nwidart\Modules\Facades\Module;
 use Symfony\Component\HttpFoundation\IpUtils;
 use Modules\MaintenanceMode\Entities\MaintenanceIp;
-use Modules\VoyagerBaseExtend\Traits\CorsSettingTable;
+use Modules\Prototype\Traits\CorsSettingTable;
 use Illuminate\Foundation\Http\Exceptions\MaintenanceModeException;
 use Illuminate\Foundation\Http\Middleware\CheckForMaintenanceMode as Middleware;
 

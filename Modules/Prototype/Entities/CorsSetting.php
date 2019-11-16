@@ -1,6 +1,6 @@
 <?php
 
-namespace Modules\VoyagerBaseExtend\Entities;
+namespace Modules\Prototype\Entities;
 
 use TCG\Voyager\Facades\Voyager;
 use TCG\Voyager\Traits\Translatable;

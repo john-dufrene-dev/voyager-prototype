@@ -239,7 +239,7 @@ return [
 
         // Own Facades
         'Theme' => Modules\VoyagerBaseExtend\Support\ThemeBuilder::class,
-        'Cors' => Modules\VoyagerBaseExtend\Traits\CorsSettingTable::class,
+        'Cors' => Modules\Prototype\Traits\CorsSettingTable::class,
     ],
 
 ];

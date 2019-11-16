@@ -5,6 +5,7 @@
     "alias": "passportauthentification",
     "description": "Module authentification pour l'API",
     "theme": "admin",
+    "protected": false,
     "keywords": [],
     "order": 0,
     "providers": [

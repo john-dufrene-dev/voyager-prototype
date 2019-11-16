@@ -1,9 +1,9 @@
 <?php
 
-namespace Modules\VoyagerBaseExtend\Traits;
+namespace Modules\Prototype\Traits;
 
 use Illuminate\Support\Facades\Cache;
-use Modules\VoyagerBaseExtend\Entities\CorsSetting;
+use Modules\Prototype\Entities\CorsSetting;
 
 trait CorsSettingTable
 {

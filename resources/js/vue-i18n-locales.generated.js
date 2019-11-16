@@ -509,7 +509,8 @@
                 "no_author": "No author",
                 "no_description": "No description for this module",
                 "no_theme": "No predefined theme for this module",
-                "admin_theme": "Predefined admin theme"
+                "admin_theme": "Predefined admin theme",
+                "no_actions": "No actions possible"
             },
             "auth": {
                 "Infos register": "Not registered?",
@@ -1387,7 +1388,8 @@
                 "no_author": "Pas d'auteur",
                 "no_description": "Pas de description pour ce module",
                 "no_theme": "Pas de thème prédéfini pour ce module",
-                "admin_theme": "Thème admin prédéfini"
+                "admin_theme": "Thème admin prédéfini",
+                "no_actions": "Pas d'actions possible"
             },
             "auth": {
                 "Infos register": "Pas encore inscrit ?",

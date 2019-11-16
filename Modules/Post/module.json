@@ -5,6 +5,7 @@
     "alias": "post",
     "description": "Module des articles de blog",
     "theme": "default",
+    "protected": false,
     "keywords": [],
     "order": 0,
     "providers": [

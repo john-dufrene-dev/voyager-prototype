@@ -1,10 +1,11 @@
 {
     "name": "Prototype",
-    "author": "",
+    "author": "John Dufrene",
     "version": "1.0@beta",
     "alias": "prototype",
-    "description": "",
+    "description": "Module général de l'application",
     "theme": "default",
+    "protected": true,
     "keywords": [],
     "order": 0,
     "providers": [

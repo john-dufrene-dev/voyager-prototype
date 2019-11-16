@@ -9,8 +9,8 @@ use Nwidart\Modules\Facades\Module;
 use Illuminate\Support\Facades\Auth;
 use TCG\Voyager\Traits\Translatable;
 use TCG\Voyager\Http\Controllers\Controller;
-use Modules\VoyagerBaseExtend\Entities\CorsSetting;
-use Modules\VoyagerBaseExtend\Traits\CorsSettingTable;
+use Modules\Prototype\Entities\CorsSetting;
+use Modules\Prototype\Traits\CorsSettingTable;
 
 class ConfigPagesSettingsExtendController extends Controller
 {

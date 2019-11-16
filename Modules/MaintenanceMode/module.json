@@ -5,6 +5,7 @@
     "alias": "maintenancemode",
     "description": "Module de maintenance",
     "theme": "admin",
+    "protected": false,
     "keywords": [],
     "order": 0,
     "providers": [

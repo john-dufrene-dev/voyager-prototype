@@ -7,7 +7,7 @@ use TCG\Voyager\Models\Category;
 use TCG\Voyager\Models\DataType;
 use TCG\Voyager\Models\MenuItem;
 use TCG\Voyager\Models\Translation;
-use Modules\VoyagerBaseExtend\Entities\CorsSetting;
+use Modules\Prototype\Entities\CorsSetting;
 
 class TranslationsTableSeeder extends Seeder
 {

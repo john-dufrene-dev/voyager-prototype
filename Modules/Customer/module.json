@@ -5,6 +5,7 @@
     "alias": "customer",
     "description": "Module de gestion des clients",
     "theme": "default",
+    "protected": false,
     "keywords": [],
     "order": 0,
     "providers": [

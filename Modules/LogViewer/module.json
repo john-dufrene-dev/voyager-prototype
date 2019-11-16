@@ -5,6 +5,7 @@
     "alias": "logviewer",
     "description": "Module de gestion des logs",
     "theme": "admin",
+    "protected": false,
     "keywords": [],
     "order": 0,
     "providers": [

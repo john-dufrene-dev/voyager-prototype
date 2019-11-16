@@ -10,7 +10,7 @@ use Nwidart\Modules\Facades\Module;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Auth;
 use Symfony\Component\Process\Process;
-use Modules\VoyagerBaseExtend\Traits\ExecuteCommandArtisan;
+use Modules\Prototype\Traits\ExecuteCommandArtisan;
 use Symfony\Component\Process\Exception\ProcessFailedException;
 use Symfony\Component\HttpKernel\Exception\AccessDeniedHttpException;
 

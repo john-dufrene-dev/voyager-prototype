@@ -1,10 +1,11 @@
 {
     "name": "ApiService",
-    "author": "",
+    "author": "John Dufrene",
     "version": "1.0@beta",
     "alias": "apiservice",
     "description": "Module API service",
     "theme": "default",
+    "protected": true,
     "keywords": [],
     "order": 0,
     "providers": [

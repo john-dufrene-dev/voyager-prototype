@@ -5,6 +5,7 @@
     "alias": "historieslogs",
     "description": "Module de notifications/mails",
     "theme": "default",
+    "protected": false,
     "keywords": [],
     "order": 0,
     "providers": [

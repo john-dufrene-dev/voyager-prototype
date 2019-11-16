@@ -14,7 +14,7 @@ use TCG\Voyager\Events\BreadDataRestored;
 use TCG\Voyager\Events\BreadImagesDeleted;
 use Illuminate\Database\Eloquent\SoftDeletes;
 use TCG\Voyager\Database\Schema\SchemaManager;
-use Modules\VoyagerBaseExtend\Traits\CorsSettingTable;
+use Modules\Prototype\Traits\CorsSettingTable;
 use TCG\Voyager\Http\Controllers\Traits\BreadRelationshipParser;
 use App\Voyager\Http\Controllers\VoyagerBaseController as BaseVoyagerBaseController;
 

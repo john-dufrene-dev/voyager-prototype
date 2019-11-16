@@ -5,6 +5,7 @@
     "alias": "$LOWER_NAME$",
     "description": "",
     "theme": "default",
+    "protected": false,
     "keywords": [],
     "order": 0,
     "providers": [

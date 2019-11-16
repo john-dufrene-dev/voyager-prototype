@@ -35,12 +35,18 @@
                     <form action="{{ route('modules.post') }}" class="cmd_form" method="POST">
                         {{ csrf_field() }}
                         <input type="hidden" name="args" autofocus class="form-control" value="{{ $module->get('name')}}">
+                        @if( false == $module->get('protected'))
                         <button type="submit" class="btn 
                             @if ( Module::find($module->get('name'))->isDisabled() )  btn-success
                             @else btn-danger @endif pull-right delete-confirm"> 
                             @if ( Module::find($module->get('name'))->isDisabled() ) 
                             {{ __('modules.modules.module_active') }}
                             @else {{ __('modules.modules.module_disable') }} @endif</button>
+                        @else
+                        <button type="submit" disabled class="btn btn-disabled pull-right delete-confirm">
+                        {{ __('modules.modules.no_actions') }}
+                        </button>
+                        @endif
                         <input type="hidden" name="command" id="hidden_cmd" value="
                         @if ( Module::find($module->get('name'))->isDisabled() ) module:enable
                         @else module:disable @endif">

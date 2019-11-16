@@ -8,7 +8,7 @@ use TCG\Voyager\Facades\Voyager;
 use Illuminate\Support\Facades\App;
 use Nwidart\Modules\Facades\Module;
 use Symfony\Component\Process\Process;
-use Modules\VoyagerBaseExtend\Traits\ExecuteCommandArtisan;
+use Modules\Prototype\Traits\ExecuteCommandArtisan;
 use Symfony\Component\Process\Exception\ProcessFailedException;
 use Symfony\Component\HttpKernel\Exception\AccessDeniedHttpException;
 use App\Voyager\Http\Controllers\VoyagerCompassController as BaseVoyagerCompassController;

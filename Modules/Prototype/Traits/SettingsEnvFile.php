@@ -1,6 +1,6 @@
 <?php
 
-namespace Modules\VoyagerBaseExtend\Traits;
+namespace Modules\Prototype\Traits;
 
 trait SettingsEnvFile
 {

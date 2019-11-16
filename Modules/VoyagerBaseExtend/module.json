@@ -5,6 +5,7 @@
     "alias": "voyagerbaseextend",
     "description": "Module surcouche de voyager",
     "theme": "admin",
+    "protected": true,
     "keywords": [],
     "order": 0,
     "providers": [

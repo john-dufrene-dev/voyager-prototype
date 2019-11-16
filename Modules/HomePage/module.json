@@ -5,6 +5,7 @@
     "alias": "homepage",
     "description": "Module de configuration de la page d'accueil",
     "theme": "default",
+    "protected": false,
     "keywords": [],
     "order": 0,
     "providers": [
