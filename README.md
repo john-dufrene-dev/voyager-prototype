@@ -69,4 +69,7 @@ __4. Helpers__
 # 1.1 Update translation JS
 - use php artisan vue-i18n:generate --format= "umd" to update translation JS 
 
+# 1.2 Publish Telescope
+- you need to use php artisan telescope:install again if .env value TELESCOPE_ENABLED is to false 
+
 ```

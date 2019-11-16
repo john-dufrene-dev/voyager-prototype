@@ -78,7 +78,7 @@ class HistoryLogAdminController extends BaseVoyagerBaseController
             if ($dataType->scope && $dataType->scope != '' && method_exists($model, 'scope'.ucfirst($dataType->scope))) {
                 $query = $model->{$dataType->scope}();
             } else {
-                $query = $model::select('*');
+                $query = $model::with('user');
             }
 
             // Use withTrashed() if model uses SoftDeletes and if toggle is selected
@@ -134,12 +134,10 @@ class HistoryLogAdminController extends BaseVoyagerBaseController
         // Actions
         $actions = [];
         if (!empty($dataTypeContent->first())) {
-            foreach (Voyager::actions() as $action) {
-                $action = new $action($dataType, $dataTypeContent->first());
+            $action = new \TCG\Voyager\Actions\ViewAction($dataType, $dataTypeContent->first());
 
-                if ($action->shouldActionDisplayOnDataType()) {
-                    $actions[] = $action;
-                }
+            if ($action->shouldActionDisplayOnDataType()) {
+                $actions[] = $action;
             }
         }
 

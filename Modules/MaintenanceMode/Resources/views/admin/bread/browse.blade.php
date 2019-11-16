@@ -363,7 +363,7 @@
 @if(!$dataType->server_side && config('dashboard.data_tables.responsive'))
     <link rel="stylesheet" href="{{ voyager_asset('lib/css/responsive.dataTables.min.css') }}">
 @endif
-<link href="{{ mix('modules/maintenancemode/css/app.css') }}" rel="stylesheet" type="text/css">
+<link href="{{ mix('modules/maintenancemode/css/admin.css') }}" rel="stylesheet" type="text/css">
 @stop
 
 @section('javascript')
@@ -439,5 +439,5 @@
             $('.selected_ids').val(ids);
         });
     </script>
-    <script src="{{ mix('modules/maintenancemode/js/app.js') }}"></script>
+    <script src="{{ mix('modules/maintenancemode/js/admin.js') }}"></script>
 @stop

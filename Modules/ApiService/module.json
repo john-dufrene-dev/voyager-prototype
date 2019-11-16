@@ -3,7 +3,7 @@
     "author": "",
     "version": "1.0@beta",
     "alias": "apiservice",
-    "description": "",
+    "description": "Module API service",
     "theme": "default",
     "keywords": [],
     "order": 0,

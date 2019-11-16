@@ -206,5 +206,5 @@
             $('[data-toggle="tooltip"]').tooltip();
         });
     </script>
-    <script src="{{ mix('modules/maintenancemode/js/app.js') }}"></script>
+    <script src="{{ mix('modules/maintenancemode/js/admin.js') }}"></script>
 @stop

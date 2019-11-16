@@ -76,7 +76,7 @@ class PrototypeCommand extends Command
         $tags = ['seeds'];
 
         $this->call('vendor:publish', ['--provider' => VoyagerServiceProvider::class, '--tag' => $tags]);
-        $this->call('vendor:publish', ['--provider' => ImageServiceProviderLaravel5::class]);
+        // $this->call('vendor:publish', ['--provider' => ImageServiceProviderLaravel5::class]);
 
         $this->info('Migrating the database tables into your application');
         $this->call('migrate', ['--force' => $this->option('force')]);
@@ -121,7 +121,7 @@ class PrototypeCommand extends Command
 
         if ($this->option('with-dummy')) {
             $this->info('Publishing dummy content');
-            $tags = ['dummy_seeds', 'dummy_content', 'dummy_config', 'dummy_migrations'];
+            $tags = ['dummy_content'];
             $this->call('vendor:publish', ['--provider' => DummyContentServiceProvider::class, '--tag' => $tags]);
 
             $this->info('Migrating dummy tables');
@@ -138,6 +138,9 @@ class PrototypeCommand extends Command
             $this->call('hook:setup');
         }
 
+        $this->info('Publish laravel file-manager vendor');
+        $this->call('vendor:publish', ['--tag' => 'lfm_public']);
+
         $this->info('Adding the storage symlink to your public folder');
         $this->call('storage:link');
 
@@ -149,9 +152,6 @@ class PrototypeCommand extends Command
 
         $this->info('Clear all activities logs');
         $this->call('activitylog:clean', ['--days' => '0']);
-
-        $this->info('Publish laravel file-manager vendor');
-        $this->call('vendor:publish', ['--tag' => 'fm_public']);
 
         $this->info('Generate translation for vue-js');
         $this->call('vue-i18n:generate', ['--format' => 'umd']);

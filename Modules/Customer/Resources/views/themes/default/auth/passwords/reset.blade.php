@@ -2,7 +2,6 @@
 
 @section('css')
     @parent
-    <link href="{{ mix('modules/customer/css/app.css') }}" rel="stylesheet" type="text/css">
 @stop
 
 @section('content')
@@ -71,5 +70,4 @@
 
 @section('scripts')
     @parent
-    <script src="{{ mix('modules/customer/js/app.js') }}"></script>
 @stop

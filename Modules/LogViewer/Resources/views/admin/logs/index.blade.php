@@ -3,7 +3,6 @@
 @section('css')
 
     @include('voyager::compass.includes.styles')
-    <link href="{{ mix('modules/logviewer/css/app.css') }}" rel="stylesheet" type="text/css">
 
 @stop
 
@@ -83,5 +82,4 @@
         });
       });
     </script>
-    <script src="{{ mix('modules/logviewer/js/app.js') }}"></script>
 @stop

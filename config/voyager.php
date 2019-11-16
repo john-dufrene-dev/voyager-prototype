@@ -203,11 +203,11 @@ return [
 
     // Here you can specify additional assets you would like to be included in the master.blade
     'additional_css' => [
-        'modules/voyagerbaseextend/css/app.css',
+        'modules/voyagerbaseextend/css/admin.css',
     ],
 
     'additional_js' => [
-        'modules/voyagerbaseextend/js/app.js',
+        'modules/voyagerbaseextend/js/admin.js',
     ],
 
     'googlemaps' => [
