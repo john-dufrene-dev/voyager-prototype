@@ -1,7 +1,5 @@
 window.Vue = require('vue');
 
-import VueInternationalization from 'vue-i18n';
-
 /*
  |--------------------------------------------------------------------------
  | Active bootstrap-vue
@@ -14,15 +12,10 @@ import VueInternationalization from 'vue-i18n';
 // import BootstrapVue  from 'bootstrap-vue'
 // Vue.use(BootstrapVue)
 
-window.Locale = require('../../vue-i18n-locales.generated.js');
-window.lang = document.documentElement.lang.substr(0, 2);
+import { LayoutPlugin, ImagePlugin } from 'bootstrap-vue'
 
-window.i18n = new VueInternationalization({
-    locale: lang,
-    messages: Locale
-});
-
-Vue.config.lang = lang
+Vue.use(LayoutPlugin)
+Vue.use(ImagePlugin)
 
 /**
  * The following block of code may be used to automatically register your

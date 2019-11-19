@@ -7,23 +7,45 @@
 
             <div v-if="loading == false">
 
-                <div v-if="is_translatable == true">
-                    <div id="page-title" class="container mt-4 h1-page-title">
-                        <h1 class="text-center">{{ translations.title }}</h1>
-                    </div>
-                    <a :href="post.link_to_category">{{ translations.category.name }}</a> 
-                    <div v-html="translations.description"></div> 
-                    <img :src="post.image_medium"/>
-                </div>
-                
-                <div v-else>
-                    <div id="page-title" class="container mt-4 h1-page-title">
-                        <h1 class="text-center">{{ post.title }}</h1>
-                    </div>
-                    <a :href="post.link_to_category">{{ category.name }}</a> 
-                    <div v-html="post.description"></div> 
-                    <img :src="post.image_medium"/>
-                </div>
+                <b-container>
+                    <b-row>
+
+                        <b-col md="7">
+                            <div id="page-title" class="container mt-4 h1-page-title">
+                                <h1 class="text-center" v-if=is_translatable>{{ translations.title }}</h1>
+                                <h1 class="text-center" v-else>{{ post.title }}</h1>
+                            </div>
+
+                            <p>
+                                <a :href="post.link_to_category" v-if=is_translatable>
+                                {{ translations.category.name }}</a>
+                                <a :href="post.link_to_category" v-else>{{ category.name }}</a>
+                            </p>
+                            
+                            <p v-if=is_translatable> {{ $t("post.published_date") }} : {{ translations.published_date }} </p>
+                            <p v-else> {{ $t("post.published_date") }} : {{ post.published_date }} </p>
+
+                            <p v-if=is_translatable>{{ translations.short_description }}</p>
+                            <p v-else>{{ post.short_description }}</p>
+                        </b-col>
+
+                        <b-col md="5">
+                            <b-img-lazy v-bind="imgProps" :src="post.image_medium"></b-img-lazy>
+                        </b-col>
+
+                    </b-row>
+                </b-container>
+
+                <b-container class="mt-4">
+                    <b-row>
+
+                        <b-col md="12">
+                            <div v-html="translations.description" v-if="is_translatable == true"></div>
+                            <div v-html="post.description" v-else></div>
+                        </b-col>
+                        
+                    </b-row>
+                </b-container>
 
             </div>
 
@@ -48,6 +70,10 @@
                 color: '#00bc88',
                 size: '37px',
                 loading: true,
+                imgProps: {
+                    fluidGrow: true,
+                    class: 'rounded'
+                },
             }
         },
         props: {
@@ -67,6 +93,7 @@
                     }
 
                     this.loading = false
+
                 })
                 .catch(err => {
                     console.log(err)

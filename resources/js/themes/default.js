@@ -3,6 +3,7 @@
 */
 
 import '../config/default/vue';
+import '../config/default/localization';
 
 /**
 * Next, we will create a fresh Vue application instance and attach it to
