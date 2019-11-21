@@ -4,6 +4,3 @@
 * building robust, powerful web applications using Vue and Laravel.
 */
 import './config/bootstrap';
-
-// Update your theme here
-import './themes/default';

@@ -82,8 +82,12 @@
         components: {
             PulseLoader,
         },
-        mounted() {
-            axios.get('/api/posts/' + this.link.trim())
+        created() {
+            this.getPost()
+        },
+        methods: {
+            getPost () {
+                axios.get('/api/posts/' + this.link.trim())
                 .then(res => {
                     this.post = res.data.data;
                     this.category = res.data.data.category;
@@ -99,8 +103,9 @@
                     console.log(err)
                     this.errored = true
                     this.loading = false
-            })
-        }
+                })
+            },
+        },
     }
 </script>
 

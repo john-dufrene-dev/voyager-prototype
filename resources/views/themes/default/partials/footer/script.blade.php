@@ -1,7 +1,7 @@
 <!-- Scripts -->
 @section('scripts')
 
-    <script src="{{ mix('js/app.min.js') }}"></script>
+    <script src="{{ mix('js/default.min.js') }}"></script>
 
     @if ( session('flash_toaster') )
         <script>

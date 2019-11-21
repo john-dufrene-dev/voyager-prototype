@@ -14,8 +14,8 @@ class Kernel extends HttpKernel
      * @var array
      */
     protected $middleware = [
-        \App\Http\Middleware\Modules\CheckForMaintenanceMode::class,
-        \App\Http\Middleware\Modules\CheckForMaintenanceModeWithAdmin::class,
+        \Modules\MaintenanceMode\Http\Middleware\CheckForMaintenanceMode::class,
+        \Modules\MaintenanceMode\Http\Middleware\CheckForMaintenanceModeWithAdmin::class,
         \Illuminate\Foundation\Http\Middleware\ValidatePostSize::class,
         \App\Http\Middleware\TrimStrings::class,
         \Illuminate\Foundation\Http\Middleware\ConvertEmptyStringsToNull::class,
@@ -44,7 +44,7 @@ class Kernel extends HttpKernel
             \App\Http\Middleware\VerifyCsrfToken::class,
             \Illuminate\Routing\Middleware\SubstituteBindings::class,
             \Laravel\Passport\Http\Middleware\CreateFreshApiToken::class,
-            \App\Http\Middleware\Modules\Localization::class,
+            \Modules\Prototype\Http\Middleware\Localization::class,
         ],
 
         'api' => [
@@ -55,7 +55,7 @@ class Kernel extends HttpKernel
         'localization' => [
             \App\Http\Middleware\EncryptCookies::class,
             \Illuminate\Session\Middleware\StartSession::class,
-            \App\Http\Middleware\Modules\Localization::class,
+            \Modules\Prototype\Http\Middleware\Localization::class,
         ]
     ];
 
@@ -78,7 +78,7 @@ class Kernel extends HttpKernel
         'verified' => \Illuminate\Auth\Middleware\EnsureEmailIsVerified::class,
         'client' => \Laravel\Passport\Http\Middleware\CheckClientCredentials::class,
         // your custom middleware class 
-        'ajax.request' => \App\Http\Middleware\Modules\IfAjaxRequest::class,
+        'ajax.request' => \Modules\Prototype\Http\Middleware\IfAjaxRequest::class,
         
     ];
 

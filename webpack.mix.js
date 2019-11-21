@@ -11,17 +11,28 @@ const mix = require('laravel-mix');
  |
  */
 
+/********************** DEFAULT THEME START **********************/
+/****************************************************************/
+
 mix.js('resources/js/vendor.js', 'public/js/single');
-mix.js('resources/js/app.js', 'public/js/single');
+mix.js('resources/js/default.js', 'public/js/single');
 mix.js('resources/js/vue-i18n-locales.generated.js', 'public/js/single');
+
+mix.js('resources/js/config/default/vue.js', 'public/js/config');
+mix.js('resources/js/config/default/localization.js', 'public/js/config');
 
 mix.combine([
     'public/js/single/vendor.js', 
-    'public/js/single/app.js',
-    'public/js/single/vue-i18n-locales.generated.css'
-], 'public/js/app.min.js');
+    'public/js/single/default.js',
+    'public/js/config/vue.js',
+    'public/js/config/localization.js',
+    'public/js/single/vue-i18n-locales.generated.js'
+], 'public/js/default.min.js');
 
 mix.sass('resources/sass/app.scss', 'public/css');
+
+/********************** DEFAULT THEME END **********************/
+/****************************************************************/
 
 /*
  |--------------------------------------------------------------------------

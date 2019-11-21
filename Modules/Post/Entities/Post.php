@@ -46,7 +46,7 @@ class Post extends \TCG\Voyager\Models\Post
         ? $this->category->translate()->slug . '/' . $this->translate()->slug 
         : $this->category->slug . '/' . $this->slug;
 
-    	return url('blog/' . $link);
+    	return url('articles/' . $link);
     }
 
     public function linkToCategory() 
@@ -55,7 +55,7 @@ class Post extends \TCG\Voyager\Models\Post
         ? $this->category->translate()->slug 
         : $this->category->slug;
 
-    	return url('blog/' . $link);
+    	return url('articles/' . $link);
     }
 
     public function img($img = 'medium')

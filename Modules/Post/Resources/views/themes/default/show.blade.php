@@ -7,9 +7,13 @@
 
 @section('content')
 
+<div class="container py-4">
+
     @include('post::themes.' . Module::find('Post')->get('theme') . '.includes.breadcrumbs.post')
 
     @include('post::themes.' . Module::find('Post')->get('theme') . '.includes.post')
+
+</div>
 
 @endsection
 
