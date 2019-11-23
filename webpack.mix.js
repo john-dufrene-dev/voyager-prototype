@@ -19,7 +19,7 @@ mix.js('resources/js/default.js', 'public/js/single')
     .webpackConfig({
         resolve: {
             alias: {
-                '@': path.resolve('resources/sass')
+                '@@': path.resolve('resources/sass')
             }
         }
     });

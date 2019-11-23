@@ -9,7 +9,7 @@
         @endsection
 
     </head>
-    <body>
+    <body class="body">
         <div id="app">
             
             @include(Theme::use().'partials.navbar.main')

@@ -1,7 +1,7 @@
 <template>
     <div class="container">
-        <div id="page-title" class="mt-4 h1-page-title">
-            <h1 class="text-center"> {{ title }} </h1>
+        <div id="page-title" class="mt-4 text-center">
+            <h1> {{ title }} </h1>
         </div>
     </div>
 </template>
@@ -22,16 +22,12 @@
 
 <style lang="scss">
 
-@import '~@/components/default/_settings.scss';
+@import '~@@/components/default/_settings.scss';
 
 #page-title {
+    font-family: $nunito-bold;
     margin-bottom:50px;
-}
-
-.h1-page-title {
     position: relative;
-    font-size: 35px;
-    font-weight: 500;
     letter-spacing: 2px;
     text-transform: uppercase;
     &:after {
@@ -41,11 +37,13 @@
         width: 150px;
         height: 2px;
         background: $primarycolor;
-        background-repeat: no-repeat;
         left: 0;
         right:0;
-        top: 52px;
+        top: 72px;
         margin: auto;
+    }
+    h1 {
+        font-size: 45px;
     }
 }
 
@@ -56,18 +54,17 @@
 @media all and (max-width: 760px) {
 
     #page-title {
-        margin-bottom:20px; 
-    }
-
-    .h1-page-title {
-        font-size: 22px;
         margin-bottom: 40px;
         &:after {
             content: '';
             width: 100px;
             top: 40px;
         }
+        h1 {
+            font-size: 22px;
+        }
     }
+    
 }
 
 </style>
