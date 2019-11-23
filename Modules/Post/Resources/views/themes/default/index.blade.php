@@ -11,6 +11,8 @@
 
     @include('post::themes.' . Module::find('Post')->get('theme') . '.includes.breadcrumbs.posts')
 
+    <page-title-component title="{{ __('seo.articles.page_title') }}"></page-title-component>
+
     <div id="posts_container">
 
         @include('post::themes.' . Module::find('Post')->get('theme') . '.includes.posts')

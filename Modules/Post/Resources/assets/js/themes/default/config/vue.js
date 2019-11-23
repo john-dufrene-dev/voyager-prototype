@@ -1,6 +1,6 @@
 Vue.component('post-component', require('../../default/components/Post.vue').default);
 
-const posts = new Vue({
-    el: '#post-component',
+const app = new Vue({
+    el: '#app',
     i18n,
 });

@@ -2,11 +2,7 @@
 
 @section('content')
 
-<div class="py-4 container">
-    <div id="page-title" class="mt-4 h1-page-title">
-        <h1 class="text-center"> {{ __('seo.homepage.page_title') }} </h1>
-    </div>
-</div>
+<page-title-component title="{{ __('seo.homepage.page_title') }}"></page-title-component>
 
 <div class="container">
 

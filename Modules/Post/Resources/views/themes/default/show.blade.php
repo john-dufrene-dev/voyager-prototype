@@ -11,7 +11,11 @@
 
     @include('post::themes.' . Module::find('Post')->get('theme') . '.includes.breadcrumbs.post')
 
-    @include('post::themes.' . Module::find('Post')->get('theme') . '.includes.post')
+    <page-title-component title="{{ $post_title }}"></page-title-component>
+
+    <post-component class="container"
+        link="@if( true == verify_trans() ) {{ $post->translate()->slug }} @else {{ $post->slug }} @endif ">
+    </post-component>
 
 </div>
 

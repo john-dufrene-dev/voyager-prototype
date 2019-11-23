@@ -11,10 +11,6 @@
                     <b-row>
 
                         <b-col md="7">
-                            <div id="page-title" class="container mt-4 h1-page-title">
-                                <h1 class="text-center" v-if=is_translatable>{{ translations.title }}</h1>
-                                <h1 class="text-center" v-else>{{ post.title }}</h1>
-                            </div>
 
                             <p>
                                 <a :href="post.link_to_category" v-if=is_translatable>

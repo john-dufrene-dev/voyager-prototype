@@ -1,6 +1,6 @@
 Vue.component('example-component', require('./default/components/ExampleComponent.vue').default);
 
-const homepage = new Vue({
-    el: '#homepage',
+const app = new Vue({
+    el: '#app',
     i18n,
 });

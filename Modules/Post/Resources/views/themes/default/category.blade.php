@@ -13,16 +13,7 @@
 
     <div id="posts_container">
 
-        <div id="page-title" class="container mt-4 h1-page-title">
-            <h1 class="text-center"> 
-            @if($posts->total() > 0)
-                @if(true == verify_trans() ) {{ $posts[0]->category->translate()->name }} 
-                @else {{ $posts[0]->category->name }} @endif
-            @else
-                {{ __('modules.post.no_articles') }}
-            @endif
-            </h1>
-        </div>
+        <page-title-component title="{{ $category_title }}"></page-title-component>
 
         @include('post::themes.' . Module::find('Post')->get('theme') . '.includes.category')
 

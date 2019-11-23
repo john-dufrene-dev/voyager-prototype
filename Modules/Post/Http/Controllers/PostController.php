@@ -73,16 +73,24 @@ class PostController extends Controller
             : $posts[0]->category->name );
         SEOMeta::setRobots('index,follow');
 
+        if($posts->total() > 0) { 
+            $category_title = ( true == verify_trans() )  
+            ? $posts[0]->category->translate()->name
+            : $posts[0]->category->name;
+        } else { $category_title = __('modules.post.no_articles'); } 
+
         if ($request->ajax()) {
             return view('post::themes.' . Module::find('Post')->get('theme') . '.includes.category', compact(
                 'posts',
-                'categories'
+                'categories',
+                'category_title'
             ));
         }
 
         return view('post::themes.' . Module::find('Post')->get('theme') . '.category', compact(
             'posts', 
-            'categories'
+            'categories',
+            'category_title'
         ));
     }
 
@@ -107,8 +115,13 @@ class PostController extends Controller
             : $post->meta_keywords );
         SEOMeta::setRobots('index,follow');
 
+        $post_title = ( true == verify_trans() )  
+            ? $post->translate()->title
+            : $post->title;
+
         return view('post::themes.' . Module::find('Post')->get('theme') . '.show', [
-            'post' => $post
+            'post' => $post,
+            'post_title' => $post_title
         ]);
     }
 }
