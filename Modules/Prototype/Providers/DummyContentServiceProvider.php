@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Providers\Modules;
+namespace Modules\Prototype\Providers;
 
 use Illuminate\Support\ServiceProvider;
 
@@ -33,11 +33,11 @@ class DummyContentServiceProvider extends ServiceProvider
      */
     private function registerPublishableResources()
     {
-        $publishablePath = resource_path();
+        $publishablePath = module_path('Prototype');
 
         $publishable = [
             'dummy_content' => [
-                "{$publishablePath}/dummy_content/" => storage_path('app/public'),
+                "{$publishablePath}/Resources/dummy_content/" => storage_path('app/public'),
             ],
         ];
 

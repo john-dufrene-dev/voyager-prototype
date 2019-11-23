@@ -177,11 +177,9 @@ return [
         App\Providers\RouteServiceProvider::class,
         
         /*
-         * Modules Providers...
+         * Application Modules Providers...
          */ 
-        App\Providers\Modules\DummyContentServiceProvider::class,
-        App\Providers\Modules\OverrideConfigProvider::class,
-
+        
     ],
 
     /*

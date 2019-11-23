@@ -7,10 +7,10 @@ use TCG\Voyager\Traits\Seedable;
 use Illuminate\Filesystem\Filesystem;
 use Symfony\Component\Process\Process;
 use TCG\Voyager\VoyagerServiceProvider;
-use App\Providers\Modules\DummyContentServiceProvider;
 use Symfony\Component\Console\Input\InputOption;
 use Intervention\Image\ImageServiceProviderLaravel5;
 use TCG\Voyager\Providers\VoyagerDummyServiceProvider;
+use Modules\Prototype\Providers\DummyContentServiceProvider;
 
 class PrototypeCommand extends Command
 {

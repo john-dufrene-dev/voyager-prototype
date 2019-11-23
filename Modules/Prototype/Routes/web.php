@@ -11,6 +11,25 @@
 |
 */
 
-Route::prefix('prototype')->group(function() {
-    Route::get('/', 'PrototypeController@index');
+// LANGUAGE ROUTE
+if( true == config('voyager.multilingual.enabled') ) {
+    Route::get('language/{locale}', function ($locale){
+        Session::put('locale', $locale);
+        return redirect()->back();
+    })->name('language.change');
+}
+
+// VOYAGER ROUTES
+if(Module::find('VoyagerBaseExtend')->isDisabled()) {
+    Route::group(['prefix' => 'admin'], function () {
+        Voyager::routes();
+    });
+}
+
+// FILEMANAGER ROUTES
+Route::group(['middleware' => 'admin.user'], function () {
+    Route::get('/admin/filemanager', '\UniSharp\LaravelFilemanager\Controllers\LfmController@show')
+        ->name('admin.filemanager.get');
+    Route::post('/admin/filemanager/upload', '\UniSharp\LaravelFilemanager\Controllers\UploadController@upload')
+        ->name('admin.filemanager.post');
 });
