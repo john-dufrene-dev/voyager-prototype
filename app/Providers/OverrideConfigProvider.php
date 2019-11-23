@@ -1,6 +1,6 @@
 <?php
 
-namespace Modules\Prototype\Providers;
+namespace App\Providers;
 
 use Illuminate\Support\Facades\Config;
 use Illuminate\Support\Facades\Schema;
@@ -38,7 +38,7 @@ class OverrideConfigProvider extends ServiceProvider
      */
     protected function loadHelpers()
     {
-        foreach (glob(module_path('Prototype').'/Helpers/*.php') as $filename) {
+        foreach (glob(app_path().'/Helpers/*.php') as $filename) {
             require_once $filename;
         }
     }

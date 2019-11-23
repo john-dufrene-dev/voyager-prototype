@@ -28,7 +28,6 @@ class PrototypeServiceProvider extends ServiceProvider
      */
     public function register()
     {   
-        $this->app->register(OverrideConfigProvider::class);
         $this->app->register(RouteServiceProvider::class);
         $this->app->register(DummyContentServiceProvider::class);
     }

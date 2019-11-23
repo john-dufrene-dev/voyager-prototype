@@ -179,6 +179,7 @@ return [
         /*
          * Application Modules Providers...
          */ 
+        App\Providers\OverrideConfigProvider::class,
         
     ],
 
