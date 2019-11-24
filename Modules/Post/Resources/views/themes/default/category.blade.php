@@ -9,7 +9,7 @@
 
 <div class="container py-4">
 
-    @include('post::themes.' . Module::find('Post')->get('theme') . '.includes.breadcrumbs.category')
+    <breadcrumb-component breadcrumb='@json($breadcrumb)'></breadcrumb-component>
 
     <div id="posts_container">
 

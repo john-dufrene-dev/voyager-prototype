@@ -1,10 +1,10 @@
 {
     "/js/config/localization.js": "/js/config/localization.js?id=b89613758a9a52cce571",
     "/js/config/vue.js": "/js/config/vue.js?id=c3b40cb29b9f24c3bb9b",
-    "/js/config/vue-elements.js": "/js/config/vue-elements.js?id=fa74d54b9788b9a1018d",
+    "/js/config/vue-elements.js": "/js/config/vue-elements.js?id=e99e2b96b95531bf8fee",
     "/js/single/default.js": "/js/single/default.js?id=5ed4d617f2a5d0072022",
     "/js/single/vendor.js": "/js/single/vendor.js?id=d1df3495fa31f92ff5fc",
-    "/css/app.css": "/css/app.css?id=c09e8469a44895267405",
+    "/css/app.css": "/css/app.css?id=473c4e6611173c19981b",
     "/modules/voyagerbaseextend/css/admin.css": "/modules/voyagerbaseextend/css/admin.css?id=2855ccc4f4838dc9d149",
     "/modules/post/css/app.css": "/modules/post/css/app.css?id=fd2a0cf36936a84a420a",
     "/modules/maintenancemode/css/admin.css": "/modules/maintenancemode/css/admin.css?id=0aa3f53df867814fa736",
@@ -15,5 +15,5 @@
     "/modules/passportauth/js/admin.js": "/modules/passportauth/js/admin.js?id=14aec3c3eb36b88fdba7",
     "/modules/post/js/app.js": "/modules/post/js/app.js?id=79eced313fe504d17cc1",
     "/modules/voyagerbaseextend/js/admin.js": "/modules/voyagerbaseextend/js/admin.js?id=68679087cb4fc189f5f6",
-    "/js/default.min.js": "/js/default.min.js?id=eef4dfa7a252d712cad0"
+    "/js/default.min.js": "/js/default.min.js?id=c5a447b7c1276a4c403a"
 }

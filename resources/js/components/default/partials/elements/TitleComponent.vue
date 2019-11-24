@@ -1,19 +1,22 @@
 <template>
 
-    <div class="container">
-        <div id="page-title" class="mt-4 text-center">
-            <h1> {{ title }} </h1>
-        </div>
+<div class="container">
+    <div id="page-title" class="mt-4 text-center">
+        <h1> {{ title }} </h1>
     </div>
+</div>
     
 </template>
 
 <script>
     export default {
         props: {
-            title: String,
+            title: {
+                type: String,
+                default: '',
+            }
         },
-        mounted() {
+        created() {
             if(this.title == undefined) {
                 console.log('ERROR : property title is undefined')
             }

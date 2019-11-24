@@ -41,16 +41,22 @@ class PostController extends Controller
             ? Category::with(['translations'])->get('id','name','slug')
             : Category::all('id','name','slug');
 
+        $breadcrumb = [
+            [ route('articles.index'), __('seo.articles.my-posts') ]
+        ];
+
         if ($request->ajax()) {
             return view('post::themes.' . Module::find('Post')->get('theme') . '.includes.posts', compact(
                 'posts',
-                'categories'
+                'categories',
+                'breadcrumb'
             ));
         }
 
     	return view('post::themes.' . Module::find('Post')->get('theme') . '.index', compact(
             'posts',
-            'categories'
+            'categories',
+            'breadcrumb'
         ));
     }
 
@@ -79,18 +85,25 @@ class PostController extends Controller
             : $posts[0]->category->name;
         } else { $category_title = __('modules.post.no_articles'); } 
 
+        $breadcrumb = [
+            [ route('articles.index'), __('seo.articles.my-posts') ],
+            [ 0, $category_title ],
+        ];
+
         if ($request->ajax()) {
             return view('post::themes.' . Module::find('Post')->get('theme') . '.includes.category', compact(
                 'posts',
                 'categories',
-                'category_title'
+                'category_title',
+                'breadcrumb'
             ));
         }
 
         return view('post::themes.' . Module::find('Post')->get('theme') . '.category', compact(
             'posts', 
             'categories',
-            'category_title'
+            'category_title',
+            'breadcrumb'
         ));
     }
 
@@ -119,9 +132,20 @@ class PostController extends Controller
             ? $post->translate()->title
             : $post->title;
 
+        $cat_slug = (true == verify_trans() ) 
+            ? $post->category->translate()->slug 
+            : $post->category->slug;
+
+        $breadcrumb = [
+            [ route('articles.index'), __('seo.articles.my-posts') ],
+            [ route('articles.category', $cat_slug ), $cat_slug ],
+            [ 0, $post_title ]
+        ];
+
         return view('post::themes.' . Module::find('Post')->get('theme') . '.show', [
             'post' => $post,
-            'post_title' => $post_title
+            'post_title' => $post_title,
+            'breadcrumb' => $breadcrumb
         ]);
     }
 }
