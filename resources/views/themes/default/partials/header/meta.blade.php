@@ -8,6 +8,15 @@
 
 @section('seo_tools') {!! SEOMeta::generate() !!} @show
 
+<!-- Auth -->
+@if( false != get_header_customer() )
+<meta name="auth-customer-authenticated" content="{{ get_header_customer()['auth'] }}">
+<meta name="auth-customer-id" content="{{ get_header_customer()['id'] }}">
+<meta name="auth-customer-name" content="{{ get_header_customer()['name'] }}">
+<meta name="auth-customer-email" content="{{ get_header_customer()['email'] }}">
+<meta name="auth-customer-token" content="{{ get_header_customer()['token'] }}">
+@endif
+
 <!-- CSRF Token -->
 <meta name="csrf-token" content="{{ csrf_token() }}">
 <!-- Theme -->

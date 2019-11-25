@@ -1,4 +1,5 @@
 <?php
+
 namespace Modules\Customer\Http\Controllers\Auth;
 
 use Illuminate\Support\Str;

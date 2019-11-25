@@ -23,3 +23,25 @@ if (! function_exists('verify_trans') ) {
         return false;
     }
 }
+
+if (! function_exists('get_header_customer') ) {
+    function get_header_customer() {
+
+        if( request()->session()->has('customer_session_authenticated') 
+            && auth('customer')->check()
+        ) {
+
+            $user = [
+                'auth'      => request()->headers->get('Customer-Authenticated'),
+                'id'        => request()->headers->get('Customer-Id'),
+                'name'      => request()->headers->get('Customer-Name'),
+                'email'     => request()->headers->get('Customer-Email'),
+                'token'     => request()->headers->get('Authorization'),
+            ];
+
+            return $user;         
+        }
+
+        return false;
+    }
+}

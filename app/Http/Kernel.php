@@ -20,13 +20,14 @@ class Kernel extends HttpKernel
         \App\Http\Middleware\TrimStrings::class,
         \Illuminate\Foundation\Http\Middleware\ConvertEmptyStringsToNull::class,
         \App\Http\Middleware\TrustProxies::class,
+        \Illuminate\Session\Middleware\StartSession::class,
+
+        // your custom middleware global class 
         \RenatoMarinho\LaravelPageSpeed\Middleware\CollapseWhitespace::class,
         \RenatoMarinho\LaravelPageSpeed\Middleware\InlineCss::class,
         \RenatoMarinho\LaravelPageSpeed\Middleware\ElideAttributes::class,
         \RenatoMarinho\LaravelPageSpeed\Middleware\InsertDNSPrefetch::class,
         \RenatoMarinho\LaravelPageSpeed\Middleware\RemoveComments::class,
-        // \RenatoMarinho\LaravelPageSpeed\Middleware\TrimUrls::class,
-        // \RenatoMarinho\LaravelPageSpeed\Middleware\RemoveQuotes::class,
     ];
 
     /**
@@ -45,6 +46,7 @@ class Kernel extends HttpKernel
             \Illuminate\Routing\Middleware\SubstituteBindings::class,
             \Laravel\Passport\Http\Middleware\CreateFreshApiToken::class,
             \Modules\Prototype\Http\Middleware\Localization::class,
+            \Modules\Customer\Http\Middleware\AuthenticatedCustomer::class
         ],
 
         'api' => [
@@ -73,11 +75,12 @@ class Kernel extends HttpKernel
         'cache.headers' => \Illuminate\Http\Middleware\SetCacheHeaders::class,
         'can' => \Illuminate\Auth\Middleware\Authorize::class,
         'guest' => \App\Http\Middleware\RedirectIfAuthenticated::class,
+        'password.confirm' => \Illuminate\Auth\Middleware\RequirePassword::class,
         'signed' => \Illuminate\Routing\Middleware\ValidateSignature::class,
         'throttle' => \Illuminate\Routing\Middleware\ThrottleRequests::class,
         'verified' => \Illuminate\Auth\Middleware\EnsureEmailIsVerified::class,
-        'client' => \Laravel\Passport\Http\Middleware\CheckClientCredentials::class,
         // your custom middleware class 
+        'client' => \Laravel\Passport\Http\Middleware\CheckClientCredentials::class,
         'ajax.request' => \Modules\Prototype\Http\Middleware\IfAjaxRequest::class,
         
     ];

@@ -29,6 +29,9 @@ if (config('prototype.account') ) {
 
     Route::get('account', 'Account\AccountController@index')->name('pages.account');
 
+    Route::get('password/confirm', 'Auth\CustomerConfirmPasswordController@showConfirmForm')->name('password.confirm');
+    Route::post('password/confirm', 'Auth\CustomerConfirmPasswordController@confirm');
+
     // Email Verification Routes...
     // Route::get('email/verify', 'Auth\VerificationController@show')->name('verification.notice');
     // Route::get('email/verify/{id}', 'Auth\VerificationController@verify')->name('verification.verify');

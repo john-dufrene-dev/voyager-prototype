@@ -1,7 +1,8 @@
 {
-    "/js/config/localization.js": "/js/config/localization.js?id=b89613758a9a52cce571",
-    "/js/config/vue.js": "/js/config/vue.js?id=c3b40cb29b9f24c3bb9b",
-    "/js/config/vue-elements.js": "/js/config/vue-elements.js?id=e99e2b96b95531bf8fee",
+    "/js/config/authenticated-customer.js": "/js/config/authenticated-customer.js?id=69ef28a702c46580658b",
+    "/js/config/localization.js": "/js/config/localization.js?id=4ea32b9e802dfd65e304",
+    "/js/config/vue.js": "/js/config/vue.js?id=307768f4eedd281b5f66",
+    "/js/config/vue-elements.js": "/js/config/vue-elements.js?id=1aeab4659c05c98e30c2",
     "/js/single/default.js": "/js/single/default.js?id=5ed4d617f2a5d0072022",
     "/js/single/vendor.js": "/js/single/vendor.js?id=d1df3495fa31f92ff5fc",
     "/css/app.css": "/css/app.css?id=473c4e6611173c19981b",
@@ -10,10 +11,10 @@
     "/modules/maintenancemode/css/admin.css": "/modules/maintenancemode/css/admin.css?id=0aa3f53df867814fa736",
     "/modules/historieslogs/css/admin.css": "/modules/historieslogs/css/admin.css?id=42421858e73cb81d0c83",
     "/js/single/vue-i18n-locales.generated.js": "/js/single/vue-i18n-locales.generated.js?id=1d9214750038cfa5821b",
-    "/modules/homepage/js/app.js": "/modules/homepage/js/app.js?id=2b87caf8783927defbc0",
-    "/modules/maintenancemode/js/admin.js": "/modules/maintenancemode/js/admin.js?id=2fe1d50ba550c1d66335",
-    "/modules/passportauth/js/admin.js": "/modules/passportauth/js/admin.js?id=14aec3c3eb36b88fdba7",
-    "/modules/post/js/app.js": "/modules/post/js/app.js?id=79eced313fe504d17cc1",
-    "/modules/voyagerbaseextend/js/admin.js": "/modules/voyagerbaseextend/js/admin.js?id=68679087cb4fc189f5f6",
-    "/js/default.min.js": "/js/default.min.js?id=c5a447b7c1276a4c403a"
+    "/modules/homepage/js/app.js": "/modules/homepage/js/app.js?id=c16ad19a5fbe5bdbbc9b",
+    "/modules/maintenancemode/js/admin.js": "/modules/maintenancemode/js/admin.js?id=60d0d3d17cfdd63da2e0",
+    "/modules/passportauth/js/admin.js": "/modules/passportauth/js/admin.js?id=74e5eaaced39bf0af0b0",
+    "/modules/post/js/app.js": "/modules/post/js/app.js?id=427b8dc5c1a82c8a3e45",
+    "/modules/voyagerbaseextend/js/admin.js": "/modules/voyagerbaseextend/js/admin.js?id=41558f9770e3f6bfd547",
+    "/js/default.min.js": "/js/default.min.js?id=00292a67565888ab7f61"
 }

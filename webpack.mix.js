@@ -25,6 +25,7 @@ mix.js('resources/js/default.js', 'public/js/single')
     });
 mix.js('resources/js/vue-i18n-locales.generated.js', 'public/js/single');
 
+mix.js('resources/js/config/default/authenticated-customer.js', 'public/js/config');
 mix.js('resources/js/config/default/vue.js', 'public/js/config');
 mix.js('resources/js/config/default/vue-elements.js', 'public/js/config');
 mix.js('resources/js/config/default/localization.js', 'public/js/config');
@@ -32,6 +33,7 @@ mix.js('resources/js/config/default/localization.js', 'public/js/config');
 mix.combine([
     'public/js/single/vendor.js', 
     'public/js/single/default.js',
+    'public/js/config/authenticated-customer.js',
     'public/js/config/vue.js',
     'public/js/config/vue-elements.js',
     'public/js/config/localization.js',
