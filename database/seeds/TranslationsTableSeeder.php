@@ -240,6 +240,11 @@ class TranslationsTableSeeder extends Seeder
             $this->trans('en', $this->arr($_tpl, $_item->id), 'Server Logs');
         }
 
+        $_item = $this->findMenuItem('Header');
+        if ($_item->exists) {
+            $this->trans('en', $this->arr($_tpl, $_item->id), 'Header');
+        }
+
         // MENU HEADER
 
         $_item = $this->findMenuItemRoute('home.index');

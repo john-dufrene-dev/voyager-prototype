@@ -123,4 +123,6 @@ return [
     'meta_description'       => 'Meta description',
     'meta_keywords'          => 'Meta keywords',
     'meta_title'             => 'Meta title',
+    'config_header_title'    => 'Configuration du menu HEADER',
+    'update_header'          => 'Mettre à jour le menu HEADER',
 ];

@@ -137,16 +137,6 @@ Route::group(['prefix' => 'admin'], function () {
                 Route::post('/', ['uses' => 'Admin\VoyagerCompassExtendController@index',  'as' => 'post']);
             });
 
-            // Config Pages Settings Routes
-            Route::group([
-                'as'     => 'config.pages.settings.',
-                'prefix' => 'config',
-            ], function () use ($moduleNamespace) {
-                Route::get('/home', ['uses' => 'Admin\ConfigPagesSettingsExtendController@home',  'as' => 'home']);
-                Route::post('/home', ['uses' => 'Admin\ConfigPagesSettingsExtendController@homeUpdate',  
-                'as' => 'home.post']);
-            });
-
             // Ajax Routes
             Route::group([
                 'as'     => 'voyagerbaseextend.ajax.statut.',

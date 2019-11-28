@@ -223,7 +223,7 @@ class HistoryLogTableSeeder extends Seeder
                 'icon_class' => 'voyager-logbook',
                 'color'      => '#000000',
                 'parent_id'  => 6,
-                'order'      => 21,
+                'order'      => 22,
             ])->save();
         }
 

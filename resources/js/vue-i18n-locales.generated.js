@@ -385,7 +385,9 @@
             "referer_seo": "seo SEO",
             "meta_description": "Meta description",
             "meta_keywords": "Meta keywords",
-            "meta_title": "Meta title"
+            "meta_title": "Meta title",
+            "config_header_title": "Menu HEADER configuration",
+            "update_header": "Update menu HEADER"
         },
         "json": {
             "invalid": "Invalid JSON",
@@ -698,7 +700,8 @@
                 "admin": "Administration",
                 "logs": "Server logs",
                 "home": "Home",
-                "history": "Logs activity"
+                "history": "Logs activity",
+                "header": "Header"
             },
             "roles": {
                 "admin": "Administrator",
@@ -1264,7 +1267,9 @@
             "referer_seo": "Référencement seo",
             "meta_description": "Meta description",
             "meta_keywords": "Meta keywords",
-            "meta_title": "Meta title"
+            "meta_title": "Meta title",
+            "config_header_title": "Configuration du menu HEADER",
+            "update_header": "Mettre à jour le menu HEADER"
         },
         "json": {
             "invalid": "Json invalide",
@@ -1577,7 +1582,8 @@
                 "admin": "Administration",
                 "logs": "Logs serveur",
                 "home": "Accueil",
-                "history": "Logs d'activités"
+                "history": "Logs d'activités",
+                "header": "Header"
             },
             "roles": {
                 "admin": "Administrateur",

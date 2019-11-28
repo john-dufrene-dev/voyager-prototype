@@ -1,6 +1,6 @@
 <?php
 
-namespace Modules\VoyagerBaseExtend\Http\Controllers\Admin;
+namespace Modules\Prototype\Http\Controllers\Admin;
 
 use Exception;
 use Illuminate\Http\Request;
@@ -12,28 +12,28 @@ use TCG\Voyager\Http\Controllers\Controller;
 use Modules\Prototype\Entities\CorsSetting;
 use Modules\Prototype\Traits\CorsSettingTable;
 
-class ConfigPagesSettingsExtendController extends Controller
+class ConfigHeaderSettingsExtendController extends Controller
 {
     use CorsSettingTable,
         Translatable;
     
     public function __construct() {
-        if(Module::find('VoyagerBaseExtend')->isDisabled())
-            abort(403, 'Module VoyagerBaseExtend is not allowed.');
+        if(Module::find('Prototype')->isDisabled())
+            abort(403, 'Module Prototype is not allowed.');
     }
 
-    public function home(Request $request) {
+    public function header(Request $request) {
 
         Auth::guard(app('VoyagerGuard'))->user()->hasPermissionOrAbort('browse_configs');
 
         $isModelTranslatable = is_bread_translatable(app(CorsSetting::class));
 
-        $view = 'voyagerbaseextend::admin.configs.home';
+        $view = 'prototype::admin.configs.header';
 
         return Voyager::view($view, compact('isModelTranslatable'));
     }
 
-    public function homeUpdate(Request $request) {
+    public function headerUpdate(Request $request) {
 
         Auth::guard(app('VoyagerGuard'))->user()->hasPermissionOrAbort('browse_configs');
 
@@ -60,7 +60,7 @@ class ConfigPagesSettingsExtendController extends Controller
                 } 
             }
 
-            return redirect()->route('voyager.config.pages.settings.home.post')
+            return redirect()->route('voyager.config.pages.settings.header.post')
             ->with([
                 'message'    => __('generic.successfully_updated'),
                 'alert-type' => 'success',

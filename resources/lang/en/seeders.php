@@ -96,7 +96,8 @@ return [
         'admin'        => 'Administration',
         'logs'         => 'Server logs',
         'home'         => 'Home', 
-        'history'      => 'Logs activity', 
+        'history'      => 'Logs activity',
+        'header'       => 'Header',
     ],
     'roles'      => [
         'admin'         => 'Administrator',
