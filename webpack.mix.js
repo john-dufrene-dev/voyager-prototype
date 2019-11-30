@@ -14,12 +14,14 @@ const mix = require('laravel-mix');
 /********************** DEFAULT THEME START **********************/
 /****************************************************************/
 
+mix.js('resources/js/config/default/route-helper.js', 'public/js/config');
 mix.js('resources/js/vendor.js', 'public/js/single');
 mix.js('resources/js/default.js', 'public/js/single')
     .webpackConfig({
         resolve: {
             alias: {
-                '@@': path.resolve('resources/sass')
+                '@@': path.resolve('resources/sass'),
+                ziggy: path.resolve('vendor/tightenco/ziggy/dist/js/route.js'),
             }
         }
     });
@@ -31,6 +33,7 @@ mix.js('resources/js/config/default/vue-elements.js', 'public/js/config');
 mix.js('resources/js/config/default/localization.js', 'public/js/config');
 
 mix.combine([
+    'public/js/config/route-helper.js', 
     'public/js/single/vendor.js', 
     'public/js/single/default.js',
     'public/js/config/authenticated-customer.js',

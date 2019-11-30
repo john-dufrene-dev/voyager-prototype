@@ -1,5 +1,8 @@
 window.Vue = require('vue');
 
+import getRoute from 'ziggy'
+import { Ziggy }  from '../../routes';
+
 /*
  |--------------------------------------------------------------------------
  | Active bootstrap-vue
@@ -16,6 +19,13 @@ import { LayoutPlugin, ImagePlugin } from 'bootstrap-vue'
 
 Vue.use(LayoutPlugin)
 Vue.use(ImagePlugin)
+
+// Get all route configures
+Vue.mixin({
+    methods: {
+        route: (name, params, absolute) => getRoute(name, params, absolute, Ziggy),
+    }
+});
 
 /**
  * The following block of code may be used to automatically register your
