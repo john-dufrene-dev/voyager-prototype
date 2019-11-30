@@ -68,22 +68,32 @@ class PostController extends Controller
             ? Category::with(['translations'])->get('id','name','slug') 
             : Category::all('id','name','slug');
 
-        SEOMeta::setTitle( $title = (true == verify_trans() )
-        ? __('seo.articles.meta_title') .  ' - ' .$posts[0]->category->translate()->name 
-        : __('seo.articles.meta_title') .  ' - ' . $posts[0]->category->name);
-        SEOMeta::setDescription( $description = (true == verify_trans() ) 
-            ? $posts[0]->category->translate()->name 
-            : $posts[0]->category->name );
-        SEOMeta::setKeywords( $keywords = (true == verify_trans() )
-            ? $posts[0]->category->translate()->name 
-            : $posts[0]->category->name );
-        SEOMeta::setRobots('index,follow');
-
         if($posts->total() > 0) { 
+
+            SEOMeta::setTitle( $title = (true == verify_trans() )
+            ? __('seo.articles.meta_title') .  ' - ' .$posts[0]->category->translate()->name 
+            : __('seo.articles.meta_title') .  ' - ' . $posts[0]->category->name);
+            SEOMeta::setDescription( $description = (true == verify_trans() ) 
+                ? $posts[0]->category->translate()->name 
+                : $posts[0]->category->name );
+            SEOMeta::setKeywords( $keywords = (true == verify_trans() )
+                ? $posts[0]->category->translate()->name 
+                : $posts[0]->category->name );
+            SEOMeta::setRobots('index,follow');
+
             $category_title = ( true == verify_trans() )  
             ? $posts[0]->category->translate()->name
             : $posts[0]->category->name;
-        } else { $category_title = __('modules.post.no_articles'); } 
+
+        } else {
+
+            SEOMeta::setTitle( __('modules.post.no_articles') );
+            SEOMeta::setDescription( __('modules.post.no_articles') );
+            SEOMeta::setKeywords( __('modules.post.no_articles') );
+            SEOMeta::setRobots('index,follow');
+
+             $category_title = __('modules.post.no_articles'); 
+        } 
 
         $breadcrumb = [
             [ route('articles.index'), __('seo.articles.my-posts') ],
