@@ -5,7 +5,7 @@
     <ul class="breadcrumb">
 
         <li class="breadcrumb-item">
-            <span> <a :href="route('home.index')"><i class="fas fa-home"></i></a> </span>
+            <span> <a href="/"><i class="fas fa-home"></i></a> </span>
         </li>
 
         <li class="breadcrumb-item" v-for="(value, key) in items" :key='key'>
@@ -33,7 +33,7 @@
     }
 </script>
 
-<style lang="scss">
+<style lang="scss" scoped>
 
 @import '~@@/components/default/_settings.scss';
 

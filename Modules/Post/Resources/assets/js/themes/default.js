@@ -1,4 +1,4 @@
-window.addEventListener('hashchange', function() {
+$(window).on('hashchange', function() {
 
     if (window.location.hash) {
         var page = window.location.hash.replace('#', '');
@@ -25,17 +25,19 @@ $(document).ready(function() {
 
 });
 
-function getData(page) {
-    
-    axios.get('?page=' + page)
-        .then(res  => {
-            $("#posts_container").empty().html(res.data);
-            location.hash = page;
-        })
-        .catch(err => {
-            console.log(err)
-            console.log('No response from server');
-        })
+function getData(page){
+
+    $.get({
+        url: '?page=' + page,
+        type: "get",
+        datatype: "html"
+    }).done(function(data) {
+        $("#posts_container").empty().html(data);
+        location.hash = page;
+    }).fail(function(jqXHR, ajaxOptions, thrownError) {
+        console.log('No response from server');
+    });
+
 }
 
 import './default/config/vue';
