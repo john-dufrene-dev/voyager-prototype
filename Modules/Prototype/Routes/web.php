@@ -18,14 +18,6 @@ use TCG\Voyager\Facades\Voyager;
 |
 */
 
-// LANGUAGE ROUTE
-if( true == config('voyager.multilingual.enabled') ) {
-    Route::get('language/{locale}', function ($locale){
-        Session::put('locale', $locale);
-        return redirect()->back();
-    })->name('language.change');
-}
-
 // VOYAGER ROUTES
 if(Module::find('VoyagerBaseExtend')->isDisabled()) {
     Route::group(['prefix' => 'admin'], function () {

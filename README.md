@@ -48,7 +48,7 @@ __2. Troubleshooting__
 - When active multilanguage can\'t use php artisan optimize because Closure : "Need to create Controller"
 
 # 1.1 Error compatibility with Laravel 6.6
-- Error when update to Laravel 6.6 with database list, waiting tcg update
+- Error when update to Laravel 6.6 with database list, waiting tcg update, use 1.3.x-dev for the moment
 #fix next version, waiting for 1.3.1 tcg/voyager: 4586 https://github.com/the-control-group/voyager/commit/e4fe256e32971c6c9554dea93c65973174257f02
 
 ```

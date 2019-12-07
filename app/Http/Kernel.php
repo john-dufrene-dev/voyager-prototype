@@ -14,13 +14,13 @@ class Kernel extends HttpKernel
      * @var array
      */
     protected $middleware = [
-        \Modules\MaintenanceMode\Http\Middleware\CheckForMaintenanceMode::class,
+        \App\Http\Middleware\TrustProxies::class,
+        // \Modules\MaintenanceMode\Http\Middleware\CheckForMaintenanceMode::class,
         \Modules\MaintenanceMode\Http\Middleware\CheckForMaintenanceModeWithAdmin::class,
         \Illuminate\Foundation\Http\Middleware\ValidatePostSize::class,
         \App\Http\Middleware\TrimStrings::class,
         \Illuminate\Foundation\Http\Middleware\ConvertEmptyStringsToNull::class,
-        \App\Http\Middleware\TrustProxies::class,
-        \Illuminate\Session\Middleware\StartSession::class,
+        // \Illuminate\Session\Middleware\StartSession::class,
 
         // your custom middleware global class 
         \RenatoMarinho\LaravelPageSpeed\Middleware\CollapseWhitespace::class,
