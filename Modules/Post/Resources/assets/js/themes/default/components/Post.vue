@@ -13,16 +13,15 @@
                         <b-col md="7">
 
                             <p>
-                                <a :href="post.link_to_category" v-if=is_translatable>
-                                {{ translations.category.name }}</a>
-                                <a :href="post.link_to_category" v-else>{{ category.name }}</a>
+                                <a :href="post.link_to_category" v-if=is_translatable> {{ translations.category.name }} </a>
+                                <a :href="post.link_to_category" v-else> {{ category.name }} </a>
                             </p>
                             
                             <p v-if=is_translatable> {{ $t("post.published_date") }} : {{ translations.published_date }} </p>
                             <p v-else> {{ $t("post.published_date") }} : {{ post.published_date }} </p>
 
-                            <p v-if=is_translatable>{{ translations.short_description }}</p>
-                            <p v-else>{{ post.short_description }}</p>
+                            <p v-if=is_translatable> {{ translations.short_description }} </p>
+                            <p v-else> {{ post.short_description }} </p>
                         </b-col>
 
                         <b-col md="5">
@@ -83,7 +82,7 @@
         },
         methods: {
             getPost () {
-                axios.get('/api/posts/' + this.link.trim())
+                axios.get(routes('api.v1.posts.show', this.link.trim()))
                 .then(res => {
                     this.post = res.data.data;
                     this.category = res.data.data.category;

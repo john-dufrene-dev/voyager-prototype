@@ -19,6 +19,12 @@ class PrototypeServiceProvider extends ServiceProvider
         $this->registerViews();
         $this->registerFactories();
         $this->loadMigrationsFrom(module_path('Prototype', 'Database/Migrations'));
+
+        if ($this->app->runningInConsole()) {
+            $this->commands([
+                \Modules\Prototype\Console\GenerateRouteForJs::class,
+            ]);
+        }
     }
 
     /**

@@ -38,8 +38,8 @@ Route::group([
 $api->version('v1', [], function (Router $api) {
 
     // Post
-    $api->get('posts', '\Modules\ApiService\Http\Controllers\Api\V1\PostController@index');
-    $api->get('posts/{slug}', '\Modules\ApiService\Http\Controllers\Api\V1\PostController@show');
+    $api->get('posts', '\Modules\ApiService\Http\Controllers\Api\V1\PostController@index')->name('api.v1.posts.index');
+    $api->get('posts/{slug}', '\Modules\ApiService\Http\Controllers\Api\V1\PostController@show')->name('api.v1.posts.show');
 
 });
 

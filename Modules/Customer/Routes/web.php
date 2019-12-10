@@ -19,7 +19,7 @@ if (config('prototype.account') ) {
 
     // Registration Routes...
     Route::get('register', 'Auth\CustomerRegisterController@showRegistrationForm')->name('register');
-    Route::post('register', 'Auth\CustomerRegisterController@register');
+    Route::post('register', 'Auth\CustomerRegisterController@register')->name('register.post');
 
     // Password Reset Routes...
     Route::get('password/reset', 'Auth\CustomerForgotPasswordController@showLinkRequestForm')->name('password.request');

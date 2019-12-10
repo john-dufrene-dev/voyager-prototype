@@ -1,0 +1,13 @@
+{
+    "login": "login",
+    "login.post": "login",
+    "logout": "logout",
+    "register": "register",
+    "pages.account": "account",
+    "home.index": "\/",
+    "articles.index": "articles",
+    "articles.category": "articles\/{category}",
+    "articles.show": "articles\/{category}\/{post}",
+    "api.v1.posts.index": "api\/posts",
+    "api.v1.posts.show": "api\/posts\/{slug}"
+}

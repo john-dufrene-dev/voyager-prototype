@@ -127,8 +127,8 @@ Route::group(['prefix' => 'admin'], function () {
     
             // Database Routes
             // ERROR in README.md : waiting for tcg/voyager update
-            // Route::resource('database', $namespacePrefix.'VoyagerDatabaseController');
-            Route::resource('database', 'Admin\VoyagerDatabaseExtendController');
+            Route::resource('database', $namespacePrefix.'VoyagerDatabaseController');
+            // Route::resource('database', 'Admin\VoyagerDatabaseExtendController');
     
             // Compass Routes
             Route::group([
