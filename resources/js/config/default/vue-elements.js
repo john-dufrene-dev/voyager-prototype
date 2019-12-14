@@ -10,3 +10,9 @@ Vue.component(
     require('../../components/default/partials/elements/BreadcrumbComponent.vue').default
 );
 
+/****** AUTH CUSTOMER MENU ******/
+Vue.component(
+    'auth-menu-right-component', 
+    require('../../components/default/partials/auth/menu/AuthMenuRightComponent.vue').default
+);
+

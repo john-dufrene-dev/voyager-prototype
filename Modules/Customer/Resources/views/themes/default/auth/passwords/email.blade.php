@@ -52,4 +52,5 @@
 
 @section('scripts')
     @parent
+    <script src="{{ mix('modules/customer/js/app.js') }}"></script>
 @stop

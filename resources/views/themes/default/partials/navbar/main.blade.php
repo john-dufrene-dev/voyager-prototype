@@ -37,18 +37,11 @@
         @endif
         
         <div class="" id="headerNavbar">
-            <!-- Left Side Of Navbar -->
-            {{-- <ul class="navbar-nav ml-auto left-navbar">
-                {!! menu('header', Theme::use().'partials.navbar.menus._left') !!}
-            </ul> --}}
-
-            <!-- Right Side Of Navbar -->
             @if(Module::find('Customer')->isEnabled())
-                <ul class="navbar-nav ml-auto right-navbar"> 
-                    @include(Theme::use().'partials.navbar.menus._right')
-                </ul>
+                <auth-menu-right-component></auth-menu-right-component>
             @endif
         </div>
+        
     </div>
 </nav>
 

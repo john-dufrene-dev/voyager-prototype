@@ -104,7 +104,7 @@
     }
 </script>
 
-<style>
+<style lang="scss">
 
     .post-loading {
         text-align:center;

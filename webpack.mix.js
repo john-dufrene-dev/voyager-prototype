@@ -69,6 +69,7 @@ mix.js('Modules/Post/Resources/assets/js/app.js', 'public/modules/post/js');
 mix.sass('Modules/Post/Resources/assets/sass/app.scss', 'public/modules/post/css');
 
 // Module Customer
+mix.js('Modules/Customer/Resources/assets/js/app.js', 'public/modules/customer/js');
 
 // Module Maintenance
 mix.js('Modules/MaintenanceMode/Resources/assets/js/admin.js', 'public/modules/maintenancemode/js');
