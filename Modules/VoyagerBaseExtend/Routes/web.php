@@ -81,17 +81,18 @@ Route::group(['prefix' => 'admin'], function () {
             });
     
             // Settings
+            // Value modified
             Route::group([
                 'as'     => 'settings.',
                 'prefix' => 'settings',
             ], function () use ($namespacePrefix) {
-                Route::get('/', ['uses' => $namespacePrefix.'VoyagerSettingsController@index',        'as' => 'index']);
-                Route::post('/', ['uses' => $namespacePrefix.'VoyagerSettingsController@store',        'as' => 'store']);
-                Route::put('/', ['uses' => $namespacePrefix.'VoyagerSettingsController@update',       'as' => 'update']);
-                Route::delete('{id}', ['uses' => $namespacePrefix.'VoyagerSettingsController@delete',       'as' => 'delete']);
-                Route::get('{id}/move_up', ['uses' => $namespacePrefix.'VoyagerSettingsController@move_up',      'as' => 'move_up']);
-                Route::get('{id}/move_down', ['uses' => $namespacePrefix.'VoyagerSettingsController@move_down',    'as' => 'move_down']);
-                Route::put('{id}/delete_value', ['uses' => $namespacePrefix.'VoyagerSettingsController@delete_value', 'as' => 'delete_value']);
+                Route::get('/', ['uses' => 'Admin\VoyagerSettingsExtendController@index',        'as' => 'index']);
+                Route::post('/', ['uses' => 'Admin\VoyagerSettingsExtendController@store',        'as' => 'store']);
+                Route::put('/', ['uses' => 'Admin\VoyagerSettingsExtendController@update',       'as' => 'update']);
+                Route::delete('{id}', ['uses' => 'Admin\VoyagerSettingsExtendController@delete',       'as' => 'delete']);
+                Route::get('{id}/move_up', ['uses' => 'Admin\VoyagerSettingsExtendController@move_up',      'as' => 'move_up']);
+                Route::get('{id}/move_down', ['uses' => 'Admin\VoyagerSettingsExtendController@move_down',    'as' => 'move_down']);
+                Route::put('{id}/delete_value', ['uses' => 'Admin\VoyagerSettingsExtendController@delete_value', 'as' => 'delete_value']);
             });
     
             // Admin Media

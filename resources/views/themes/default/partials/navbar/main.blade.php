@@ -21,12 +21,12 @@
             <span class="navbar-toggler-icon"></span>
         </button>
 
-        @if(setting('site.logo'))
-        <a href="{{ url('/') }}"><img src="/storage/{{ setting('site.logo') }}" 
-        alt="{{ setting('site.title') }}" title="{{ setting('site.title') }}"  /></a>
+        @if( ( cache_setting('site.logo') ) && ( cache_setting('site.logo') != '' ) )
+        <a href="{{ url('/') }}"><img src="/storage/{{ cache_setting('site.logo') }}" 
+        alt="{{ cache_setting('site.title') }}" title="{{ cache_setting('site.title') }}"  /></a>
         @else
         <a href="{{ url('/') }}"><img src="/img/default-logo.png" 
-        alt="{{ setting('site.title') }}" title="{{ setting('site.title') }}" /></a>
+        alt="{{ cache_setting('site.title') }}" title="{{ cache_setting('site.title') }}" /></a>
         @endif
 
         @if(get_cors('SERVICE_CLIENT_ACTIVE') == 1)

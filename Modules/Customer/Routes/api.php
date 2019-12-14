@@ -17,4 +17,4 @@ Route::get('/customer/auth/token',
     ->name('api.customer.get.token');
 Route::post('/customer/auth/token', 
     '\Modules\Customer\Http\Controllers\Auth\CustomerApiTokenController@responseTokenCustomer')
-    ->name('api.customer.get.token');
+    ->name('api.customer.post.token');

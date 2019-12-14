@@ -79,3 +79,38 @@ __4. Helpers__
 - you need to use php artisan telescope:install again if .env value TELESCOPE_ENABLED is to false 
 
 ```
+
+__5. Api__
+
+```bash
+
+# 1.0 Users authorizations
+- passport (access to BREAD api)
+- jwt (access to normal api)
+
+# 1.1 Get passport access
+- IN PROGRESS
+
+# 1.2 Get user token
+- Get token access: /api/auth/token/login | params:['email', 'address'] | format: ['url-form', 'json']
+- IN PROGRESS
+
+# 1.3 Get api informations
+- Get route of api: EX : /api/posts
+- METHOD GET: /api/posts?token=your_user_token | params:['token'] | format: ['json']
+- METHOD GET: /api/posts | headers: "Authorization: Bearer your_user_token" | format: ['json']
+
+####################################################################################
+
+# 2.0 Customers authorizations
+- token
+
+# 2.1 Get customers authorization
+- METHOD GET: /api/customer/auth/token?email=your_email_customer&password=your_password_customer&scopes=customer_authorization
+- METHOD POST: /api/customer:auth/token | params:['email', 'address', 'scopes'] | format: ['url-form', 'json']
+
+# 2.1 Get customers informations
+- METHOD GET: /api/customer/auth/token?email=your_email_customer&password=your_password_customer&scopes=customer_informations
+- METHOD POST: /api/customer:auth/token | params:['email', 'address', 'scopes'] | format: ['url-form', 'json']
+
+```
