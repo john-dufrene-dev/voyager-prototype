@@ -41,11 +41,6 @@ return [
             'provider' => 'users',
         ],
 
-        'api' => [
-            'driver' => 'passport',
-            'provider' => 'users',
-        ],
-
         'jwt' => [
             'driver' => 'jwt',
             'provider' => 'users',
@@ -56,17 +51,15 @@ return [
             'provider' => 'customers',
         ],
 
+        'api' => [
+            'driver' => 'jwt',
+            'provider' => 'customers',
+        ],
+
         'token' => [
             'driver' => 'token',
             'provider' => 'customers',
             'hash' => true,
-        ],
-        
-        
-        // IN PROGRESS
-        'admin' => [
-            'driver' => 'session',
-            'provider' => 'admins',
         ],
     ],
 
@@ -89,11 +82,6 @@ return [
 
     'providers' => [
         'users' => [
-            'driver' => 'eloquent',
-            'model' => App\User::class,
-        ],
-
-        'admins' => [
             'driver' => 'eloquent',
             'model' => App\User::class,
         ],
@@ -126,12 +114,6 @@ return [
 
     'passwords' => [
         'users' => [
-            'provider' => 'users',
-            'table' => 'password_resets',
-            'expire' => 60,
-        ],
-
-        'admins' => [
             'provider' => 'users',
             'table' => 'password_resets',
             'expire' => 60,

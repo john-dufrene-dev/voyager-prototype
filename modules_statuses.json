@@ -6,7 +6,6 @@
     "LogViewer": true,
     "MaintenanceMode": true,
     "ModulesManagement": true,
-    "PassportAuthentification": true,
     "Post": true,
     "VoyagerBaseExtend": true,
     "Prototype": true

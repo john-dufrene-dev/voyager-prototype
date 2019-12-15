@@ -42,10 +42,3 @@ $api->version('v1', [], function (Router $api) {
     $api->get('posts/{slug}', '\Modules\ApiService\Http\Controllers\Api\V1\PostController@show')->name('api.v1.posts.show');
 
 });
-
-// BROWSE BREAD
-Route::get('/{datatype}', '\Modules\ApiService\Http\Controllers\Api\ApiController@browseBread')
-    ->name('api.bread.index');
-// READ BREAD
-Route::get('/{datatype}/{id}', '\Modules\ApiService\Http\Controllers\Api\ApiController@readBread')
-    ->name('api.bread.show');

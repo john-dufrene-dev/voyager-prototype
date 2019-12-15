@@ -77,9 +77,6 @@ mix.sass('Modules/MaintenanceMode/Resources/assets/sass/admin.scss', 'public/mod
 
 // Module Logviewer
 
-// Module PassportAuthentification
-mix.js('Modules/PassportAuthentification/Resources/assets/js/admin.js', 'public/modules/passportauth/js');
-
 // Module ModulesManagement
 
 // Module HistoriesLogs : ADMIN

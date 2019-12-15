@@ -144,9 +144,6 @@ class PrototypeCommand extends Command
         $this->info('Adding the storage symlink to your public folder');
         $this->call('storage:link');
 
-        $this->info('Install the requierement for passport');
-        $this->call('passport:install');
-
         $this->info('Install the requierement for telescope');
         $this->call('telescope:install');
 

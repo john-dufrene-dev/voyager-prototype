@@ -3,7 +3,6 @@
 namespace App;
 
 use Carbon\Carbon;
-use Laravel\Passport\HasApiTokens;
 use TCG\Voyager\Traits\VoyagerUser;
 use Tymon\JWTAuth\Contracts\JWTSubject;
 use Illuminate\Notifications\Notifiable;
@@ -13,7 +12,7 @@ use Illuminate\Foundation\Auth\User as Authenticatable;
 
 class User extends \TCG\Voyager\Models\User implements JWTSubject
 {
-    use HasApiTokens, Notifiable, VoyagerUser;
+    use Notifiable, VoyagerUser;
 
     protected $guarded = [];
 

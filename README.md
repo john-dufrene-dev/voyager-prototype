@@ -59,7 +59,6 @@ __3. TodoList__
 
 - Put api_token in Headers when customer is authenticated and get customer info with Vue
 - Finalize route.js to inject routes in js file
-- Finalize Passport admin
 
 ```
 
@@ -85,17 +84,13 @@ __5. Api__
 ```bash
 
 # 1.0 Users authorizations
-- passport (access to BREAD api)
 - jwt (access to normal api)
 
-# 1.1 Get passport access
-- IN PROGRESS
-
-# 1.2 Get user token
+# 1.1 Get user token
 - Get token access: /api/auth/token/login | params:['email', 'address'] | format: ['url-form', 'json']
 - IN PROGRESS
 
-# 1.3 Get api informations
+# 1.2 Get api informations
 - Get route of api: EX : /api/posts
 - METHOD GET: /api/posts?token=your_user_token | params:['token'] | format: ['json']
 - METHOD GET: /api/posts | headers: "Authorization: Bearer your_user_token" | format: ['json']
