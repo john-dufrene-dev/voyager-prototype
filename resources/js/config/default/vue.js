@@ -9,6 +9,28 @@ window.Vue = require('vue');
  |
  */
 
+// MIXINS FOR VUEJS
+Vue.mixin({
+    methods: {
+        routes: (name, params) => routes(name, params),
+        _path: () => window.location.pathname,
+        _token: () => axios.defaults.headers.common['X-CSRF-TOKEN'],
+        $_auth_autorize: () => auth_customer,
+        $_auth_infos: () => {   
+            let auth_valid = (true === auth_customer ) ? true : false;
+            if ( true === auth_valid ) {
+                let infos = {
+                    id: decrypter(auth_customer_infos.id , app_key),
+                    name: decrypter(auth_customer_infos.name , app_key),
+                    email: decrypter(auth_customer_infos.email , app_key),
+                }
+                return infos;
+            }
+            return null
+        }
+    }
+});
+
 // import BootstrapVue  from 'bootstrap-vue'
 // Vue.use(BootstrapVue)
 

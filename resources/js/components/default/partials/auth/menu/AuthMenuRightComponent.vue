@@ -2,24 +2,24 @@
 
 <ul class="navbar-nav ml-auto right-navbar"> 
 
-    <li v-if=!customer.valid>
-        <a v-bind:class="{'nav-link':true, 'active':(login_route === path || register_route === path )}" 
-        :href="login_route" ><i class="fas fa-user-alt"></i> {{ $t('auth.account') }}</a>
+    <li v-if=!$_auth_autorize()>
+        <a v-bind:class="{'nav-link':true, 'active':(routes('login') === _path() || routes('register') === _path() )}" 
+        :href="routes('login')" ><i class="fas fa-user-alt"></i> {{ $t('auth.account') }}</a>
     </li>
 
     <li v-else>
         <a href="#" role="button" aria-haspopup="true" aria-expanded="false">
-        <i class="fas fa-user-alt"></i> {{ customer.name }} <span class="caret"></span></a>
+        <i class="fas fa-user-alt"></i> {{ $_auth_infos().name }} <span class="caret"></span></a>
         <ul>
             <li class="right-first">
-                <a v-bind:class="{'nav-link':true, 'active':(account_route === path)}"
-                :href="account_route"> Mon compte</a></li>
-            <li class="right-second"><a class="nav-link" :href="logout_route"
-                onclick="event.preventDefault(); document.getElementById('logout-form').submit();"> Déconnexion </a>
+                <a v-bind:class="{'nav-link':true, 'active':(routes('pages.account') === _path() )}"
+                :href="routes('pages.account')"> {{ $t('auth.account') }} </a></li>
+            <li class="right-second"><a class="nav-link" :href="routes('logout')"
+                @click.prevent="logout"> {{ $t('generic.logout') }} </a>
             </li>
 
-            <form id="logout-form" :action=logout_route method="POST" style="display: none;">
-                <input type="hidden" name="_token" :value=_token>
+            <form id="logout-form" :action="routes('logout')" method="POST" style="display: none;">
+                <input type="hidden" name="_token" :value="_token()">
             </form>
         </ul>
     </li>
@@ -33,25 +33,17 @@
 export default {
     data () {
         return {
-            customer: [],
+            // 
         }
     },
     created() {
-        
-        this.path = window.location.pathname
-        this.login_route = routes('login')
-        this.register_route = routes('register')
-        this.logout_route = routes('logout')
-        this.account_route = routes('pages.account')
-
-        this._token = axios.defaults.headers.common['X-CSRF-TOKEN']
-
-        this.customer.valid = (true === axios.defaults.headers.common['AUTH-CUSTOMER-AUTHENTICATED'] ) ? true : false;
-
-        if(true === this.customer.valid) {
-            this.customer.name = decrypter(axios.defaults.headers.common['AUTH-CUSTOMER-NAME'] , app_key)
-        }
+        //
     },
+    methods: {
+        logout() {
+            document.getElementById('logout-form').submit()
+        }
+    }
 }
 
 </script>
