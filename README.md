@@ -24,7 +24,7 @@ git clone https://github.com/john-dufrene-dev/voyager-prototype.git
 cp .env.example .env
 
 # 1.2 Install packages DEV
-composer install && npm install
+composer install && npm install && yarn prod
 
 # 1.3 Generate a Laravel key
 php artisan key:generate

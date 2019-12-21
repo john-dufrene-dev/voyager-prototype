@@ -3,17 +3,18 @@
 namespace Modules\VoyagerBaseExtend\Http\Controllers\Admin;
 
 use Artisan;
+use Exception;
 use Illuminate\Http\Request;
 use TCG\Voyager\Facades\Voyager;
 use Illuminate\Support\Facades\App;
 use Nwidart\Modules\Facades\Module;
+use App\Http\Controllers\Controller;
 use Symfony\Component\Process\Process;
 use Modules\Prototype\Traits\ExecuteCommandArtisan;
 use Symfony\Component\Process\Exception\ProcessFailedException;
 use Symfony\Component\HttpKernel\Exception\AccessDeniedHttpException;
-use App\Voyager\Http\Controllers\VoyagerCompassController as BaseVoyagerCompassController;
 
-class VoyagerCompassExtendController extends BaseVoyagerCompassController
+class VoyagerCompassExtendController extends Controller
 {
     use ExecuteCommandArtisan;
     
@@ -74,6 +75,6 @@ class VoyagerCompassExtendController extends BaseVoyagerCompassController
 
         $commands = $this->getArtisanCommands();
 
-        return view('voyagerbaseextend::admin.compass.index', compact('active_tab', 'commands', 'artisan_output'));
+        return view('voyagerbaseextend::admin.compass.index', compact('active_tab', 'commands', 'artisan_output'))->with($message);
     }
 }
