@@ -20,3 +20,9 @@ if( true == config('voyager.multilingual.enabled') ) {
     })->name('language.change');
 
 }
+// VOYAGER ROUTES
+if(Module::find('VoyagerBaseExtend')->isDisabled()) {
+    Route::group(['prefix' => 'admin'], function () {
+        Voyager::routes();
+    });
+}

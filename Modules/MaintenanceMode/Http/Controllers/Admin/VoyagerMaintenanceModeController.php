@@ -75,7 +75,7 @@ class VoyagerMaintenanceModeController extends BaseVoyagerBaseController
         }
 
         $orderBy = $request->get('order_by', $dataType->order_column);
-        $sortOrder = $request->get('sort_order', null);
+        $sortOrder = $request->get('sort_order', $dataType->order_direction);
 
         // Next Get or Paginate the actual content from the MODEL that corresponds to the slug DataType
         $usesSoftDeletes = false;

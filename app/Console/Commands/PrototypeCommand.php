@@ -8,7 +8,6 @@ use Illuminate\Filesystem\Filesystem;
 use Symfony\Component\Process\Process;
 use TCG\Voyager\VoyagerServiceProvider;
 use Symfony\Component\Console\Input\InputOption;
-use Intervention\Image\ImageServiceProviderLaravel5;
 use TCG\Voyager\Providers\VoyagerDummyServiceProvider;
 use Modules\Prototype\Providers\DummyContentServiceProvider;
 
@@ -76,7 +75,6 @@ class PrototypeCommand extends Command
         $tags = ['seeds'];
 
         $this->call('vendor:publish', ['--provider' => VoyagerServiceProvider::class, '--tag' => $tags]);
-        // $this->call('vendor:publish', ['--provider' => ImageServiceProviderLaravel5::class]);
 
         $this->info('Migrating the database tables into your application');
         $this->call('migrate', ['--force' => $this->option('force')]);
@@ -152,6 +150,9 @@ class PrototypeCommand extends Command
 
         $this->info('Generate translation for vue-js');
         $this->call('vue-i18n:generate', ['--format' => 'umd']);
+
+        $this->info('Generate routes for vue-js');
+        $this->call('route:generate:js');
 
         $this->info('Generate jwt token secret');
         $this->call('jwt:secret');

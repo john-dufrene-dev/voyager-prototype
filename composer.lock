@@ -5371,12 +5371,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/the-control-group/voyager.git",
-                "reference": "fb1cac0e6c61cda29a4560e4588da5533c41fdd1"
+                "reference": "094c53a0811f6c9e6ca50ab6f39efa44a7c55957"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/the-control-group/voyager/zipball/fb1cac0e6c61cda29a4560e4588da5533c41fdd1",
-                "reference": "fb1cac0e6c61cda29a4560e4588da5533c41fdd1",
+                "url": "https://api.github.com/repos/the-control-group/voyager/zipball/094c53a0811f6c9e6ca50ab6f39efa44a7c55957",
+                "reference": "094c53a0811f6c9e6ca50ab6f39efa44a7c55957",
                 "shasum": ""
             },
             "require": {
@@ -5428,7 +5428,7 @@
                 "laravel",
                 "panel"
             ],
-            "time": "2019-12-14T05:51:15+00:00"
+            "time": "2019-12-19T13:11:22+00:00"
         },
         {
             "name": "tijsverkoyen/css-to-inline-styles",

@@ -18,13 +18,6 @@ use TCG\Voyager\Facades\Voyager;
 |
 */
 
-// VOYAGER ROUTES
-if(Module::find('VoyagerBaseExtend')->isDisabled()) {
-    Route::group(['prefix' => 'admin'], function () {
-        Voyager::routes();
-    });
-}
-
 // FILEMANAGER ROUTES
 Route::group(['middleware' => 'admin.user'], function () {
     Route::get('/admin/filemanager', '\UniSharp\LaravelFilemanager\Controllers\LfmController@show')
