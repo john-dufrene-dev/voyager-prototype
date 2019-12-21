@@ -5,6 +5,7 @@ namespace Modules\VoyagerBaseExtend\Entities\Menus;
 use Illuminate\Support\Str;
 use TCG\Voyager\Facades\Voyager;
 use TCG\Voyager\Events\MenuDisplay;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Database\Eloquent\Model;
 use Spatie\Activitylog\Traits\LogsActivity;
 
@@ -128,7 +129,7 @@ class Menu extends Model
             if ($item->href == url()->current() && $item->href != '') {
                 // The current URL is exactly the URL of the menu-item
                 $item->active = true;
-            } elseif (starts_with(url()->current(), Str::finish($item->href, '/'))) {
+            } elseif (Str::startsWith(url()->current(), Str::finish($item->href, '/'))) {
                 // The current URL is "below" the menu-item URL. For example "admin/posts/1/edit" => "admin/posts"
                 $item->active = true;
             }

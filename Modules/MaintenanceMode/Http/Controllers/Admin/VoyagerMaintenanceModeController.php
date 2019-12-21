@@ -66,7 +66,7 @@ class VoyagerMaintenanceModeController extends BaseVoyagerBaseController
 
         $searchNames = [];
         if ($dataType->server_side) {
-            $searchable = SchemaManager::describeTable(app($dataType->model_name)->getTable())->pluck('name')->toArray();
+            $searchable = array_keys(SchemaManager::describeTable(app($dataType->model_name)->getTable())->pluck('name'));
             $dataRow = Voyager::model('DataRow')->whereDataTypeId($dataType->id)->get();
             foreach ($searchable as $key => $value) {
                 $displayName = $dataRow->where('field', $value)->first()->getTranslatedAttribute('display_name');
