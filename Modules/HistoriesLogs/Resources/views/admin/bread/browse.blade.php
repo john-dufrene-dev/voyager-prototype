@@ -133,7 +133,7 @@
                                             </td>
                                         @endforeach
                                         <td class="no-sort no-click" id="bread-actions">
-                                            <a href="{{ route('voyager.history-log.show', ['history_log' => $data->getKey()]) }}" title="Vue" class="btn btn-sm btn-warning pull-right view">
+                                            <a href="{{ route('voyager.history-log.show', ['id' => $data->getKey()]) }}" title="Vue" class="btn btn-sm btn-warning pull-right view">
                                                 <i class="voyager-eye"></i> <span class="hidden-xs hidden-sm"></span>
                                             </a>
                                         </td>

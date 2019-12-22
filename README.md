@@ -42,7 +42,7 @@ __2. Troubleshooting__
 ```bash
 
 # 1.0 Error symfony/console
-- Problem when update symfony/console to "4.3.5" => Commands will not be correctly executed, use exec() instead of new Process() : "Need to change controller"
+- Problem when update symfony/console to "4.3.5" => Commands will not be correctly executed, use exec() or Artisan::Call() instead of new Process()
 
 # 1.1 Optimization fail
 - When active multilanguage can\'t use php artisan optimize because Closure : "Need to create Controller"
@@ -59,6 +59,7 @@ __3. TodoList__
 
 - Put api_token in Headers when customer is authenticated and get customer info with Vue
 - Finalize route.js to inject routes in js file
+- Pass Command/DummyContents/Fonts in Prototype Module
 
 ```
 
@@ -70,11 +71,15 @@ __4. Helpers__
 - php artisan tinker
 - DB::statement("DROP DATABASE `YOUR_DATABASE`");
 - DB::statement("CREATE DATABASE `YOUR_DATABASE`");
+- php artisan prototype:install --with-dummy
 
 # 1.1 Update translation JS
-- use php artisan vue-i18n:generate --format= "umd" to update translation JS 
+- use php artisan vue-i18n:generate --format= "umd" to update translation JS
 
-# 1.2 Publish Telescope
+# 1.2 Update routes JS
+- use php artisan route:generate:js to update routes JS
+
+# 1.3 Publish Telescope
 - you need to use php artisan telescope:install again if .env value TELESCOPE_ENABLED is to false 
 
 ```
@@ -102,7 +107,7 @@ __5. Api__
 
 # 2.1 Get customers authorization
 - METHOD GET: /api/customer/auth/token?email=your_email_customer&password=your_password_customer&scopes=customer_authorization
-- METHOD POST: /api/customer:auth/token | params:['email', 'address', 'scopes'] | format: ['url-form', 'json']
+- METHOD POST: /api/customer/auth/token | params:['email', 'address', 'scopes'] | format: ['url-form', 'json']
 
 # 2.1 Get customers informations
 - METHOD GET: /api/customer/auth/token?email=your_email_customer&password=your_password_customer&scopes=customer_informations

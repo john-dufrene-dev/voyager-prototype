@@ -7,9 +7,9 @@ use Exception;
 use Illuminate\Http\Request;
 use TCG\Voyager\Facades\Voyager;
 use Nwidart\Modules\Facades\Module;
-use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Auth;
 use Symfony\Component\Process\Process;
+use TCG\Voyager\Http\Controllers\Controller;
 use Modules\Prototype\Traits\ExecuteCommandArtisan;
 use Symfony\Component\Process\Exception\ProcessFailedException;
 use Symfony\Component\HttpKernel\Exception\AccessDeniedHttpException;
@@ -55,19 +55,10 @@ class VoyagerModulesManagementController extends Controller
             try {
 
                 // Symfony 4.3.5 problem with new Process() => using exec()
-                
-                $process = new Process('cd '.base_path().' && php artisan '.$command.$args);
-                $process->run();
-
-                if (!$process->isSuccessful()) {
-                    throw new ProcessFailedException($process);
-                }
-
-                $artisan_output = $process->getOutput();
 
                 // $artisan_output = exec('cd ' . base_path() . ' && php artisan ' . $command . $args);
-                // Artisan::call($command . $args);
-                // $artisan_output = Artisan::output();
+                Artisan::call($command . $args);
+                $artisan_output = Artisan::output();
 
             } catch (Exception $e) {
                 $artisan_output = $e->getMessage();

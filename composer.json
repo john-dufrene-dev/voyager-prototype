@@ -20,7 +20,6 @@
         "nwidart/laravel-modules": "^6.0",
         "renatomarinho/laravel-page-speed": "^1.8",
         "spatie/laravel-activitylog": "^3.8",
-        "symfony/console": "4.3.4",
         "tcg/voyager": "1.3.x-dev",
         "tymon/jwt-auth": "^1.0",
         "unisharp/laravel-filemanager": "^1.9"

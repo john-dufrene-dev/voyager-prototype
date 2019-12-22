@@ -17,23 +17,27 @@ if(Module::find('MaintenanceMode')->isEnabled()) {
     Route::group(['prefix' => 'admin'], function () {
         Route::group(['as' => 'voyager.'], function () {
             event(new Routing());
-        
-            Route::post('maintenance/store/turn', [
-                'uses' => 'Admin\VoyagerMaintenanceModeController@StoreTurnMaintenanceMode', 
-                'as' => 'maintenance.turn']
-            );
 
-            Route::post('/maintenance/ajax/ip', [
-                'uses' => 'Admin\VoyagerMaintenanceModeController@getAjaxIp', 
-                'as' => 'maintenance.ajax.ip']
-            );
-
-            Route::post('/maintenance/ajax/status', [
-                'uses' => 'Admin\VoyagerMaintenanceModeController@updateAjaxStatusIP', 
-                'as' => 'maintenance.ajax.status']
-            );
+            Route::group(['middleware' => 'admin.user'], function () {
         
-            event(new RoutingAfter());
+                Route::post('maintenance/store/turn', [
+                    'uses' => 'Admin\VoyagerMaintenanceModeController@StoreTurnMaintenanceMode', 
+                    'as' => 'maintenance.turn']
+                );
+
+                Route::post('/maintenance/ajax/ip', [
+                    'uses' => 'Admin\VoyagerMaintenanceModeController@getAjaxIp', 
+                    'as' => 'maintenance.ajax.ip']
+                );
+
+                Route::post('/maintenance/ajax/status', [
+                    'uses' => 'Admin\VoyagerMaintenanceModeController@updateAjaxStatusIP', 
+                    'as' => 'maintenance.ajax.status']
+                );
+        
+                event(new RoutingAfter());
+            });
+            
         });
     });
 }

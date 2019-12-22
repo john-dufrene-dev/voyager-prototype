@@ -17,14 +17,17 @@ use TCG\Voyager\Events\RoutingAfter;
 if(Module::find('HistoriesLogs')->isEnabled()) {
     Route::group(['prefix' => 'admin'], function () {
         Route::group(['as' => 'voyager.'], function () {
-            event(new Routing());
-        
-            Route::post('history-log/store/turn', [
-                'uses' => 'Admin\HistoryLogAdminController@ActiveHistoryLog', 
-                'as' => 'historylog.turn']
-            );
-        
-            event(new RoutingAfter());
+
+            Route::group(['middleware' => 'admin.user'], function () {
+                event(new Routing());
+            
+                Route::post('history-log/store/turn', [
+                    'uses' => 'Admin\HistoryLogAdminController@ActiveHistoryLog', 
+                    'as' => 'historylog.turn']
+                );
+            
+                event(new RoutingAfter());
+            });
         });
     });
 }
