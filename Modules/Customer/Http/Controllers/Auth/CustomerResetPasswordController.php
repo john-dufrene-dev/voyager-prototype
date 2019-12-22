@@ -2,11 +2,14 @@
 
 namespace Modules\Customer\Http\Controllers\Auth;
 
+use Illuminate\Support\Str;
 use Illuminate\Http\Request;
 use Nwidart\Modules\Facades\Module;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Session;
 use Illuminate\Support\Facades\Password;
+use Illuminate\Auth\Events\PasswordReset;
 use Illuminate\Foundation\Auth\ResetsPasswords;
 
 class CustomerResetPasswordController extends Controller
@@ -78,5 +81,42 @@ class CustomerResetPasswordController extends Controller
     public function broker()
     {
         return Password::broker('customers');
+    }
+
+    /**
+     * Reset the given user's password.
+     *
+     * @param  \Illuminate\Contracts\Auth\CanResetPassword  $user
+     * @param  string  $password
+     * @return void
+     */
+    protected function resetPassword($user, $password)
+    {
+        $token = Str::random(80); 
+
+        $this->setUserPassword($user, $password);
+
+        $user->setRememberToken(Str::random(60));
+        $user->api_token = hash('SHA256', $token);
+
+        $user->save();
+
+        event(new PasswordReset($user));
+
+        $this->guard()->login($user);
+
+        $this->setCustomerSession($user, $token);
+    }
+
+    protected function setCustomerSession($user, $token)
+    {
+        session([
+            'customer_session_authenticated' => [
+                'customer_id' => $user->getIdUser(),
+                'customer_name' => $user->getName(),
+                'customer_email' => $user->getEmail(),
+                'customer_api_token' => $token,
+            ],
+        ]);
     }
 }

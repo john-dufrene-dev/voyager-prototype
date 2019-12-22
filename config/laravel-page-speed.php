@@ -56,7 +56,9 @@ return [
         '*.m4v',
         '*.torrent',
         'admin',
-        'admin/*'
+        'admin/*',
+        'filemanager/*',
+        'filemanager'
     ],
 
 ];
