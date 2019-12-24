@@ -1,6 +1,7 @@
 <?php
 
 use TCG\Voyager\Models\Setting;
+use Modules\VoyagerBaseExtend\Entities\Menus\Menu;
 
 if (! function_exists('cache_setting') ) {
     function cache_setting($key, $default = null) {
@@ -20,5 +21,11 @@ if (! function_exists('cache_setting') ) {
         Cache::put('cache_setting_'.$key, '');
 
         return $default;
+    }
+}
+
+if (!function_exists('menu_full')) {
+    function menu_full($menuName, $type = null, array $options = []) {
+        return Menu::display($menuName, $type, $options);
     }
 }

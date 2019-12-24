@@ -1,7 +1,7 @@
 {{-- <nav class="navbar navbar-expand-md nav-top-small">
     <ul class="navbar-nav bottom-collapse-navbar ml-auto">
         <ul class="navbar-nav bottom-collapse-navbar mx-auto">
-            {!! menu('header', Theme::use().'partials.navbar.menus._top') !!}
+            {!! menu_full('header', Theme::use().'partials.navbar.menus._top') !!}
         </ul>
     </ul>
     <ul class="navbar-nav bottom-collapse-navbar ml-left">
@@ -15,11 +15,7 @@
 <nav class="navbar navbar-expand-md navbar-light bg-white py-3">
     <div class="container">
 
-        <button class="navbar-toggler btn-navbar-bottom" type="button" data-toggle="collapse" 
-        data-target="#bottomNavbar" aria-controls="bottomNavbar" 
-        aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">
-            <span class="navbar-toggler-icon"></span>
-        </button>
+        <btn-menu-bottom-component></btn-menu-bottom-component>
 
         @if( ( cache_setting('site.logo') ) && ( cache_setting('site.logo') != '' ) )
         <a href="{{ url('/') }}"><img src="/storage/{{ cache_setting('site.logo') }}" 
@@ -46,13 +42,7 @@
 </nav>
 
 <nav class="navbar shadow-sm navbar-expand-md py-1 bottom-navbar">
-    <div class="container">
-
-        <div class="collapse navbar-collapse" id="bottomNavbar">
-            <ul class="navbar-nav bottom-collapse-navbar mx-auto">
-                {!! menu('header', Theme::use().'partials.navbar.menus._bottom') !!}
-            </ul>
-        </div>
-
+    <div class="collapse navbar-collapse" id="bottomNavbar">
+        <menu-bottom-component :items="{{ menu_full('header', '_json_full') }}"></menu-bottom-component>
     </div>
 </nav>

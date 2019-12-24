@@ -20,7 +20,8 @@ mix.js('resources/js/default.js', 'public/js/single')
         resolve: {
             alias: {
                 '@@': path.resolve('resources/sass'),
-                '@@@': path.resolve('resources/js')
+                '@@@': path.resolve('resources/js'),
+                '@modules@': path.resolve('modules_statuses.json')
             }
         }
     });

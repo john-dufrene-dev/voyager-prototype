@@ -719,9 +719,9 @@
   integrity sha512-tHq6qdbT9U1IRSGf14CL0pUlULksvY9OZ+5eEgl1N7t+OA3tGvNpxJCzuKQlsNgCVwbAs670L1vcVQi8j9HjnA==
 
 "@types/node@*":
-  version "12.12.21"
-  resolved "https://registry.yarnpkg.com/@types/node/-/node-12.12.21.tgz#aa44a6363291c7037111c47e4661ad210aded23f"
-  integrity sha512-8sRGhbpU+ck1n0PGAUgVrWrWdjSW2aqNeyC15W88GRsMpSwzv6RJGlLhE7s2RhVSOdyDmxbqlWSeThq4/7xqlA==
+  version "13.1.0"
+  resolved "https://registry.yarnpkg.com/@types/node/-/node-13.1.0.tgz#225cbaac5fdb2b9ac651b02c070d8aa3c37cc812"
+  integrity sha512-zwrxviZS08kRX40nqBrmERElF2vpw4IUTd5khkhBTfFH8AOaeoLVx48EC4+ZzS2/Iga7NevncqnsUSYjM4OWYA==
 
 "@types/q@^1.5.1":
   version "1.5.2"
@@ -1776,9 +1776,9 @@ code-point-at@^1.0.0:
   integrity sha1-DQcLTQQ6W+ozovGkDi7bPZpMz3c=
 
 collect.js@^4.12.8:
-  version "4.18.9"
-  resolved "https://registry.yarnpkg.com/collect.js/-/collect.js-4.18.9.tgz#a4d3610232fadd2c0830ded711cb5f29011bc833"
-  integrity sha512-/ocqUYqJFIRZo9mmY6NkdV/VGJnheSKhQ2OQm8X8r9AbxPoShQtvzyYHRQ057XuB9U9rywBfwYEBhnlSq8uQxA==
+  version "4.19.0"
+  resolved "https://registry.yarnpkg.com/collect.js/-/collect.js-4.19.0.tgz#ad4e1c13c701074c6d2646834e32df34be076578"
+  integrity sha512-Lx+/nCsOD5/Bk+H5uerRJ415W6oXU0G2+VSmm2j76yzXfqxvcop5Jqx22iW+AtcxVWRrodz6YV9LCM443BPIvA==
 
 collection-visit@^1.0.0:
   version "1.0.0"
@@ -7570,6 +7570,11 @@ vue-template-es2015-compiler@^1.9.0:
   version "1.9.1"
   resolved "https://registry.yarnpkg.com/vue-template-es2015-compiler/-/vue-template-es2015-compiler-1.9.1.tgz#1ee3bc9a16ecbf5118be334bb15f9c46f82f5825"
   integrity sha512-4gDntzrifFnCEvyoO8PqyJDmguXgVPxKiIxrBKjIowvL9l+N66196+72XVYR8BBf1Uv1Fgt3bGevJ+sEmxfZzw==
+
+vue2-filters@^0.9.1:
+  version "0.9.1"
+  resolved "https://registry.yarnpkg.com/vue2-filters/-/vue2-filters-0.9.1.tgz#c31df2e44d523fac74d362a792c68890cfddc3f1"
+  integrity sha512-peQHwZIT4cv/SsFodfmS8QREOnpdbsblIcKg19Kgu6kDCZ2Q9vorI9QyRLDIdvziFsKYjDL4NtwqgKDUrgxNQg==
 
 vue@^2.6.10:
   version "2.6.11"

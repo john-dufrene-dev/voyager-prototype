@@ -3,10 +3,10 @@
     "/js/config/localization.js": "/js/config/localization.js?id=3ed4b3b435c212e9b1c2",
     "/js/config/routes.js": "/js/config/routes.js?id=9527c3d12ccf30f5d8a0",
     "/js/config/vue.js": "/js/config/vue.js?id=f1c4347f04a1d2d7458c",
-    "/js/config/vue-elements.js": "/js/config/vue-elements.js?id=fbe1e941d0bd02514e8c",
+    "/js/config/vue-elements.js": "/js/config/vue-elements.js?id=1e6f5a620e770f104c10",
     "/js/single/default.js": "/js/single/default.js?id=5ed4d617f2a5d0072022",
     "/js/single/vendor.js": "/js/single/vendor.js?id=e1c7050909dd004c8694",
-    "/css/app.css": "/css/app.css?id=0e5976622f86b880fdb2",
+    "/css/app.css": "/css/app.css?id=2ad5678906f36ace041b",
     "/modules/voyagerbaseextend/css/admin.css": "/modules/voyagerbaseextend/css/admin.css?id=2855ccc4f4838dc9d149",
     "/modules/post/css/app.css": "/modules/post/css/app.css?id=fd2a0cf36936a84a420a",
     "/modules/maintenancemode/css/admin.css": "/modules/maintenancemode/css/admin.css?id=0aa3f53df867814fa736",
@@ -17,5 +17,5 @@
     "/modules/maintenancemode/js/admin.js": "/modules/maintenancemode/js/admin.js?id=3592cb7b28a9c33d875c",
     "/modules/post/js/app.js": "/modules/post/js/app.js?id=4aceddc45609e60092df",
     "/modules/voyagerbaseextend/js/admin.js": "/modules/voyagerbaseextend/js/admin.js?id=bc7710b2a455a47c4fac",
-    "/js/default.min.js": "/js/default.min.js?id=f1b616e63b13dd393a78"
+    "/js/default.min.js": "/js/default.min.js?id=77c611883cd2a33a3f66"
 }

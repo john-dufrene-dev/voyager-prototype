@@ -16,3 +16,13 @@ Vue.component(
     require('../../components/default/partials/auth/menu/AuthMenuRightComponent.vue').default
 );
 
+/****** MENU BOTTOM ******/
+Vue.component(
+    'menu-bottom-component', 
+    require('../../components/default/partials/elements/menus/MenuBottomComponent.vue').default
+);
+Vue.component(
+    'btn-menu-bottom-component', 
+    require('../../components/default/partials/elements/menus/buttons/BtnMenuBottomComponent.vue').default
+);
+

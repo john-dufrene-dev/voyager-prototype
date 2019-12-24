@@ -7,6 +7,8 @@ use TCG\Voyager\Traits\Translatable;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Database\Eloquent\Model;
 use Spatie\Activitylog\Traits\LogsActivity;
+use Modules\VoyagerBaseExtend\Entities\Menus\Menu;
+use Modules\VoyagerBaseExtend\Entities\Menus\MenuItem;
 
 class MenuItem extends Model
 {
@@ -52,14 +54,14 @@ class MenuItem extends Model
 
     public function children()
     {
-        return $this->hasMany(Voyager::modelClass('MenuItem'), 'parent_id')
+        return $this->hasMany(app(MenuItem::class), 'parent_id')
             ->with('children')
             ->orderBy('order');
     }
 
     public function menu()
     {
-        return $this->belongsTo(Voyager::modelClass('Menu'));
+        return $this->belongsTo(app(Menu::class));
     }
 
     public function link($absolute = false)

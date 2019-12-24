@@ -4,10 +4,12 @@ namespace Modules\VoyagerBaseExtend\Entities\Menus;
 
 use Illuminate\Support\Str;
 use TCG\Voyager\Facades\Voyager;
-use TCG\Voyager\Events\MenuDisplay;
+use Nwidart\Modules\Facades\Module;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Database\Eloquent\Model;
 use Spatie\Activitylog\Traits\LogsActivity;
+use Modules\VoyagerBaseExtend\Entities\Menus\MenuItem;
+use Modules\VoyagerBaseExtend\Events\MenuDisplayExtend;
 
 /**
  * @todo: Refactor this class by using something like MenuBuilder Helper.
@@ -45,12 +47,12 @@ class Menu extends Model
 
     public function items()
     {
-        return $this->hasMany(Voyager::modelClass('MenuItem'));
+        return $this->hasMany(app(MenuItem::class));
     }
 
     public function parent_items()
     {
-        return $this->hasMany(Voyager::modelClass('MenuItem'))
+        return $this->hasMany(app(MenuItem::class))
             ->whereNull('parent_id');
     }
 
@@ -79,7 +81,7 @@ class Menu extends Model
             return false;
         }
 
-        event(new MenuDisplay($menu));
+        // event(new MenuDisplayExtend($menu));
 
         // Convert options array into object
         $options = (object) $options;
@@ -108,6 +110,13 @@ class Menu extends Model
             return $items;
         }
 
+        if ($menuName != 'admin' && $type == '_json_full') {
+
+            $items = static::processItemsFull($items);
+
+            return $items;
+        }
+
         return new \Illuminate\Support\HtmlString(
             \Illuminate\Support\Facades\View::make($type, ['items' => $items, 'options' => $options])->render()
         );
@@ -116,6 +125,35 @@ class Menu extends Model
     public function removeMenuFromCache()
     {
         \Cache::forget('voyager_menu_'.$this->name);
+    }
+
+    private static function processItemsFull($items)
+    {
+        $items = $items->transform(function ($item) {
+            // Translate title
+            if( verify_trans() ) {
+                $item->title = $item->getTranslatedAttribute('title');
+            }
+            // Resolve URL/Route
+            $item->href = $item->link(true);
+
+            if ($item->href == url()->current() && $item->href != '') {
+                // The current URL is exactly the URL of the menu-item
+                $item->active = true;
+            }
+
+            if ($item->children->count() > 0) {
+                $item->setRelation('children', static::processItemsFull($item->children));
+            }
+
+            if(null != $item->link_to_module) {
+                $item->module_statuse = Module::find($item->link_to_module)->isEnabled();
+            }
+
+            return $item;
+        });
+
+        return $items->values();
     }
 
     private static function processItems($items)
