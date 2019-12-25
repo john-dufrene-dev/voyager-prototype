@@ -1,6 +1,6 @@
 <?php
 
-namespace Modules\Prototype\Http\Controllers\Admin;
+namespace Modules\Prototype\Http\Controllers\Admin\Pages;
 
 use Exception;
 use Illuminate\Http\Request;
@@ -12,7 +12,7 @@ use TCG\Voyager\Http\Controllers\Controller;
 use Modules\Prototype\Entities\CorsSetting;
 use Modules\Prototype\Traits\CorsSettingTable;
 
-class ConfigPagesSettingsExtendController extends Controller
+class ConfigPagesHomeSettingsExtendController extends Controller
 {
     use CorsSettingTable,
         Translatable;
@@ -28,7 +28,7 @@ class ConfigPagesSettingsExtendController extends Controller
 
         $isModelTranslatable = is_bread_translatable(app(CorsSetting::class));
 
-        $view = 'prototype::admin.configs.home';
+        $view = 'prototype::admin.configs..pages.home';
 
         return Voyager::view($view, compact('isModelTranslatable'));
     }

@@ -58,8 +58,9 @@ Route::group(['prefix' => 'admin'], function () {
                 'prefix' => 'config',
             ], function () use ($moduleNamespace) {
                 
-                Route::get('/home', ['uses' => 'Admin\ConfigPagesSettingsExtendController@home',  'as' => 'home']);
-                Route::post('/home', ['uses' => 'Admin\ConfigPagesSettingsExtendController@homeUpdate',  
+                Route::get('/home', ['uses' => 'Admin\Pages\ConfigPagesHomeSettingsExtendController@home',
+                'as' => 'home']);
+                Route::post('/home', ['uses' => 'Admin\Pages\ConfigPagesHomeSettingsExtendController@homeUpdate',  
                 'as' => 'home.post']);
             });
 
