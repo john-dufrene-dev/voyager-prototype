@@ -85,22 +85,16 @@ class CustomerLoginController extends Controller
      */
     protected function authenticated(Request $request, $user)
     {
-        $token = Str::random(80);
-        
-        $user->api_token = hash('SHA256', $token);
-        $user->save();
-
-        $this->setCustomerSession($user, $token);
+        $this->setCustomerSession($user);
     }
 
-    protected function setCustomerSession($user, $token)
+    protected function setCustomerSession($user)
     {
         session([
             'customer_session_authenticated' => [
                 'customer_id' => $user->getIdUser(),
                 'customer_name' => $user->getName(),
                 'customer_email' => $user->getEmail(),
-                'customer_api_token' => $token,
             ],
         ]);
     }

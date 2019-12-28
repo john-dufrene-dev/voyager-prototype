@@ -28,7 +28,7 @@
 
                     <div class="panel-body" style="padding:30px;">
                         <div class="dd">
-                            {!! menu($menu->name, 'voyagerbaseextend::admin.menu.admin', 
+                            {!! menu_full($menu->name, 'voyagerbaseextend::admin.menu.admin', 
                             ['isModelTranslatable' => $isModelTranslatable]) !!}
                         </div>
                     </div>

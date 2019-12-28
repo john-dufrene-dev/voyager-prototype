@@ -55,12 +55,6 @@ return [
             'driver' => 'jwt',
             'provider' => 'customers',
         ],
-
-        'token' => [
-            'driver' => 'token',
-            'provider' => 'customers',
-            'hash' => true,
-        ],
     ],
 
     /*

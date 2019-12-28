@@ -111,12 +111,7 @@ class CustomerRegisterController extends Controller
 
         $this->guard()->login($user);
 
-        $token = Str::random(80);
-        
-        $user->api_token = hash('SHA256', $token);
-        $user->save();
-
-        $this->setCustomerSession($user, $token);
+        $this->setCustomerSession($user);
 
         // $customer = Customer::where('email', $request->email)->first();
         $users = User::whereHas('roles', function($q) {
@@ -130,14 +125,13 @@ class CustomerRegisterController extends Controller
                         ?: redirect($this->redirectPath());
     }
 
-    protected function setCustomerSession($user, $token)
+    protected function setCustomerSession($user)
     {
         session([
             'customer_session_authenticated' => [
                 'customer_id' => $user->getIdUser(),
                 'customer_name' => $user->getName(),
                 'customer_email' => $user->getEmail(),
-                'customer_api_token' => $token,
             ],
         ]);
     }

@@ -33,12 +33,10 @@ if(customer_auth != undefined) {
         id: document.head.querySelector('meta[name="auth-customer-id"]').content,
         name: document.head.querySelector('meta[name="auth-customer-name"]').content,
         email: document.head.querySelector('meta[name="auth-customer-email"]').content,
-        token: document.head.querySelector('meta[name="auth-customer-token"]').content
     }
     axios.defaults.headers.common['AUTH-CUSTOMER-ID'] = auth_customer_infos.id
     axios.defaults.headers.common['AUTH-CUSTOMER-NAME'] = auth_customer_infos.name
     axios.defaults.headers.common['AUTH-CUSTOMER-EMAIL'] = auth_customer_infos.email
-    axios.defaults.headers.common['AUTH-CUSTOMER-TOKEN'] = auth_customer_infos.token
 } else {
     window.auth_customer = false
 }

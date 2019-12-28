@@ -19,18 +19,13 @@ class Customer extends Authenticatable
 
     protected $table = 'customers';
 
-    protected $fillable = ['name', 'email',  'password', 'api_token'];
+    protected $fillable = ['name', 'email',  'password'];
 
     protected $hidden = ['password',  'remember_token'];
 
     public function getIdUser()
     {
         return $this->id;
-    }
-
-    public function getApiToken()
-    {
-        return $this->api_token;
     }
 
     public function getName()

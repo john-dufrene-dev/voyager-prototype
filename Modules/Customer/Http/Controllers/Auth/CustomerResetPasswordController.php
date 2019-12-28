@@ -92,12 +92,9 @@ class CustomerResetPasswordController extends Controller
      */
     protected function resetPassword($user, $password)
     {
-        $token = Str::random(80); 
-
         $this->setUserPassword($user, $password);
 
         $user->setRememberToken(Str::random(60));
-        $user->api_token = hash('SHA256', $token);
 
         $user->save();
 
@@ -105,17 +102,16 @@ class CustomerResetPasswordController extends Controller
 
         $this->guard()->login($user);
 
-        $this->setCustomerSession($user, $token);
+        $this->setCustomerSession($user);
     }
 
-    protected function setCustomerSession($user, $token)
+    protected function setCustomerSession($user)
     {
         session([
             'customer_session_authenticated' => [
                 'customer_id' => $user->getIdUser(),
                 'customer_name' => $user->getName(),
                 'customer_email' => $user->getEmail(),
-                'customer_api_token' => $token,
             ],
         ]);
     }

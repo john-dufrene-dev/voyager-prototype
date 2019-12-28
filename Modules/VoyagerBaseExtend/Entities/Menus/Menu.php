@@ -9,7 +9,6 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Database\Eloquent\Model;
 use Spatie\Activitylog\Traits\LogsActivity;
 use Modules\VoyagerBaseExtend\Entities\Menus\MenuItem;
-use Modules\VoyagerBaseExtend\Events\MenuDisplayExtend;
 
 /**
  * @todo: Refactor this class by using something like MenuBuilder Helper.

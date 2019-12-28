@@ -26,14 +26,12 @@ class AuthenticatedCustomer
                 'id'    => $request->session()->get('customer_session_authenticated')['customer_id'],
                 'name'  => $request->session()->get('customer_session_authenticated')['customer_name'],
                 'email' => $request->session()->get('customer_session_authenticated')['customer_email'],
-                'token' => $request->session()->get('customer_session_authenticated')['customer_api_token'],
             ];
 
             $request->headers->set('Customer-Authenticated', true);
             $request->headers->set('Customer-Id', Crypt::encryptString($user['id']));
             $request->headers->set('Customer-Name', Crypt::encryptString($user['name']));
             $request->headers->set('Customer-Email', Crypt::encryptString($user['email']));
-            $request->headers->set('Authorization', 'Bearer '.$user['token']);
 
             return $next($request);
 

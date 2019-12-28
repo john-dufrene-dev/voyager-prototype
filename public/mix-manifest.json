@@ -1,5 +1,5 @@
 {
-    "/js/config/authenticated-customer.js": "/js/config/authenticated-customer.js?id=48737daf2d0d9403ef77",
+    "/js/config/authenticated-customer.js": "/js/config/authenticated-customer.js?id=38109bb190df80794ad5",
     "/js/config/localization.js": "/js/config/localization.js?id=3ed4b3b435c212e9b1c2",
     "/js/config/routes.js": "/js/config/routes.js?id=9527c3d12ccf30f5d8a0",
     "/js/config/vue.js": "/js/config/vue.js?id=f1c4347f04a1d2d7458c",
@@ -17,5 +17,5 @@
     "/modules/maintenancemode/js/admin.js": "/modules/maintenancemode/js/admin.js?id=3592cb7b28a9c33d875c",
     "/modules/post/js/app.js": "/modules/post/js/app.js?id=4aceddc45609e60092df",
     "/modules/voyagerbaseextend/js/admin.js": "/modules/voyagerbaseextend/js/admin.js?id=bc7710b2a455a47c4fac",
-    "/js/default.min.js": "/js/default.min.js?id=77c611883cd2a33a3f66"
+    "/js/default.min.js": "/js/default.min.js?id=ee0d3c8b7c2a37ef485b"
 }

@@ -36,7 +36,6 @@ if (! function_exists('get_header_customer') ) {
                 'id'        => request()->headers->get('Customer-Id'),
                 'name'      => request()->headers->get('Customer-Name'),
                 'email'     => request()->headers->get('Customer-Email'),
-                'token'     => request()->headers->get('Authorization'),
             ];
 
             return $user;         
