@@ -16,13 +16,19 @@
 }
 
 .btn-outline-prototype {
-    color: #000;
-    border-color: $primarycolor;
-
+    background: $primarycolor;
+    text-transform: uppercase;
+    color: #ffffff;
+    border: 2px solid $primarycolor;
+    background-size: 100% 200%;
+    background-image: linear-gradient(to bottom, $primarycolor 50%, transparent 50%);
+    -webkit-transition: all ease 0.5s;
+    -moz-transition: all ease 0.5s;
+    transition: all ease 0.5s;
     &:hover {
-        color: #fff;
-        background-color: $primarycolor;
-        border-color: $primarycolor;
+        background-color: #ffffff;
+        background-position: 0 -100%;
+        color: $primarycolor;
     }
     &:hover, &:focus, &:active {
         box-shadow: none;
