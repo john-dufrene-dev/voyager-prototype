@@ -39,8 +39,6 @@ class IfAjaxRequest
                 ], 401);
             }
 
-            // $this->authenticated($request, auth('jwt')->user());
-
             return $response;
         }
 
@@ -62,7 +60,7 @@ class IfAjaxRequest
             return $response;
         }
 
-        $this->url = $request->server('REQUEST_SCHEME').'://'.$request->server('HTTP_HOST');
+        $this->url = $request->root();
 
         if($this->url != config('app.url')) {
             return response()->json([
