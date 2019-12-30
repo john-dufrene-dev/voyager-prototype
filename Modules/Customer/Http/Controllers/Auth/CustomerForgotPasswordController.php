@@ -46,14 +46,4 @@ class CustomerForgotPasswordController extends Controller
     {
         return view('customer::themes.' . Module::find('Customer')->get('theme') . '.auth.passwords.email');
     }
-
-    /**
-     * Get the broker to be used during password reset.
-     *
-     * @return \Illuminate\Contracts\Auth\PasswordBroker
-     */
-    public function broker()
-    {
-        return Password::broker('customers');
-    }
 }

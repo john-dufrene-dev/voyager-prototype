@@ -28,7 +28,7 @@ if (! function_exists('get_header_customer') ) {
     function get_header_customer() {
 
         if( request()->session()->has('customer_session_authenticated') 
-            && auth('customer')->check()
+            && auth()->check()
         ) {
 
             $user = [

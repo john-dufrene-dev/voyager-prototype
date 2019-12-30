@@ -52,11 +52,6 @@ class CustomerRegisterController extends Controller
         $this->middleware('guest');
     }
 
-    public function guard()
-    {
-        return Auth::guard('customer');
-    }
-
     /**
      * Show the application registration form.
      *

@@ -15,9 +15,9 @@ class RedirectIfAuthenticated
      * @param  string|null  $guard
      * @return mixed
      */
-    public function handle($request, Closure $next, $guard = 'customer')
+    public function handle($request, Closure $next)
     {
-        if (Auth::guard($guard)->check()) {
+        if (Auth::guard()->check()) {
             return redirect('account');
         }
 

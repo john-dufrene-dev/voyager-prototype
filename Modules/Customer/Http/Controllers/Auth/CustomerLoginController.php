@@ -26,11 +26,6 @@ class CustomerLoginController extends Controller
         $this->middleware('guest')->except('logout');
     }
 
-    public function guard()
-    {
-        return Auth::guard('customer');
-    }
-
     /**
      * Log the user out of the application.
      *

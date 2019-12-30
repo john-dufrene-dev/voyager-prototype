@@ -18,7 +18,7 @@ class AccountController extends Controller
         if(Module::find('Customer')->isDisabled())
             abort(404, 'Not Found');
             
-        $this->middleware('auth:customer');
+        $this->middleware('auth');
     }
 
     /**

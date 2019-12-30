@@ -25,4 +25,11 @@ class AuthServiceProvider extends ServiceProvider
     {
         $this->registerPolicies();
     }
+
+    public function register()
+    {
+        $this->app->singleton('VoyagerGuard', function () {
+            return 'admin';
+        });
+    }
 }
