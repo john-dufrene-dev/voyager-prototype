@@ -17,4 +17,12 @@ return [
         'page_title_meta'       => 'Liste des articles',
         'page_title'            => 'Liste des articles',
     ],
+    'login'            => [
+        'login'                 => 'Connexion',
+        'meta_title'            => 'Meta title Page de Connexion',
+        'meta_description'      => 'Meta title page de Connexion',
+        'meta_keywords'         => 'Connexion,login',
+        'page_title_meta'       => 'Connexion',
+        'page_title'            => 'Connexion',
+    ],
 ];

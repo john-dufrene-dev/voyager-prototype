@@ -17,4 +17,12 @@ return [
         'page_title_meta'       => 'List of our articles',
         'page_title'            => 'List of our articles',
     ],
+    'login'            => [
+        'login'                 => 'Login',
+        'meta_title'            => 'Meta title Login',
+        'meta_description'      => 'Meta title Login',
+        'meta_keywords'         => 'Connexion,login',
+        'page_title_meta'       => 'Login',
+        'page_title'            => 'Login',
+    ],
 ];

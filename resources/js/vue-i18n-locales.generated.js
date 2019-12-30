@@ -746,6 +746,14 @@
                 "meta_keywords": "Articles,Posts",
                 "page_title_meta": "List of our articles",
                 "page_title": "List of our articles"
+            },
+            "login": {
+                "login": "Login",
+                "meta_title": "Meta title Login",
+                "meta_description": "Meta title Login",
+                "meta_keywords": "Connexion,login",
+                "page_title_meta": "Login",
+                "page_title": "Login"
             }
         },
         "settings": {
@@ -1631,6 +1639,14 @@
                 "meta_keywords": "Articles,Posts",
                 "page_title_meta": "Liste des articles",
                 "page_title": "Liste des articles"
+            },
+            "login": {
+                "login": "Connexion",
+                "meta_title": "Meta title Page de Connexion",
+                "meta_description": "Meta title page de Connexion",
+                "meta_keywords": "Connexion,login",
+                "page_title_meta": "Connexion",
+                "page_title": "Connexion"
             }
         },
         "settings": {

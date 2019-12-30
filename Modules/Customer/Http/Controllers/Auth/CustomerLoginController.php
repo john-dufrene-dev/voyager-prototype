@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 use Nwidart\Modules\Facades\Module;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Auth;
+use Artesaos\SEOTools\Facades\SEOMeta;
 use Illuminate\Support\Facades\Session;
 use Modules\Customer\Entities\Customer;
 use Illuminate\Foundation\Auth\AuthenticatesUsers;
@@ -47,6 +48,11 @@ class CustomerLoginController extends Controller
     // login from for customer
     public function showLoginForm(Session $session)
     {
+        SEOMeta::setTitle( __('auth.login') );
+        SEOMeta::setDescription( __('seo.login.meta_description') );
+        SEOMeta::setKeywords( __('seo.login.meta_keywords') );
+        SEOMeta::setRobots('index,follow');
+
         $breadcrumb = [
             [ route('login'), __('auth.login') ]
         ];
