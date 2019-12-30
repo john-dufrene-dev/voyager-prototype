@@ -18,5 +18,8 @@ return [
     'login' => 'Login',
     'register' => 'Register',
     'account' => 'My account',
+    'email'         => 'Email address',
+    'password'      => 'Password',
+    'remember'      => 'Remember me',
 
 ];

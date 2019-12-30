@@ -40,6 +40,7 @@ class GenerateRouteForJs extends Command
         'articles.index',
         'articles.category',
         'articles.show',
+        'password.request',
     ];
 
     protected $router;

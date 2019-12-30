@@ -3,6 +3,7 @@
     "login.post": "login",
     "logout": "logout",
     "register": "register",
+    "password.request": "password\/reset",
     "pages.account": "account",
     "home.index": "\/",
     "articles.index": "articles",

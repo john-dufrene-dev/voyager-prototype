@@ -1,7 +1,7 @@
 {
     "/js/config/authenticated-customer.js": "/js/config/authenticated-customer.js?id=38109bb190df80794ad5",
-    "/js/config/localization.js": "/js/config/localization.js?id=3ed4b3b435c212e9b1c2",
-    "/js/config/routes.js": "/js/config/routes.js?id=9527c3d12ccf30f5d8a0",
+    "/js/config/localization.js": "/js/config/localization.js?id=d2ad5c7b4a98f49fe911",
+    "/js/config/routes.js": "/js/config/routes.js?id=1eaa84c40de3789b2d64",
     "/js/config/vue.js": "/js/config/vue.js?id=f1c4347f04a1d2d7458c",
     "/js/config/vue-elements.js": "/js/config/vue-elements.js?id=1e6f5a620e770f104c10",
     "/js/single/default.js": "/js/single/default.js?id=5ed4d617f2a5d0072022",
@@ -11,11 +11,11 @@
     "/modules/post/css/app.css": "/modules/post/css/app.css?id=fd2a0cf36936a84a420a",
     "/modules/maintenancemode/css/admin.css": "/modules/maintenancemode/css/admin.css?id=0aa3f53df867814fa736",
     "/modules/historieslogs/css/admin.css": "/modules/historieslogs/css/admin.css?id=42421858e73cb81d0c83",
-    "/js/single/vue-i18n-locales.generated.js": "/js/single/vue-i18n-locales.generated.js?id=527837153b495b4fa88c",
+    "/js/single/vue-i18n-locales.generated.js": "/js/single/vue-i18n-locales.generated.js?id=c88be3cb080ecd833a6c",
     "/modules/customer/js/app.js": "/modules/customer/js/app.js?id=08c2b98aa893c16f537e",
     "/modules/homepage/js/app.js": "/modules/homepage/js/app.js?id=58fa7c2d8e58e118deac",
     "/modules/maintenancemode/js/admin.js": "/modules/maintenancemode/js/admin.js?id=3592cb7b28a9c33d875c",
     "/modules/post/js/app.js": "/modules/post/js/app.js?id=4aceddc45609e60092df",
     "/modules/voyagerbaseextend/js/admin.js": "/modules/voyagerbaseextend/js/admin.js?id=bc7710b2a455a47c4fac",
-    "/js/default.min.js": "/js/default.min.js?id=ee0d3c8b7c2a37ef485b"
+    "/js/default.min.js": "/js/default.min.js?id=c94cdfd71becadd827e1"
 }

@@ -13,10 +13,13 @@ return [
     |
     */
 
-    'failed' => 'Les informations renseignées sont incorrectes.',
-    'throttle' => 'Trop de tentatives de connexion. Veuillez réessayer dans :seconds secondes.',
-    'login' => 'Connexion',
-    'register' => 'Inscription',
-    'account' => 'Mon compte',
+    'failed'        => 'Les informations renseignées sont incorrectes.',
+    'throttle'      => 'Trop de tentatives de connexion. Veuillez réessayer dans :seconds secondes.',
+    'login'         => 'Connexion',
+    'register'      => 'Inscription',
+    'account'       => 'Mon compte',
+    'email'         => 'Adresse email',
+    'password'      => 'Mot de passe',
+    'remember'      => 'Se souvenir de moi',
 
 ];

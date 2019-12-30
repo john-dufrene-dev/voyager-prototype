@@ -6,6 +6,10 @@
 
 @section('content')
 <div class="container py-4">
+
+    <breadcrumb-component breadcrumb='@json($breadcrumb)'></breadcrumb-component>
+    <page-title-component title="{{ __('auth.login') }}"></page-title-component>
+
     <div class="row justify-content-center">
         <div class="col-md-8">
             <div class="card">

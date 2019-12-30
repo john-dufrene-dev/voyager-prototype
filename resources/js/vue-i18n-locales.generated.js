@@ -22,7 +22,10 @@
             "throttle": "Too many login attempts. Please try again in {seconds} seconds.",
             "login": "Login",
             "register": "Register",
-            "account": "My account"
+            "account": "My account",
+            "email": "Email address",
+            "password": "Password",
+            "remember": "Remember me"
         },
         "bread": {
             "add_bread": "Add BREAD to this table",
@@ -904,7 +907,10 @@
             "throttle": "Trop de tentatives de connexion. Veuillez réessayer dans {seconds} secondes.",
             "login": "Connexion",
             "register": "Inscription",
-            "account": "Mon compte"
+            "account": "Mon compte",
+            "email": "Adresse email",
+            "password": "Mot de passe",
+            "remember": "Se souvenir de moi"
         },
         "bread": {
             "add_bread": "Ajouter le BREAD à cette table",

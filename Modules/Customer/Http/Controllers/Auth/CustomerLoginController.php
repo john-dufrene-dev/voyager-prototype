@@ -52,7 +52,13 @@ class CustomerLoginController extends Controller
     // login from for customer
     public function showLoginForm(Session $session)
     {
-        return view('customer::themes.' . Module::find('Customer')->get('theme') . '.auth.login');
+        $breadcrumb = [
+            [ route('login'), __('auth.login') ]
+        ];
+
+        return view('customer::themes.' . Module::find('Customer')->get('theme') . '.auth.login', compact(
+            'breadcrumb'
+        ));
     }
 
     /**
