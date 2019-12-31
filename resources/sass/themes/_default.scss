@@ -1,12 +1,9 @@
-// Fonts
-@import 'components/default/fonts-global';
-
 // Variables
 @import 'components/default/settings';
 
 // Bootstrap
-@import '~bootstrap/scss/bootstrap';
-// @import '~bootstrap-vue/src/index.scss';
+@import '~bootstrap';
+@import '~bootstrap-vue';
 
 // Utilities
 @import "components/default/utilities";

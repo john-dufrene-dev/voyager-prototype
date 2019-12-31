@@ -26,9 +26,13 @@
                                 <input id="email" type="email" class="form-control @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" required autocomplete="email" autofocus>
 
                                 @error('email')
-                                    <span class="invalid-feedback" role="alert">
-                                        <strong>{{ $message }}</strong>
-                                    </span>
+                                    <b-toast 
+                                        visible id="email-error" 
+                                        variant="danger"
+                                        title="{{ __('json.validation_errors') }}" 
+                                        auto-hide-delay="4000" solid>
+                                        {{ $message }}
+                                    </b-toast>
                                 @enderror
                             </div>
                         </div>
@@ -40,9 +44,13 @@
                                 <input id="password" type="password" class="form-control @error('password') is-invalid @enderror" name="password" required autocomplete="current-password">
 
                                 @error('password')
-                                    <span class="invalid-feedback" role="alert">
-                                        <strong>{{ $message }}</strong>
-                                    </span>
+                                    <b-toast 
+                                        visible id="password-error" 
+                                        variant="danger"
+                                        title="{{ __('json.validation_errors') }}" 
+                                        auto-hide-delay="4000" solid>
+                                        {{ $message }}
+                                    </b-toast>
                                 @enderror
                             </div>
                         </div>

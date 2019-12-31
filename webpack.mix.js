@@ -44,7 +44,13 @@ mix.combine([
     'public/js/single/vue-i18n-locales.generated.js'
 ], 'public/js/default.min.js');
 
-mix.sass('resources/sass/app.scss', 'public/css');
+mix.sass('resources/sass/vendor.scss', 'public/css/single');
+mix.sass('resources/sass/app.scss', 'public/css/single');
+
+mix.combine([
+    'public/css/single/vendor.css', 
+    'public/css/single/app.css',
+], 'public/css/default.min.css');
 
 /********************** DEFAULT THEME END **********************/
 /****************************************************************/

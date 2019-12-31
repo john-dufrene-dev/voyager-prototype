@@ -2,11 +2,12 @@
     "/js/config/authenticated-customer.js": "/js/config/authenticated-customer.js?id=38109bb190df80794ad5",
     "/js/config/localization.js": "/js/config/localization.js?id=365a5b934b352285989f",
     "/js/config/routes.js": "/js/config/routes.js?id=1eaa84c40de3789b2d64",
-    "/js/config/vue.js": "/js/config/vue.js?id=f1c4347f04a1d2d7458c",
+    "/js/config/vue.js": "/js/config/vue.js?id=cb73fe47de3950e3da19",
     "/js/config/vue-elements.js": "/js/config/vue-elements.js?id=aa11627c77e792c3caa6",
     "/js/single/default.js": "/js/single/default.js?id=5ed4d617f2a5d0072022",
-    "/js/single/vendor.js": "/js/single/vendor.js?id=e1c7050909dd004c8694",
-    "/css/app.css": "/css/app.css?id=018b29544002ea3af01c",
+    "/js/single/vendor.js": "/js/single/vendor.js?id=584a2a992cd25be2ab91",
+    "/css/single/vendor.css": "/css/single/vendor.css?id=37d5ed22b91d920ba8a3",
+    "/css/single/app.css": "/css/single/app.css?id=59031cf03b81511d225f",
     "/modules/voyagerbaseextend/css/admin.css": "/modules/voyagerbaseextend/css/admin.css?id=2855ccc4f4838dc9d149",
     "/modules/post/css/app.css": "/modules/post/css/app.css?id=ec1027bfb7d30152412f",
     "/modules/maintenancemode/css/admin.css": "/modules/maintenancemode/css/admin.css?id=0aa3f53df867814fa736",
@@ -17,5 +18,6 @@
     "/modules/maintenancemode/js/admin.js": "/modules/maintenancemode/js/admin.js?id=3592cb7b28a9c33d875c",
     "/modules/post/js/app.js": "/modules/post/js/app.js?id=8cf9328036a9a40e3cd5",
     "/modules/voyagerbaseextend/js/admin.js": "/modules/voyagerbaseextend/js/admin.js?id=bc7710b2a455a47c4fac",
-    "/js/default.min.js": "/js/default.min.js?id=dfd81f8e48434e6bb6ef"
+    "/js/default.min.js": "/js/default.min.js?id=3e5c0aeda05abd994841",
+    "/css/default.min.css": "/css/default.min.css?id=2711dc4966508a7f951a"
 }

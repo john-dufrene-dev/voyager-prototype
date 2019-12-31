@@ -13,9 +13,13 @@
 
                 <div class="card-body">
                     @if (session('resent'))
-                        <div class="alert alert-success" role="alert">
+                        <b-toast 
+                            visible id="resent-success" 
+                            variant="success"
+                            title="{{ __('generic.sweet_success') }}" 
+                            auto-hide-delay="4000" solid>
                             {{ __('A fresh verification link has been sent to your email address.') }}
-                        </div>
+                        </b-toast>
                     @endif
 
                     {{ __('Before proceeding, please check your email for a verification link.') }}

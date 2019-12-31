@@ -34,10 +34,12 @@ Vue.mixin({
 // import BootstrapVue  from 'bootstrap-vue'
 // Vue.use(BootstrapVue)
 
-import { LayoutPlugin, ImagePlugin } from 'bootstrap-vue'
+import { LayoutPlugin, ImagePlugin, ButtonPlugin, ToastPlugin } from 'bootstrap-vue'
 
 Vue.use(LayoutPlugin)
 Vue.use(ImagePlugin)
+Vue.use(ButtonPlugin)
+Vue.use(ToastPlugin)
 
 /**
  * The following block of code may be used to automatically register your

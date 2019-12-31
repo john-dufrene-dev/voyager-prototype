@@ -9,9 +9,13 @@
 
                 <div class="card-body">
                     @if (session('status'))
-                        <div class="alert alert-success" role="alert">
+                        <b-toast 
+                            visible id="status-success" 
+                            variant="success"
+                            title="{{ __('generic.sweet_success') }}" 
+                            auto-hide-delay="4000" solid>
                             {{ session('status') }}
-                        </div>
+                        </b-toast>
                     @endif
 
                     You are logged in!

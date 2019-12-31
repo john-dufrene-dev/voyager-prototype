@@ -13,9 +13,13 @@
 
                 <div class="card-body">
                     @if (session('status'))
-                        <div class="alert alert-success" role="alert">
+                        <b-toast 
+                            visible id="status-success" 
+                            variant="success"
+                            title="{{ __('generic.sweet_success') }}"
+                            auto-hide-delay="4000" solid>
                             {{ session('status') }}
-                        </div>
+                        </b-toast>
                     @endif
 
                     <form method="POST" action="{{ route('password.email') }}">
@@ -28,9 +32,13 @@
                                 <input id="email" type="email" class="form-control @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" required autocomplete="email" autofocus>
 
                                 @error('email')
-                                    <span class="invalid-feedback" role="alert">
-                                        <strong>{{ $message }}</strong>
-                                    </span>
+                                    <b-toast 
+                                        visible id="email-error" 
+                                        variant="danger"
+                                        title="{{ __('json.validation_errors') }}" 
+                                        auto-hide-delay="4000" solid>
+                                        {{ $message }}
+                                    </b-toast>
                                 @enderror
                             </div>
                         </div>
