@@ -4,13 +4,16 @@ namespace Modules\Post\Entities;
 
 use Illuminate\Support\Str;
 use TCG\Voyager\Facades\Voyager;
+use TCG\Voyager\Traits\Resizable;
+use Illuminate\Support\Facades\Auth;
 use TCG\Voyager\Traits\Translatable;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Builder;
 use Spatie\Activitylog\Traits\LogsActivity;
 
 class Post extends \TCG\Voyager\Models\Post
 {
-    use Translatable, LogsActivity;
+    use Translatable, LogsActivity, Resizable;
     
     protected static $logAttributes = ['*'];
     
