@@ -14,7 +14,7 @@ use Modules\Customer\Entities\Customer;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Support\Facades\Notification;
 use Illuminate\Foundation\Auth\RegistersUsers;
-use Modules\HistoriesLogs\Notifications\NewUserNotification;
+use Modules\Notifications\Notifications\NewUserNotification;
 
 class CustomerRegisterController extends Controller
 {

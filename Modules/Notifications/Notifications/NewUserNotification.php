@@ -1,6 +1,6 @@
 <?php
 
-namespace Modules\HistoriesLogs\Notifications;
+namespace Modules\Notifications\Notifications;
 
 use Modules\Customer\Entities\Customer;
 use Illuminate\Notifications\Notification;

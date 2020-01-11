@@ -8,5 +8,6 @@
     "ModulesManagement": true,
     "Post": true,
     "VoyagerBaseExtend": true,
-    "Prototype": true
+    "Prototype": true,
+    "Notifications": true
 }

@@ -3,7 +3,7 @@
     "author": "John Dufrene",
     "version": "1.0@beta",
     "alias": "historieslogs",
-    "description": "Module de notifications/mails",
+    "description": "Module de mise à jour Model",
     "theme": "default",
     "protected": false,
     "keywords": [],

@@ -5,7 +5,7 @@ namespace Modules\Customer\Entities;
 use Illuminate\Notifications\Notifiable;
 use Spatie\Activitylog\Traits\LogsActivity;
 use Illuminate\Foundation\Auth\User as Authenticatable;
-use Modules\HistoriesLogs\Notifications\MailResetPasswordNotification;
+use Modules\Notifications\Notifications\MailResetPasswordNotification;
 
 class Customer extends Authenticatable
 {

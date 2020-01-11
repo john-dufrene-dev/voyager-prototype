@@ -1,6 +1,6 @@
 <?php
 
-namespace Modules\HistoriesLogs\Notifications;
+namespace Modules\Notifications\Notifications;
 
 use Nwidart\Modules\Facades\Module;
 use Illuminate\Support\Facades\Lang;

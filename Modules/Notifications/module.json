@@ -1,0 +1,17 @@
+{
+    "name": "Notifications",
+    "author": "John Dufrene",
+    "version": "1.0@beta",
+    "alias": "notifications",
+    "description": "Module de gestion des notifications",
+    "theme": "default",
+    "protected": true,
+    "keywords": [],
+    "order": 0,
+    "providers": [
+        "Modules\\Notifications\\Providers\\NotificationsServiceProvider"
+    ],
+    "aliases": {},
+    "files": [],
+    "requires": []
+}
